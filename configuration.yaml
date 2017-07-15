@@ -1,0 +1,140 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 0
+  unit_system: imperial
+  time_zone: !secret home_timezone
+  customize:
+    script.bedroom_tv:
+      can_cancel: False
+    script.living_room_tv:
+      can_cancel: False
+
+zone:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 100
+  icon: mdi:home
+
+zone 2:
+  name: !secret zone2_name
+  latitude: !secret zone2_latitude
+  longitude: !secret zone2_longitude
+  radius: 100
+  icon: mdi:briefcase
+
+zone 3:
+  name: !secret zone3_name
+  latitude: !secret zone3_latitude
+  longitude: !secret zone3_longitude
+  radius: 100
+  icon: mdi:briefcase
+
+zone 4:
+  name: !secret zone4_name
+  latitude: !secret zone4_latitude
+  longitude: !secret zone4_longitude
+  radius: 100
+  icon: mdi:briefcase
+
+mqtt:
+  broker: !secret mqtt_host
+  port: !secret mqtt_port
+  client_id: !secret mqtt_client
+  username: !secret mqtt_user
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - apple_tv
+    - denonavr
+    - directv
+    - ikea_tradfri
+    - logitech_mediaserver
+    - openhome
+    - panasonic_viera
+    - philips_hue
+    - roku
+    - samsung_tv
+    - sonos
+    - yamaha
+    - yeelight
+
+device_tracker:
+  - platform: owntracks
+
+# Text to speech
+tts:
+  platform: google
+
+sensor:
+  - platform: wunderground
+    api_key: !secret wunderground_key
+    monitored_conditions:
+      - alerts
+      - feelslike_f
+      - precip_today_string
+      - temp_high_1d_f
+      - temp_low_1d_f
+      - weather  
+
+switch 2:
+  - platform: broadlink
+    host: 10.0.0.4
+    mac: !secret broadlink1_mac
+
+switch 3:
+  - platform: broadlink
+    host: 10.0.0.11
+    mac: !secret broadlink2_mac
+
+python_script:
+
+logger:
+  default: warning
+  logs:
+    homeassistant.components.switch.broadlink: info
+    homeassistant.components.python_script: info
+
+emulated_hue:
+  type: google_home
+  listen_port: 80
+  exposed_domains:
+    - switch
+    - media_player
+    - script
+
+##############################################################
+#                       INCLUDES                             #
+##############################################################
+
+group: !include groups.yaml
+script: !include script.yaml
+switch: !include switch.yaml
+
+##############################################################
+#                       ENABLED                              #
+##############################################################
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: PASSWORD
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123

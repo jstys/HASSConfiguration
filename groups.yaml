@@ -1,0 +1,81 @@
+default_view:
+  name: Home
+  view: yes
+  entities:
+    - device_tracker.erica_cell
+    - device_tracker.jim_cell
+    - group.weather
+
+weather:
+  name: Weather
+  view: no
+  entities:
+    - sensor.pws_feelslike_f
+    - sensor.pws_temp_high_1d_f
+    - sensor.pws_temp_low_1d_f
+    - sensor.pws_precip_today_string
+    - sensor.pws_weather
+    - sensor.pws_alerts
+
+living_room:
+  name: Living Room
+  view: yes
+  entities:
+    - group.living_room_lights
+    - group.living_room_tv_control
+    - media_player.living_room
+    - media_player.living_room_home
+    
+living_room_tv_control:
+  name: TV Control
+  view: no
+  entities:
+    - script.living_room_tv
+    - script.living_room_volume
+    - script.living_room_cable_input
+    - script.living_room_xbox_input
+    - script.living_room_chromecast_input
+
+living_room_lights:
+  name: Lights
+  view: no
+  entities:
+    - switch.lamps
+    - switch.living_room_light
+    - switch.kitchen_light
+    - script.goal_horn
+
+bedroom:
+  name: Bedroom
+  view: yes
+  entities:
+    - media_player.bedroom
+    - group.bedroom_tv_control
+    - group.bedroom_lights
+
+bedroom_lights:
+  name: Lights
+  view: no
+  entities:
+    - switch.bedroom_light
+
+bedroom_tv_control:
+  name: TV Control
+  view: no
+  entities:
+    - script.bedroom_tv
+    - script.bedroom_volume
+
+debug_view:
+  name: Debug
+  view: yes
+  icon: mdi:wrench
+  entities:
+    - group.ircontrol
+
+ircontrol:
+  name: IR Control
+  view: no
+  entities:
+    - script.learnir_lr
+    - script.learnir_br
