@@ -10,6 +10,15 @@ homeassistant:
       can_cancel: False
     script.living_room_tv:
       can_cancel: False
+    switch.bedroom_light:
+      assumed_state: False
+    switch.kitchen_light: 
+      assumed_state: False
+    switch.living_room_light:
+      assumed_state: False
+    switch.lamps:
+      assumed_state: False
+      friendly_name: "Living Room Lamps"
 
 zone:
   name: Home
@@ -113,6 +122,7 @@ emulated_hue:
 group: !include groups.yaml
 script: !include script.yaml
 switch: !include switch.yaml
+automation: !include automations.yaml
 
 ##############################################################
 #                       ENABLED                              #
