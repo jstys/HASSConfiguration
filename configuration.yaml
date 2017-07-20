@@ -5,48 +5,7 @@ homeassistant:
   elevation: 0
   unit_system: imperial
   time_zone: !secret home_timezone
-  customize:
-    script.bedroom_tv:
-      can_cancel: False
-    script.living_room_tv:
-      can_cancel: False
-    switch.bedroom_light:
-      assumed_state: False
-    switch.kitchen_light: 
-      assumed_state: False
-    switch.living_room_light:
-      assumed_state: False
-    switch.lamps:
-      assumed_state: False
-      friendly_name: "Living Room Lamps"
-
-zone:
-  name: Home
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  radius: 100
-  icon: mdi:home
-
-zone 2:
-  name: !secret zone2_name
-  latitude: !secret zone2_latitude
-  longitude: !secret zone2_longitude
-  radius: 100
-  icon: mdi:briefcase
-
-zone 3:
-  name: !secret zone3_name
-  latitude: !secret zone3_latitude
-  longitude: !secret zone3_longitude
-  radius: 100
-  icon: mdi:briefcase
-
-zone 4:
-  name: !secret zone4_name
-  latitude: !secret zone4_latitude
-  longitude: !secret zone4_longitude
-  radius: 100
-  icon: mdi:briefcase
+  customize: !include customize.yaml
 
 mqtt:
   broker: !secret mqtt_host
@@ -74,7 +33,6 @@ discovery:
 device_tracker:
   - platform: owntracks
 
-# Text to speech
 tts:
   platform: google
 
@@ -123,6 +81,7 @@ group: !include groups.yaml
 script: !include script.yaml
 switch: !include switch.yaml
 automation: !include automations.yaml
+zone: !include zones.yaml
 
 ##############################################################
 #                       ENABLED                              #

@@ -1,0 +1,16 @@
+
+jim_cell:
+  hide_if_away: false
+  mac:
+  name: Jim
+  picture:
+  track: true
+  vendor:
+
+erica_cell:
+  hide_if_away: false
+  mac:
+  name: Erica
+  picture:
+  track: true
+  vendor:
