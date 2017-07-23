@@ -26,9 +26,11 @@ living_room_volume:
       data:
         packet: 
           - !secret living_room_volume_ir
-living_room_tv:
-  alias: Living Room TV
+living_room_tv_on:
   sequence:
+    - condition: state
+      entity_id: input_boolean.living_room_tv
+      state: 'off'
     - service: broadlink.send_packet_10_0_0_4
       data:
         packet:
@@ -39,6 +41,27 @@ living_room_tv:
       data:
         packet:
           - !secret living_room_soundbar_ir
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.living_room_tv
+living_room_tv_off:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.living_room_tv
+      state: 'on'
+    - service: broadlink.send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret living_room_tv_ir
+    - delay:
+        milliseconds: 300
+    - service: broadlink.send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret living_room_soundbar_ir
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.living_room_tv
 bedroom_volume:
   alias: Bedroom Volume
   sequence:
@@ -46,9 +69,11 @@ bedroom_volume:
       data:
         packet:
           - !secret bedroom_volume_ir
-bedroom_tv:
-  alias: Bedroom TV
+bedroom_tv_on:
   sequence:
+    - condition: state
+      entity_id: input_boolean.bedroom_tv
+      state: 'off'
     - service: broadlink.send_packet_10_0_0_11
       data:
         packet:
@@ -59,6 +84,27 @@ bedroom_tv:
       data:
         packet:
           - !secret bedroom_soundbar_ir
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.bedroom_tv
+bedroom_tv_off:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.bedroom_tv
+      state: 'on'
+    - service: broadlink.send_packet_10_0_0_11
+      data:
+        packet:
+          - !secret bedroom_tv_ir
+    - delay:
+        milliseconds: 300
+    - service: broadlink.send_packet_10_0_0_11
+      data:
+        packet:
+          - !secret bedroom_soundbar_ir
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.bedroom_tv
 goal_horn:
   alias: Goal Lamp
   sequence:
@@ -79,3 +125,21 @@ learnir_br:
   alias: Learn IR Code Bedroom
   sequence:
     - service: broadlink.learn_command_10_0_0_11
+
+bedtime:
+  sequence:
+    - service: switch.turn_off
+      entity_id: switch.kitchen_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.living_room_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.bedroom_light
+    - service: switch.turn_off
+      entity_id: switch.living_room_tv
+    - service: switch.turn_off
+      entity_id: switch.bedroom_tv
+

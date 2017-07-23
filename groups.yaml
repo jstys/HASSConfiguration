@@ -30,7 +30,7 @@ living_room_tv_control:
   name: TV Control
   view: no
   entities:
-    - script.living_room_tv
+    - switch.living_room_tv
     - script.living_room_volume
     - script.living_room_cable_input
     - script.living_room_xbox_input
@@ -63,7 +63,7 @@ bedroom_tv_control:
   name: TV Control
   view: no
   entities:
-    - script.bedroom_tv
+    - switch.bedroom_tv
     - script.bedroom_volume
 
 debug_view:

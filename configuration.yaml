@@ -84,6 +84,7 @@ script: !include script.yaml
 switch: !include switch.yaml
 automation: !include automations.yaml
 zone: !include zones.yaml
+input_boolean: !include input_boolean.yaml
 
 ##############################################################
 #                       ENABLED                              #

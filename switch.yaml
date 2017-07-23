@@ -19,3 +19,19 @@
       friendly_name: 'Kitchen Light'
       command_on: !secret switchmate3_on
       command_off: !secret switchmate3_off
+- platform: template
+  switches:
+    living_room_tv:
+      friendly_name: "Living Room TV"
+      value_template: "{{ is_state('input_boolean.living_room_tv', 'on') }}"
+      turn_on:
+        service: script.living_room_tv_on
+      turn_off:
+        service: script.living_room_tv_off
+    bedroom_tv:
+      friendly_name: "Bedroom TV"
+      value_template: "{{ is_state('input_boolean.bedroom_tv', 'on') }}"
+      turn_on:
+        service: script.bedroom_tv_on
+      turn_off:
+        service: script.bedroom_tv_off
