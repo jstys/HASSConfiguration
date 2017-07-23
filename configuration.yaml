@@ -32,6 +32,8 @@ discovery:
 
 device_tracker:
   - platform: owntracks
+  - platform: bluetooth_tracker
+    track_new_devices: False
 
 tts:
   platform: google

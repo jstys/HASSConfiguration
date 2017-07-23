@@ -1,18 +1,12 @@
 [Unit]
-Description=Mosquitto MQTT Broker daemon
-ConditionPathExists=/etc/mosquitto/conf.d/broker.conf
+Description=MQTT v3.1.1 message broker
 After=network.target
 Requires=network.target
-
-[Service] 
-Type=forking 
-RemainAfterExit=no 
-StartLimitInterval=0 
-PIDFile=/var/run/mosquitto.pid 
-ExecStart=/bin/sh -c "/usr/local/sbin/mosquitto -c /etc/mosquitto/conf.d/broker.conf -d"
-ExecReload=/bin/kill -HUP $MAINPID 
-Restart=on-failure 
-RestartSec=2
-
-[Install] 
+ 
+[Service]
+Type=simple
+ExecStart=/usr/sbin/mosquitto -c /etc/mosquitto/conf.d/broker.conf
+Restart=always
+ 
+[Install]
 WantedBy=multi-user.target

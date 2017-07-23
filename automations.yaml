@@ -1,7 +1,7 @@
 - alias: Jim is Home
   trigger:
     platform: state
-    entity_id: device_tracker.jim_cell
+    entity_id: device_tracker.bt_jim_cell
     from: 'not_home'
     to: 'home'
   action:
@@ -9,3 +9,15 @@
     data:
       entity_id: media_player.living_room_home
       message: "Welcome home, Jim"
+
+- alias: Erica is Home
+  trigger:
+    platform: state
+    entity_id: device_tracker.bt_erica_cell
+    from: 'not_home'
+    to: 'home'
+  action:
+    service: tts.google_say
+    data:
+      entity_id: media_player.living_room_home
+      message: "Welcome home, Erica"

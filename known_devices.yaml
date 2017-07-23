@@ -1,7 +1,14 @@
-
 jim_cell:
   hide_if_away: false
   mac:
+  name: Jim
+  picture: /local/jim.jpg
+  track: true
+  vendor:
+
+bt_jim_cell:
+  hide_if_away: false
+  mac: !secret jim_cell_bt_mac
   name: Jim
   picture:
   track: true
@@ -10,6 +17,14 @@ jim_cell:
 erica_cell:
   hide_if_away: false
   mac:
+  name: Erica
+  picture: /local/erica.jpg
+  track: true
+  vendor:
+
+bt_erica_cell:
+  hide_if_away: false
+  mac: !secret erica_cell_bt_mac
   name: Erica
   picture:
   track: true
