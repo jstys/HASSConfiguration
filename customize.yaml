@@ -11,3 +11,13 @@
     switch.lamps:
       assumed_state: False
       friendly_name: "Living Room Lamps"
+    script.goal_horn:
+      emulated_hue: False
+    script.living_room_tv_on:
+      emulated_hue: False
+    script.living_room_tv_off:
+      emulated_hue: False
+    script.bedroom_tv_on:
+      emulated_hue: False
+    script.bedroom_tv_off:
+      emulated_hue: False

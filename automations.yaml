@@ -21,3 +21,12 @@
     data:
       entity_id: media_player.living_room_home
       message: "Welcome home, Erica"
+
+- alias: Nobody home
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: 'home'
+    to: 'not_home'
+  action:
+    service: script.bedtime
