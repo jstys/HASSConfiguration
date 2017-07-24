@@ -49,9 +49,9 @@ bedroom:
   name: Bedroom
   view: yes
   entities:
-    - media_player.bedroom
     - group.bedroom_tv_control
     - group.bedroom_lights
+    - media_player.bedroom
 
 bedroom_lights:
   name: Lights

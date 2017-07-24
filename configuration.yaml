@@ -75,6 +75,13 @@ emulated_hue:
     - media_player
     - script
 
+media_player:
+  - platform: plex
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
 ##############################################################
 #                       INCLUDES                             #
 ##############################################################
