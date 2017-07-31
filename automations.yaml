@@ -30,3 +30,17 @@
     to: 'not_home'
   action:
     service: script.bedtime
+
+- alias: Somebody is home
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: 'not_home'
+    to: 'home'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.living_room_light
+    - service: switch.turn_on
+      data:
+        entity_id: switch.kitchen_light
