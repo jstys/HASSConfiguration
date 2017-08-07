@@ -142,4 +142,6 @@ bedtime:
       entity_id: switch.living_room_tv
     - service: switch.turn_off
       entity_id: switch.bedroom_tv
+    - service: switch.turn_off
+      entity_id: switch.lamps
 
