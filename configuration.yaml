@@ -2,7 +2,7 @@ homeassistant:
   name: Home
   latitude: !secret home_latitude
   longitude: !secret home_longitude
-  elevation: 0
+  elevation: 32
   unit_system: imperial
   time_zone: !secret home_timezone
   customize: !include customize.yaml
@@ -22,6 +22,7 @@ discovery:
     - ikea_tradfri
     - logitech_mediaserver
     - openhome
+    - netgear_router
     - panasonic_viera
     - philips_hue
     - roku
@@ -66,6 +67,8 @@ logger:
   logs:
     homeassistant.components.switch.broadlink: info
     homeassistant.components.python_script: info
+    homeassistant.components.recorder: info
+    homeassistant.components.media_player.plex: critical
 
 emulated_hue:
   type: google_home
@@ -82,6 +85,8 @@ google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
 
+sun:
+
 ##############################################################
 #                       INCLUDES                             #
 ##############################################################
@@ -97,9 +102,6 @@ input_boolean: !include input_boolean.yaml
 #                       ENABLED                              #
 ##############################################################
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
 # View all events in a logbook
 logbook:
 
@@ -110,7 +112,7 @@ frontend:
 config:
 
 recorder:
-  purge_days: 7
+  purge_days: 5
 
 http:
   # Uncomment this to add a password (recommended!)
