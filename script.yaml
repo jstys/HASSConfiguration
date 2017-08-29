@@ -5,6 +5,7 @@ living_room_cable_input:
       data:
         packet:
           - !secret cable_input_ir
+          - !secret cable_input_ir
 living_room_xbox_input:
   alias: Xbox Input
   sequence:
@@ -12,12 +13,14 @@ living_room_xbox_input:
       data:
         packet:
           - !secret xbox_input_ir
+          - !secret xbox_input_ir
 living_room_chromecast_input:
   alias: Chromecast Input
   sequence:
     - service: broadlink.send_packet_10_0_0_4
       data:
         packet:
+          - !secret chromecast_input_ir
           - !secret chromecast_input_ir
 living_room_volume:
   alias: Living Room Volume
@@ -34,12 +37,10 @@ living_room_tv_on:
     - service: broadlink.send_packet_10_0_0_4
       data:
         packet:
-          - !secret living_room_tv_ir
-    - delay:
-        milliseconds: 300
-    - service: broadlink.send_packet_10_0_0_4
-      data:
-        packet:
+          - !secret living_room_tv_ir_on
+          - !secret living_room_tv_ir_on
+          - !secret living_room_tv_ir_on
+          - !secret living_room_soundbar_ir
           - !secret living_room_soundbar_ir
     - service: input_boolean.turn_on
       data:
@@ -52,12 +53,10 @@ living_room_tv_off:
     - service: broadlink.send_packet_10_0_0_4
       data:
         packet:
-          - !secret living_room_tv_ir
-    - delay:
-        milliseconds: 300
-    - service: broadlink.send_packet_10_0_0_4
-      data:
-        packet:
+          - !secret living_room_tv_ir_off
+          - !secret living_room_tv_ir_off
+          - !secret living_room_tv_ir_off
+          - !secret living_room_soundbar_ir
           - !secret living_room_soundbar_ir
     - service: input_boolean.turn_off
       data:
@@ -77,12 +76,10 @@ bedroom_tv_on:
     - service: broadlink.send_packet_10_0_0_11
       data:
         packet:
-          - !secret bedroom_tv_ir
-    - delay:
-        milliseconds: 300
-    - service: broadlink.send_packet_10_0_0_11
-      data:
-        packet:
+          - !secret bedroom_tv_ir_on
+          - !secret bedroom_tv_ir_on
+          - !secret bedroom_tv_ir_on
+          - !secret bedroom_soundbar_ir
           - !secret bedroom_soundbar_ir
     - service: input_boolean.turn_on
       data:
@@ -95,12 +92,10 @@ bedroom_tv_off:
     - service: broadlink.send_packet_10_0_0_11
       data:
         packet:
-          - !secret bedroom_tv_ir
-    - delay:
-        milliseconds: 300
-    - service: broadlink.send_packet_10_0_0_11
-      data:
-        packet:
+          - !secret bedroom_tv_ir_off
+          - !secret bedroom_tv_ir_off
+          - !secret bedroom_tv_ir_off
+          - !secret bedroom_soundbar_ir
           - !secret bedroom_soundbar_ir
     - service: input_boolean.turn_off
       data:
@@ -130,12 +125,8 @@ bedtime:
   sequence:
     - service: switch.turn_off
       entity_id: switch.kitchen_light
-    - delay:
-        milliseconds: 500
     - service: switch.turn_off
       entity_id: switch.living_room_light
-    - delay:
-        milliseconds: 500
     - service: switch.turn_off
       entity_id: switch.bedroom_light
     - service: switch.turn_off
