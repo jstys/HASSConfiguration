@@ -18,8 +18,9 @@ import sys
 import ctypes
 
 from docopt import docopt
-from bluepy.btle import Scanner, DefaultDelegate, Peripheral, ADDR_TYPE_RANDOM
+from bluepy.btle import Scanner, DefaultDelegate, Peripheral, ADDR_TYPE_RANDOM, BTLEException
 from binascii import hexlify, unhexlify
+import functools
 
 SWITCHMATE_SERVICE = '23d1bcea5f782315deef121223150000'
 NOTIFY_VALUE = struct.pack('<BB', 0x01, 0x00)
@@ -57,6 +58,13 @@ def sign(data, key):
 class NotificationDelegate(DefaultDelegate):
 	def __init__(self):
 		DefaultDelegate.__init__(self)
+		self.retry_count = 0
+		self.retry_max = 0
+		self.retry_method = None
+
+	def setRetryParams(self, retry_max, retry_method):
+		self.retry_max = retry_max
+		self.retry_method = retry_method
 
 	def handleNotification(self, handle, data):
 		print('')
@@ -69,6 +77,13 @@ class NotificationDelegate(DefaultDelegate):
 			else:
 				print('Switching failed!')
 				succeeded = False
+
+				if self.retry_count < self.retry_max:
+					self.retry_count += 1
+					print("Retry number {}".format(self.retry_count))
+
+					self.retry_method()
+
 		device.disconnect()
 		sys.exit(0 if succeeded else 1)
 
@@ -129,6 +144,27 @@ def scan():
 	else:
 		print('No Switchmate devices found');
 
+def connect(mac, retries=3):
+	device = None
+	attempts = 0
+	while device is None and attempts < retries:
+		try:
+			device = Peripheral(mac, ADDR_TYPE_RANDOM)
+		except BTLEException:
+			attempts += 1
+			print("Attempting to connect count = {}".format(attempts))
+
+	return device
+
+def switch(device, auth_key, on):
+	val = None
+	device.writeCharacteristic(STATE_NOTIFY_HANDLE, NOTIFY_VALUE, True)
+	if on:
+		val = b'\x01\x01'
+	else:
+		val = b'\x01\x00'
+	device.writeCharacteristic(STATE_HANDLE, sign(val, auth_key))
+
 if __name__ == '__main__':
 	arguments = docopt(__doc__)
 
@@ -140,23 +176,30 @@ if __name__ == '__main__':
 		status(arguments['<mac_address>'])
 		sys.exit()
 
-	device = Peripheral(arguments['<mac_address>'], ADDR_TYPE_RANDOM)
+	retries = 3
+	auth_key = None
+	switch_method = None
+
+	device = connect(arguments['<mac_address>'])
+	if device is None:
+		sys.exit(1)
 
 	notifications = NotificationDelegate()
-	device.setDelegate(notifications)
 
 	if arguments['switch']:
 		auth_key = unhexlify(arguments['<auth_key>'])
-		device.writeCharacteristic(STATE_NOTIFY_HANDLE, NOTIFY_VALUE, True)
-		if arguments['on']:
-			val = b'\x01\x01'
-		else:
-			val = b'\x01\x00'
-		device.writeCharacteristic(STATE_HANDLE, sign(val, auth_key))
-	else:
+		on = True if arguments['on'] else False
+		switch_method = functools.partial(switch, device, auth_key, on)
+		notifications.setRetryParams(retries, switch_method)
+
+	device.setDelegate(notifications)
+
+	if not arguments['switch']:
 		device.writeCharacteristic(AUTH_NOTIFY_HANDLE, NOTIFY_VALUE, True)
 		device.writeCharacteristic(AUTH_HANDLE, AUTH_INIT_VALUE, True)
 		print('Press button on Switchmate to get auth key')
+	else:
+		switch_method()
 
 	print('Waiting for response', end='')
 	while True:
