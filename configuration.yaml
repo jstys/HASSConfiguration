@@ -25,6 +25,7 @@ discovery:
     - netgear_router
     - panasonic_viera
     - philips_hue
+    - plex_mediaserver
     - roku
     - samsung_tv
     - sonos
@@ -78,9 +79,6 @@ emulated_hue:
     - media_player
     - script
 
-media_player:
-  - platform: plex
-
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
@@ -104,6 +102,19 @@ input_boolean: !include input_boolean.yaml
 
 # View all events in a logbook
 logbook:
+  exclude:
+    entities:
+      - sensor.pws_feelslike_f
+      - sensor.pws_precip_today_string
+      - sensor.pws_temp_high_1d_f
+      - sensor.pws_temp_low_1d_f
+      - sensor.pws_weather
+      - device_tracker.bt_erica_cell
+      - device_tracker.bt_jim_cell
+    domains:
+      - sun
+      - media_player
+      - group
 
 # Enables the frontend
 frontend:
@@ -112,7 +123,7 @@ frontend:
 config:
 
 recorder:
-  purge_days: 5
+  purge_days: 2
 
 http:
   # Uncomment this to add a password (recommended!)
