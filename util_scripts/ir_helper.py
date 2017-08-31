@@ -50,7 +50,10 @@ if __name__ == '__main__':
     hexcode = binascii.hexlify(packet)
     base64code = hexcode.decode("hex").encode("base64").strip()
 
-    print("HEX")
+    print("")
+    print("lirc - Pulses")
+    print(pulses)
+    print("Broadlink - HEX")
     print(hexcode)
-    print("BASE 64")
+    print("Broadlink - BASE 64")
     print(base64code)
