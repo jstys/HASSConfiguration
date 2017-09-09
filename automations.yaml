@@ -23,3 +23,35 @@
     - service: switch.turn_on
       data:
         entity_id: switch.bedroom_light
+
+- alias: Goal horn button
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00016da2c9
+      click_type: single
+  action:
+    service: script.goal_horn
+
+- alias: Bedroom lights button
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00016dbf86
+      click_type: single
+  action:
+    service: switch.toggle
+    data:
+      entity_id: switch.bedroom_light
+
+- alias: Bedtime button
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00016dbf86
+      click_type: double
+  action:
+    service: script.bedtime
