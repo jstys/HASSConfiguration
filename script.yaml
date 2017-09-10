@@ -103,15 +103,17 @@ bedroom_tv_off:
 goal_horn:
   alias: Goal Lamp
   sequence:
-    - service: media_player.play_media
-      data:
-        media_content_id: "http://10.0.0.6:8123/local/goalhorn.mp3"
-        entity_id: "media_player.living_room_home"
-        media_content_type: "MUSIC"
     - service: broadlink.send_packet_10_0_0_4
       data:
         packet:
           - !secret goal_lamp_ir
+          - !secret goal_lamp_ir
+          - !secret goal_lamp_ir
+    - service: xiaomi.play_ringtone
+      data:
+        gw_mac: !secret xiaomi1_mac
+        ringtone_id: 10002
+        ringtone_vol: 80
 learnir_lr:
   alias: Learn IR Code Living Room
   sequence:

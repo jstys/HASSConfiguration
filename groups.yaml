@@ -21,9 +21,10 @@ living_room:
   name: Living Room
   view: yes
   entities:
+    - sensor.illumination_34ce008dcec1
     - group.living_room_lights
     - group.living_room_tv_control
-    - media_player.living_room
+    - media_player.mibox3
     - media_player.living_room_home
     
 living_room_tv_control:
@@ -43,7 +44,7 @@ living_room_lights:
     - switch.lamps
     - switch.living_room_light
     - switch.kitchen_light
-    - script.goal_horn
+    - light.gateway_light_34ce008dcec1
 
 bedroom:
   name: Bedroom

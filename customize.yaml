@@ -21,3 +21,5 @@
       emulated_hue: False
     script.bedroom_tv_off:
       emulated_hue: False
+    media_player.mibox3:
+      friendly_name: "Mi Box"
