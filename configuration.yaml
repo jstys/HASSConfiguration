@@ -116,6 +116,7 @@ logbook:
       - sensor.pws_weather
       - device_tracker.bt_erica_cell
       - device_tracker.bt_jim_cell
+      - binary_sensor.motion_sensor_158d0001661247
     domains:
       - sun
       - media_player
