@@ -23,3 +23,11 @@
       emulated_hue: False
     media_player.mibox3:
       friendly_name: "Mi Box"
+    light.gateway_light_34ce008dcec1:
+      friendly_name: "Gateway Light"
+    sensor.illumination_34ce008dcec1:
+      friendly_name: "Illumination"
+    binary_sensor.motion_sensor_158d0001661247:
+      friendly_name: "Motion"
+    sensor.temperature_158d0001d6f386:
+      friendly_name: "Temperature"

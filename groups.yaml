@@ -22,6 +22,8 @@ living_room:
   view: yes
   entities:
     - sensor.illumination_34ce008dcec1
+    - binary_sensor.motion_sensor_158d0001661247
+    - sensor.temperature_158d0001d6f386
     - group.living_room_lights
     - group.living_room_tv_control
     - media_player.mibox3
