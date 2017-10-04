@@ -55,3 +55,18 @@
       click_type: double
   action:
     service: script.bedtime
+
+- alias: Devils Gametime
+  trigger:
+    platform: state
+    entity_id: calendar.devils_games
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: 'home'
+  action:
+    service: script.google_home_sound
+    data_template:
+      file: "hells_bells.mp3"

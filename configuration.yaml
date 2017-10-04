@@ -34,6 +34,7 @@ discovery:
 
 device_tracker:
   - platform: owntracks
+    track_new_devices: False
   - platform: bluetooth_tracker
     track_new_devices: False
 

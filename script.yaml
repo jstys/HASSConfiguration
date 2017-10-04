@@ -138,3 +138,19 @@ bedtime:
     - service: switch.turn_off
       entity_id: switch.lamps
 
+google_home_sound:
+  sequence:
+    - service: media_player.play_media
+      data:
+        entity_id: "media_player.living_room_home"
+        media_content_type: "MUSIC"
+      data_template:
+        media_content_id: "http://10.0.0.6:8123/local/{{ file }}"
+
+google_home_voice:
+  sequence:
+    - service: tts.google_say
+      data:
+        entity_id: media_player.living_room_home
+      data_template:
+        message: "{{ message }}"
