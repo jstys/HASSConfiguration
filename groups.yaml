@@ -24,6 +24,7 @@ living_room:
     - sensor.illumination_34ce008dcec1
     - binary_sensor.motion_sensor_158d0001661247
     - sensor.temperature_158d0001d6f386
+    - binary_sensor.door_window_sensor_158d0001d3a024
     - group.living_room_lights
     - group.living_room_tv_control
     - media_player.mibox3

@@ -31,3 +31,5 @@
       friendly_name: "Motion"
     sensor.temperature_158d0001d6f386:
       friendly_name: "Temperature"
+    binary_sensor.door_window_sensor_158d0001d3a024:
+      friendly_name: "Apartment Door"
