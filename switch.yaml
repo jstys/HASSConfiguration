@@ -11,14 +11,17 @@
       friendly_name: 'Bedroom Light'
       command_on: !secret switchmate1_on
       command_off: !secret switchmate1_off
+      command_state: !secret switchmate1_status
     living_room_light:
       friendly_name: 'Living Room Light'
       command_on: !secret switchmate2_on
       command_off: !secret switchmate2_off
+      command_state: !secret switchmate2_status
     kitchen_light:
       friendly_name: 'Kitchen Light'
       command_on: !secret switchmate3_on
       command_off: !secret switchmate3_off
+      command_state: !secret switchmate3_status
 - platform: template
   switches:
     living_room_tv:

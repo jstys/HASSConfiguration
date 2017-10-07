@@ -106,9 +106,14 @@ class ScanDelegate(DefaultDelegate):
 		if dev.getValueText(AD_TYPE_UUID) == SWITCHMATE_SERVICE:
 			data = dev.getValueText(AD_TYPE_SERVICE_DATA)
 			# the bit at 0x0100 signifies if the switch is off or on
-			print(dev.addr + ' ' + ("off", "on")[(int(data, 16) >> 8) & 1])
+			exit_code = (1, 0)[(int(data, 16) >> 8) & 1]
+			if exit_code == 1:
+				print('off')
+			else:
+				print('on')
+
 			if self.mac_address != None:
-				sys.exit()
+				sys.exit(exit_code)
 
 def status(mac_address):
 	print('Looking for switchmate status...')
