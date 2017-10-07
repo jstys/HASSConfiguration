@@ -37,6 +37,11 @@ device_tracker:
     track_new_devices: False
   - platform: bluetooth_tracker
     track_new_devices: False
+  - platform: asuswrt
+    host: 10.0.0.1
+    username: !secret router_user
+    password: !secret router_password
+    protocol: ssh
 
 tts:
   platform: google

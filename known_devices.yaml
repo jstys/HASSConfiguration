@@ -1,6 +1,6 @@
 jim_cell:
   hide_if_away: false
-  mac:
+  mac: !secret jim_cell_wifi_mac
   name: Jim
   picture: /local/jim.jpg
   track: true
@@ -16,7 +16,7 @@ bt_jim_cell:
 
 erica_cell:
   hide_if_away: false
-  mac:
+  mac: !secret erica_cell_wifi_mac
   name: Erica
   picture: /local/erica.jpg
   track: true
