@@ -1,0 +1,128 @@
+from homeassistant.helpers.entity import Entity
+from homeassistant.components.sensor.rest import RestData
+
+import homeassistant.util.dt as hassdt
+import datetime
+import logging
+import json
+
+_LOGGER = logging.getLogger(__name__)
+
+def setup_platform(hass, config, add_devices, discovery_info=None):
+    """Setup the sensor platform."""
+    add_devices([NHLBoxScoreSensor(hass)])
+
+
+class NHLBoxScoreSensor(Entity):
+
+    SCHEDULE_ENDPOINT = 'http://statsapi.web.nhl.com/api/v1/schedule/'
+    FEED_ENDPOINT = 'http://statsapi.web.nhl.com/api/v1/game/{}/feed/live'
+
+    def __init__(self, hass):
+        self.hass = hass
+        self.game_id = None
+        self.is_gameday = False
+        self.last_checked = datetime.datetime.fromtimestamp(0)
+        self.schedule_rest = self.setup_rest(NHLBoxScoreSensor.SCHEDULE_ENDPOINT)
+        self.feed_rest = None
+        self.scoring_plays = []
+        self.period = 1
+        self.is_intermission = False
+        self._state = "No Game"
+
+    @property
+    def state_attributes(self):
+        """Return the state attributes."""
+        return {
+            "gameday": self.is_gameday,
+            "last_checked": self.last_checked,
+            "period": self.period,
+            "intermission": self.is_intermission
+        }
+
+    @property
+    def name(self):
+        """Return the name of the sensor."""
+        return 'Devils Box Score Sensor'
+
+    @property
+    def state(self):
+        """Return the state of the sensor."""
+        return self._state
+
+    def init_game_data(self):
+        self.period = 1
+        self.scoring_plays = []
+        self.is_intermission = True
+
+    def setup_rest(self, endpoint, variables=None):
+        payload = auth = headers = None
+        verify_ssl = False
+        method = 'GET'
+
+        return RestData(method, endpoint.format(variables), auth, headers, payload, verify_ssl)
+
+    def fetch_game_id(self):
+        if self.is_gameday:
+            self.schedule_rest.update()
+            json_data = None
+            try:
+                json_data = json.loads(self.schedule_rest.data)
+            except ValueError as e:
+                _LOGGER.error("Schedule data could not be parsed as JSON")
+
+            if json_data is not None:
+                games = json_data['dates'][0]['games']
+                my_game = [game['gamePk'] for game in games if game['teams']['away']['team']['id'] == 1 or game['teams']['home']['team']['id'] == 1]
+                if len(my_game) == 1:
+                    self.game_id = my_game[0]
+                    self.init_game_data()
+                    self.feed_rest = self.setup_rest(NHLBoxScoreSensor.FEED_ENDPOINT, self.game_id)
+                    self._state = "Game: {}".format(self.game_id)
+            else:
+                _LOGGER.error("Unable to fetch today's schedule from API")
+        else:
+            self.game_id = None
+            self._state = "No Game"
+
+    def poll_game_feed(self, devils_calendar):
+        if self.is_gameday and devils_calendar.state == "on" and self.game_id is not None:
+            self.feed_rest.update()
+            json_data = None
+            try:
+                json_data = json.loads(self.feed_rest.data)
+            except ValueError as e:
+                _LOGGER.error("Feed data could not be parsed as JSON")
+
+            if json_data is not None:
+                plays = json_data['liveData']['plays']['allPlays']
+
+                for event in plays:
+                    if self.is_intermission and event['result']['event'] == "Period Start" and event['result']['about']['period'] == self.period:
+                        # TODO: fire period start event
+                        self.is_intermission = False
+                    elif event['result']['event'] == "Period Start" and event['result']['about']['period'] == self.period:
+                        # TODO: fire period end event
+                        self.is_intermission = True
+                        self.period += 1
+                    elif event['result']['event'] == "Game End":
+                        # TODO: fire game end event
+                        self.is_intermission = False
+                        self.game_id = None
+            else:
+                _LOGGER.error("Unable to fetch live feed data from game")
+
+    def update(self):
+        today_date = hassdt.now()
+        devils_calendar = self.hass.states.get("calendar.devils_games")
+
+        # Check once a day to see if there's a game today
+        if self.last_checked.date() < today_date.date() and today_date.hour > 8:
+            self.last_checked = today_date
+            next_scheduled_game = devils_calendar.attributes.get('start_time')
+            next_scheduled_game = datetime.datetime.strptime(next_scheduled_game, '%Y-%m-%d %H:%M:%S')
+            self.is_gameday = (next_scheduled_game.date() == today_date.date())
+            self.fetch_game_id()
+
+        self.poll_game_feed(devils_calendar)
+

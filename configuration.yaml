@@ -55,7 +55,8 @@ sensor:
       - precip_today_string
       - temp_high_1d_f
       - temp_low_1d_f
-      - weather  
+      - weather
+  - platform: nhl_box_score
 
 switch 2:
   - platform: broadlink
