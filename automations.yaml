@@ -70,3 +70,42 @@
     service: script.google_home_sound
     data_template:
       file: "hells_bells.mp3"
+
+- alias: NHL Period Start
+  trigger:
+    platform: event
+    event_type: 'nhl_period_start'
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: 'home'
+  action:
+    service: script.google_home_voice
+    data_template:
+      message: "Start of period {{ trigger.event.data.period }}"
+
+- alias: NHL Period End
+  trigger:
+    platform: event
+    event_type: 'nhl_period_end'
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: 'home'
+  action:
+    service: script.google_home_voice
+    data_template:
+      message: "End of period {{ trigger.event.data.period }}"
+
+- alias: NHL Scoring play
+  trigger:
+    platform: event
+    event_type: 'nhl_scoring'
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: 'home'
+  action:
+    service: script.google_home_voice
+    data_template:
+      message: "{{ trigger.event.data.team }} goal scored by {{ trigger.event.data.scorer }}"
