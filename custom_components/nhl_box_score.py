@@ -85,6 +85,18 @@ class NHLBoxScoreSensor(Entity):
             self.game_id = None
             self._state = "No Game"
 
+    def get_scoring_info(self, event):
+        scoring_info = {}
+        scoring_info['team'] = event['team']['name']
+        scoring_info['assists'] = []
+        players = event['players']
+        for player in players:
+            if player['playerType'] == 'Scorer':
+                scoring_info['scorer'] = player['player']['fullName']
+            if player['playerType'] == 'Assist':
+                scoring_info['assists'].append(player['player']['fullName'])
+        return scoring_info
+
     def poll_game_feed(self, devils_calendar):
         if self.is_gameday and devils_calendar.state == "on" and self.game_id is not None:
             self.feed_rest.update()
@@ -101,20 +113,20 @@ class NHLBoxScoreSensor(Entity):
                 # Look for scoring events
                 for event in scoring:
                     if event not in self.scoring_plays:
-                        # TODO: fire scoring play event
+                        self.hass.bus.fire('nhl_scoring', self.get_scoring_info(plays[event]))
                         self.scoring_plays.append(event)
 
                 # Look for period events
                 for event in plays:
                     if self.is_intermission and event['result']['event'] == "Period Start" and event['result']['about']['period'] == self.period:
-                        # TODO: fire period start event
+                        self.hass.bus.fire('nhl_period_start', {"period": self.period})
                         self.is_intermission = False
                     elif event['result']['event'] == "Period Start" and event['result']['about']['period'] == self.period:
-                        # TODO: fire period end event
+                        self.hass.bus.fire('nhl_period_end', {"period": self.period})
                         self.is_intermission = True
                         self.period += 1
                     elif event['result']['event'] == "Game End":
-                        # TODO: fire game end event
+                        self.hass.bus.fire('nhl_game_end', {})
                         self.is_intermission = False
                         self.game_id = None
             else:
