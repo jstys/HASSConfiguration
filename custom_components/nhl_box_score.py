@@ -96,7 +96,15 @@ class NHLBoxScoreSensor(Entity):
 
             if json_data is not None:
                 plays = json_data['liveData']['plays']['allPlays']
+                scoring = json_data['liveData']['plays']['scoringPlays']
 
+                # Look for scoring events
+                for event in scoring:
+                    if event not in self.scoring_plays:
+                        # TODO: fire scoring play event
+                        self.scoring_plays.append(event)
+
+                # Look for period events
                 for event in plays:
                     if self.is_intermission and event['result']['event'] == "Period Start" and event['result']['about']['period'] == self.period:
                         # TODO: fire period start event
