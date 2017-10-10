@@ -1,0 +1,26 @@
+
+*****************************************************************************
+*                       GET TODAYS GAME ID                                  *
+*****************************************************************************
+http://statsapi.web.nhl.com/api/v1/schedule/
+filter by [dates][date] == today YYYY-MM-DD
+[dates][0][games]
+for each game in games:
+    if game[teams][away][team][id] == 1 or game[teams][home][team][id] == 1:
+        gameid = game[gamePk]
+
+*****************************************************************************
+*                       GET PERIOD START/END                                *
+*****************************************************************************
+http://statsapi.web.nhl.com/api/v1/game/gameid/feed/live
+[liveData][plays][allPlays]
+filter by [result][event] == "Period Start" or "Period End"
+period = [result][about][period]
+
+*****************************************************************************
+*                       GET SCORING PLAYS                                   *
+*****************************************************************************
+[liveData][plays][scoringPlays]
+[liveData][plays][allPlays][index]
+team = [liveData][plays][allPlays][index][team][name]
+players = team = [liveData][plays][allPlays][index][about][description]
