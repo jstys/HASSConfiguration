@@ -130,10 +130,10 @@ class NHLBoxScoreSensor(Entity):
 
                 # Look for period events
                 for event in plays:
-                    if self.is_intermission and event['result']['event'] == "Period Start" and event['result']['about']['period'] == self.period:
+                    if self.is_intermission and event['result']['event'] == "Period Start" and event['about']['period'] == self.period:
                         self.hass.bus.fire('nhl_period_start', {"period": self.period})
                         self.is_intermission = False
-                    elif event['result']['event'] == "Period End" and event['result']['about']['period'] == self.period:
+                    elif event['result']['event'] == "Period End" and event['about']['period'] == self.period:
                         self.hass.bus.fire('nhl_period_end', {"period": self.period})
                         self.is_intermission = True
                         self.period += 1
