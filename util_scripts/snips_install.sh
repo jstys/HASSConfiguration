@@ -79,8 +79,8 @@ then
     read a </dev/tty || a="y" # if the tty is not available, force installation
     if [ "$a" = "" -o "$a" = "y" -o "$a" = "Y" ] ; then
         need_cmd curl
-        say " - running 'curl -sSL get.docker.com | sh'"
-        (curl -sSL get.docker.com | sh) || err "Could not install Docker"
+        say " - running 'docker_install.sh'"
+        sh ./docker_install.sh || err "Could not install Docker"
     else
         err "Docker is required to run the Snips platform"
     fi
