@@ -108,4 +108,30 @@
   action:
     service: script.google_home_voice
     data_template:
-      message: "{{ trigger.event.data.team }} goal scored by {{ trigger.event.data.scorer }}"
+      message: "{{ trigger.event.data.team }} goal scored by number {{ trigger.event.data.scorer.number }} {{ trigger.event.data.scorer.name }}"
+
+- alias: NHL Penalty
+  trigger:
+    platform: event
+    event_type: 'nhl_penalty'
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: 'home'
+  action:
+    service: script.google_home_voice
+    data_template:
+      message: "{{ trigger.event.data.team }} on number {{ trigger.event.data.player.number }} {{ trigger.event.data.player.name }}, {{ trigger.event.data.description }}"
+
+- alias: NHL Game end
+  trigger:
+    platform: event
+    event_type: 'nhl_game_end'
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: 'home'
+  action:
+    service: script.google_home_voice
+    data_template:
+      message: ""

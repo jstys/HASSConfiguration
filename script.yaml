@@ -154,3 +154,10 @@ google_home_voice:
         entity_id: media_player.living_room_home
       data_template:
         message: "{{ message }}"
+
+snips_voice:
+  sequence:
+    - service: mqtt.publish
+      data_template:
+        message: "{{ message }}"
+        topic: "hermes/tts/say"

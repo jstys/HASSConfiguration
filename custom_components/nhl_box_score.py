@@ -36,6 +36,8 @@ class NHLBoxScoreSensor(Entity):
         self.schedule_rest = self.setup_rest(NHLBoxScoreSensor.SCHEDULE_ENDPOINT)
         self.feed_rest = None
         self.scoring_plays = []
+        self.penalties = []
+        self.players = {}
         self.period = 1
         self.is_intermission = False
         self.team = team
@@ -63,7 +65,9 @@ class NHLBoxScoreSensor(Entity):
 
     def init_game_data(self):
         self.period = 1
-        self.scoring_plays = []
+        del self.scoring_plays[:]
+        del self.penalties[:]
+        self.players.clear()
         self.is_intermission = True
 
     def setup_rest(self, endpoint, variables=None):
@@ -85,7 +89,7 @@ class NHLBoxScoreSensor(Entity):
             if json_data is not None:
                 games = json_data['dates'][0]['games']
                 my_game = [game['gamePk'] for game in games if game['teams']['away']['team']['name'] == self.team or
-                                                               game['teams']['home']['team']['id'] == self.team]
+                                                               game['teams']['home']['team']['name'] == self.team]
                 if len(my_game) == 1:
                     self.game_id = my_game[0]
                     self.init_game_data()
@@ -95,17 +99,38 @@ class NHLBoxScoreSensor(Entity):
         else:
             self.game_id = None
 
+    def get_player_info(self, playerId):
+        player_detail = self.players.get(playerId)
+        if player_detail:
+            return (player_detail['fullName'], player_detail['primaryNumber'])
+        else:
+            return None
+
     def get_scoring_info(self, event):
         scoring_info = {}
         scoring_info['team'] = event['team']['name']
         scoring_info['assists'] = []
         players = event['players']
         for player in players:
-            if player['playerType'] == 'Scorer':
-                scoring_info['scorer'] = player['player']['fullName']
-            if player['playerType'] == 'Assist':
-                scoring_info['assists'].append(player['player']['fullName'])
+            player_details = self.get_player_info('ID{}'.format(player['player']['id']))
+            if player_details is not None:
+                if player['playerType'] == 'Scorer':
+                    scoring_info['scorer'] = {'name': player_details[0], 'number': player_details[1]}
+                if player['playerType'] == 'Assist':
+                    scoring_info['assists'].append({'name': player_details[0], 'number': player_details[1]})
         return scoring_info
+
+    def get_penalty_info(self, event):
+        penalty_info = {}
+        penalty_info['team'] = event['team']['name']
+        penalty_info['description'] = "{} minute {} for {}".format(event['result']['penaltyMinutes'], event['result']['penaltySeverity'], event['result']['secondaryType'])
+        players = event['players']
+        for player in players:
+            player_details = self.get_player_info('ID{}'.format(player['player']['id']))
+            if player_details is not None:
+                if player['playerType'] == 'PenaltyOn':
+                    penalty_info['player'] = {'name': player_details[0], 'number': player_details[1]}
+        return penalty_info
 
     def poll_game_feed(self, team_calendar):
         game_active = (team_calendar.state == "on") or self.period > 1
@@ -120,17 +145,22 @@ class NHLBoxScoreSensor(Entity):
 
             if json_data is not None:
                 plays = json_data['liveData']['plays']['allPlays']
-                scoring = json_data['liveData']['plays']['scoringPlays']
 
-                # Look for scoring events
-                for event in scoring:
-                    if event not in self.scoring_plays:
-                        self.hass.bus.fire('nhl_scoring', self.get_scoring_info(plays[event]))
-                        self.scoring_plays.append(event)
+                # Store the lineups
+                if not self.players:
+                    self.players = json_data['gameData']['players'].copy()
 
                 # Look for period events
                 for event in plays:
-                    if self.is_intermission and event['result']['event'] == "Period Start" and event['about']['period'] == self.period:
+                    eventId = event['about']['eventId']
+
+                    if event['result']['event'] == "Goal" and eventId not in self.scoring_plays:
+                        self.hass.bus.fire('nhl_scoring', self.get_scoring_info(event))
+                        self.scoring_plays.append(eventId)
+                    elif event['result']['event'] == "Penalty" and eventId not in self.penalties:
+                        self.hass.bus.fire('nhl_penalty', self.get_penalty_info(event))
+                        self.penalties.append(eventId)
+                    elif self.is_intermission and event['result']['event'] == "Period Start" and event['about']['period'] == self.period:
                         self.hass.bus.fire('nhl_period_start', {"period": self.period})
                         self.is_intermission = False
                     elif event['result']['event'] == "Period End" and event['about']['period'] == self.period:
