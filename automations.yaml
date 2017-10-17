@@ -24,6 +24,30 @@
       data:
         entity_id: switch.bedroom_light
 
+- alias: Kitchen Motion
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d00016612a5
+    from: 'off'
+    to: 'on'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.kitchen_light
+
+- alias: Kitchen Empty
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d00016612a5
+    from: 'on'
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.kitchen_light
+
 - alias: Goal horn button
   trigger:
     platform: event
@@ -121,7 +145,7 @@
   action:
     service: script.google_home_voice
     data_template:
-      message: "{{ trigger.event.data.team }} on number {{ trigger.event.data.player.number }} {{ trigger.event.data.player.name }}, {{ trigger.event.data.description }}"
+      message: "{{ trigger.event.data.team }} penalty on number {{ trigger.event.data.player.number }} {{ trigger.event.data.player.name }}, {{ trigger.event.data.description }}"
 
 - alias: NHL Game end
   trigger:
