@@ -21,15 +21,15 @@ living_room:
   name: Living Room
   view: yes
   entities:
-    - sensor.illumination_34ce008dcec1
     - binary_sensor.motion_sensor_158d0001661247
+    - binary_sensor.motion_sensor_158d00016612a5
     - sensor.temperature_158d0001d6f386
     - binary_sensor.door_window_sensor_158d0001d3a024
     - group.living_room_lights
     - group.living_room_tv_control
     - media_player.mibox3
     - media_player.living_room_home
-    
+
 living_room_tv_control:
   name: TV Control
   view: no
