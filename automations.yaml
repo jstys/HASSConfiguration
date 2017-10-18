@@ -159,3 +159,17 @@
     service: script.google_home_voice
     data_template:
       message: ""
+
+- alias: TV auto cast on
+  trigger:
+    platform: template
+    value_template: "{{ not is_state('media_player.mibox3', 'off') }}"
+  condition:
+    condition: state
+    entity_id: switch.living_room_tv
+    state: 'off'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.living_room_tv
+    - service: script.living_room_chromecast_input
