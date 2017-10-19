@@ -88,6 +88,7 @@ emulated_hue:
   listen_port: 80
   exposed_domains:
     - switch
+    - light
     - media_player
     - script
 
@@ -112,6 +113,7 @@ switch: !include switch.yaml
 automation: !include automations.yaml
 zone: !include zones.yaml
 input_boolean: !include input_boolean.yaml
+light: !include light.yaml
 
 ##############################################################
 #                       ENABLED                              #

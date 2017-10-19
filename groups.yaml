@@ -44,7 +44,8 @@ living_room_lights:
   name: Lights
   view: no
   entities:
-    - switch.lamps
+    - light.living_room_lamp_1
+    - light.living_room_lamp_2
     - switch.living_room_light
     - switch.kitchen_light
     - light.gateway_light_34ce008dcec1

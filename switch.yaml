@@ -1,10 +1,3 @@
-- platform: rpi_rf
-  gpio: 21
-  switches:
-    lamps:
-      code_on: !secret lamps_on_rf
-      code_off: !secret lamps_off_rf
-      pulselength: 184
 - platform: command_line
   switches:
     bedroom_light:
