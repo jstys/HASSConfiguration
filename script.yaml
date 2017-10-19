@@ -159,5 +159,5 @@ snips_voice:
   sequence:
     - service: mqtt.publish
       data_template:
-        message: "{{ message }}"
+        payload: "{\"text\": \"{{ message }}\" }"
         topic: "hermes/tts/say"

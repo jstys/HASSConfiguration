@@ -70,6 +70,9 @@ switch 3:
     host: 10.0.0.11
     mac: !secret broadlink2_mac
 
+shell_command:
+  snips_processor: '/srv/homeassistant/bin/python3 /home/homeassistant/.homeassistant/python_scripts/snips_intent_processor.py {{ intent }}'
+
 python_script:
 
 logger:
