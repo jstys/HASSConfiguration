@@ -160,7 +160,7 @@
     data_template:
       message: ""
 
-- alias: TV auto cast on
+- alias: LR TV auto cast on
   trigger:
     platform: template
     value_template: "{{ not is_state('media_player.mibox3', 'off') }}"
@@ -173,3 +173,16 @@
       data:
         entity_id: switch.living_room_tv
     - service: script.living_room_chromecast_input
+
+- alias: BR TV auto cast on
+  trigger:
+    platform: template
+    value_template: "{{ not is_state('media_player.bedroom_cast', 'off') }}"
+  condition:
+    condition: state
+    entity_id: switch.bedroom_tv
+    state: 'off'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.bedroom_tv

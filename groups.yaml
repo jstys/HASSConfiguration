@@ -55,7 +55,7 @@ bedroom:
   entities:
     - group.bedroom_tv_control
     - group.bedroom_lights
-    - media_player.bedroom
+    - media_player.bedroom_cast
 
 bedroom_lights:
   name: Lights
