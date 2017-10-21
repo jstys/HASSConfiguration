@@ -71,7 +71,7 @@ switch 3:
     mac: !secret broadlink2_mac
 
 shell_command:
-  snips_processor: '/srv/homeassistant/bin/python3 /home/homeassistant/.homeassistant/python_scripts/snips_intent_processor.py {{ intent }}'
+  snips_processor: "/srv/homeassistant/bin/python3 /home/homeassistant/.homeassistant/python_scripts/snips_intent_processor.py {{ topic }} '{{ intent }}'"
 
 python_script:
 

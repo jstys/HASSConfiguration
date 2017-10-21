@@ -27,6 +27,7 @@ living_room:
     - binary_sensor.door_window_sensor_158d0001d3a024
     - group.living_room_lights
     - group.living_room_tv_control
+    - group.living_room_lamps
     - media_player.mibox3
     - media_player.living_room_home
 
@@ -40,15 +41,19 @@ living_room_tv_control:
     - script.living_room_xbox_input
     - script.living_room_chromecast_input
 
-living_room_lights:
-  name: Lights
+living_room_lamps:
+  name: Living Room Lamps
   view: no
   entities:
     - light.living_room_lamp_1
     - light.living_room_lamp_2
+
+living_room_lights:
+  name: Main Overheads
+  view: no
+  entities:
     - switch.living_room_light
     - switch.kitchen_light
-    - light.gateway_light_34ce008dcec1
 
 bedroom:
   name: Bedroom
@@ -59,7 +64,7 @@ bedroom:
     - media_player.bedroom_cast
 
 bedroom_lights:
-  name: Lights
+  name: Bedroom Overheads
   view: no
   entities:
     - switch.bedroom_light

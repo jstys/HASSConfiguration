@@ -109,15 +109,27 @@ goal_horn:
           - !secret goal_lamp_ir
           - !secret goal_lamp_ir
           - !secret goal_lamp_ir
+    - service: light.turn_on
+      data:
+        entity_id: group.living_room_lamps
+        effect: "Alarm"
     - service: xiaomi_aqara.play_ringtone
       data:
         gw_mac: !secret xiaomi1_mac
         ringtone_id: 10002
         ringtone_vol: 80
+    - delay:
+        seconds: 30
+    - service: light.turn_on
+      data:
+        entity_id: group.living_room_lamps
+        effect: "Stop"
+
 learnir_lr:
   alias: Learn IR Code Living Room
   sequence:
     - service: broadlink.learn_command_10_0_0_4
+
 learnir_br:
   alias: Learn IR Code Bedroom
   sequence:
@@ -135,8 +147,8 @@ bedtime:
       entity_id: switch.living_room_tv
     - service: switch.turn_off
       entity_id: switch.bedroom_tv
-    - service: switch.turn_off
-      entity_id: switch.lamps
+    - service: light.turn_off
+      entity_id: group.living_room_lamps
 
 google_home_sound:
   sequence:
@@ -160,4 +172,4 @@ snips_voice:
     - service: mqtt.publish
       data_template:
         payload: "{\"text\": \"{{ message }}\" }"
-        topic: "hermes/tts/say"
+        topic: "snips/{{ room }}/hermes/tts/say"

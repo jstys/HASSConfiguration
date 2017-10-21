@@ -190,8 +190,9 @@
 - alias: Snips MQTT
   trigger:
     platform: mqtt
-    topic: hermes/intent/#
+    topic: snips/+/hermes/intent/#
   action:
     - service: shell_command.snips_processor
       data_template:
         intent: '{{ trigger.payload }}'
+        topic: '{{ trigger.topic }}'
