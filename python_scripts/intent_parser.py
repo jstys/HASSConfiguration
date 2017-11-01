@@ -135,11 +135,15 @@ engine.register_intent_parser(media_intent)
 
 def parse_intent(text):
     intents = engine.determine_intent(text)
-    return [res for res in intents if res is not None and res.get('confidence') > 0]
+    for obj in intents:
+        if obj is not None and obj.get('confidence') > 0:
+            return obj
+    return None
 
 
 if __name__ == "__main__":
     raw = ' '.join(sys.argv[1:])
-    for intent in parse_intent(raw):
+    intent = parse_intent(raw)
+    if intent is not None:
         intent['raw'] = raw
         print(json.dumps(intent, indent=4))

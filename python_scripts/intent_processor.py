@@ -7,7 +7,7 @@ api = remote.API('127.0.0.1')
 room = None
 
 def handle_json_request(json_message):
-    intent = json_message['intent']['intentName']
+    intent = json_message['intent_type']
     if intent == "ActivateObject":
         handle_activate_deactivate_object(json_message, True)
     elif intent == "DeactivateObject":
