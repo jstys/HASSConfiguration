@@ -36,7 +36,7 @@ def handle_pause_resume_device(json_message, pause):
         tts_say("Sorry, I can't resume devices yet")
 
 def tts_say(message):
-    remote.call_service(api, "script", "snips_voice", {"message": message, "room": room})
+    remote.call_service(api, "script", "assistant_voice", {"message": message, "room": room})
 
 if __name__ == '__main__':
     topic = sys.argv[1]

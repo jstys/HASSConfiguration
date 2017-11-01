@@ -187,12 +187,12 @@
       data:
         entity_id: switch.bedroom_tv
 
-- alias: Snips MQTT
+- alias: Assistant MQTT
   trigger:
     platform: mqtt
-    topic: snips/+/hermes/intent/#
+    topic: assistant/+/intent
   action:
-    - service: shell_command.snips_processor
+    - service: shell_command.intent_processor
       data_template:
         intent: '{{ trigger.payload }}'
         topic: '{{ trigger.topic }}'

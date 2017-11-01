@@ -167,9 +167,9 @@ google_home_voice:
       data_template:
         message: "{{ message }}"
 
-snips_voice:
+assistant_voice:
   sequence:
     - service: mqtt.publish
       data_template:
-        payload: "{\"text\": \"{{ message }}\" }"
-        topic: "snips/{{ room }}/hermes/tts/say"
+        payload: "{{ message }}"
+        topic: "assistant/{{ room }}/tts"
