@@ -20,7 +20,7 @@ from __future__ import print_function
 import argparse
 import os.path
 import json
-import datetime
+import subprocess
 
 import paho.mqtt.client as mqtt
 import google.oauth2.credentials
@@ -30,6 +30,8 @@ from google.assistant.library.event import EventType
 from google.assistant.library.file_helpers import existing_file
 
 import intent_parser
+
+BROADCAST_TOPIC = "assistant/broadcast"
 
 assistant_room = "living_room" #TODO: parameterize this
 mqtt_name = "_".join([assistant_room, "assistant"]) #TODO: parameterize this
@@ -41,8 +43,17 @@ def on_connect(client, userdata, flags, rc):
     print("MQTT Connected")
 
 def on_message(client, userdata, msg):
-    #TODO: add TTS
     print('TTS Output: {}'.format(msg.payload))
+    message = msg.payload
+    if msg.topic == BROADCAST_TOPIC:
+        payload_split = msg.payload.split(":")
+        message = payload_split[0]
+        source = payload_split[1]
+        if source == assistant_room:
+            return
+
+    subprocess.call(['pico2wave', '-w', 'tmp.wav', message])
+    subprocess.call(['aplay', 'tmp.wav'])
 
 def process_event(event, assistant):
     if event.type == EventType.ON_CONVERSATION_TURN_STARTED:
