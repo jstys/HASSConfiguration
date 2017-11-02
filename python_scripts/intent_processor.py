@@ -6,7 +6,7 @@ import homeassistant.remote as remote
 BROADCAST_ROOM = "broadcast"
 
 api = remote.API('127.0.0.1')
-room = None
+received_room = None
 
 def handle_json_request(json_message):
     intent = json_message['intent_type']
@@ -28,11 +28,11 @@ def handle_power_intent(json_message):
     device = json_message['PowerableObject']
     tts_say("Turning {} the {}".format(action, device['value']['value']))
 
-def tts_say(message, tts_room=room):
-    if room == BROADCAST_ROOM:
-        remote.call_service(api, "script", "assistant_broadcast", {"message": message})
+def tts_say(message, tts_room=received_room):
+    if received_room == BROADCAST_ROOM:
+        remote.call_service(api, "script", "assistant_broadcast", {"message": message, "source": received_room})
     else:
-        remote.call_service(api, "script", "assistant_voice", {"message": message, "room": room})
+        remote.call_service(api, "script", "assistant_voice", {"message": message, "room": tts_room})
 
 if __name__ == '__main__':
     topic = sys.argv[1]
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     json_payload = {}
     try:
         json_payload = json.loads(raw_payload)
-        room = topic.split("/")[1]
+        received_room = topic.split("/")[1]
     except:
         tts_say("Sorry, I'm unable to understand your request")
         sys.exit(1)

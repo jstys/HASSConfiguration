@@ -178,5 +178,5 @@ assistant_broadcast:
   sequence:
     - service: mqtt.publish
       data_template:
-        payload: "{{ message }}"
+        payload: "{{ message }}:{{ source }}"
         topic: "assistant/broadcast"
