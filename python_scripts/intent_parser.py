@@ -28,7 +28,8 @@ room_keywords = [
     "bathroom",
     "kitchen",
     "garage",
-    "bedroom"
+    "bedroom",
+    "office"
 ]
 
 dimmable_objects = [
@@ -75,8 +76,37 @@ broadcast_verbs = [
     "announce"
 ]
 
+talk_verbs = [
+    "say",
+    "tell"
+]
+
+list_verbs = [
+    "add",
+    "remove",
+    "read"
+]
+
+list_types = [
+    "to do",
+    "to dos",
+    "grocery",
+    "groceries",
+    "shopping"
+]
 
 engine.register_regex_entity("(?P<Percentage>[0-9]+%)")
+engine.register_regex_entity("add (?P<ListItemAdd>.*) to")
+engine.register_regex_entity("remove (?P<ListItemRemove>.*) from")
+
+for verb in talk_verbs:
+    engine.register_entity(verb, "TalkVerb")
+
+for verb in list_verbs:
+    engine.register_entity(verb, "ListVerb")
+
+for list_type in list_types:
+    engine.register_entity(list_type, "ListType")
 
 for room in room_keywords:
     engine.register_entity(room, "Room")
@@ -128,10 +158,24 @@ media_intent = IntentBuilder("MediaIntent")\
     .optionally("MediaObject")\
     .build()
 
+list_intent = IntentBuilder("ListIntent")\
+    .require("ListVerb")\
+    .optionally("ListItemAdd")\
+    .optionally("ListItemRemove")\
+    .require("ListType")\
+    .build()
+
+talk_intent = IntentBuilder("TalkIntent")\
+    .require("TalkVerb")\
+    .optionally("Room")\
+    .build()
+
 engine.register_intent_parser(broadcast_intent)
 engine.register_intent_parser(power_intent)
 engine.register_intent_parser(brightness_intent)
 engine.register_intent_parser(media_intent)
+engine.register_intent_parser(list_intent)
+engine.register_intent_parser(talk_intent)
 
 def parse_intent(text):
     intents = engine.determine_intent(text)

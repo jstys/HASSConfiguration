@@ -35,16 +35,13 @@ assistant_room = "living_room" #TODO: parameterize this
 mqtt_name = "_".join([assistant_room, "assistant"]) #TODO: parameterize this
 mqtt_client = mqtt.Client(client_id=mqtt_name, protocol=mqtt.MQTTv31)
 
-def time_now():
-    return datetime.datetime.now().strftime('%H:%M:%S.%f')
-
 def on_connect(client, userdata, flags, rc):
     mqtt_client.subscribe('assistant/{}/tts'.format(assistant_room), qos=2)
+    mqtt_client.subscribe('assistant/broadcast', qos=2)
     print("MQTT Connected")
 
-# Process a message as it arrives
 def on_message(client, userdata, msg):
-    print('[{}] - {}'.format(time_now(), msg.topic))
+    #TODO: add TTS
     print('TTS Output: {}'.format(msg.payload))
 
 def process_event(event, assistant):
