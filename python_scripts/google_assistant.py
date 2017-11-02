@@ -58,6 +58,7 @@ def on_message(client, userdata, msg):
 def process_event(event, assistant):
     if event.type == EventType.ON_CONVERSATION_TURN_STARTED:
         print("Received Hotword")
+        subprocess.call(['aplay', 'hotword.wav'])
 
     if event.type == EventType.ON_RECOGNIZING_SPEECH_FINISHED:
         text = event.args.get('text')
