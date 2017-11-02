@@ -26,10 +26,12 @@ def handle_json_request(json_message):
 def handle_power_intent(json_message):
     action = (json_message['PowerVerb'].replace("turn ", ""))
     device = json_message['PowerableObject']
-    tts_say("Turning {} the {}".format(action, device['value']['value']))
+    level = json_message.get('Percentage')
+    tts_say("Turning {} the {}".format(action, device))
 
-def tts_say(message, tts_room=received_room):
-    if received_room == BROADCAST_ROOM:
+def tts_say(message, tts_room=None):
+    tts_room = received_room if tts_room is None else tts_room
+    if tts_room == BROADCAST_ROOM:
         remote.call_service(api, "script", "assistant_broadcast", {"message": message, "source": received_room})
     else:
         remote.call_service(api, "script", "assistant_voice", {"message": message, "room": tts_room})
