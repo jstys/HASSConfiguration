@@ -50,7 +50,7 @@ def on_message(client, userdata, msg):
         message = payload_split[0]
         source = payload_split[1]
         if source == assistant_room:
-            return
+            message = "Your message has been shared"
 
     subprocess.call(['pico2wave', '-w', 'tmp.wav', message])
     subprocess.call(['aplay', 'tmp.wav'])

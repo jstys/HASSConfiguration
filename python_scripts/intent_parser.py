@@ -146,6 +146,7 @@ power_intent = IntentBuilder("PowerIntent")\
     .require("PowerVerb")\
     .optionally("Room")\
     .require("PowerableObject")\
+    .optionally("Percentage")\
     .build()
 
 broadcast_intent = IntentBuilder("BroadcastIntent")\
