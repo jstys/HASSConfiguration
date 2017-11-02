@@ -104,9 +104,10 @@
     entity_id: group.all_devices
     state: 'home'
   action:
-    service: script.google_home_voice
+    service: script.assistant_broadcast
     data_template:
       message: "Start of period {{ trigger.event.data.period }}"
+      source: "HASS"
 
 - alias: NHL Period End
   trigger:
@@ -117,9 +118,10 @@
     entity_id: group.all_devices
     state: 'home'
   action:
-    service: script.google_home_voice
+    service: script.assistant_broadcast
     data_template:
       message: "End of period {{ trigger.event.data.period }}"
+      source: "HASS"
 
 - alias: NHL Scoring play
   trigger:
@@ -130,9 +132,10 @@
     entity_id: group.all_devices
     state: 'home'
   action:
-    service: script.google_home_voice
+    service: script.assistant_broadcast
     data_template:
       message: "{{ trigger.event.data.team }} goal scored by number {{ trigger.event.data.scorer.number }} {{ trigger.event.data.scorer.name }}"
+      source: "HASS"
 
 - alias: NHL Penalty
   trigger:
@@ -143,9 +146,10 @@
     entity_id: group.all_devices
     state: 'home'
   action:
-    service: script.google_home_voice
+    service: script.assistant_broadcast
     data_template:
       message: "{{ trigger.event.data.team }} penalty on number {{ trigger.event.data.player.number }} {{ trigger.event.data.player.name }}, {{ trigger.event.data.description }}"
+      source: "HASS"
 
 - alias: NHL Game end
   trigger:
@@ -156,9 +160,10 @@
     entity_id: group.all_devices
     state: 'home'
   action:
-    service: script.google_home_voice
+    service: script.assistant_broadcast
     data_template:
-      message: ""
+      message: "The Devils game has ended"
+      source: "HASS"
 
 - alias: LR TV auto cast on
   trigger:
