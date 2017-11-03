@@ -64,10 +64,10 @@ def process_event(event, assistant):
         text = event.args.get('text')
         print("Raw: {}".format(text))
 
-        intent = intent_parser.parse_intent(text)
+        intent, massaged_text = intent_parser.parse_intent(text)
         if intent is not None:
             assistant.stop_conversation()
-            intent['raw'] = text
+            intent['raw'] = massaged_text
             print(json.dumps(intent, indent=4))
             mqtt_client.publish("assistant/{}/intent".format(assistant_room), payload=json.dumps(intent), qos=2)
         else:

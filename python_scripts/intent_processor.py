@@ -1,6 +1,7 @@
 #!/srv/homeassistant/bin/python3
 import json
 import sys
+import hassutil
 import homeassistant.remote as remote
 
 BROADCAST_ROOM = "broadcast"
@@ -20,14 +21,40 @@ def handle_json_request(json_message):
         tts_say("Sorry, I can't broadcast messages yet")
     elif intent == "ListIntent":
         tts_say("Sorry, I can't manage your lists yet")
+    elif intent == "SceneIntent":
+        tts_say("Actually, it's fuckin not")
     else:
         tts_say("Sorry, I don't understand what you're asking")
 
 def handle_power_intent(json_message):
-    action = (json_message['PowerVerb'].replace("turn ", ""))
-    device = json_message['PowerableObject']
+    room = json_message.get('Room')
+    room = received_room if room is None else room
+
+    devices = []
+    if room == "house":
+        devices = [device for device in hassutil.get_all_switches_and_lights()]
+    else:
+        devices = [device for device in hassutil.get_group_switches_and_lights(room)]
+
+    is_on_action = (json_message['PowerVerb'] == "turn on")
+    device = json_message['PowerableObject'].lower().replace(" ", "_")
     level = json_message.get('Percentage')
-    tts_say("Turning {} the {}".format(action, device))
+    allMod = json_message.get('AllModifier') is not None
+
+
+    if allMod:
+        if device in ["lights","light","lamp","lampes","lamps"]:
+            for entity in [obj for obj in devices if "light" in obj or "lamp" in obj]:
+                turn_off_on(entity, is_on_action)
+
+    tts_say("Turning {} the {}".format("on" if is_on_action else "off", device))
+
+def turn_off_on(entity, on):
+    action = "turn_on" if on else "turn_off"
+    remote.call_service(api, "switch", action, {"entity_id": entity})
+
+def log(message):
+    remote.call_service(api, "logbook", "log", {"name": "intent_processor.py", "message": message})
 
 def tts_say(message, tts_room=None):
     tts_room = received_room if tts_room is None else tts_room

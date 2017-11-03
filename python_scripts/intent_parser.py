@@ -29,7 +29,8 @@ room_keywords = [
     "kitchen",
     "garage",
     "bedroom",
-    "office"
+    "office",
+    "house"
 ]
 
 dimmable_objects = [
@@ -95,9 +96,11 @@ list_types = [
     "shopping"
 ]
 
+engine.register_entity("all", "AllModifier")
 engine.register_regex_entity("(?P<Percentage>[0-9]+%)")
 engine.register_regex_entity("add (?P<ListItemAdd>.*) to")
 engine.register_regex_entity("remove (?P<ListItemRemove>.*) from")
+engine.register_regex_entity("its (?P<SceneEvent>.*) time")
 
 for verb in talk_verbs:
     engine.register_entity(verb, "TalkVerb")
@@ -137,6 +140,7 @@ for verb in media_verbs:
 
 brightness_intent = IntentBuilder("BrightnessIntent")\
     .require("BrightnessVerb")\
+    .optionally("AllModifier")\
     .optionally("Room")\
     .require("DimmableObject")\
     .require("Percentage")\
@@ -144,6 +148,7 @@ brightness_intent = IntentBuilder("BrightnessIntent")\
 
 power_intent = IntentBuilder("PowerIntent")\
     .require("PowerVerb")\
+    .optionally("AllModifier")\
     .optionally("Room")\
     .require("PowerableObject")\
     .optionally("Percentage")\
@@ -155,6 +160,7 @@ broadcast_intent = IntentBuilder("BroadcastIntent")\
 
 media_intent = IntentBuilder("MediaIntent")\
     .require("MediaVerb")\
+    .optionally("AllModifier")\
     .optionally("Room")\
     .optionally("MediaObject")\
     .build()
@@ -171,24 +177,44 @@ talk_intent = IntentBuilder("TalkIntent")\
     .optionally("Room")\
     .build()
 
+scene_intent = IntentBuilder("SceneIntent")\
+    .require("SceneEvent")\
+    .build()
+
 engine.register_intent_parser(broadcast_intent)
 engine.register_intent_parser(power_intent)
 engine.register_intent_parser(brightness_intent)
 engine.register_intent_parser(media_intent)
 engine.register_intent_parser(list_intent)
 engine.register_intent_parser(talk_intent)
+engine.register_intent_parser(scene_intent)
 
-def parse_intent(text):
-    intents = engine.determine_intent(text)
+def massage_text(val):
+    if isinstance(val, str):
+        val = val.replace("'", "")
+        return val
+    else:
+        return val
+
+def massage_json(json_val):
+    massaged_json = {}
+    for key, value in json_val.items():
+        massaged_json[massage_text(key)] = massage_text(value)
+
+    return massaged_json
+
+def parse_intent(val):
+    val = massage_text(val)
+    intents = engine.determine_intent(val)
     for obj in intents:
         if obj is not None and obj.get('confidence') > 0:
-            return obj
-    return None
+            return (massage_json(obj), val)
+    return (None, val)
 
 
 if __name__ == "__main__":
     raw = ' '.join(sys.argv[1:])
-    intent = parse_intent(raw)
+    intent, text = parse_intent(raw)
     if intent is not None:
-        intent['raw'] = raw
+        intent['raw'] = text
         print(json.dumps(intent, indent=4))
