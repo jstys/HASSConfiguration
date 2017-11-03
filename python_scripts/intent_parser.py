@@ -23,171 +23,138 @@ tagger = EntityTagger(trie, tokenizer)
 parser = Parser(tokenizer, tagger)
 engine = IntentDeterminationEngine()
 
-room_keywords = [
-    "living room",
-    "bathroom",
-    "kitchen",
-    "garage",
-    "bedroom",
-    "office",
-    "house"
-]
+entity_json = {
+    "Normal":{
+        "Room": [
+            "living room",
+            "bathroom",
+            "kitchen",
+            "garage",
+            "bedroom",
+            "office",
+            "house"
+        ],
+        "LightObject": [
+            "lights",
+            "light"
+        ],
+        "LampObject": [
+            "lamp",
+            "lamps",
+            "lampes"
+        ],
+        "MediaObject": [
+            "TV",
+            "speaker",
+            "chromecast"
+        ],
+        "LevelVerb": [
+            "dim",
+            "turn up",
+            "turn down"
+        ],
+        "PowerVerb": [
+            "turn on",
+            "turn off"
+        ],
+        "MediaVerb": [
+            "mute",
+            "pause",
+            "resume"
+        ],
+        "BroadcastVerb": [
+            "broadcast",
+            "announce"
+        ],
+        "TalkVerb": [
+            "say",
+            "tell"
+        ],
+        "ListVerb": [
+            "add",
+            "remove",
+            "read"
+        ],
+        "ListType": [
+            "to do",
+            "to dos",
+            "grocery",
+            "groceries",
+            "shopping"
+        ],
+        "AllModifier": [
+            "all"
+        ]
+    },
+    "Regex": [
+        "(?P<Percentage>[0-9]+%)",
+        "add (?P<ListItemAdd>.*) to",
+        "remove (?P<ListItemRemove>.*) from",
+        "its (?P<SceneEvent>.*) time"
+    ]
+}
 
-dimmable_objects = [
-    "lights",
-    "light",
-    "lamp",
-    "lampes",
-    "lamps"
-]
+for entity, values in entity_json['Normal'].items():
+    for value in values:
+        engine.register_entity(value, entity)
 
-powerable_objects = [
-    "lights",
-    "light",
-    "lamp",
-    "lampes",
-    "lamps",
-    "TV"
-]
+for regex_entity in entity_json['Regex']:
+    engine.register_regex_entity(regex_entity)
 
-media_objects = [
-    "TV",
-    "speaker",
-    "chromecast"
-]
+intents = []
 
-brightness_verbs = [
-    "dim",
-    "brighten"
-]
-
-power_verbs = [
-    "turn on",
-    "turn off"
-]
-
-media_verbs = [
-    "mute",
-    "resume",
-    "pause"
-]
-
-broadcast_verbs = [
-    "broadcast",
-    "announce"
-]
-
-talk_verbs = [
-    "say",
-    "tell"
-]
-
-list_verbs = [
-    "add",
-    "remove",
-    "read"
-]
-
-list_types = [
-    "to do",
-    "to dos",
-    "grocery",
-    "groceries",
-    "shopping"
-]
-
-engine.register_entity("all", "AllModifier")
-engine.register_regex_entity("(?P<Percentage>[0-9]+%)")
-engine.register_regex_entity("add (?P<ListItemAdd>.*) to")
-engine.register_regex_entity("remove (?P<ListItemRemove>.*) from")
-engine.register_regex_entity("its (?P<SceneEvent>.*) time")
-
-for verb in talk_verbs:
-    engine.register_entity(verb, "TalkVerb")
-
-for verb in list_verbs:
-    engine.register_entity(verb, "ListVerb")
-
-for list_type in list_types:
-    engine.register_entity(list_type, "ListType")
-
-for room in room_keywords:
-    engine.register_entity(room, "Room")
-
-for verb in media_verbs:
-    engine.register_entity(verb, "MediaVerb")
-
-for verb in power_verbs:
-    engine.register_entity(verb, "PowerVerb")
-
-for power_object in powerable_objects:
-    engine.register_entity(power_object, "PowerableObject")
-
-for verb in brightness_verbs:
-    engine.register_entity(verb, "BrightnessVerb")
-
-for brightness_object in dimmable_objects:
-    engine.register_entity(brightness_object, "DimmableObject")
-
-for verb in broadcast_verbs:
-    engine.register_entity(verb, "BroadcastVerb")
-
-for media_object in media_objects:
-    engine.register_entity(media_object, "MediaObject")
-
-for verb in media_verbs:
-    engine.register_entity(verb, "MediaVerb")
-
-brightness_intent = IntentBuilder("BrightnessIntent")\
-    .require("BrightnessVerb")\
+intents.append(\
+    IntentBuilder("LevelIntent")\
+    .require("LevelVerb")\
     .optionally("AllModifier")\
     .optionally("Room")\
-    .require("DimmableObject")\
+    .one_of("LightObject", "LampObject", "MediaObject")\
     .require("Percentage")\
-    .build()
+    .build())
 
-power_intent = IntentBuilder("PowerIntent")\
+intents.append(\
+    IntentBuilder("PowerIntent")\
     .require("PowerVerb")\
     .optionally("AllModifier")\
     .optionally("Room")\
-    .require("PowerableObject")\
+    .one_of("LightObject", "LampObject", "MediaObject")\
     .optionally("Percentage")\
-    .build()
+    .build())
 
-broadcast_intent = IntentBuilder("BroadcastIntent")\
+intents.append(\
+    IntentBuilder("BroadcastIntent")\
     .require("BroadcastVerb")\
-    .build()
+    .build())
 
-media_intent = IntentBuilder("MediaIntent")\
+intents.append(\
+    IntentBuilder("MediaIntent")\
     .require("MediaVerb")\
     .optionally("AllModifier")\
     .optionally("Room")\
     .optionally("MediaObject")\
-    .build()
+    .build())
 
-list_intent = IntentBuilder("ListIntent")\
+intents.append(\
+    IntentBuilder("ListIntent")\
     .require("ListVerb")\
     .optionally("ListItemAdd")\
     .optionally("ListItemRemove")\
     .require("ListType")\
-    .build()
+    .build())
 
-talk_intent = IntentBuilder("TalkIntent")\
+intents.append(\
+    IntentBuilder("TalkIntent")\
     .require("TalkVerb")\
     .optionally("Room")\
-    .build()
+    .build())
 
-scene_intent = IntentBuilder("SceneIntent")\
+intents.append(\
+    IntentBuilder("SceneIntent")\
     .require("SceneEvent")\
-    .build()
+    .build())
 
-engine.register_intent_parser(broadcast_intent)
-engine.register_intent_parser(power_intent)
-engine.register_intent_parser(brightness_intent)
-engine.register_intent_parser(media_intent)
-engine.register_intent_parser(list_intent)
-engine.register_intent_parser(talk_intent)
-engine.register_intent_parser(scene_intent)
+for intent in intents:
+    engine.register_intent_parser(intent)
 
 def massage_text(val):
     if isinstance(val, str):
@@ -198,15 +165,15 @@ def massage_text(val):
 
 def massage_json(json_val):
     massaged_json = {}
-    for key, value in json_val.items():
-        massaged_json[massage_text(key)] = massage_text(value)
+    for key, val in json_val.items():
+        massaged_json[massage_text(key)] = massage_text(val)
 
     return massaged_json
 
 def parse_intent(val):
     val = massage_text(val)
-    intents = engine.determine_intent(val)
-    for obj in intents:
+    results = engine.determine_intent(val)
+    for obj in results:
         if obj is not None and obj.get('confidence') > 0:
             return (massage_json(obj), val)
     return (None, val)

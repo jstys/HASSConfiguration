@@ -40,10 +40,8 @@ mqtt_client = mqtt.Client(client_id=mqtt_name, protocol=mqtt.MQTTv31)
 def on_connect(client, userdata, flags, rc):
     mqtt_client.subscribe('assistant/{}/tts'.format(assistant_room), qos=2)
     mqtt_client.subscribe('assistant/broadcast', qos=2)
-    print("MQTT Connected")
 
 def on_message(client, userdata, msg):
-    print('TTS Output: {}'.format(msg.payload))
     message = msg.payload
     if msg.topic == BROADCAST_TOPIC:
         payload_split = msg.payload.split(":")
@@ -57,7 +55,6 @@ def on_message(client, userdata, msg):
 
 def process_event(event, assistant):
     if event.type == EventType.ON_CONVERSATION_TURN_STARTED:
-        print("Received Hotword")
         subprocess.call(['aplay', 'hotword.wav'])
 
     if event.type == EventType.ON_RECOGNIZING_SPEECH_FINISHED:
@@ -68,10 +65,7 @@ def process_event(event, assistant):
         if intent is not None:
             assistant.stop_conversation()
             intent['raw'] = massaged_text
-            print(json.dumps(intent, indent=4))
             mqtt_client.publish("assistant/{}/intent".format(assistant_room), payload=json.dumps(intent), qos=2)
-        else:
-            print("Intent is None, leave it to google")
 
 
 def main():
