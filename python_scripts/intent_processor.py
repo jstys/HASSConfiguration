@@ -15,8 +15,8 @@ def handle_json_request(json_message):
         handle_power_intent(json_message)
     elif intent == "MediaIntent":
         tts_say("Sorry, I can't control media yet")
-    elif intent == "BrightnessIntent":
-        tts_say("Sorry, I can't control brightness yet")
+    elif intent == "LevelIntent":
+        tts_say("Sorry, I can't control device levels yet")
     elif intent == "BroadcastIntent" or intent == "TalkIntent":
         tts_say("Sorry, I can't broadcast messages yet")
     elif intent == "ListIntent":
