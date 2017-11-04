@@ -42,9 +42,9 @@ def on_connect(client, userdata, flags, rc):
     mqtt_client.subscribe('assistant/broadcast', qos=2)
 
 def on_message(client, userdata, msg):
-    message = msg.payload
+    message = str(msg.payload)
     if msg.topic == BROADCAST_TOPIC:
-        payload_split = msg.payload.split(":")
+        payload_split = message.split(":")
         message = payload_split[0]
         source = payload_split[1]
         if source == assistant_room:
