@@ -32,22 +32,39 @@ def handle_power_intent(json_message):
 
     devices = []
     if room == "house":
-        devices = [device for device in hassutil.get_all_switches_and_lights()]
+        devices = hassutil.get_all_switches_and_lights()
     else:
-        devices = [device for device in hassutil.get_group_switches_and_lights(room)]
+        devices = hassutil.get_group_switches_and_lights(room)
 
     is_on_action = (json_message['PowerVerb'] == "turn on")
-    device = json_message['PowerableObject'].lower().replace(" ", "_")
+
+    device = None
+    deviceType = None
+    for objectType in ["LightObject", "LampObject", "MediaObject"]:
+        try:
+            device = json_message[objectType].lower().replace(" ", "_")
+            deviceType = objectType
+        except KeyError:
+            continue
+
+    if deviceType == "LightObject":
+        device = "light"
+    elif deviceType == "LampObject":
+        device = "lamp"
+
     level = json_message.get('Percentage')
     allMod = json_message.get('AllModifier') is not None
 
 
     if allMod:
-        if device in ["lights","light","lamp","lampes","lamps"]:
+        if deviceType == "LightObject":
+            tts_say("Okay")
             for entity in [obj for obj in devices if "light" in obj or "lamp" in obj]:
                 turn_off_on(entity, is_on_action)
-
-    tts_say("Turning {} the {}".format("on" if is_on_action else "off", device))
+    else:
+        tts_say("Okay")
+        for entity in [obj for obj in devices if device in obj.split(".")[1]]:
+            turn_off_on(entity, is_on_action)
 
 def turn_off_on(entity, on):
     action = "turn_on" if on else "turn_off"

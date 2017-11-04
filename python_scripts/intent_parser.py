@@ -84,6 +84,11 @@ entity_json = {
         ],
         "AllModifier": [
             "all"
+        ],
+        "GoodnightVerb": [
+            "good night",
+            "nighty night",
+            "commence bed time sequence"
         ]
     },
     "Regex": [
@@ -151,6 +156,11 @@ intents.append(\
 intents.append(\
     IntentBuilder("SceneIntent")\
     .require("SceneEvent")\
+    .build())
+
+intents.append(\
+    IntentBuilder("GoodnightCommand")\
+    .require("GoodnightVerb")\
     .build())
 
 for intent in intents:
