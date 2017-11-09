@@ -9,6 +9,13 @@ BROADCAST_ROOM = "broadcast"
 api = remote.API('127.0.0.1')
 received_room = None
 
+class Entity(object):
+    def __init__(self, fully_qualified_name):
+        fqn_split = fully_qualified_name.split(".")
+        self.domain = fqn_split[0]
+        self.name = fqn_split[1]
+        self.entity_id = fully_qualified_name
+
 def handle_json_request(json_message):
     intent = json_message['intent_type']
     if intent == "PowerIntent":
@@ -32,9 +39,9 @@ def handle_power_intent(json_message):
 
     devices = []
     if room == "house":
-        devices = hassutil.get_all_switches_and_lights()
+        devices = [Entity(name) for name in hassutil.get_all_switches_and_lights()]
     else:
-        devices = hassutil.get_group_switches_and_lights(room)
+        devices = [Entity(name) for name in hassutil.get_group_switches_and_lights(room)]
 
     is_on_action = (json_message['PowerVerb'] == "turn on")
 
@@ -59,16 +66,24 @@ def handle_power_intent(json_message):
     if allMod:
         if deviceType == "LightObject":
             tts_say("Okay")
-            for entity in [obj for obj in devices if "light" in obj or "lamp" in obj]:
-                turn_off_on(entity, is_on_action)
+            for entity in devices:
+                if "lamp" in name or "light" in name:
+                    turn_off_on(entity, is_on_action, level)
     else:
         tts_say("Okay")
-        for entity in [obj for obj in devices if device in obj.split(".")[1]]:
-            turn_off_on(entity, is_on_action)
+        for entity in devices:
+            if device in name:
+                turn_off_on(entity, is_on_action, level)
 
-def turn_off_on(entity, on):
-    action = "turn_on" if on else "turn_off"
-    remote.call_service(api, "switch", action, {"entity_id": entity})
+def turn_off_on(entity, on, brightness):
+    brightness = 75 if brightness is None else brightness.replace("%", "")
+    if on:
+        if entity.domain == "light":
+            remote.call_service(api, entity.domain, "turn_on", {"entity_id": entity.entity_id, "brightness_pct": brightness})
+        else:
+            remote.call_service(api, entity.domain, "turn_on", {"entity_id": entity.entity_id})
+    else:
+        remote.call_service(api, entity.domain, "turn_off", {"entity_id": entity.entity_id})
 
 def log(message):
     remote.call_service(api, "logbook", "log", {"name": "intent_processor.py", "message": message})
