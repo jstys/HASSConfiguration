@@ -33,9 +33,8 @@ import intent_parser
 
 BROADCAST_TOPIC = "assistant/broadcast"
 
-assistant_room = "living_room" #TODO: parameterize this
-mqtt_name = "_".join([assistant_room, "assistant"]) #TODO: parameterize this
-mqtt_client = mqtt.Client(client_id=mqtt_name, protocol=mqtt.MQTTv31)
+assistant_room = None
+mqtt_client = None
 
 def on_connect(client, userdata, flags, rc):
     mqtt_client.subscribe('assistant/{}/tts'.format(assistant_room), qos=2)
@@ -69,6 +68,8 @@ def process_event(event, assistant):
 
 
 def main():
+    global assistant_room, mqtt_client
+
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument('--credentials', type=existing_file,
@@ -79,15 +80,20 @@ def main():
                             'credentials.json'
                         ),
                         help='Path to store and read OAuth2 credentials')
+    parser.add_argument("broker_ip", type=str)
+    parser.add_argument("broker_port", type=int)
+    parser.add_argument("room_name", type=str)
+
     args = parser.parse_args()
     with open(args.credentials, 'r') as f:
         credentials = google.oauth2.credentials.Credentials(token=None,
                                                             **json.load(f))
 
-
-    # TODO: add more arguments
-    broker_ip = "10.0.0.6"
-    broker_port = 1883
+    broker_ip = args.broker_ip
+    broker_port = args.broker_port
+    assistant_room = args.room_name
+    mqtt_name = "_".join([assistant_room, "assistant"])
+    mqtt_client = mqtt.Client(client_id=mqtt_name, protocol=mqtt.MQTTv31)
 
     mqtt_client.on_connect = on_connect
     mqtt_client.on_message = on_message
