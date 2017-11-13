@@ -49,7 +49,7 @@ def on_message(client, userdata, msg):
         if source == assistant_room:
             message = "Your message has been shared"
 
-    subprocess.call(['pico2wave', '-w', 'tmp.wav', message])
+    subprocess.call(['pico2wave', '-l', 'en-GB', '-w', 'tmp.wav', message])
     subprocess.call(['aplay', 'tmp.wav'])
 
 def process_event(event, assistant):

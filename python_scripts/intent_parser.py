@@ -44,9 +44,7 @@ entity_json = {
             "lampes"
         ],
         "MediaObject": [
-            "TV",
-            "speaker",
-            "chromecast"
+            "TV"
         ],
         "LevelVerb": [
             "dim",
@@ -95,7 +93,8 @@ entity_json = {
         "(?P<Percentage>[0-9]+%)",
         "add (?P<ListItemAdd>.*) to",
         "remove (?P<ListItemRemove>.*) from",
-        "its (?P<SceneEvent>.*) time"
+        "its (?P<SceneEvent>.*) time",
+        "the (?P<InputName>.*) input"
     ]
 }
 
@@ -122,7 +121,7 @@ intents.append(\
     .require("PowerVerb")\
     .optionally("AllModifier")\
     .optionally("Room")\
-    .one_of("LightObject", "LampObject", "MediaObject")\
+    .one_of("LightObject", "LampObject", "MediaObject", "InputName")\
     .optionally("Percentage")\
     .build())
 
