@@ -1,0 +1,9 @@
+AppDaemon:
+  logfile: STDOUT
+  errorfile: STDERR
+  logsize: 100000
+  log_generations: 3
+  threads: 10
+  api_port: 5000
+HASS:
+  ha_url: <hass_url>
