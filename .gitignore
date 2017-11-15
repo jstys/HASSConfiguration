@@ -3,3 +3,4 @@ private/
 .vscode/*
 www/*
 *.pyc
+switchmate.yaml
