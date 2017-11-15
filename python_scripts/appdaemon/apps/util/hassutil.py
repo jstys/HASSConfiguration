@@ -3,6 +3,7 @@ import os
 
 HASS_DIR = "/home/homeassistant/.homeassistant"
 GROUPS = "groups.yaml"
+BROADCAST_ROOM = "broadcast"
 
 class Entity(object):
     def __init__(self, fully_qualified_name):
@@ -56,3 +57,9 @@ def get_group_switches_and_lights(group, parsed_yaml):
                 result.extend(get_group_switches_and_lights(entity.name, parsed_yaml))
 
     return result
+
+def tts_say(api, message, tts_room=BROADCAST_ROOM, source=None):
+        if tts_room == BROADCAST_ROOM:
+            api.call_service("/".join(["script", "assistant_broadcast"]), message=message, source=source)
+        else:
+            api.call_service("/".join(["script", "assistant_voice"]), message=message, room=tts_room)

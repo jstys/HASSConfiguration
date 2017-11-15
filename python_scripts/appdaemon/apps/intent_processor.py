@@ -5,7 +5,6 @@ import random
 from util import hassutil
 import appdaemon.appapi as appapi
 
-BROADCAST_ROOM = "broadcast"
 AFFIRMATIVE_RESPONSES = ["sure thing", "you got it", "as you wish", "no worries", "roger that"]
 
 class IntentReceiver(appapi.AppDaemon):
@@ -28,7 +27,7 @@ class IntentReceiver(appapi.AppDaemon):
             payload = new
             json_payload = json.loads(payload)
         except:
-            self.tts_say("Sorry, Im unable to understand your request")
+            hassutil.tts_say(self, "Sorry, Im unable to understand your request", tts_room=self.received_room)
 
         self.handle_json_request(json_payload)
 
@@ -38,17 +37,17 @@ class IntentReceiver(appapi.AppDaemon):
         if intent == "PowerIntent":
             self.handle_power_intent(json_message)
         elif intent == "MediaIntent":
-            self.tts_say("Sorry, I cant control media yet")
+            hassutil.tts_say(self, "Sorry, I cant control media yet", tts_room=self.received_room)
         elif intent == "LevelIntent":
-            self.tts_say("Sorry, I cant control device levels yet")
+            hassutil.tts_say(self, "Sorry, I cant control device levels yet", tts_room=self.received_room)
         elif intent == "BroadcastIntent" or intent == "TalkIntent":
-            self.tts_say("Sorry, I cant broadcast messages yet")
+            hassutil.tts_say(self, "Sorry, I cant broadcast messages yet", tts_room=self.received_room)
         elif intent == "ListIntent":
-            self.tts_say("Sorry, I cant manage your lists yet")
+            hassutil.tts_say(self, "Sorry, I cant manage your lists yet", tts_room=self.received_room)
         elif intent == "SceneIntent":
-            self.tts_say("Actually, its fuckin not")
+            hassutil.tts_say(self, "Actually, its fuckin not", tts_room=self.received_room)
         else:
-            self.tts_say("Sorry, I dont understand what youre asking")
+            hassutil.tts_say(self, "Sorry, I dont understand what youre asking", tts_room=self.received_room)
 
     def handle_power_intent(self, json_message):
         room = json_message.get('Room')
@@ -87,12 +86,12 @@ class IntentReceiver(appapi.AppDaemon):
 
         if allMod:
             if deviceType == "LightObject":
-                self.tts_say(random.choice(AFFIRMATIVE_RESPONSES))
+                hassutil.tts_say(self, random.choice(AFFIRMATIVE_RESPONSES), tts_room=self.received_room)
                 for entity in devices:
                     if "lamp" in entity.name or "light" in entity.name:
                         self.turn_off_on(entity, is_on_action, level)
         else:
-            self.tts_say(random.choice(AFFIRMATIVE_RESPONSES))
+            hassutil.tts_say(self, random.choice(AFFIRMATIVE_RESPONSES), tts_room=self.received_room)
             for entity in devices:
                 if device in entity.name:
                     self.turn_off_on(entity, is_on_action, level)
@@ -106,10 +105,3 @@ class IntentReceiver(appapi.AppDaemon):
                 self.turn_on(entity.entity_id)
         else:
             self.turn_off(entity.entity_id)
-
-    def tts_say(self, message, tts_room=None):
-        tts_room = self.received_room if tts_room is None else tts_room
-        if tts_room == BROADCAST_ROOM:
-            self.call_service("/".join(["script", "assistant_broadcast"]), message=message, source=self.received_room)
-        else:
-            self.call_service("/".join(["script", "assistant_voice"]), message=message, room=tts_room)
