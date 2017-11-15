@@ -1,17 +1,44 @@
-- platform: command_line
+- platform: template
   switches:
     bedroom_light:
       friendly_name: 'Bedroom Light'
-      command_on: !secret switchmate1_on
-      command_off: !secret switchmate1_off
+      value_template: "{{ is_state('input_boolean.bedroom_switchmate', 'on') }}"
+      turn_on:
+        event: bedroom_switchmate
+        event_data:
+          command: switch
+          on: True
+      turn_off:
+        event: bedroom_switchmate
+        event_data:
+          command: switch
+          on: False
     living_room_light:
       friendly_name: 'Living Room Light'
-      command_on: !secret switchmate2_on
-      command_off: !secret switchmate2_off
+      value_template: "{{ is_state('input_boolean.living_room_switchmate', 'on') }}"
+      turn_on:
+        event: living_room_switchmate
+        event_data:
+          command: switch
+          on: True
+      turn_off:
+        event: living_room_switchmate
+        event_data:
+          command: switch
+          on: False
     kitchen_light:
       friendly_name: 'Kitchen Light'
-      command_on: !secret switchmate3_on
-      command_off: !secret switchmate3_off
+      value_template: "{{ is_state('input_boolean.kitchen_switchmate', 'on') }}"
+      turn_on:
+        event: kitchen_switchmate
+        event_data:
+          command: switch
+          on: True
+      turn_off:
+        event: kitchen_switchmate
+        event_data:
+          command: switch
+          on: False
 - platform: template
   switches:
     living_room_tv:

@@ -20,6 +20,7 @@ import functools
 from binascii import hexlify, unhexlify
 
 from bluepy.btle import Scanner, DefaultDelegate, Peripheral, ADDR_TYPE_RANDOM, BTLEException
+from util import hassutil
 import appdaemon.appapi as appapi
 
 SWITCHMATE_SERVICE = '23d1bcea5f782315deef121223150000'
@@ -31,6 +32,8 @@ AUTH_INIT_VALUE = struct.pack('<BBBBBB', 0x00, 0x00, 0x00, 0x00, 0x01, 0x00)
 
 STATE_HANDLE = 0x000e
 STATE_NOTIFY_HANDLE = 0x000f
+
+SWITCHMATE_CONFIG = "/home/homeassistant/.homeassistant/python_scripts/appdaemon/apps/switchmate.yaml"
 
 def c_mul(a, b):
     '''
@@ -56,35 +59,40 @@ def sign(data, key):
     return packed
 
 class NotificationDelegate(DefaultDelegate):
-    def __init__(self):
+    def __init__(self, appdaemonAPI):
         DefaultDelegate.__init__(self)
         self.retry_count = 0
         self.retry_max = 0
         self.retry_method = None
+        self.entity = None
+        self.target_state = None
+        self.apiHandler = appdaemonAPI
 
     def setRetryParams(self, retry_max, retry_method):
         self.retry_max = retry_max
         self.retry_method = retry_method
 
+    def setToggleEntity(self, entity):
+        self.entity = entity
+
+    def setTargetState(self, state):
+        self.target_state = state
+
     def handleNotification(self, handle, data):
-        print('')
-        succeeded = True
         if handle == AUTH_HANDLE:
             print('Auth key is {}'.format(hexlify(data[3:]).upper()))
         else:
             if data[-1] == 0:
                 print('Switched!')
+                self.apiHandler.set_state(self.entity, state=self.target_state)
             else:
                 print('Switching failed!')
-                succeeded = False
 
                 if self.retry_count < self.retry_max:
                     self.retry_count += 1
                     print("Retry number {}".format(self.retry_count))
 
                     self.retry_method()
-
-        device.disconnect()
 
 class ScanDelegate(DefaultDelegate):
     def __init__(self, mac_address):
@@ -111,44 +119,62 @@ class ScanDelegate(DefaultDelegate):
             else:
                 print('on')
 
+class SwitchmateSwitch(object):
+    def __init__(self, name, mac, auth):
+        self.name = name
+        self.mac = mac
+        self.auth = auth
+
+
 class SwitchmateSwitcher(appapi.AppDaemon):
     def __init__(self):
-        self.notifications = NotificationDelegate()
+        self.switchmate_config = None
+        self.switches = {}
 
     def initialize(self):
-        self.listen_event(self.on_switchmate_command, "switchmate_command")
+        self.switchmate_config = hassutil.read_config_file(SWITCHMATE_CONFIG)
+        for name, config in self.switchmate_config.items():
+            self.switches[name] = SwitchmateSwitch(name, config.get('mac'), config.get('auth'))
+            self.listen_event(self.on_switchmate_command, name)
 
-    def on_switchmate_command(self, **kwargs):
-        mac = kwargs.get('mac')
+    def on_switchmate_command(self, event, kwargs):
+        notifications = NotificationDelegate(self)
+        switch = self.switches.get(event)
+        if switch is None:
+            return
+
         command = kwargs.get('command')
-        auth = kwargs.get('auth')
         on = kwargs.get('on')
 
-        if command == "status" and mac is not None:
-            self.status(mac)
+        if command == "status" and switch.mac is not None:
+            self.status_command(switch.mac)
         elif command == "scan":
-            self.scan()
-        elif command == "switch" and mac is not None and auth is not None:
-            device = self.connect(mac)
+            self.scan_command()
+        elif command == "switch" and switch.mac is not None and switch.auth is not None:
+            device = self.connect(switch.mac)
             if device is None:
                 return
 
             if command == "switch":
-                auth_key = unhexlify(auth)
-                switch_method = functools.partial(self.switch, self.device, auth_key, on)
-                self.notifications.setRetryParams(5, switch_method)
+                auth_key = unhexlify(switch.auth)
+                switch_method = functools.partial(self.switch_command, device, auth_key, on)
+                notifications.setRetryParams(5, switch_method)
+                notifications.setToggleEntity(".".join(["input_boolean", switch.name]))
+                notifications.setTargetState("on" if on else "off")
 
-            device.setDelegate(self.notifications)
+            device.setDelegate(notifications)
 
             switch_method()
 
             print('Waiting for response', end='')
             while True:
-                device.waitForNotifications(1.0)
+                if device.waitForNotifications(1.0):
+                    device.disconnect()
+                    break
                 print('.', end='')
                 sys.stdout.flush()
 
-    def status(self, mac_address):
+    def status_command(self, mac_address):
         print('Looking for switchmate status...')
         sys.stdout.flush()
 
@@ -159,7 +185,7 @@ class SwitchmateSwitcher(appapi.AppDaemon):
         scanner.process(20)
         scanner.stop()
 
-    def scan(self):
+    def scan_command(self):
         print('Scanning...')
         sys.stdout.flush()
 
@@ -194,7 +220,7 @@ class SwitchmateSwitcher(appapi.AppDaemon):
 
         return device
 
-    def switch(self, device, auth_key, on):
+    def switch_command(self, device, auth_key, on):
         val = None
         device.writeCharacteristic(STATE_NOTIFY_HANDLE, NOTIFY_VALUE, True)
         if on:
