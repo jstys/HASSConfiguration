@@ -75,9 +75,6 @@ switch 3:
     host: 10.0.0.11
     mac: !secret broadlink2_mac
 
-shell_command:
-  intent_processor: "/srv/homeassistant/bin/python3 /home/homeassistant/.homeassistant/python_scripts/intent_processor.py {{ topic }} '{{ intent }}'"
-
 python_script:
 
 logger:
