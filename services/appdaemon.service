@@ -4,6 +4,7 @@ After=home-assistant@homeassistant.service
 [Service]
 Type=simple
 User=homeassistant
-ExecStart=/usr/local/bin/appdaemon -c /home/homeassistant/.homeassistant/appdaemon
+WorkingDirectory=/home/homeassistant/.homeassistant/python_scripts
+ExecStart=/srv/homeassistant/bin/appdaemon -c /home/homeassistant/.homeassistant/python_scripts/appdaemon
 [Install]
 WantedBy=multi-user.target

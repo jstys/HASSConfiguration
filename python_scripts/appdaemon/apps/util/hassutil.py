@@ -18,9 +18,8 @@ def read_config_file(filename):
     except:
         return {}
 
-def get_tv_input_scripts(room):
+def get_tv_input_scripts(room, parsed_yaml):
     result = []
-    parsed_yaml = read_config_file(os.path.join(HASS_DIR, GROUPS))
 
     group_entity = parsed_yaml.get(room)
     if group_entity is not None:
@@ -29,13 +28,12 @@ def get_tv_input_scripts(room):
             if entity.domain == "script" and "input" in entity.name:
                 result.append(entity)
             elif entity.domain == "group":
-                result.extend(get_tv_input_scripts(entity.name))
+                result.extend(get_tv_input_scripts(entity.name, parsed_yaml))
 
     return result
 
-def get_all_switches_and_lights():
+def get_all_switches_and_lights(parsed_yaml):
     result = []
-    parsed_yaml = read_config_file(os.path.join(HASS_DIR, GROUPS))
 
     for name, group in parsed_yaml.items():
         for entity_name in group['entities']:
@@ -45,9 +43,8 @@ def get_all_switches_and_lights():
 
     return result
 
-def get_group_switches_and_lights(group):
+def get_group_switches_and_lights(group, parsed_yaml):
     result = []
-    parsed_yaml = read_config_file(os.path.join(HASS_DIR, GROUPS))
 
     group_entity = parsed_yaml.get(group)
     if group_entity is not None:
@@ -56,6 +53,6 @@ def get_group_switches_and_lights(group):
             if entity.domain in ["light", "switch"]:
                 result.append(entity)
             elif entity.domain == "group":
-                result.extend(get_group_switches_and_lights(entity.name))
+                result.extend(get_group_switches_and_lights(entity.name, parsed_yaml))
 
     return result

@@ -191,13 +191,3 @@
     - service: switch.turn_on
       data:
         entity_id: switch.bedroom_tv
-
-- alias: Assistant MQTT
-  trigger:
-    platform: mqtt
-    topic: assistant/+/intent
-  action:
-    - service: shell_command.intent_processor
-      data_template:
-        intent: '{{ trigger.payload }}'
-        topic: '{{ trigger.topic }}'

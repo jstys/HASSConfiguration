@@ -60,6 +60,10 @@ sensor:
   - platform: nhl_box_score
     team: 'New Jersey Devils'
     calendar: 'calendar.devils_games'
+  - platform: mqtt
+    state_topic: 'assistant/+/intent'
+    name: 'Assistant Command Sensor'
+    qos: 2
 
 switch 2:
   - platform: broadlink

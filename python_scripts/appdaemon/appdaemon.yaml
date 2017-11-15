@@ -1,6 +1,6 @@
 AppDaemon:
-  logfile: STDOUT
-  errorfile: STDERR
+  logfile: /tmp/appdaemon.log
+  errorfile: /tmp/appdaemon.log
   logsize: 100000
   log_generations: 3
   threads: 10
