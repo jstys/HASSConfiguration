@@ -80,17 +80,17 @@ class NotificationDelegate(DefaultDelegate):
 
     def handleNotification(self, handle, data):
         if handle == AUTH_HANDLE:
-            print('Auth key is {}'.format(hexlify(data[3:]).upper()))
+            self.apiHandler.log('Auth key is {}'.format(hexlify(data[3:]).upper()))
         else:
             if data[-1] == 0:
-                print('Switched!')
+                self.apiHandler.log("Switched successfully")
                 self.apiHandler.set_state(self.entity, state=self.target_state)
             else:
-                print('Switching failed!')
+                self.apiHandler.log("Switch failed")
 
                 if self.retry_count < self.retry_max:
                     self.retry_count += 1
-                    print("Retry number {}".format(self.retry_count))
+                    self.apiHandler.log("Retry number {}".format(self.retry_count))
 
                     self.retry_method()
 
@@ -127,24 +127,26 @@ class SwitchmateSwitch(object):
 
 
 class SwitchmateSwitcher(appapi.AppDaemon):
-    def __init__(self):
+    def __init__(self, name, logger, error, args, global_vars):
+        super().__init__(name, logger, error, args, global_vars)
         self.switchmate_config = None
         self.switches = {}
 
     def initialize(self):
         self.switchmate_config = hassutil.read_config_file(SWITCHMATE_CONFIG)
+        self.log("Loaded switchmate config: {}".format(self.switchmate_config))
         for name, config in self.switchmate_config.items():
             self.switches[name] = SwitchmateSwitch(name, config.get('mac'), config.get('auth'))
             self.listen_event(self.on_switchmate_command, name)
 
-    def on_switchmate_command(self, event, kwargs):
+    def on_switchmate_command(self, event, data, kwargs):
         notifications = NotificationDelegate(self)
         switch = self.switches.get(event)
         if switch is None:
             return
 
-        command = kwargs.get('command')
-        on = kwargs.get('on')
+        command = data.get('command')
+        on = data.get('is_on')
 
         if command == "status" and switch.mac is not None:
             self.status_command(switch.mac)
@@ -166,16 +168,15 @@ class SwitchmateSwitcher(appapi.AppDaemon):
 
             switch_method()
 
-            print('Waiting for response', end='')
-            while True:
+            self.log('Waiting for response')
+            for _ in range(10):
                 if device.waitForNotifications(1.0):
-                    device.disconnect()
                     break
-                print('.', end='')
-                sys.stdout.flush()
+
+            device.disconnect()
 
     def status_command(self, mac_address):
-        print('Looking for switchmate status...')
+        self.log('Looking for switchmate status...')
         sys.stdout.flush()
 
         scanner = Scanner().withDelegate(ScanDelegate(mac_address))
@@ -186,7 +187,7 @@ class SwitchmateSwitcher(appapi.AppDaemon):
         scanner.stop()
 
     def scan_command(self):
-        print('Scanning...')
+        self.log('Scanning...')
         sys.stdout.flush()
 
         scanner = Scanner()
@@ -202,11 +203,11 @@ class SwitchmateSwitcher(appapi.AppDaemon):
                     switchmates.append(dev)
 
         if len(switchmates):
-            print('Found Switchmates:')
+            self.log('Found Switchmates:')
             for switchmate in switchmates:
-                print(switchmate.addr)
+                self.log(switchmate.addr)
         else:
-            print('No Switchmate devices found');
+            self.log('No Switchmate devices found');
 
     def connect(self, mac, retries=5):
         device = None
@@ -216,7 +217,7 @@ class SwitchmateSwitcher(appapi.AppDaemon):
                 device = Peripheral(mac, ADDR_TYPE_RANDOM)
             except BTLEException:
                 attempts += 1
-                print("Attempting to connect count = {}".format(attempts))
+                self.log("Attempting to connect count = {}".format(attempts))
 
         return device
 

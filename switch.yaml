@@ -7,12 +7,12 @@
         event: bedroom_switchmate
         event_data:
           command: switch
-          on: True
+          is_on: True
       turn_off:
         event: bedroom_switchmate
         event_data:
           command: switch
-          on: False
+          is_on: False
     living_room_light:
       friendly_name: 'Living Room Light'
       value_template: "{{ is_state('input_boolean.living_room_switchmate', 'on') }}"
@@ -20,12 +20,12 @@
         event: living_room_switchmate
         event_data:
           command: switch
-          on: True
+          is_on: True
       turn_off:
         event: living_room_switchmate
         event_data:
           command: switch
-          on: False
+          is_on: False
     kitchen_light:
       friendly_name: 'Kitchen Light'
       value_template: "{{ is_state('input_boolean.kitchen_switchmate', 'on') }}"
@@ -33,12 +33,12 @@
         event: kitchen_switchmate
         event_data:
           command: switch
-          on: True
+          is_on: True
       turn_off:
         event: kitchen_switchmate
         event_data:
           command: switch
-          on: False
+          is_on: False
 - platform: template
   switches:
     living_room_tv:
