@@ -1,3 +1,7 @@
 intent_processor:
   module: intent_processor
   class: IntentReceiver
+
+switchmate_switcher:
+  module: switchmate
+  class: SwitchmateSwitcher
