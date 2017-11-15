@@ -17,14 +17,26 @@ weather:
     - sensor.pws_weather
     - sensor.pws_alerts
 
+kitchen:
+  name: Kitchen
+  view: yes
+  entities:
+    - binary_sensor.motion_sensor_158d00016612a5
+    - binary_sensor.door_window_sensor_158d0001d3a024
+    - group.kitchen_lights
+
+kitchen_lights:
+  name: Lights
+  view: no
+  entities:
+    - switch.kitchen_light
+
 living_room:
   name: Living Room
   view: yes
   entities:
     - binary_sensor.motion_sensor_158d0001661247
-    - binary_sensor.motion_sensor_158d00016612a5
     - sensor.temperature_158d0001d6f386
-    - binary_sensor.door_window_sensor_158d0001d3a024
     - group.living_room_lights
     - group.living_room_tv_control
     - group.living_room_lamps
@@ -42,18 +54,17 @@ living_room_tv_control:
     - script.living_room_chromecast_input
 
 living_room_lamps:
-  name: Living Room Lamps
+  name: Lamps
   view: no
   entities:
     - light.living_room_lamp_1
     - light.living_room_lamp_2
 
 living_room_lights:
-  name: Main Overheads
+  name: Lights
   view: no
   entities:
     - switch.living_room_light
-    - switch.kitchen_light
 
 bedroom:
   name: Bedroom
@@ -64,7 +75,7 @@ bedroom:
     - media_player.bedroom_cast
 
 bedroom_lights:
-  name: Bedroom Overheads
+  name: Lights
   view: no
   entities:
     - switch.bedroom_light
