@@ -58,8 +58,8 @@ def get_group_switches_and_lights(group, parsed_yaml):
 
     return result
 
-def tts_say(api, message, tts_room=BROADCAST_ROOM, source=None):
-        if tts_room == BROADCAST_ROOM:
-            api.call_service("/".join(["script", "assistant_broadcast"]), message=message, source=source)
-        else:
-            api.call_service("/".join(["script", "assistant_voice"]), message=message, room=tts_room)
+def tts_say(api, message, tts_room):
+    api.call_service("/".join(["script", "assistant_voice"]), message=message, room=tts_room)
+
+def tts_broadcast(api, message, source="HASS"):
+    api.call_service("/".join(["script", "assistant_broadcast"]), message=message, source=source)

@@ -5,3 +5,7 @@ intent_processor:
 switchmate_switcher:
   module: switchmate
   class: SwitchmateSwitcher
+
+nhl_announcer:
+  module: nhl_announcer
+  class: NHLAnnouncer
