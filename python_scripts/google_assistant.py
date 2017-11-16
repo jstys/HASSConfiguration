@@ -41,15 +41,16 @@ def on_connect(client, userdata, flags, rc):
     mqtt_client.subscribe('assistant/broadcast', qos=2)
 
 def on_message(client, userdata, msg):
-    message = str(msg.payload)
+    message = msg.payload.strip().decode('utf-8')
     if msg.topic == BROADCAST_TOPIC:
         payload_split = message.split(":")
-        message = payload_split[0]
-        source = payload_split[1]
+        message = payload_split[0].strip()
+        source = payload_split[1].strip()
         if source == assistant_room:
             message = "Your message has been shared"
 
-    subprocess.call(['pico2wave', '-l', 'en-GB', '-w', 'tmp.wav', message])
+    pico_command = ['pico2wave', '-l', 'en-GB', '-w', 'tmp.wav', message]
+    subprocess.call(pico_command)
     subprocess.call(['aplay', 'tmp.wav'])
 
 def process_event(event, assistant):
