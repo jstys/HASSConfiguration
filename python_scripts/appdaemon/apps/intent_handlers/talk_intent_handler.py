@@ -13,7 +13,9 @@ def handle(api, json_message, received_room):
     actual_message = " ".join(["the", destination_room, "says", raw_message[(room_index + room_len + 1):]])
 
     if destination_room == "house":
-        hassutil.tts_broadcast(api, actual_message)
+        api.log("Broadcasting {} from {}".format(actual_message, received_room))
+        hassutil.tts_broadcast(api, actual_message, source=received_room)
     else:
-        hassutil.tts_say(api, actual_message, destination_room)
+        api.log("Saying {} in {}".format(actual_message, destination_room))
+        hassutil.tts_say(api, actual_message, destination_room.replace(" ", "_"))
 
