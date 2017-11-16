@@ -24,7 +24,14 @@ class NHLAnnouncer(appapi.AppDaemon):
         scorer = data.get('scorer')
         scorer_number = scorer.get('number')
         scorer_name = scorer.get('name')
-        tts_broadcast(self, "{} goal scored by number {}, {}".format(team, scorer_number, scorer_name))
+        assists = data.get('assists')
+        tts_message = "{} goal scored by number {}, {}.".format(team, scorer_number, scorer_name)
+        if assists:
+            tts_message += " Assisted by"
+            for assist_player in assists:
+                tts_message += " number {}, {}".format(assist_player.get('number'), assist_player.get('name'))
+
+        tts_broadcast(self, tts_message)
 
     def on_penalty(self, event, data, kwargs):
         team = data.get('team')

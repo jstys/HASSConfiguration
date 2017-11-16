@@ -5,6 +5,7 @@ import random
 from util import hassutil
 import appdaemon.appapi as appapi
 from intent_handlers import power_intent_handler
+from intent_handlers import talk_intent_handler
 
 class IntentReceiver(appapi.AppDaemon):
     def __init__(self, name, logger, error, args, global_vars):
@@ -39,8 +40,8 @@ class IntentReceiver(appapi.AppDaemon):
             hassutil.tts_say(self, "Sorry, I cant control media yet", tts_room=self.received_room)
         elif intent == "LevelIntent":
             hassutil.tts_say(self, "Sorry, I cant control device levels yet", tts_room=self.received_room)
-        elif intent == "BroadcastIntent" or intent == "TalkIntent":
-            hassutil.tts_say(self, "Sorry, I cant broadcast messages yet", tts_room=self.received_room)
+        elif intent == talk_intent_handler.INTENT:
+            talk_intent_handler.handle(self, json_message, self.received_room)
         elif intent == "ListIntent":
             hassutil.tts_say(self, "Sorry, I cant manage your lists yet", tts_room=self.received_room)
         elif intent == "SceneIntent":

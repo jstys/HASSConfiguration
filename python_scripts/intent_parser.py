@@ -126,11 +126,6 @@ intents.append(\
     .build())
 
 intents.append(\
-    IntentBuilder("BroadcastIntent")\
-    .require("BroadcastVerb")\
-    .build())
-
-intents.append(\
     IntentBuilder("MediaIntent")\
     .require("MediaVerb")\
     .optionally("AllModifier")\
@@ -149,7 +144,7 @@ intents.append(\
 intents.append(\
     IntentBuilder("TalkIntent")\
     .require("TalkVerb")\
-    .optionally("Room")\
+    .require("Room")\
     .build())
 
 intents.append(\
