@@ -26,9 +26,9 @@
     light.gateway_light_34ce008dcec1:
       friendly_name: "Gateway Light"
     binary_sensor.motion_sensor_158d0001661247:
-      friendly_name: "Living Room"
+      friendly_name: "Motion"
     binary_sensor.motion_sensor_158d00016612a5:
-      friendly_name: "Kitchen"
+      friendly_name: "Motion"
     sensor.temperature_158d0001d6f386:
       friendly_name: "Temperature"
     binary_sensor.door_window_sensor_158d0001d3a024:

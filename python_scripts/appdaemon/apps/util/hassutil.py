@@ -4,6 +4,7 @@ import os
 HASS_DIR = "/home/homeassistant/.homeassistant"
 GROUPS = "groups.yaml"
 BROADCAST_ROOM = "broadcast"
+AFFIRMATIVE_RESPONSES = ["sure thing", "you got it", "as you wish", "no worries", "roger that"]
 
 class Entity(object):
     def __init__(self, fully_qualified_name):
@@ -63,3 +64,13 @@ def tts_say(api, message, tts_room):
 
 def tts_broadcast(api, message, source="HASS"):
     api.call_service("/".join(["script", "assistant_broadcast"]), message=message, source=source)
+
+def turn_off_on(api, entity, on, brightness):
+    brightness = 75 if brightness is None else brightness.replace("%", "")
+    if on:
+        if entity.domain == "light":
+            api.turn_on(entity.entity_id, brightness_pct=brightness)
+        else:
+            api.turn_on(entity.entity_id)
+    else:
+        api.turn_off(entity.entity_id)

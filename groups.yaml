@@ -5,6 +5,9 @@ default_view:
     - device_tracker.erica_cell
     - device_tracker.jim_cell
     - group.weather
+    - group.kitchen
+    - group.living_room
+    - group.bedroom
 
 weather:
   name: Weather
@@ -19,7 +22,7 @@ weather:
 
 kitchen:
   name: Kitchen
-  view: yes
+  view: no
   entities:
     - binary_sensor.motion_sensor_158d00016612a5
     - binary_sensor.door_window_sensor_158d0001d3a024
@@ -33,7 +36,7 @@ kitchen_lights:
 
 living_room:
   name: Living Room
-  view: yes
+  view: no
   entities:
     - binary_sensor.motion_sensor_158d0001661247
     - sensor.temperature_158d0001d6f386
@@ -68,7 +71,7 @@ living_room_lights:
 
 bedroom:
   name: Bedroom
-  view: yes
+  view: no
   entities:
     - group.bedroom_tv_control
     - group.bedroom_lights

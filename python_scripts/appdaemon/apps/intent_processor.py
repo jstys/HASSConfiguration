@@ -4,8 +4,7 @@ import os
 import random
 from util import hassutil
 import appdaemon.appapi as appapi
-
-AFFIRMATIVE_RESPONSES = ["sure thing", "you got it", "as you wish", "no worries", "roger that"]
+from intent_handlers import power_intent_handler
 
 class IntentReceiver(appapi.AppDaemon):
     def __init__(self, name, logger, error, args, global_vars):
@@ -34,8 +33,8 @@ class IntentReceiver(appapi.AppDaemon):
     def handle_json_request(self, json_message):
         self.received_room = json_message.get('source')
         intent = json_message.get('intent_type')
-        if intent == "PowerIntent":
-            self.handle_power_intent(json_message)
+        if intent == power_intent_handler.INTENT:
+            power_intent_handler.handle(self, json_message, self.received_room, self.group_yaml)
         elif intent == "MediaIntent":
             hassutil.tts_say(self, "Sorry, I cant control media yet", tts_room=self.received_room)
         elif intent == "LevelIntent":
@@ -48,60 +47,3 @@ class IntentReceiver(appapi.AppDaemon):
             hassutil.tts_say(self, "Actually, its fuckin not", tts_room=self.received_room)
         else:
             hassutil.tts_say(self, "Sorry, I dont understand what youre asking", tts_room=self.received_room)
-
-    def handle_power_intent(self, json_message):
-        room = json_message.get('Room')
-        room = self.received_room if room is None else room
-
-        is_on_action = (json_message.get('PowerVerb') == "turn on")
-
-        device = None
-        deviceType = None
-        for objectType in ["LightObject", "LampObject", "MediaObject", "InputName"]:
-            try:
-                device = json_message[objectType].lower().replace(" ", "_")
-                deviceType = objectType
-            except KeyError:
-                device = None
-                deviceType = None
-                continue
-            else:
-                break
-
-        if deviceType == "LightObject":
-            device = "light"
-        elif deviceType == "LampObject":
-            device = "lamp"
-
-        devices = []
-        if deviceType == "InputName":
-            devices = [entity for entity in hassutil.get_tv_input_scripts(room, self.group_yaml)]
-        elif room == "house":
-            devices = [entity for entity in hassutil.get_all_switches_and_lights(self.group_yaml)]
-        else:
-            devices = [entity for entity in hassutil.get_group_switches_and_lights(room, self.group_yaml)]
-
-        level = json_message.get('Percentage')
-        allMod = json_message.get('AllModifier') is not None
-
-        if allMod:
-            if deviceType == "LightObject":
-                hassutil.tts_say(self, random.choice(AFFIRMATIVE_RESPONSES), tts_room=self.received_room)
-                for entity in devices:
-                    if "lamp" in entity.name or "light" in entity.name:
-                        self.turn_off_on(entity, is_on_action, level)
-        else:
-            hassutil.tts_say(self, random.choice(AFFIRMATIVE_RESPONSES), tts_room=self.received_room)
-            for entity in devices:
-                if device in entity.name:
-                    self.turn_off_on(entity, is_on_action, level)
-
-    def turn_off_on(self, entity, on, brightness):
-        brightness = 75 if brightness is None else brightness.replace("%", "")
-        if on:
-            if entity.domain == "light":
-                self.turn_on(entity.entity_id, brightness_pct=brightness)
-            else:
-                self.turn_on(entity.entity_id)
-        else:
-            self.turn_off(entity.entity_id)
