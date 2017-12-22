@@ -1,8 +1,16 @@
 jim_cell:
   hide_if_away: false
-  mac: !secret jim_cell_wifi_mac
+  mac:
   name: Jim
   picture: /local/jim.jpg
+  track: true
+  vendor:
+
+wifi_jim_cell:
+  hide_if_away: false
+  mac: !secret jim_cell_wifi_mac
+  name: Jim
+  picture:
   track: true
   vendor:
 
@@ -16,9 +24,17 @@ bt_jim_cell:
 
 erica_cell:
   hide_if_away: false
-  mac: !secret erica_cell_wifi_mac
+  mac:
   name: Erica
   picture: /local/erica.jpg
+  track: true
+  vendor:
+
+wifi_erica_cell:
+  hide_if_away: false
+  mac: !secret erica_cell_wifi_mac
+  name: Erica
+  picture:
   track: true
   vendor:
 
