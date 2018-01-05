@@ -32,6 +32,14 @@ discovery:
     - yamaha
     - yeelight
 
+notify:
+  - name: jim_pushbullet
+    platform: pushbullet
+    api_key: !secret jim_pushbullet_token
+  - name: erica_pushbullet
+    platform: pushbullet
+    api_key: !secret erica_pushbullet_token
+
 device_tracker:
   - platform: owntracks
     track_new_devices: False
