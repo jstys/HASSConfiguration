@@ -2,5 +2,6 @@ secrets.yaml
 private/
 .vscode/*
 www/*
+hassenv/*
 *.pyc
 switchmate.yaml
