@@ -3,21 +3,3 @@
   longitude: !secret home_longitude
   radius: 100
   icon: mdi:home
-
-- name: !secret zone2_name
-  latitude: !secret zone2_latitude
-  longitude: !secret zone2_longitude
-  radius: 100
-  icon: mdi:briefcase
-
-- name: !secret zone3_name
-  latitude: !secret zone3_latitude
-  longitude: !secret zone3_longitude
-  radius: 100
-  icon: mdi:briefcase
-
-- name: !secret zone4_name
-  latitude: !secret zone4_latitude
-  longitude: !secret zone4_longitude
-  radius: 100
-  icon: mdi:briefcase
