@@ -2,8 +2,6 @@ default_view:
   name: Home
   view: yes
   entities:
-    - device_tracker.erica_cell
-    - device_tracker.jim_cell
     - group.weather
     - group.kitchen
     - group.living_room

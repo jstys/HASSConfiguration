@@ -41,8 +41,6 @@ notify:
     api_key: !secret erica_pushbullet_token
 
 device_tracker:
-  - platform: owntracks
-    track_new_devices: False
   - platform: bluetooth_tracker
     track_new_devices: False
   - platform: asuswrt
@@ -92,15 +90,6 @@ logger:
     homeassistant.components.python_script: info
     homeassistant.components.recorder: info
     homeassistant.components.media_player.plex: critical
-
-emulated_hue:
-  type: google_home
-  listen_port: 80
-  exposed_domains:
-    - switch
-    - light
-    - media_player
-    - script
 
 google:
   client_id: !secret google_client_id
