@@ -35,6 +35,7 @@ kitchen_lights:
 living_room:
   name: Living Room
   view: no
+  control: hidden
   entities:
     - binary_sensor.motion_sensor_158d0001661247
     - sensor.temperature_158d0001d6f386
@@ -47,6 +48,7 @@ living_room:
 living_room_tv_control:
   name: TV Control
   view: no
+  control: hidden
   entities:
     - switch.living_room_tv
     - script.living_room_volume
@@ -70,6 +72,7 @@ living_room_lights:
 bedroom:
   name: Bedroom
   view: no
+  control: hidden
   entities:
     - group.bedroom_tv_control
     - group.bedroom_lights
@@ -84,6 +87,7 @@ bedroom_lights:
 bedroom_tv_control:
   name: TV Control
   view: no
+  control: hidden
   entities:
     - switch.bedroom_tv
     - script.bedroom_volume
