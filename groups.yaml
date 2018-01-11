@@ -7,6 +7,27 @@ default_view:
     - group.living_room
     - group.bedroom
 
+devices_view:
+  name: Devices
+  view: yes
+  entities:
+    - group.jim_cell_device
+    - group.erica_cell_device
+
+jim_cell_device:
+  name: Jim Cell
+  view: no
+  entities:
+    - device_tracker.bt_jim_cell
+    - device_tracker.wifi_jim_cell
+
+erica_cell_device:
+  name: Erica Cell
+  view: no
+  entities:
+    - device_tracker.bt_erica_cell
+    - device_tracker.wifi_erica_cell
+
 weather:
   name: Weather
   view: no
