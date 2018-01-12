@@ -77,14 +77,14 @@ def main():
     parser.add_argument('--credentials', type=existing_file,
                         metavar='OAUTH2_CREDENTIALS_FILE',
                         default=os.path.join(
-                            os.path.expanduser('~/.config'),
-                            'google-oauthlib-tool',
+                            os.path.realpath(__file__),
                             'credentials.json'
                         ),
                         help='Path to store and read OAuth2 credentials')
     parser.add_argument("broker_ip", type=str)
     parser.add_argument("broker_port", type=int)
     parser.add_argument("room_name", type=str)
+    parser.add_argument("device_model", type=str)
 
     args = parser.parse_args()
     with open(args.credentials, 'r') as f:
@@ -103,7 +103,7 @@ def main():
     mqtt_client.connect(broker_ip, broker_port)
     mqtt_client.loop_start()
 
-    with Assistant(credentials) as assistant:
+    with Assistant(credentials, args.device_model) as assistant:
         for event in assistant.start():
             process_event(event, assistant)
 

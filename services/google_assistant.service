@@ -4,7 +4,7 @@ Description=Google Assistant Service
 [Service]
 User=pi
 WorkingDirectory=/home/pi
-ExecStart=/home/pi/google_env/bin/python /home/pi/google_assistant.py <broker_ip> <broker_port> <room_name>
+ExecStart=/home/pi/google_env/bin/python /home/pi/google_assistant.py <broker_ip> <broker_port> <room_name> <device_id>
 Restart=always
 RestartSec=3
 
