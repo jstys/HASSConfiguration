@@ -77,7 +77,7 @@ def main():
     parser.add_argument('--credentials', type=existing_file,
                         metavar='OAUTH2_CREDENTIALS_FILE',
                         default=os.path.join(
-                            os.path.realpath(__file__),
+                            os.path.dirname(os.path.realpath(__file__)),
                             'credentials.json'
                         ),
                         help='Path to store and read OAuth2 credentials')
