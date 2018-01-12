@@ -65,7 +65,7 @@ sensor:
       - weather
   - platform: nhl_box_score
     team: 'New Jersey Devils'
-    calendar: 'calendar.devils_games'
+    calendar: 'calendar.new_jersey_devils'
   - platform: mqtt
     state_topic: 'assistant/+/intent'
     name: 'Assistant Command Sensor'
@@ -141,7 +141,8 @@ frontend:
 config:
 
 recorder:
-  purge_days: 2
+  purge_interval: 2
+  purge_keep_days: 2
 
 http:
   # Uncomment this to add a password (recommended!)
