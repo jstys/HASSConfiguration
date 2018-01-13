@@ -21,6 +21,7 @@ import argparse
 import os.path
 import json
 import subprocess
+import datetime
 
 import paho.mqtt.client as mqtt
 import google.oauth2.credentials
@@ -66,6 +67,7 @@ def process_event(event, assistant):
             assistant.stop_conversation()
             intent['raw'] = massaged_text
             intent['source'] = assistant_room
+            intent['timestamp'] = str(datetime.datetime.now())
             mqtt_client.publish("assistant/{}/intent".format(assistant_room), payload=json.dumps(intent), qos=2)
 
 
