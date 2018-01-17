@@ -59,6 +59,8 @@ def process_event(event, assistant):
         subprocess.call(['aplay', 'hotword.wav'])
 
     if event.type == EventType.ON_RECOGNIZING_SPEECH_FINISHED:
+        subprocess.call(['aplay', 'finished.wav'])
+
         text = event.args.get('text')
         print("Raw: {}".format(text))
 
