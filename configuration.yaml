@@ -48,7 +48,9 @@ device_tracker:
     username: !secret router_user
     password: !secret router_password
     protocol: ssh
-    track_new_devices: False
+    new_device_defaults:
+      track_new_devices: False
+      hide_if_away: False
 
 tts:
   platform: google
