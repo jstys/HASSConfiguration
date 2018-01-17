@@ -1,7 +1,7 @@
 living_room_cable_input:
   alias: Cable Input
   sequence:
-    - service: broadlink.send_packet_10_0_0_4
+    - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
           - !secret cable_input_ir
@@ -9,7 +9,7 @@ living_room_cable_input:
 living_room_xbox_input:
   alias: Xbox Input
   sequence:
-    - service: broadlink.send_packet_10_0_0_4
+    - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
           - !secret xbox_input_ir
@@ -17,7 +17,7 @@ living_room_xbox_input:
 living_room_chromecast_input:
   alias: Chromecast Input
   sequence:
-    - service: broadlink.send_packet_10_0_0_4
+    - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
           - !secret chromecast_input_ir
@@ -25,7 +25,7 @@ living_room_chromecast_input:
 living_room_volume:
   alias: Living Room Volume
   sequence:
-    - service: broadlink.send_packet_10_0_0_4
+    - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
           - !secret living_room_volume_ir
@@ -34,7 +34,7 @@ living_room_tv_on:
     - condition: state
       entity_id: input_boolean.living_room_tv
       state: 'off'
-    - service: broadlink.send_packet_10_0_0_4
+    - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
           - !secret living_room_tv_ir_on
@@ -50,7 +50,7 @@ living_room_tv_off:
     - condition: state
       entity_id: input_boolean.living_room_tv
       state: 'on'
-    - service: broadlink.send_packet_10_0_0_4
+    - service: switch.broadlink_.send_packet_10_0_0_4
       data:
         packet:
           - !secret living_room_tv_ir_off
@@ -64,7 +64,7 @@ living_room_tv_off:
 bedroom_volume:
   alias: Bedroom Volume
   sequence:
-    - service: broadlink.send_packet_10_0_0_11
+    - service: switch.broadlink_send_packet_10_0_0_11
       data:
         packet:
           - !secret bedroom_volume_ir
@@ -73,7 +73,7 @@ bedroom_tv_on:
     - condition: state
       entity_id: input_boolean.bedroom_tv
       state: 'off'
-    - service: broadlink.send_packet_10_0_0_11
+    - service: switch.broadlink_send_packet_10_0_0_11
       data:
         packet:
           - !secret bedroom_tv_ir_on
@@ -89,7 +89,7 @@ bedroom_tv_off:
     - condition: state
       entity_id: input_boolean.bedroom_tv
       state: 'on'
-    - service: broadlink.send_packet_10_0_0_11
+    - service: switch.broadlink_send_packet_10_0_0_11
       data:
         packet:
           - !secret bedroom_tv_ir_off
@@ -103,7 +103,7 @@ bedroom_tv_off:
 goal_horn:
   alias: Goal Lamp
   sequence:
-    - service: broadlink.send_packet_10_0_0_4
+    - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
           - !secret goal_lamp_ir
@@ -128,12 +128,12 @@ goal_horn:
 learnir_lr:
   alias: Learn IR Code Living Room
   sequence:
-    - service: broadlink.learn_command_10_0_0_4
+    - service: switch.broadlink_learn_command_10_0_0_4
 
 learnir_br:
   alias: Learn IR Code Bedroom
   sequence:
-    - service: broadlink.learn_command_10_0_0_11
+    - service: switch.broadlink_learn_command_10_0_0_11
 
 bedtime:
   sequence:
