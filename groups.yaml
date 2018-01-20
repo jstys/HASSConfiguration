@@ -2,6 +2,7 @@ default_view:
   name: Home
   view: yes
   entities:
+    - vacuum.xiaomi_vacuum_cleaner
     - group.weather
     - group.kitchen
     - group.living_room

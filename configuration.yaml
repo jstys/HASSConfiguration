@@ -99,6 +99,11 @@ google:
 
 sun:
 
+vacuum:
+  - platform: xiaomi_miio
+    host: 10.0.0.19
+    token: !secret xiaomi_vacuum_key
+
 xiaomi_aqara:
   gateways:
     - mac: !secret xiaomi1_mac
