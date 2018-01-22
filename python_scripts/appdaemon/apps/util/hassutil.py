@@ -2,7 +2,8 @@ import yaml
 import os
 
 HASS_DIR = "/home/homeassistant/.homeassistant"
-GROUPS = "groups.yaml"
+GROUPS = os.path.join(HASS_DIR, "groups.yaml")
+SECRETS = os.path.join(HASS_DIR, "secrets.yaml")
 BROADCAST_ROOM = "broadcast"
 AFFIRMATIVE_RESPONSES = ["sure thing", "you got it", "as you wish", "no worries", "roger that"]
 

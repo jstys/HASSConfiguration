@@ -15,7 +15,7 @@ class IntentReceiver(appapi.AppDaemon):
         self.group_yaml = None
 
     def initialize(self):
-        self.group_yaml = hassutil.read_config_file(os.path.join(hassutil.HASS_DIR, hassutil.GROUPS))
+        self.group_yaml = hassutil.read_config_file(hassutil.GROUPS)
         if self.group_yaml:
             self.log("Successfully parsed groups.yaml")
         else:
