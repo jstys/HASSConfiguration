@@ -6,6 +6,7 @@ from util import hassutil
 import appdaemon.appapi as appapi
 from intent_handlers import power_intent_handler
 from intent_handlers import talk_intent_handler
+from intent_handlers import vacuum_intent_handler
 
 class IntentReceiver(appapi.AppDaemon):
     def __init__(self, name, logger, error, args, global_vars):
@@ -46,5 +47,7 @@ class IntentReceiver(appapi.AppDaemon):
             hassutil.tts_say(self, "Sorry, I cant manage your lists yet", tts_room=self.received_room)
         elif intent == "SceneIntent":
             hassutil.tts_say(self, "Actually, its fuckin not", tts_room=self.received_room)
+        elif intent == "VacuumIntent":
+            vacuum_intent_handler.handle(self, json_message)
         else:
             hassutil.tts_say(self, "Sorry, I dont understand what youre asking", tts_room=self.received_room)

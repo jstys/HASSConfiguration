@@ -55,10 +55,15 @@ entity_json = {
             "turn on",
             "turn off"
         ],
+        "VacuumObject": [
+            "vacuum"
+        ],
         "MediaVerb": [
             "mute",
             "pause",
-            "resume"
+            "resume",
+            "stop",
+            "start"
         ],
         "BroadcastVerb": [
             "broadcast",
@@ -94,7 +99,8 @@ entity_json = {
         "add (?P<ListItemAdd>.*) to",
         "remove (?P<ListItemRemove>.*) from",
         "its (?P<SceneEvent>.*) time",
-        "the (?P<InputName>.*) input"
+        "the (?P<InputName>.*) input",
+        "the (?P<VacuumName>.*) vacuum"
     ]
 }
 
@@ -155,6 +161,13 @@ intents.append(\
 intents.append(\
     IntentBuilder("GoodnightCommand")\
     .require("GoodnightVerb")\
+    .build())
+
+intents.append(\
+    IntentBuilder("VacuumIntent")\
+    .require("MediaVerb")\
+    .optionally("VacuumName")
+    .require("VacuumObject")\
     .build())
 
 for intent in intents:
