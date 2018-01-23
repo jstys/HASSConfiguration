@@ -14,6 +14,10 @@ class Entity(object):
         self.name = fqn_split[1].strip()
         self.entity_id = fully_qualified_name
 
+    @classmethod
+    def fromSplitName(cls, domain, name):
+        return cls(".".join([domain, name]))
+
 def read_config_file(filename):
     try:
         with open(filename) as yamlfile:
@@ -61,10 +65,10 @@ def get_group_switches_and_lights(group, parsed_yaml):
     return result
 
 def tts_say(api, message, tts_room):
-    api.call_service("/".join(["script", "assistant_voice"]), message=message, room=tts_room)
+    call_service(api, "script", "assistant_voice", message=message, room=tts_room)
 
 def tts_broadcast(api, message, source="HASS"):
-    api.call_service("/".join(["script", "assistant_broadcast"]), message=message, source=source)
+    call_service(api, "script", "assistant_broadcast", message=message, source=source)
 
 def turn_off_on(api, entity, on, brightness):
     brightness = 75 if brightness is None else brightness.replace("%", "")
@@ -75,3 +79,6 @@ def turn_off_on(api, entity, on, brightness):
             api.turn_on(entity.entity_id)
     else:
         api.turn_off(entity.entity_id)
+
+def call_service(api, domain, action, **kwargs):
+    api.call_service("/".join([domain, action]), **kwargs)
