@@ -4,7 +4,7 @@ from util import hassutil
 INTENT = "VacuumIntent"
 _DEFAULT_VACUUM = "xiaomi_vacuum_cleaner"
 
-def handle(api, json_message):
+def handle(api, json_message, *args, **kwargs):
     action = json_message.get("MediaVerb")
     vacuum = ".".join(["vacuum", json_message.get("VacuumName", _DEFAULT_VACUUM)])
     if action == "start":
