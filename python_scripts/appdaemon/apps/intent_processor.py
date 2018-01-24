@@ -1,14 +1,10 @@
 #!/srv/homeassistant/bin/python3
 import json
 import os
-import random
 import importlib
 import re
 from util import hassutil
 import appdaemon.appapi as appapi
-from intent_handlers import power_intent_handler
-from intent_handlers import talk_intent_handler
-from intent_handlers import vacuum_intent_handler
 
 class IntentReceiver(appapi.AppDaemon):
     def __init__(self, name, logger, error, args, global_vars):
