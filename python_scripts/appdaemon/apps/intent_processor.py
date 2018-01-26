@@ -18,7 +18,7 @@ class IntentReceiver(appapi.AppDaemon):
         cwd = os.path.dirname(os.path.realpath(__file__))
         handler_path = os.path.join(cwd, "intent_handlers")
         ls_output = os.listdir(handler_path)
-        module_files = [pyfile for pyfile in ls_output if re.match(r'^.+\.py$', pyfile)]
+        module_files = [pyfile for pyfile in ls_output if re.match(r'^.+\.py$', pyfile) and '__init__.py' not in pyfile]
         for module_name in module_files:
             module = importlib.import_module(".".join(["intent_handlers", module_name.replace('.py', '')]))
             self.handler_map[module.INTENT] = module
