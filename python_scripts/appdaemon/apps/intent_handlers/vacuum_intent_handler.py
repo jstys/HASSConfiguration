@@ -1,5 +1,5 @@
 #!/srv/homeassistant/bin/python3
-from util.hass_util import Entity, call_service
+from util.hassutil import Entity, call_service
 
 INTENT = "VacuumIntent"
 _DEFAULT_VACUUM = "xiaomi_vacuum_cleaner"
