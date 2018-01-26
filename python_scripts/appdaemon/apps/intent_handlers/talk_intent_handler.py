@@ -5,7 +5,7 @@ from util import hassutil
 
 INTENT = "TalkIntent"
 
-def handle(api, json_message, received_room):
+def handle(api, json_message, received_room, *args, **kwargs):
     raw_message = json_message.get('raw')
     destination_room = json_message.get('Room')
     room_index = raw_message.find(destination_room)
