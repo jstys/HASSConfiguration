@@ -10,7 +10,7 @@ def handle(api, json_message, received_room, *args, **kwargs):
     destination_room = json_message.get('Room')
     room_index = raw_message.find(destination_room)
     room_len = len(destination_room)
-    actual_message = " ".join(["the", destination_room, "says", raw_message[(room_index + room_len + 1):]])
+    actual_message = " ".join(["the", received_room.replace("_", " "), "says", raw_message[(room_index + room_len + 1):]])
 
     if destination_room == "house":
         api.log("Broadcasting {} from {}".format(actual_message, received_room))
