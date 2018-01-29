@@ -1,7 +1,7 @@
 wifi_jim_cell:
   hide_if_away: false
   mac: !secret jim_cell_wifi_mac
-  name: Jim
+  name: WiFi
   picture:
   track: true
   vendor:
@@ -9,7 +9,7 @@ wifi_jim_cell:
 bt_jim_cell:
   hide_if_away: false
   mac: !secret jim_cell_bt_mac
-  name: Jim
+  name: Bluetooth
   picture:
   track: true
   vendor:
@@ -17,7 +17,7 @@ bt_jim_cell:
 wifi_erica_cell:
   hide_if_away: false
   mac: !secret erica_cell_wifi_mac
-  name: Erica
+  name: WiFi
   picture:
   track: true
   vendor:
@@ -25,7 +25,7 @@ wifi_erica_cell:
 bt_erica_cell:
   hide_if_away: false
   mac: !secret erica_cell_bt_mac
-  name: Erica
+  name: Bluetooth
   picture:
   track: true
   vendor:
