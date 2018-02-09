@@ -3,7 +3,6 @@ default_view:
   view: yes
   entities:
     - vacuum.xiaomi_vacuum_cleaner
-    - group.weather
     - group.kitchen
     - group.living_room
     - group.bedroom
@@ -28,17 +27,6 @@ erica_cell_device:
   entities:
     - device_tracker.bt_erica_cell
     - device_tracker.wifi_erica_cell
-
-weather:
-  name: Weather
-  view: no
-  entities:
-    - sensor.pws_feelslike_f
-    - sensor.pws_temp_high_1d_f
-    - sensor.pws_temp_low_1d_f
-    - sensor.pws_precip_today_string
-    - sensor.pws_weather
-    - sensor.pws_alerts
 
 kitchen:
   name: Kitchen
