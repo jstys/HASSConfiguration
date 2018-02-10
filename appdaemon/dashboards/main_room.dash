@@ -2,8 +2,8 @@ title: Main Room
 
 layout:
     - include: top_panel
-    - kitchen_motion, living_room_motion, living_room_temperature
-    - switch.kitchen_light, switch.living_room_light, group.living_room_lamps
+    - kitchen_motion, living_room_motion, living_room_temperature, switch.kitchen_light, switch.living_room_light, group.living_room_lamps
+    - switch.living_room_tv, script.living_room_tv_cable_input, script.living_room_tv_xbox_input, script.living_room_tv_steam_input, script.living_room_tv_chromecast_input
 
 kitchen_motion:
     widget_type: binary_sensor
