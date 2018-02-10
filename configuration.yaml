@@ -59,7 +59,16 @@ sensor:
   - platform: darksky
     api_key: !secret dark_sky_key
     monitored_conditions:
-      - hourly_summary
+      - temperature
+      - humidity
+      - precip_probability
+      - precip_intensity
+      - wind_speed
+      - pressure
+      - wind_bearing
+      - apparent_temperature
+      - icon
+
   - platform: nhl_box_score
     team: 'New Jersey Devils'
     calendar: 'calendar.new_jersey_devils'
