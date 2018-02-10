@@ -9,4 +9,3 @@ HASS:
   ha_url: <hass_url>
 HADashboard:
   dash_url: <dash_url>
-  dash_dir: <dash_dir>

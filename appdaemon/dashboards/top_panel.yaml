@@ -1,0 +1,25 @@
+clock:
+    widget_type: clock
+
+jim_sensor:
+    widget_type: sensor
+    title: Jim
+    entity: group.jim_cell_device
+    state_map:
+        "home": Home
+        "not_home": Away
+
+erica_sensor:
+    widget_type: sensor
+    title: Erica
+    entity: group.erica_cell_device
+    state_map:
+        "home": Home
+        "not_home": Away
+
+weather:
+    widget_type: weather
+
+layout:
+    - clock(2x1), weather(3x2)
+    - jim_sensor, erica_sensor
