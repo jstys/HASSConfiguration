@@ -21,5 +21,5 @@ weather:
     widget_type: weather
 
 layout:
-    - clock(2x1), weather(3x2)
+    - clock(2x1), weather(4x2)
     - jim_sensor, erica_sensor
