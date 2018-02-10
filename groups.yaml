@@ -61,10 +61,10 @@ living_room_tv_control:
   control: hidden
   entities:
     - switch.living_room_tv
-    - script.living_room_volume
-    - script.living_room_cable_input
-    - script.living_room_xbox_input
-    - script.living_room_chromecast_input
+    - script.living_room_tv_mute
+    - script.living_room_tv_cable_input
+    - script.living_room_tv_xbox_input
+    - script.living_room_tv_chromecast_input
 
 living_room_lamps:
   name: Lamps
@@ -100,7 +100,7 @@ bedroom_tv_control:
   control: hidden
   entities:
     - switch.bedroom_tv
-    - script.bedroom_volume
+    - script.bedroom_tv_mute
 
 debug_view:
   name: Debug
