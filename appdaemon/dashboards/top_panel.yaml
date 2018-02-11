@@ -20,6 +20,16 @@ erica_sensor:
 weather:
     widget_type: weather
 
+main_navigate:
+    widget_type: navigate
+    dashboard: main_room
+    title: Main Room
+
+bed_navigate:
+    widget_type: navigate
+    dashboard: bedroom
+    title: Bedroom
+
 layout:
-    - clock(2x1), weather(4x2)
+    - clock(2x1), weather(4x2), main_navigate, bed_navigate
     - jim_sensor, erica_sensor
