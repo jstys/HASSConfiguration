@@ -2,4 +2,4 @@ title: Bedroom
 
 layout:
     - include: top_panel
-    - switch.bedroom_light
+    - switch.bedroom_light, switch.bedroom_tv, script.bedroom_tv_mute
