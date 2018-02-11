@@ -138,6 +138,14 @@ bedroom_tv_off:
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.bedroom_tv
+rick_flair_woo:
+  alias: WOO
+  sequence:
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret xiaomi1_mac
+        ringtone_id: 10003
+        ringtone_vol: 60
 goal_horn:
   alias: Goal Lamp
   sequence:
@@ -155,7 +163,7 @@ goal_horn:
       data:
         gw_mac: !secret xiaomi1_mac
         ringtone_id: 10002
-        ringtone_vol: 80
+        ringtone_vol: 60
     - delay:
         seconds: 30
     - service: light.turn_on
