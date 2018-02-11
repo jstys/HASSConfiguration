@@ -2,9 +2,10 @@
 
 import binascii
 import struct
+import codecs
 
 def pronto2lirc(pronto):
-    codes = [long(binascii.hexlify(pronto[i:i+2]), 16) for i in xrange(0, len(pronto), 2)]
+    codes = [int(binascii.hexlify(pronto[i:i+2]), 16) for i in range(0, len(pronto), 2)]
 
     if codes[0]:
         raise ValueError('Pronto code should start with 0000')
@@ -18,7 +19,7 @@ def lirc2broadlink(pulses):
     array = bytearray()
 
     for pulse in pulses:
-        pulse = pulse * 269 / 8192  # 32.84ms units
+        pulse = pulse * 269 // 8192  # 32.84ms units
 
         if pulse < 256:
             array += bytearray(struct.pack('>B', pulse))  # big endian (1-byte)
@@ -48,7 +49,7 @@ if __name__ == '__main__':
     packet = lirc2broadlink(pulses)
 
     hexcode = binascii.hexlify(packet)
-    base64code = hexcode.decode("hex").encode("base64").strip()
+    base64code = codecs.encode(codecs.decode(hexcode, 'hex'), 'base64').decode()
 
     print("")
     print("lirc - Pulses")
