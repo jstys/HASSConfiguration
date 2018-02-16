@@ -1,10 +1,13 @@
 #!/srv/homeassistant/bin/python3
 import appdaemon.appapi as appapi
-from hassutil import tts_say, tts_broadcast
+from hassutil import tts_say, tts_broadcast, call_service
 
 class NHLAnnouncer(appapi.AppDaemon):
     def __init__(self, name, logger, error, args, global_vars):
         super().__init__(name, logger, error, args, global_vars)
+
+        # TODO: make more configurable
+        self.team = "New Jersey Devils"
 
     def initialize(self):
         self.listen_event(self.on_period_start, "nhl_period_start")
@@ -30,6 +33,9 @@ class NHLAnnouncer(appapi.AppDaemon):
             tts_message += " Assisted by"
             for assist_player in assists:
                 tts_message += " number {}, {}".format(assist_player.get('number'), assist_player.get('name'))
+
+        if team == self.team:
+            call_service(self, "script", "rick_flair_woo")
 
         tts_broadcast(self, tts_message)
 
