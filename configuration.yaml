@@ -48,6 +48,7 @@ device_tracker:
     username: !secret router_user
     password: !secret router_password
     protocol: ssh
+    mode: ap
     new_device_defaults:
       track_new_devices: False
       hide_if_away: False
