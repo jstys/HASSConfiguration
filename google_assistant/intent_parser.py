@@ -141,9 +141,7 @@ intents.append(\
 
 intents.append(\
     IntentBuilder("ListIntent")\
-    .require("ListVerb")\
-    .optionally("ListItemAdd")\
-    .optionally("ListItemRemove")\
+    .one_of("ListItemAdd", "ListItemRemove")
     .require("ListType")\
     .build())
 
