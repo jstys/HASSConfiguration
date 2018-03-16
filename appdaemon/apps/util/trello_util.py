@@ -28,8 +28,9 @@ def add_to_grocery_list(item_name, amount=""):
         _update_item_amount(item, amount)
         item["state"] = UNCHECKED_STATE
         _save_item(item)
+        return True, " ".join([item, "added to the grocery list"])
     else:
-        return False, "Item doesn't exist on list"
+        return False, " ".join([item, "is not on the grocery list"])
 
 def remove_from_grocery_list(item_name):
     item = _get_item_reference_from_grocery_list(item_name, _get_grocery_list())
@@ -37,8 +38,9 @@ def remove_from_grocery_list(item_name):
         _update_item_amount(item, "")
         item["state"] = CHECKED_STATE
         _save_item(item)
+        return True, " ".join([item, "removed from the grocery list"])
     else:
-        return False, "Item doesn't exist on list"
+        return False, " ".join([item, "is not on the grocery list"])
 
 def reset_all_item_amounts():
     grocery_json = _get_grocery_list()
@@ -80,7 +82,7 @@ def _update_item_amount(item, amount):
 
 def _get_grocery_list():
     try:
-        return requests.get("https://api.trello.com/1/cards/1iKTzp7F/checklists", auth=_get_auth()).json()
+        return requests.get("https://api.trello.com/1/cards/{}/checklists".format(_GROCERY_LIST_ID), auth=_get_auth()).json()
     except:
         return {}
 
@@ -97,4 +99,4 @@ def _save_item(item):
     params["name"] = item["name"]
     params["state"] = item["state"]
     params["idChecklist"] = item["idChecklist"]
-    requests.request("PUT", "https://api.trello.com/1/cards/1iKTzp7F/checkItem/{}".format(item.get("id")), params=params, auth=_get_auth())
+    requests.request("PUT", "https://api.trello.com/1/cards/{}/checkItem/{}".format(_GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
