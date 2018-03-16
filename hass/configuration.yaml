@@ -87,14 +87,10 @@ switch 3:
   - platform: broadlink
     host: 10.0.0.11
     mac: !secret broadlink2_mac
-
-python_script:
-
 logger:
   default: warning
   logs:
     homeassistant.components.switch.broadlink: info
-    homeassistant.components.python_script: info
     homeassistant.components.recorder: info
     homeassistant.components.media_player.plex: critical
 
