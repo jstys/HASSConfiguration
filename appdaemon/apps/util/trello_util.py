@@ -10,12 +10,12 @@ UNCHECKED_STATE = "incomplete"
 _AUTH = None
 _DAY_LIST_MAP = {
     "Sunday": "55e52c3cb60dbb6c3f272344",
-    "Monday": "",
-    "Tuesday": "",
-    "Wednesday": "",
-    "Thursday": "",
-    "Friday": "",
-    "Saturday": ""
+    "Monday": "55e52c292ccf879bc4a55b95",
+    "Tuesday": "55e52c31d5031bdd77a749eb",
+    "Wednesday": "55e52c35f92f640d27dacd19",
+    "Thursday": "55fdfbdc374a4850b88dd741",
+    "Friday": "55fdfbeda2454c5f70e8bd88",
+    "Saturday": "562af24f75a935532aed4546"
 }
 _GROCERY_LIST_ID = "1iKTzp7F"
 
@@ -74,11 +74,19 @@ def _get_item_reference_from_grocery_list(item, grocery_json):
 def _get_grocery_item_name(item):
     return re.sub(r"\(.*\)", "", item.get("name")).strip().lower()
 
+def _get_grocery_item_amount(item):
+    match = re.search(r".+ \((?P<amount>.+)\)", item.get("name"))
+    if match:
+        return match.group("amount")
+    else:
+        return ""
+
 def _update_item_amount(item, amount):
     if item.get("state") == CHECKED_STATE or re.match(r".+ \(\)", item.get("name")):
         item["name"] = " ".join([_get_grocery_item_name(item), "({})".format(amount)])
     else:
-        item["name"] = re.sub(r"\)", " + {})".format(amount), item.get("name"))
+        if amount:
+            item["name"] = re.sub(r"\)", " + {})".format(amount), item.get("name"))
 
 def _get_grocery_list():
     try:
