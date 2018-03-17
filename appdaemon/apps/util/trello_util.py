@@ -20,7 +20,9 @@ _DAY_LIST_MAP = {
 _GROCERY_LIST_ID = "1iKTzp7F"
 
 def generate_grocery_list_from_meal_plan():
-    pass
+    for day, _ in _DAY_LIST_MAP.items():
+        for item in _get_grocery_items_for_day(day):
+            print("Item: {} Amount: {}".format(_get_grocery_item_name(item), _get_grocery_item_amount(item)))
 
 def add_to_grocery_list(item_name, amount=""):
     item = _get_item_reference_from_grocery_list(item_name, _get_grocery_list())
@@ -93,6 +95,15 @@ def _get_grocery_list():
         return requests.get("https://api.trello.com/1/cards/{}/checklists".format(_GROCERY_LIST_ID), auth=_get_auth()).json()
     except:
         return {}
+
+def _get_grocery_items_for_day(day):
+    trello_id = _DAY_LIST_MAP[day]
+    day_recipes = requests.get("https://api.trello.com/1/lists/{}/cards".format(trello_id), auth=_get_auth()).json()
+    for day_recipe in day_recipes:
+        for ingredient_list_ids in day_recipe['idChecklists']:
+            return requests.get("https://api.trello.com/1/checklists/{}/checkitems".format(ingredient_list_ids), auth=_get_auth()).json() 
+    else:
+        return []
 
 def _get_auth():
     global _AUTH
