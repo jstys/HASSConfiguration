@@ -1,7 +1,11 @@
 #!/bin/bash
 
-if [ -d .git ]; then
-    git pull
-else
-    git clone https://github.com/jstys/HASSConfiguration/tree/master/appdaemon
-fi
+{
+    rm -rf ./gittmp
+    mkdir ./gittmp
+    cd gittmp
+    git clone https://github.com/jstys/HASSConfiguration.git
+    cp -R ./HASSConfiguration/appdaemon/* ../
+    cd ..
+    rm -rf gittmp
+}
