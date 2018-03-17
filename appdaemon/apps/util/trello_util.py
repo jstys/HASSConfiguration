@@ -28,9 +28,9 @@ def add_to_grocery_list(item_name, amount=""):
         _update_item_amount(item, amount)
         item["state"] = UNCHECKED_STATE
         _save_item(item)
-        return True, " ".join([_get_grocery_item_name(item), "added to the grocery list"])
+        return True, " ".join([item_name, "added to the grocery list"])
     else:
-        return False, " ".join([_get_grocery_item_name(item), "is not on the grocery list"])
+        return False, " ".join([item_name, "is not on the grocery list"])
 
 def remove_from_grocery_list(item_name):
     item = _get_item_reference_from_grocery_list(item_name, _get_grocery_list())
@@ -38,9 +38,9 @@ def remove_from_grocery_list(item_name):
         _update_item_amount(item, "")
         item["state"] = CHECKED_STATE
         _save_item(item)
-        return True, " ".join([_get_grocery_item_name(item), "removed from the grocery list"])
+        return True, " ".join([item_name, "removed from the grocery list"])
     else:
-        return False, " ".join([_get_grocery_item_name(item), "is not on the grocery list"])
+        return False, " ".join([item_name, "is not on the grocery list"])
 
 def reset_all_item_amounts():
     grocery_json = _get_grocery_list()
