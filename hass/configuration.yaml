@@ -54,14 +54,6 @@ device_tracker:
     new_device_defaults:
       track_new_devices: False
       hide_if_away: False
-  - platform: ping
-    hosts:
-      wifi_jim_cell: 10.0.0.17
-      wifi_erica_cell: 10.0.0.16
-    new_device_defaults:
-      track_new_devices: False
-      hide_if_away: False
-
 
 tts:
   platform: google
