@@ -29,9 +29,9 @@ def generate_grocery_list_from_meal_plan():
                 failed_to_add.append(_get_grocery_item_name(item))
 
     if failed_to_add:
-        return "Failed to add the following items: {}".format(",".join(failed_to_add))
+        return False, "Failed to add the following items: {}".format(",".join(failed_to_add))
     else:
-        return "Successfully generated grocery list"
+        return True, "Successfully generated grocery list"
 
 def add_to_grocery_list(item_name, amount=""):
     item = _get_item_reference_from_grocery_list(item_name, _get_grocery_list())
