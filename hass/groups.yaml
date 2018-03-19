@@ -109,6 +109,7 @@ debug_view:
   entities:
     - group.ircontrol
     - script.update_hass_config
+    - script.update_appdaemon_config
 
 ircontrol:
   name: IR Control
