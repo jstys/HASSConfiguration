@@ -1,4 +1,4 @@
-from util.hassutil import tts_say
+from util.hassutil import tts_say, pushbullet_notify, gui_notify
 from util import trello_util
 
 INTENT = "ListIntent"
@@ -20,7 +20,10 @@ def handle_grocery_list(api, json_message, received_room):
     elif add_item:
         result, message = trello_util.add_to_grocery_list(add_item)
     elif generate:
-        message = trello_util.generate_grocery_list_from_meal_plan()
+        result, message = trello_util.generate_grocery_list_from_meal_plan()
+        if not result and message:
+            pushbullet_notify(api, account="jim_pushbullet", devices=["jim_cell"], title="list_intent_handler", message=message)
+            gui_notify(api, title="list_intent_handler", message=message)
         
     if message:
         tts_say(api, message, received_room)

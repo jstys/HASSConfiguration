@@ -64,6 +64,12 @@ def get_group_switches_and_lights(group, parsed_yaml):
 
     return result
 
+def gui_notify(api, title, message):
+    call_service(api, "notify", "notify", title=title, message=message)
+
+def pushbullet_notify(api, account, devices, title, message):
+    call_service(api, "notify", account, title=title, message=message, target=devices)
+
 def tts_say(api, message, tts_room):
     call_service(api, "script", "assistant_voice", message=message, room=tts_room)
 
