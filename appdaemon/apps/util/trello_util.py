@@ -20,9 +20,18 @@ _DAY_LIST_MAP = {
 _GROCERY_LIST_ID = "1iKTzp7F"
 
 def generate_grocery_list_from_meal_plan():
+    failed_to_add = []
+
     for day, _ in _DAY_LIST_MAP.items():
         for item in _get_grocery_items_for_day(day):
-            print("Item: {} Amount: {}".format(_get_grocery_item_name(item), _get_grocery_item_amount(item)))
+            result, _ = add_to_grocery_list(_get_grocery_item_name(item), _get_grocery_item_amount(item))
+            if not result:
+                failed_to_add.append(_get_grocery_item_name(item))
+
+    if failed_to_add:
+        return "Failed to add the following items: {}".format(",".join(failed_to_add))
+    else:
+        return "Successfully generated grocery list"
 
 def add_to_grocery_list(item_name, amount=""):
     item = _get_item_reference_from_grocery_list(item_name, _get_grocery_list())
