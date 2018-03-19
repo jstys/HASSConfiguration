@@ -22,7 +22,7 @@ def handle_grocery_list(api, json_message, received_room):
     elif generate:
         result, message = trello_util.generate_grocery_list_from_meal_plan()
         if not result and message:
-            pushbullet_notify(api, account="jim_pushbullet", devices=["jim_cell"], title="list_intent_handler", message=message)
+            pushbullet_notify(api, account="jim_pushbullet", devices=["device/jim_cell"], title="list_intent_handler", message=message)
             gui_notify(api, title="list_intent_handler", message=message)
         
     if message:
