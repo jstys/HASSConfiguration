@@ -226,3 +226,9 @@ assistant_broadcast:
       data_template:
         payload: "{{ message }}:{{ source }}"
         topic: "assistant/broadcast"
+
+update_hass_config:
+  alias: Update HASS Config
+  sequence:
+    - service: shell_command.update_hass_config
+    - service: homeassistant.restart

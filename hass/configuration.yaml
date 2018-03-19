@@ -123,6 +123,7 @@ automation: !include automations.yaml
 zone: !include zones.yaml
 input_boolean: !include input_boolean.yaml
 light: !include light.yaml
+shell_command: !include shell.yaml
 
 ##############################################################
 #                       ENABLED                              #

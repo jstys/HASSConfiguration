@@ -1,0 +1,1 @@
+update_hass_config: 'cd /home/homeassistant/.homeassistant/ && /home/homeassistant/.homeassistant/shell/git_update.sh'
