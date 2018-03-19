@@ -51,7 +51,7 @@ intents.append(\
 
 intents.append(\
     IntentBuilder("ListIntent")\
-    .one_of("ListItemAdd", "ListItemRemove")
+    .one_of("ListItemAdd", "ListItemRemove", "ListGenerate")
     .require("ListType")\
     .build())
 

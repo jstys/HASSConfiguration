@@ -64,6 +64,9 @@ entity_json = {
             "groceries",
             "shopping"
         ],
+        "ListGenerate": [
+            "generate"
+        ],
         "AllModifier": [
             "all"
         ],
