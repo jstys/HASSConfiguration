@@ -58,6 +58,13 @@ device_tracker:
 tts:
   platform: google
 
+binary_sensor:
+  - platform: ping
+    name: Google DNS Ping
+    host: 8.8.8.8
+    count: 5
+    scan_interval: 300
+
 sensor:
   - platform: darksky
     api_key: !secret dark_sky_key
@@ -79,16 +86,7 @@ sensor:
     state_topic: 'assistant/+/intent'
     name: 'Assistant Command Sensor'
     qos: 2
-
-switch 2:
-  - platform: broadlink
-    host: 10.0.0.4
-    mac: !secret broadlink1_mac
-
-switch 3:
-  - platform: broadlink
-    host: 10.0.0.11
-    mac: !secret broadlink2_mac
+  
 logger:
   default: warning
   logs:
