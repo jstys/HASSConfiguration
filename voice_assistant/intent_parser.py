@@ -46,7 +46,7 @@ intents.append(\
     .require("MediaVerb")\
     .optionally("AllModifier")\
     .optionally("Room")\
-    .optionally("MediaObject")\
+    .require("MediaObject")\
     .build())
 
 intents.append(\
