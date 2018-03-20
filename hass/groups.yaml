@@ -114,6 +114,7 @@ debug_view:
 service_updater:
   name: Service Updater
   view: no
+  control: hidden
   entities:
     - script.update_hass_config
     - script.update_appdaemon_config
@@ -121,6 +122,7 @@ service_updater:
 internet_monitor:
   name: Internet Monitor
   view: no
+  control: hidden
   entities:
     - binary_sensor.google_dns_ping
     - switch.modem_kill_switch
@@ -128,6 +130,7 @@ internet_monitor:
 ircontrol:
   name: IR Control
   view: no
+  control: hidden
   entities:
     - script.learnir_lr
     - script.learnir_br
