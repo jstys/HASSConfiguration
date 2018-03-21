@@ -68,6 +68,8 @@ binary_sensor:
 sensor:
   - platform: darksky
     api_key: !secret dark_sky_key
+    update_interval:
+      minutes: 30
     monitored_conditions:
       - temperature
       - humidity
