@@ -1,0 +1,19 @@
+common:
+    room_name:
+    assistant_type:
+    connection_protocol:
+
+connection:
+    mqtt:
+        broker_ip:
+        broker_port:
+        client_id:
+        username:
+        password:
+
+assistant:
+    google:
+        device_model:
+        
+    snips:
+        placeholder:
