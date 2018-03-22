@@ -80,8 +80,8 @@ class VoiceAssistant():
             return False
             
         try:
-            self.connection_protocol = self._common_config['connection_protocol']
-            self.connection_config = self._configuration['connection'][self._connection_protocol]
+            self._connection_protocol = self._common_config['connection_protocol']
+            self._connection_config = self._configuration['connection'][self._connection_protocol]
         except:
             print("Invalid configuration of 'connection_protocol' in voice_assistant.yaml")
             return False
