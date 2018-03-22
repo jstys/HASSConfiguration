@@ -1,7 +1,7 @@
 import functools
 
 import paho.mqtt.client as mqtt
-from iconnection import IConnection
+from connections.iconnection import IConnection
 
 class MqttClientConnection(IConnection):
     

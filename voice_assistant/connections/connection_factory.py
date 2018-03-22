@@ -1,4 +1,4 @@
-import mqtt_client_connection.MqttClientConnection as MqttClientConnection
+from connections.mqtt_client_connection import MqttClientConnection
 
 MQTT_PROTOCOL = "mqtt"
 

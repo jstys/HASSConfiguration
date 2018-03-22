@@ -7,10 +7,10 @@ from google.assistant.library import Assistant
 from google.assistant.library.event import EventType
 from google.assistant.library.file_helpers import existing_file
 
-import iassistant.IAssistant as IAssistant
+from assistants.iassistant import IAssistant
 import intent_builders.raw_speech_intent_builder as intent_builder
 
-class GoogleAssitant(IAssistant):
+class GoogleAssistant(IAssistant):
 
     CREDENTIALS_FILE = "credentials.json"
 

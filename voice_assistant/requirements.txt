@@ -1,1 +1,5 @@
 pyyaml
+google-assistant-library
+google-auth-oauthlib
+adapt-parser
+paho-mqtt

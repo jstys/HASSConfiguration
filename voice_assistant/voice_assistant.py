@@ -60,11 +60,12 @@ class VoiceAssistant():
     
     def read_configuration(self):
         try:
-            self._configuration = yaml.load(VoiceAssistant.CONFIGURATION_FILE)
+            with open(VoiceAssistant.CONFIGURATION_FILE, 'r') as config_file:
+                self._configuration = yaml.load(config_file)
         except:
             print("Unable to load configuration file (voice_assistant.yaml) for voice_assistant... Exiting...")
             return False
-            
+        
         try:
             self._common_config = self._configuration['common']
         except:

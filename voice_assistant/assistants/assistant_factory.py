@@ -1,4 +1,4 @@
-import google_assistant.GoogleAssistant as GoogleAssistant
+import assistants.google_assistant.GoogleAssistant as GoogleAssistant
 
 GOOGLE_ASSISTANT_TYPE = "google"
 SNIPS_ASSISTANT_TYPE = "snips"
