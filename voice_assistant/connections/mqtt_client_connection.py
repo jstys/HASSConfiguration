@@ -66,8 +66,8 @@ class MqttClientConnection(IConnection):
         self._mqtt_client.loop_start()
         
     def on_connect(self, client, userdata, flags, rc):
-        self._tts_topic = 'assistant/{}/tts'.format(self._client_id)
-        self._ask_topic = 'assistant/{}/ask'.format(self._client_id)
+        self._tts_topic = 'assistant/{}/tts'.format(self._assistant_room)
+        self._ask_topic = 'assistant/{}/ask'.format(self._assistant_room)
         self._mqtt_client.subscribe(self._tts_topic, qos=2)
         self._mqtt_client.subscribe(self._ask_topic, qos=2)
         self._mqtt_client.subscribe(MqttClientConnection.BROADCAST_TTS_TOPIC, qos=2)
@@ -75,13 +75,20 @@ class MqttClientConnection(IConnection):
         
     def on_message(self, client, userdata, msg):
         if msg.topic == self._tts_topic:
-            pass
+            self._on_tts_message(msg.payload.decode('utf-8'))
         elif msg.topic == self._ask_topic:
-            pass
+            # TODO: add support for follow up intents
+            self._on_ask_message(msg.payload.decode('utf-8'))
         elif msg.topic == MqttClientConnection.BROADCAST_TTS_TOPIC:
-            pass
+            msg_split = msg.payload.decode('utf-8').split(":")
+            message = msg_split[0]
+            source = msg_split[1]
+            self._on_broadcast_message(message, source)
         elif msg.topic == MqttClientConnection.BROADCAST_ASK_TOPIC:
-            pass
+            msg_split = msg.payload.decode('utf-8').split(":")
+            message = msg_split[0]
+            source = msg_split[1]
+            self._on_broadcast_ask_message(message, source)
 
     def send_message(self, message, source=None):
         self._mqtt_client.publish("assistant/{}/intent".format(source), message, qos=2)
