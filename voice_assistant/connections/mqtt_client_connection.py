@@ -27,7 +27,7 @@ class MqttClientConnection(IConnection):
         try:
             self._broker_host = self._config['broker_host']
         except:
-            print("Missing broker_ip setting for mqtt")
+            print("Missing broker_host setting for mqtt")
             return False
 
         try:
