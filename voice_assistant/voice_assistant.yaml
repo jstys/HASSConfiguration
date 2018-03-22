@@ -10,6 +10,7 @@ connection:
         client_id:
         username:
         password:
+        mqtt_version:
 
 assistant:
     google:
