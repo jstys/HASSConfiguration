@@ -37,6 +37,7 @@ class VoiceAssistant():
                                                                 self.on_ask_message,
                                                                 self.on_broadcast_ask_message)
         if not self._connection:
+            print("Failed to create connection")
             sys.exit(1)
             
         self._assistant = assistant_factory.create_assistant(self._assistant_type, 
@@ -44,6 +45,7 @@ class VoiceAssistant():
                                                              self.on_hotword_detected,
                                                              self.on_intent_built)
         if not self._assistant:
+            print("Failed to create assistant")
             sys.exit(1)
             
         self._connection.run_in_background()
