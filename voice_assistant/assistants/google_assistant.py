@@ -21,7 +21,7 @@ class GoogleAssistant(IAssistant):
 
     def validate_config(self):
         try:
-            with open(GoogleAssitant.CREDENTIALS_FILE, 'r') as f:
+            with open(GoogleAssistant.CREDENTIALS_FILE, 'r') as f:
                 self._credentials = google.oauth2.credentials.Credentials(token=None, **json.load(f))
         except:
             print("Unable to load GoogleAssistant credentials file (credentials.json)")
