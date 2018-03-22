@@ -10,7 +10,7 @@ import connections.connection_factory as connection_factory
 
 class VoiceAssistant():
 
-    CONFIGURATION_FILE = os.path.join(os.path.realpath(__file__), "voice_assistant.yaml")
+    CONFIGURATION_FILE = os.path.join(os.path.dirname(os.path.realpath(__file__)), "voice_assistant.yaml")
     
     def __init__(self):
         self._configuration = None
