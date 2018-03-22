@@ -101,9 +101,9 @@ class VoiceAssistant():
         self._speak_message(message)
 
     def _speak_message(self, message):
-        pico_command = ['pico2wave', '-l', 'en-US', '-w', 'tmp.wav', message]
+        pico_command = ['pico2wave', '-l', 'en-US', '-w', './audio/tmp.wav', message]
         subprocess.call(pico_command)
-        subprocess.call(['aplay', 'tmp.wav'])
+        subprocess.call(['aplay', './audio/tmp.wav'])
     
     def on_ask_message(self, message, followed_intent=None):
         self._speak_message(message)
