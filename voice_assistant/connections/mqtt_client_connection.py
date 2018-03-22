@@ -10,7 +10,7 @@ class MqttClientConnection(IConnection):
     MQTT_V_3_1 = "3.1"
     MQTT_V_3_1_1 = "3.1.1"
     
-    def __init__(self, config, on_tts, on_broadcast, on_ask, on_broadcast_ask):
+    def __init__(self, config, assistant_room, on_tts, on_broadcast, on_ask, on_broadcast_ask):
         super().__init__(config, on_tts, on_broadcast, on_ask, on_broadcast_ask)
         self._mqtt_client = None
         self._assistant_room = None

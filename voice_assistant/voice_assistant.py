@@ -32,6 +32,7 @@ class VoiceAssistant():
         
         self._connection = connection_factory.create_connection(self._connection_protocol, 
                                                                 self._connection_config,
+                                                                self._room_name,
                                                                 self.on_tts_message,
                                                                 self.on_broadcast_message,
                                                                 self.on_ask_message,
