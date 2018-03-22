@@ -87,6 +87,8 @@ class VoiceAssistant():
         except:
             print("Invalid configuration of 'connection_protocol' in voice_assistant.yaml")
             return False
+
+        return True
             
     def on_tts_message(self, message):
         self._speak_message(message)
