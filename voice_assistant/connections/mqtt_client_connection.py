@@ -44,6 +44,10 @@ class MqttClientConnection(IConnection):
 
         try:
             self._mqtt_version = self._config['mqtt_version']
+            if self._mqtt_version == MqttClientConnection.MQTT_V_3_1:
+                self._mqtt_version = mqtt.MQTTv31
+            else:
+                self._mqtt_version = mqtt.MQTTv311
         except:
             print("Missing mqtt_version from mqtt config")
             return False
