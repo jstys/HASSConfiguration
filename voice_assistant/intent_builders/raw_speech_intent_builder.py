@@ -6,7 +6,7 @@ from adapt.tools.text.trie import Trie
 from adapt.intent import IntentBuilder
 from adapt.parser import Parser
 from adapt.engine import IntentDeterminationEngine
-from intent_configuration import entity_json, translations
+from intent_builders.intent_configuration import entity_json, translations
 
 tokenizer = EnglishTokenizer()
 trie = Trie()

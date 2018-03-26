@@ -1,4 +1,4 @@
-class IAssistant():
+class IAssistant(object):
     def __init__(self, config, hotword_detected, intent_built):
         self._config = config
         self._on_hotword_detected = hotword_detected

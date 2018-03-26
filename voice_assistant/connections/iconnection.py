@@ -1,4 +1,4 @@
-class IConnection():
+class IConnection(object):
     def __init__(self, config, assistant_room, on_tts, on_broadcast, on_ask, on_broadcast_ask):
         self._config = config
         self._on_tts_message = on_tts
