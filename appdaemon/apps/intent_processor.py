@@ -29,12 +29,12 @@ class IntentReceiver(appapi.AppDaemon):
             self.log("Successfully parsed groups.yaml")
         else:
             self.log("Error parsing groups.yaml")
-        self.listen_state(self.on_assistant_command, "sensor.assistant_command_sensor")
+        self.listen_event(self.on_assistant_command, "VOICE_ASSISTANT_INTENT")
 
-    def on_assistant_command(self, entity, attribute, old, new, kwargs):
+    def on_assistant_command(self, kwargs):
         json_payload = {}
         try:
-            payload = new
+            payload = kwargs.get('payload')
             json_payload = json.loads(payload)
         except ValueError:
             hassutil.tts_say(self, "Sorry, Im unable to understand your request", tts_room=self.received_room)

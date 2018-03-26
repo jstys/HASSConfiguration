@@ -131,3 +131,13 @@
     - service: switch.turn_on
       data:
         entity_id: switch.bedroom_tv
+
+- alias: New Voice Assistant Intent
+  trigger:
+    platform: mqtt
+    topic: 'assistant/+/intent'
+  action:
+    event: VOICE_ASSISTANT_INTENT
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+      topic: '{{ trigger.topic }}'
