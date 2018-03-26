@@ -42,11 +42,11 @@ class GoogleAssistant(IAssistant):
 
     def process_event(self, event, assistant):
         if event.type == EventType.ON_CONVERSATION_TURN_STARTED:
-            subprocess.call(['aplay', 'hotword.wav'])
+            subprocess.call(['aplay', './audio/hotword.wav'])
             self._on_hotword_detected()
 
         if event.type == EventType.ON_RECOGNIZING_SPEECH_FINISHED:
-            subprocess.call(['aplay', 'finished.wav'])
+            subprocess.call(['aplay', './audio/finished.wav'])
             
             text = event.args.get('text')
             print("Raw: {}".format(text))

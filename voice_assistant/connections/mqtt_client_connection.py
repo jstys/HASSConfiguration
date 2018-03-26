@@ -13,7 +13,6 @@ class MqttClientConnection(IConnection):
     def __init__(self, config, assistant_room, on_tts, on_broadcast, on_ask, on_broadcast_ask):
         super().__init__(config, assistant_room, on_tts, on_broadcast, on_ask, on_broadcast_ask)
         self._mqtt_client = None
-        self._assistant_room = None
         self._client_id = None
         self._broker_host = None
         self._broker_port = None
