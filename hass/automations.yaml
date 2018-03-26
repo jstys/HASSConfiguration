@@ -1,4 +1,5 @@
-- alias: Nobody home
+- id: nobody_home
+  alias: Nobody home
   trigger:
     platform: state
     entity_id: group.all_devices
@@ -7,7 +8,8 @@
   action:
     service: script.bedtime
 
-- alias: Somebody is home
+- id: somebody_home
+  alias: Somebody is home
   trigger:
     platform: state
     entity_id: group.all_devices
@@ -24,7 +26,8 @@
       data:
         entity_id: switch.bedroom_light
 
-- alias: Kitchen Motion
+- id: kitchen_motion
+  alias: Kitchen Motion
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d00016612a5
@@ -35,7 +38,8 @@
       data:
         entity_id: switch.kitchen_light
 
-- alias: Kitchen Empty
+- id: kitchen_empty
+  alias: Kitchen Empty
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d00016612a5
@@ -48,7 +52,8 @@
       data:
         entity_id: switch.kitchen_light
 
-- alias: Woo button
+- id: woo_button
+  alias: Woo button
   trigger:
     platform: event
     event_type: click
@@ -58,7 +63,8 @@
   action:
     service: script.rick_flair_woo
 
-- alias: Goal horn button
+- id: goal_horn_button
+  alias: Goal horn button
   trigger:
     platform: event
     event_type: click
@@ -68,7 +74,8 @@
   action:
     service: script.goal_horn
 
-- alias: Bedroom lights button
+- id: bedroom_lights_button
+  alias: Bedroom lights button
   trigger:
     platform: event
     event_type: click
@@ -80,7 +87,8 @@
     data:
       entity_id: switch.bedroom_light
 
-- alias: Bedtime button
+- id: bedtime_button
+  alias: Bedtime button
   trigger:
     platform: event
     event_type: click
@@ -90,7 +98,8 @@
   action:
     service: script.bedtime
 
-- alias: Devils Gametime
+- id: devils_gametime
+  alias: Devils Gametime
   trigger:
     platform: state
     entity_id: calendar.devils_games
@@ -105,7 +114,8 @@
     data_template:
       file: "hells_bells.mp3"
 
-- alias: LR TV auto cast on
+- id: living_room_tv_auto_cast
+  alias: LR TV auto cast on
   trigger:
     platform: template
     value_template: "{{ not is_state('media_player.mibox3', 'off') }}"
@@ -119,7 +129,8 @@
         entity_id: switch.living_room_tv
     - service: script.living_room_chromecast_input
 
-- alias: BR TV auto cast on
+- id: bedroom_tv_auto_cast
+  alias: BR TV auto cast on
   trigger:
     platform: template
     value_template: "{{ not is_state('media_player.bedroom_cast', 'off') }}"
@@ -132,7 +143,8 @@
       data:
         entity_id: switch.bedroom_tv
 
-- alias: New Voice Assistant Intent
+- id: new_voice_assistant_intent
+  alias: New Voice Assistant Intent
   trigger:
     platform: mqtt
     topic: 'assistant/+/intent'
