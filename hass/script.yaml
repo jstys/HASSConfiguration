@@ -225,7 +225,7 @@ assistant_broadcast:
     - service: mqtt.publish
       data_template:
         payload: "{{ message }}:{{ source }}"
-        topic: "assistant/broadcast"
+        topic: "assistant/broadcast/tts"
 
 update_hass_config:
   alias: Update HASS Config
