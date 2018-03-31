@@ -227,6 +227,20 @@ assistant_broadcast:
         payload: "{{ message }}:{{ source }}"
         topic: "assistant/broadcast/tts"
 
+assistant_ask:
+  sequence:
+    - service: mqtt.publish
+      data_template:
+        payload: "{{ message }}"
+        topic: "assistant/{{ room }}/ask"
+
+assistant_broadcast_ask:
+  sequence:
+    - service: mqtt.publish
+      data_template:
+        payload: "{{ message }}:{{ source }}"
+        topic: "assistant/broadcast/ask"
+
 update_hass_config:
   alias: Update HASS Config
   sequence:

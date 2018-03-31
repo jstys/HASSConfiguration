@@ -109,11 +109,12 @@ class VoiceAssistant():
         self._speak_message(message)
         self._assistant.recognize_speech(followed_intent)
     
-    def on_broadcast_ask_message(self, message, source):
+    def on_broadcast_ask_message(self, message, source, followed_intent=None):
         if source == self._room_name:
-            message = "Your question has been asked"
-
-        self._speak_message(message)
+            self._speak_message("Your question has been asked")
+        else:
+            self._speak_message(message)
+            self._assistant.recognize_speech(followed_intent)
 
     def on_hotword_detected(self):
         pass
