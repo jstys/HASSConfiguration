@@ -86,6 +86,7 @@ bedroom:
   entities:
     - group.bedroom_tv_control
     - group.bedroom_lights
+    - group.bedroom_lamps
     - media_player.bedroom_cast
 
 bedroom_lights:
@@ -93,6 +94,11 @@ bedroom_lights:
   view: no
   entities:
     - switch.bedroom_light
+
+bedroom_lamps:
+  name: Night Lamps
+  view: no
+  entities:
     - light.jim_nightlight
     - light.erica_nightlight
 
