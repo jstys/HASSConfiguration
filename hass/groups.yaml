@@ -93,6 +93,8 @@ bedroom_lights:
   view: no
   entities:
     - switch.bedroom_light
+    - light.jim_nightlight
+    - light.erica_nightlight
 
 bedroom_tv_control:
   name: TV Control
