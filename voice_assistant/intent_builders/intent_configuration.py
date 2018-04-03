@@ -45,6 +45,16 @@ entity_json = {
             "lower",
             "raise"
         ],
+        "MinVal": [
+            "min",
+            "minimum",
+            "lowest"
+        ],
+        "MaxVal": [
+            "max",
+            "maximum",
+            "highest"
+        ],
         "PowerVerb": [
             "turn on",
             "turn off"

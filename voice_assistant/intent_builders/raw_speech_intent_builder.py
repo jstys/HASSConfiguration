@@ -30,6 +30,8 @@ intents.append(\
     .optionally("Room")\
     .one_of("LightObject", "LampObject", "MediaObject")\
     .optionally("Percentage")\
+    .optionally("MinVal")\
+    .optionally("MaxVal")\
     .build())
 
 intents.append(\
