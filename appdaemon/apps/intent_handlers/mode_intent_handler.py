@@ -2,11 +2,23 @@ import random
 from util import hassutil
 
 INTENT = "ModeIntent"
+MODES = {
+    "disco": "Disco",
+    "strobe": "Strobe epilepsy!",
+    "color strobe": "Strobe color",
+    "christmas": "Christmas",
+    "color changing": "Slowdown",
+    "police": "Police",
+    "alarm": "Alarm"
+}
 
 def handle(api, json_message, received_room, group_yaml, *args, **kwargs):
     room = json_message.get('Room')
     room = received_room if room is None else room
     mode = json_message.get('ModeName')
+    mode = MODES.get(mode)
+    if mode is None:
+        return
 
     device = None
     deviceType = None
