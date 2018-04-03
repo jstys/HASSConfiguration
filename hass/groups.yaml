@@ -99,8 +99,8 @@ bedroom_lamps:
   name: Night Lamps
   view: no
   entities:
-    - light.jim_nightlight
-    - light.erica_nightlight
+    - light.jim_night_lamp
+    - light.erica_night_lamp
 
 bedroom_tv_control:
   name: TV Control
