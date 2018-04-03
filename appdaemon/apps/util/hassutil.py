@@ -80,11 +80,12 @@ def turn_off_on(api, entity, on, brightness=None, color=None, effect=None):
     optionals = {}
     if effect is not None:
         optionals["effect"] = effect
-    brightness = 75 if brightness is None else brightness.replace("%", "")
-    color = "white" if color is None else color
+    else:
+        optionals["brightness_pct"] = 75 if brightness is None else brightness.replace("%", "")
+        optionals["color_name"] = "white" if color is None else color
     if on:
         if entity.domain == "light":
-            api.turn_on(entity.entity_id, brightness_pct=brightness, color_name=color, **optionals)
+            api.turn_on(entity.entity_id, **optionals)
         else:
             api.turn_on(entity.entity_id)
     else:
