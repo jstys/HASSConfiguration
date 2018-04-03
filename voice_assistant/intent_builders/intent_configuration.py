@@ -98,6 +98,6 @@ entity_json = {
         "its (?P<SceneEvent>.*) time",
         "the (?P<InputName>.*) input",
         "the (?P<VacuumName>.*) vacuum",
-        "(?P<ModeName>.*) mode"
+        "to (?P<ModeName>.*) mode"
     ]
 }
