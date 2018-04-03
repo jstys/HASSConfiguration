@@ -102,7 +102,7 @@ entity_json = {
         ]
     },
     "Regex": [
-        "(?P<Percentage>[0-9]+%)",
+        "(?P<Percentage>[0-9]+)%",
         "add (?P<ListItemAdd>.*) to",
         "remove (?P<ListItemRemove>.*) from",
         "its (?P<SceneEvent>.*) time",
