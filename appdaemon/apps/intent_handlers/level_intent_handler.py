@@ -8,9 +8,9 @@ def handle(api, json_message, received_room, group_yaml, *args, **kwargs):
     room = received_room if room is None else room
     level = json_message.get('Percentage')
     if level is None and json_message.get("MaxVal"):
-        level = 100
+        level = "100"
     elif level is None and json_message.get("MinVal"):
-        level = 10
+        level = "10"
 
     device = None
     deviceType = None
