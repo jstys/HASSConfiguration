@@ -29,7 +29,7 @@ intents.append(\
     .optionally("AllModifier")\
     .optionally("Room")\
     .one_of("LightObject", "LampObject", "MediaObject")\
-    .require("Percentage")\
+    .optionally("Percentage")\
     .build())
 
 intents.append(\
@@ -76,6 +76,20 @@ intents.append(\
     .require("MediaVerb")\
     .optionally("VacuumName")
     .require("VacuumObject")\
+    .build())
+
+intents.append(\
+    IntentBuilder("ColorIntent")\
+    .require("ModifyVerb")\
+    .one_of("LightObject", "LampObject")\
+    .require("Color")\
+    .build())
+
+intents.append(\
+    IntentBuilder("ModeIntent")\
+    .require("ModifyVerb")
+    .one_of("LightObject", "LampObject")\
+    .require("ModeName")\
     .build())
 
 for intent in intents:

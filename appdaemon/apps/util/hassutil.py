@@ -76,11 +76,12 @@ def tts_say(api, message, tts_room):
 def tts_broadcast(api, message, source="HASS"):
     call_service(api, "script", "assistant_broadcast", message=message, source=source)
 
-def turn_off_on(api, entity, on, brightness):
+def turn_off_on(api, entity, on, brightness=None, color=None, effect=None):
     brightness = 75 if brightness is None else brightness.replace("%", "")
+    color = "white" if color is None else color
     if on:
         if entity.domain == "light":
-            api.turn_on(entity.entity_id, brightness_pct=brightness)
+            api.turn_on(entity.entity_id, brightness_pct=brightness, color_name=color, effect=effect)
         else:
             api.turn_on(entity.entity_id)
     else:

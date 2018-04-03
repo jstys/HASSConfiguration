@@ -14,6 +14,19 @@ entity_json = {
             "office",
             "house"
         ],
+        "ModifyVerb": [
+            "change",
+            "set"
+        ],
+        "Color": [
+            "red",
+            "orange",
+            "yellow",
+            "blue",
+            "purple",
+            "green",
+            "pink"
+        ],
         "LightObject": [
             "lights",
             "light"
@@ -28,7 +41,9 @@ entity_json = {
         "LevelVerb": [
             "dim",
             "turn up",
-            "turn down"
+            "turn down",
+            "lower",
+            "raise"
         ],
         "PowerVerb": [
             "turn on",
@@ -82,6 +97,7 @@ entity_json = {
         "remove (?P<ListItemRemove>.*) from",
         "its (?P<SceneEvent>.*) time",
         "the (?P<InputName>.*) input",
-        "the (?P<VacuumName>.*) vacuum"
+        "the (?P<VacuumName>.*) vacuum",
+        "(?P<ModeName>.*) mode"
     ]
 }
