@@ -93,7 +93,7 @@ def turn_off_on(api, entity, on, brightness=None, color=None, effect=None):
         
 def set_level(api, entity, percentage):
     if entity.domain == "light":
-        api.turn_on(entity.entity_id, brightness_pct=percentage)
+        api.turn_on(entity.entity_id, brightness_pct=percentage.replace("%", ""))
 
 def call_service(api, domain, action, **kwargs):
     api.call_service("/".join([domain, action]), **kwargs)
