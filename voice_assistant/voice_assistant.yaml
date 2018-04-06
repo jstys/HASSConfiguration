@@ -2,10 +2,11 @@ common:
     room_name:
     assistant_type:
     connection_protocol:
+    tts_engine: 
 
 connection:
     mqtt:
-        broker_ip:
+        broker_host:
         broker_port:
         client_id:
         username:
@@ -18,3 +19,7 @@ assistant:
         
     snips:
         placeholder:
+        
+tts:
+    pico: ~
+    google: ~

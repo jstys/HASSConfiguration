@@ -7,6 +7,7 @@ import json
 import yaml
 import assistants.assistant_factory as assistant_factory
 import connections.connection_factory as connection_factory
+import tts_platforms.tts_factory as tts_factory
 
 class VoiceAssistant():
 
@@ -21,6 +22,9 @@ class VoiceAssistant():
         self._connection_config = None
         self._assistant = None
         self._connection = None
+        self._tts_platform = None
+        self._tts_config = None
+        self._tts = None
         self._room_name = None
         
     def start(self):
@@ -47,6 +51,11 @@ class VoiceAssistant():
                                                              self.on_intent_built)
         if not self._assistant:
             print("Failed to create assistant")
+            sys.exit(1)
+            
+        self._tts = tts_factory.create_tts(self._tts_platform, self._tts_config)
+        if not self._tts:
+            print("Failed to create tts")
             sys.exit(1)
             
         self._connection.run_in_background()
@@ -88,32 +97,34 @@ class VoiceAssistant():
         except:
             print("Invalid configuration of 'connection_protocol' in voice_assistant.yaml")
             return False
+            
+        try:
+            self._tts_platform = self._common_config['tts_engine']
+            self._tts_config = self._common_config['tts'][self._tts_platform]
+        except:
+            print("Invalid configuration of 'tts_engine' in voice_assistant.yaml")
+            return False
 
         return True
             
     def on_tts_message(self, message):
-        self._speak_message(message)
+        self._tts.speak(message)
     
     def on_broadcast_message(self, message, source):
         if source == self._room_name:
             message = "Your message has been shared"
 
-        self._speak_message(message)
-
-    def _speak_message(self, message):
-        pico_command = ['pico2wave', '-l', 'en-US', '-w', './audio/tmp.wav', message]
-        subprocess.call(pico_command)
-        subprocess.call(['aplay', './audio/tmp.wav'])
+        self._tts.speak(message)
     
     def on_ask_message(self, message, followed_intent=None):
-        self._speak_message(message)
+        self._tts.speak(message)
         self._assistant.recognize_speech(followed_intent)
     
     def on_broadcast_ask_message(self, message, source, followed_intent=None):
         if source == self._room_name:
-            self._speak_message("Your question has been asked")
+            self._tts.speak("Your question has been asked")
         else:
-            self._speak_message(message)
+            self._tts.speak(message)
             self._assistant.recognize_speech(followed_intent)
 
     def on_hotword_detected(self):
