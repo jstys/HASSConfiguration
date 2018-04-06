@@ -100,7 +100,7 @@ class VoiceAssistant():
             
         try:
             self._tts_platform = self._common_config['tts_engine']
-            self._tts_config = self._common_config['tts'][self._tts_platform]
+            self._tts_config = self._configuration['tts'][self._tts_platform]
         except:
             print("Invalid configuration of 'tts_engine' in voice_assistant.yaml")
             return False
