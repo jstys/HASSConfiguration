@@ -5,7 +5,7 @@ from gtts import gTTS
 
 class GoogleTTS(ITTS):
     def __init__(self, config):
-        super().__init__(self, config)
+        super().__init__(config)
         
     def validate(self):
         return True

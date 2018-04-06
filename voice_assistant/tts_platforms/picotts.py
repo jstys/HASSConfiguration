@@ -4,7 +4,7 @@ from tts_platforms.itts import ITTS
 
 class PicoTTS(ITTS):
     def __init__(self, config):
-        super().__init__(self, config)
+        super().__init__(config)
         
     def validate(self):
         return True
