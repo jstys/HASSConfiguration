@@ -7,7 +7,7 @@ class GoogleTTS(ITTS):
     def __init__(self, config):
         super().__init__(config)
         
-    def validate(self):
+    def validate_config(self):
         return True
         
     def speak(self, message):
