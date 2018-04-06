@@ -11,6 +11,6 @@ class GoogleTTS(ITTS):
         return True
         
     def speak(self, message):
-        tts = gTTS(text='Hello', lang='en', slow=False)
+        tts = gTTS(text=message, lang='en', slow=False)
         tts.save("./audio/tmp.mp3")
-        subprocess.call(['aplay', './audio/tmp.mp3'])
+        subprocess.call(['mpg123', './audio/tmp.mp3'])
