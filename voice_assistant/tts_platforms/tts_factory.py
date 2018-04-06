@@ -13,14 +13,14 @@ def create_tts(tts_platform, tts_config):
         return None
 
 def create_pico_tts(tts_config):
-    tts = PicoTTS()
+    tts = PicoTTS(tts_config)
     if not tts.validate_config():
         return None
     else:
         return tts
         
 def create_google_tts(tts_config):
-    tts = GoogleTTS()
+    tts = GoogleTTS(tts_config)
     if not tts.validate_config():
         return None
     else:
