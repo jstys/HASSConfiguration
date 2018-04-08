@@ -3,10 +3,10 @@ import json
 import os
 import importlib
 import re
-from util import hassutil
-import appdaemon.appapi as appapi
+import hassutil
+import appdaemon.plugins.hass.hassapi as hass
 
-class IntentReceiver(appapi.AppDaemon):
+class IntentReceiver(hass.Hass):
     def __init__(self, name, logger, error, args, global_vars):
         super().__init__(name, logger, error, args, global_vars)
         self.received_room = None

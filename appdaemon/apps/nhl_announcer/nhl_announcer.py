@@ -1,8 +1,8 @@
 #!/srv/homeassistant/bin/python3
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 from hassutil import tts_say, tts_broadcast, call_service
 
-class NHLAnnouncer(appapi.AppDaemon):
+class NHLAnnouncer(hass.Hass):
     def __init__(self, name, logger, error, args, global_vars):
         super().__init__(name, logger, error, args, global_vars)
 
