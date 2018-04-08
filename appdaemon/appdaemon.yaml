@@ -1,6 +1,10 @@
 appdaemon:
   threads: 10
   api_port: 5000
+  plugins:
+  HASS:
+    type: hass
+    ha_url: <hass_url>
 log:
   logfile: /tmp/appdaemon.log
   errorfile: /tmp/appdaemon.log
@@ -8,7 +12,3 @@ log:
   log_generations: 3
 hadashboard:
   dash_url: <dash_url>
-plugins:
-  HASS:
-    type: hass
-    ha_url: <hass_url>
