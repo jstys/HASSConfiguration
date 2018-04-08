@@ -20,7 +20,6 @@ import functools
 from binascii import hexlify, unhexlify
 
 from bluepy.btle import Scanner, DefaultDelegate, Peripheral, ADDR_TYPE_RANDOM, BTLEException
-import hassutil
 import appdaemon.plugins.hass.hassapi as hass
 
 SWITCHMATE_SERVICE = '23d1bcea5f782315deef121223150000'
@@ -32,8 +31,6 @@ AUTH_INIT_VALUE = struct.pack('<BBBBBB', 0x00, 0x00, 0x00, 0x00, 0x01, 0x00)
 
 STATE_HANDLE = 0x000e
 STATE_NOTIFY_HANDLE = 0x000f
-
-SWITCHMATE_CONFIG = "/home/homeassistant/appdaemon/apps/switchmate.yaml"
 
 def c_mul(a, b):
     '''
