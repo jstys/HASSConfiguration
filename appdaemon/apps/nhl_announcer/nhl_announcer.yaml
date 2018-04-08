@@ -1,5 +1,0 @@
-nhl_announcer:
-  module: nhl_announcer
-  class: NHLAnnouncer
-  global_dependencies:
-    - hassutil
