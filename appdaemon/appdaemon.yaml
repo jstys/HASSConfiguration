@@ -4,11 +4,11 @@ appdaemon:
   plugins:
     HASS:
       type: hass
-      ha_url: <hass_url>
+      ha_url: !secret hass_url
 log:
   logfile: /tmp/appdaemon.log
   errorfile: /tmp/appdaemon.log
   logsize: 100000
   log_generations: 3
 hadashboard:
-  dash_url: <dash_url>
+  dash_url: !secret dash_url
