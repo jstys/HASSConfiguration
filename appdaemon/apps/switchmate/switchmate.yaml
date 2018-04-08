@@ -1,0 +1,6 @@
+switchmate_switcher:
+  module: switchmate
+  class: SwitchmateSwitcher
+  global_dependencies:
+    - hassutil
+  
