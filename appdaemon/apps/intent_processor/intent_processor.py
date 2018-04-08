@@ -7,8 +7,8 @@ import hassutil
 import appdaemon.plugins.hass.hassapi as hass
 
 class IntentReceiver(hass.Hass):
-    def __init__(self, name, logger, error, args, global_vars):
-        super().__init__(name, logger, error, args, global_vars)
+    def __init__(self, ad, name, logger, error, args, config, app_config, global_vars):
+        super().__init__(ad, name, logger, error, args, config, app_config, global_vars)
         self.received_room = None
         self.group_yaml = None
         self.handler_map = {}

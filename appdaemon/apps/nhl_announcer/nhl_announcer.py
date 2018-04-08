@@ -3,8 +3,8 @@ import appdaemon.plugins.hass.hassapi as hass
 from hassutil import tts_say, tts_broadcast, call_service
 
 class NHLAnnouncer(hass.Hass):
-    def __init__(self, name, logger, error, args, global_vars):
-        super().__init__(name, logger, error, args, global_vars)
+    def __init__(self, ad, name, logger, error, args, config, app_config, global_vars):
+        super().__init__(ad, name, logger, error, args, config, app_config, global_vars)
 
         # TODO: make more configurable
         self.team = "New Jersey Devils"

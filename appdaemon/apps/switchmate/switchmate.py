@@ -127,8 +127,8 @@ class SwitchmateSwitch(object):
 
 
 class SwitchmateSwitcher(hass.Hass):
-    def __init__(self, name, logger, error, args, global_vars):
-        super().__init__(name, logger, error, args, global_vars)
+    def __init__(self, ad, name, logger, error, args, config, app_config, global_vars):
+        super().__init__(ad, name, logger, error, args, config, app_config, global_vars)
         self.switchmate_config = None
         self.switches = {}
 
