@@ -133,7 +133,7 @@ class SwitchmateSwitcher(hass.Hass):
         self.switches = {}
 
     def initialize(self):
-        self.switchmate_config = hassutil.read_config_file(SWITCHMATE_CONFIG)
+        self.switchmate_config = self.args['switches']
         self.log("Loaded switchmate config: {}".format(self.switchmate_config))
         for name, config in self.switchmate_config.items():
             self.switches[name] = SwitchmateSwitch(name, config.get('mac'), config.get('auth'))
