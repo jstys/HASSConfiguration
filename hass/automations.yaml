@@ -118,7 +118,7 @@
   alias: LR TV auto cast on
   trigger:
     platform: template
-    value_template: "{{ not is_state('media_player.mibox3', 'off') }}"
+    value_template: "{{ not states('media_player.mibox3') in ['off', 'unavailable'] }}"
   condition:
     condition: state
     entity_id: switch.living_room_tv
@@ -133,7 +133,7 @@
   alias: BR TV auto cast on
   trigger:
     platform: template
-    value_template: "{{ not is_state('media_player.bedroom_cast', 'off') }}"
+    value_template: "{{ not states('media_player.bedroom_cast') in ['off', 'unavailable'] }}"
   condition:
     condition: state
     entity_id: switch.bedroom_tv
