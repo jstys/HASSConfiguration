@@ -29,3 +29,14 @@ bt_erica_cell:
   picture:
   track: true
   vendor:
+
+owntracks_jim:
+  hide_if_away: false
+  name: GPS
+  track: true
+
+owntracks_erica:
+  hide_if_away: false
+  name: GPS
+  track: true
+

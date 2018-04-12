@@ -41,6 +41,11 @@ notify:
     api_key: !secret erica_pushbullet_token
 
 device_tracker:
+  - platform: owntracks
+    secret: !secret owntracks_encryption
+    new_device_defaults:
+      track_new_devices: False
+      hide_if_away: False
   - platform: bluetooth_tracker
     new_device_defaults:
       track_new_devices: False
@@ -185,6 +190,8 @@ frontend:
 
 # Enables configuration UI
 config:
+
+map:
 
 recorder:
   purge_interval: 2

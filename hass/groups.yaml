@@ -19,6 +19,7 @@ jim_cell_device:
   entities:
     - device_tracker.bt_jim_cell
     - device_tracker.wifi_jim_cell
+    - device_tracker.owntracks_jim
 
 erica_cell_device:
   name: Erica Cell
@@ -26,6 +27,7 @@ erica_cell_device:
   entities:
     - device_tracker.bt_erica_cell
     - device_tracker.wifi_erica_cell
+    - device_tracker.owntracks_erica
 
 kitchen:
   name: Kitchen
