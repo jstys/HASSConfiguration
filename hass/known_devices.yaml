@@ -34,9 +34,11 @@ owntracks_jim:
   hide_if_away: false
   name: GPS
   track: true
+  picture: /local/jim.jpg
 
 owntracks_erica:
   hide_if_away: false
   name: GPS
   track: true
+  picture: /local/erica.jpg
 
