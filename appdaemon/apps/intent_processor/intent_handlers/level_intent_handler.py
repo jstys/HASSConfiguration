@@ -5,7 +5,7 @@ INTENT = "LevelIntent"
 
 def handle(api, json_message, received_room, group_yaml, *args, **kwargs):
     room = json_message.get('Room')
-    room = received_room if room is None else room
+    room = received_room if room is None else room.replace(" ", "_")
     level = json_message.get('Percentage')
     if level is None and "MaxVal" in json_message:
         level = "100"

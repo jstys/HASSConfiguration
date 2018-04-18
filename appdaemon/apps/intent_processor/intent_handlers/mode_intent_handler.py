@@ -14,7 +14,7 @@ MODES = {
 
 def handle(api, json_message, received_room, group_yaml, *args, **kwargs):
     room = json_message.get('Room')
-    room = received_room if room is None else room
+    room = received_room if room is None else room.replace(" ", "_")
     mode = json_message.get('ModeName')
     mode = MODES.get(mode)
     if mode is None:
