@@ -1,6 +1,9 @@
 living_room_tv_cable_input:
   alias: Cable Input
   sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.living_room_tv
     - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
@@ -9,6 +12,9 @@ living_room_tv_cable_input:
 living_room_tv_xbox_input:
   alias: Xbox Input
   sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.living_room_tv
     - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
@@ -17,6 +23,9 @@ living_room_tv_xbox_input:
 living_room_tv_steam_input:
   alias: Steam Input
   sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.living_room_tv
     - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
@@ -25,6 +34,9 @@ living_room_tv_steam_input:
 living_room_tv_chromecast_input:
   alias: Chromecast Input
   sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.living_room_tv
     - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:

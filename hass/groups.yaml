@@ -67,6 +67,7 @@ living_room_tv_control:
     - script.living_room_tv_cable_input
     - script.living_room_tv_xbox_input
     - script.living_room_tv_chromecast_input
+    - script.living_room_tv_steam_input
 
 living_room_lamps:
   name: Lamps
