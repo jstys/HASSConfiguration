@@ -32,6 +32,7 @@ erica_cell_device:
 kitchen:
   name: Kitchen
   view: no
+  control: hidden
   entities:
     - binary_sensor.motion_sensor_158d00016612a5
     - binary_sensor.door_window_sensor_158d0001d3a024
