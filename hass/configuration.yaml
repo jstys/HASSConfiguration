@@ -113,6 +113,10 @@ xiaomi_aqara:
     - mac: !secret xiaomi1_mac
       key: !secret xiaomi1_key
 
+zha:
+  usb_path: /dev/ttyUSB1
+  database_path: /home/homeassistant/.homeassistant/zigbee.db
+
 ##############################################################
 #                       INCLUDES                             #
 ##############################################################
