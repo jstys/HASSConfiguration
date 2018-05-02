@@ -113,6 +113,13 @@ xiaomi_aqara:
     - mac: !secret xiaomi1_mac
       key: !secret xiaomi1_key
 
+arlo:
+  username: !secret arlo_user
+  password: !secret arlo_pass
+
+camera:
+  - platform: arlo
+
 ##############################################################
 #                       INCLUDES                             #
 ##############################################################
