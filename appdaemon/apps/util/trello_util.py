@@ -83,7 +83,8 @@ def _get_item_reference_from_grocery_list(item, grocery_json):
     return None
 
 def _get_grocery_item_name(item):
-    return re.sub(r"\(.*\)", "", item.get("name")).strip().lower()
+    orig_name = item.get("name")
+    return orig_name[:orig_name.index("(")].strip().lower()
 
 def _get_grocery_item_amount(item):
     match = re.search(r".+ \((?P<amount>.+)\)", item.get("name"))
