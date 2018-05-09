@@ -42,7 +42,7 @@ def get_tv_input_scripts(room, parsed_yaml):
 def get_all_switches_and_lights(parsed_yaml):
     result = []
 
-    for name, group in parsed_yaml.items():
+    for _, group in parsed_yaml.items():
         for entity_name in group['entities']:
             entity = Entity(entity_name)
             if entity.domain == "switch" or entity.domain == "light":
@@ -97,3 +97,35 @@ def set_level(api, entity, percentage):
 
 def call_service(api, domain, action, **kwargs):
     api.call_service("/".join([domain, action]), **kwargs)
+
+def convert_device_information(intent_json, allowed_object_types):
+    device = None
+    device_type = None
+    for object_type in allowed_object_types:
+        try:
+            device = intent_json[object_type].lower().replace(" ", "_")
+            device_type = object_type
+        except KeyError:
+            device = None
+            device_type = None
+            continue
+        else:
+            break
+
+    if device_type == "LightObject":
+        device = "light"
+    elif device_type == "LampObject":
+        device = "lamp"
+
+    return device, device_type
+
+def get_devices_for_type(device_type, room, groups):
+    devices = []
+    if device_type == "InputName":
+        devices = [entity for entity in get_tv_input_scripts(room, groups)]
+    elif room == "house":
+        devices = [entity for entity in get_all_switches_and_lights(groups)]
+    else:
+        devices = [entity for entity in get_group_switches_and_lights(room, groups)]
+
+    return devices
