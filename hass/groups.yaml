@@ -38,6 +38,8 @@ kitchen:
     - binary_sensor.door_window_sensor_158d0001d3a024
     - group.kitchen_lights
     - vacuum.xiaomi_vacuum_cleaner
+    - script.generate_grocery_list
+    - script.archive_mealplan
 
 kitchen_lights:
   name: Lights

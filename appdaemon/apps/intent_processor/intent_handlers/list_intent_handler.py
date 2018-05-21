@@ -4,7 +4,14 @@ from util import trello_util
 INTENT = "ListIntent"
 
 def initialize(api):
-    pass
+    api.listen_event(on_archive_mealplan, "archive_mealplan")
+    api.listen_event(on_generate_mealplan, "generate_mealplan")
+
+def on_archive_mealplan(api, event, data, kwargs):
+    _archive_mealplan()
+
+def on_generate_mealplan(api, event, data, kwargs):
+    _generate_grocery_list(api)
 
 def handle(api, json_message, received_room, *args, **kwargs):
     list_type = json_message.get("ListType")
@@ -15,18 +22,31 @@ def handle_grocery_list(api, json_message, received_room):
     add_item = json_message.get("ListItemAdd")
     remove_item = json_message.get("ListItemRemove")
     generate = json_message.get("ListGenerate")
-    result = False
     message = None
 
     if remove_item:
-        result, message = trello_util.remove_from_grocery_list(remove_item)
+        _, message = _remove_item(remove_item)
     elif add_item:
-        result, message = trello_util.add_to_grocery_list(add_item)
+        _, message = _add_item(add_item)
     elif generate:
-        result, message = trello_util.generate_grocery_list_from_meal_plan()
-        if not result and message:
-            pushbullet_notify(api, account="jim_pushbullet", devices=["device/jim_cell"], title="list_intent_handler", message=message)
-            gui_notify(api, title="list_intent_handler", message=message)
-        
+        _, message = _generate_grocery_list(api)
+
     if message:
         tts_say(api, message, received_room)
+        
+def _add_item(item):
+    return trello_util.add_to_grocery_list(item)
+
+def _remove_item(item):
+    return trello_util.remove_from_grocery_list(item)
+
+def _generate_grocery_list(api):
+    result, message = trello_util.generate_grocery_list_from_meal_plan()
+    if not result and message:
+        pushbullet_notify(api, account="jim_pushbullet", devices=["device/jim_cell"], title="list_intent_handler", message=message)
+        gui_notify(api, title="list_intent_handler", message=message)
+    
+    return (result, message)
+
+def _archive_mealplan():
+    return trello_util.archive_last_week()

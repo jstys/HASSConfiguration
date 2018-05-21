@@ -263,3 +263,13 @@ update_appdaemon_config:
   alias: Update Appdaemon Config
   sequence:
     - service: shell_command.update_appdaemon_config
+
+generate_grocery_list:
+  alias: Create Grocery List
+  sequence:
+    - event: generate_mealplan
+
+archive_mealplan:
+  alias: Archive Last Week
+  sequence:
+    - event: archive_mealplan
