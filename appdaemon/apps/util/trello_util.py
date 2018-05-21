@@ -87,7 +87,7 @@ def _get_grocery_item_name(item):
     return orig_name[:orig_name.index("(")].strip().lower()
 
 def _get_grocery_item_amount(item):
-    match = re.search(r".+ \((?P<amount>.+)\)", item.get("name"))
+    match = re.search(r"\((?P<amount>.+)\)", item.get("name"))
     if match:
         return match.group("amount")
     else:
