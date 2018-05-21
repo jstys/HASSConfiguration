@@ -18,6 +18,16 @@ _DAY_LIST_MAP = {
     "Saturday": "562af24f75a935532aed4546"
 }
 _GROCERY_LIST_ID = "1iKTzp7F"
+_RECENT_RECIPES_ID = "57b1272100998a82de83e0e7"
+
+def archive_last_week():
+    for day, _ in _DAY_LIST_MAP.items():
+        trello_id = _DAY_LIST_MAP[day]
+        day_recipes = requests.get("https://api.trello.com/1/lists/{}/cards".format(trello_id), auth=_get_auth()).json()
+        for day_recipe in day_recipes:
+            day_recipe['idList'] = _RECENT_RECIPES_ID
+            requests.put("https://api/trello.com/1/cards/{}".format(day_recipe['id']), params=day_recipe, auth=_get_auth())
+
 
 def generate_grocery_list_from_meal_plan():
     failed_to_add = []
