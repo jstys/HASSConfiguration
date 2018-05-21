@@ -4,6 +4,9 @@ from util.hassutil import Entity, call_service
 INTENT = "VacuumIntent"
 _DEFAULT_VACUUM = "xiaomi_vacuum_cleaner"
 
+def initialize(api):
+    pass
+
 def handle(api, json_message, *args, **kwargs):
     action = json_message.get("MediaVerb")
     vacuum = Entity.fromSplitName("vacuum", json_message.get("VacuumName", _DEFAULT_VACUUM))

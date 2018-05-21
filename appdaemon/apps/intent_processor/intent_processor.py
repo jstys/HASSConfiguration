@@ -30,6 +30,8 @@ class IntentReceiver(hass.Hass):
         else:
             self.log("Error parsing groups.yaml")
         self.listen_event(self.on_assistant_command, "VOICE_ASSISTANT_INTENT")
+        for _, handler in self.handler_map.items():
+            handler.initialize(self)
 
     def on_assistant_command(self, event_name, data, kwargs):
         json_payload = {}

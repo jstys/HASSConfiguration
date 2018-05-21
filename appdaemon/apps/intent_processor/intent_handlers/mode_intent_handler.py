@@ -12,6 +12,9 @@ MODES = {
     "alarm": "Alarm"
 }
 
+def initialize(api):
+    pass
+
 def handle(api, json_message, received_room, group_yaml, *args, **kwargs):
     room = json_message.get('Room')
     room = received_room if room is None else room.replace(" ", "_")

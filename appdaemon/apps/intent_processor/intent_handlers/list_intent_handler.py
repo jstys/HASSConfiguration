@@ -3,6 +3,9 @@ from util import trello_util
 
 INTENT = "ListIntent"
 
+def initialize(api):
+    pass
+
 def handle(api, json_message, received_room, *args, **kwargs):
     list_type = json_message.get("ListType")
     if list_type.lower() in ["grocery", "groceries"]:
