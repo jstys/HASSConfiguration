@@ -10,9 +10,11 @@ def initialize(api):
     api.listen_event(partial(on_generate_mealplan, api), "generate_mealplan")
 
 def on_archive_mealplan(api, event, data, kwargs):
+    api.log("on_archive_mealplan")
     _archive_mealplan()
 
 def on_generate_mealplan(api, event, data, kwargs):
+    api.log("on_generate_mealplan")
     _generate_grocery_list(api)
 
 def handle(api, json_message, received_room, *args, **kwargs):

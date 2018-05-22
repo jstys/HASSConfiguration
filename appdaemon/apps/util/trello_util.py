@@ -25,8 +25,7 @@ def archive_last_week():
         trello_id = _DAY_LIST_MAP[day]
         day_recipes = requests.get("https://api.trello.com/1/lists/{}/cards".format(trello_id), auth=_get_auth()).json()
         for day_recipe in day_recipes:
-            day_recipe['idList'] = _RECENT_RECIPES_ID
-            requests.put("https://api/trello.com/1/cards/{}".format(day_recipe['id']), params=day_recipe, auth=_get_auth())
+            requests.put("https://api/trello.com/1/cards/{}/idList?value={}".format(day_recipe['id'], _RECENT_RECIPES_ID), auth=_get_auth())
 
 
 def generate_grocery_list_from_meal_plan():
