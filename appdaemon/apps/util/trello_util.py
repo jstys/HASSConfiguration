@@ -3,7 +3,7 @@ import re
 from requests_oauthlib import OAuth1
 from util import hassutil
 
-API_BASE = "https://api.trello.com/1/"
+API_BASE = "https://api.trello.com/1"
 CHECKED_STATE = "complete"
 UNCHECKED_STATE = "incomplete"
 
@@ -23,9 +23,9 @@ _RECENT_RECIPES_ID = "57b1272100998a82de83e0e7"
 def archive_last_week():
     for day, _ in _DAY_LIST_MAP.items():
         trello_id = _DAY_LIST_MAP[day]
-        day_recipes = requests.get("https://api.trello.com/1/lists/{}/cards".format(trello_id), auth=_get_auth()).json()
+        day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
         for day_recipe in day_recipes:
-            requests.put("https://api/trello.com/1/cards/{}/idList?value={}".format(day_recipe['id'], _RECENT_RECIPES_ID), auth=_get_auth())
+            requests.put("{}/cards/{}/idList?value={}".format(API_BASE, day_recipe['id'], _RECENT_RECIPES_ID), auth=_get_auth())
 
 
 def generate_grocery_list_from_meal_plan():
@@ -111,17 +111,17 @@ def _update_item_amount(item, amount):
 
 def _get_grocery_list():
     try:
-        return requests.get("https://api.trello.com/1/cards/{}/checklists".format(_GROCERY_LIST_ID), auth=_get_auth()).json()
+        return requests.get("{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
     except:
         return {}
 
 def _get_grocery_items_for_day(day):
     ingredients = []
     trello_id = _DAY_LIST_MAP[day]
-    day_recipes = requests.get("https://api.trello.com/1/lists/{}/cards".format(trello_id), auth=_get_auth()).json()
+    day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
     for day_recipe in day_recipes:
         for ingredient_list_ids in day_recipe['idChecklists']:
-            ingredients.extend(requests.get("https://api.trello.com/1/checklists/{}/checkitems".format(ingredient_list_ids), auth=_get_auth()).json())
+            ingredients.extend(requests.get("{}/checklists/{}/checkitems".format(API_BASE, ingredient_list_ids), auth=_get_auth()).json())
 
     return ingredients
 
@@ -138,4 +138,4 @@ def _save_item(item):
     params["name"] = item["name"]
     params["state"] = item["state"]
     params["idChecklist"] = item["idChecklist"]
-    requests.request("PUT", "https://api.trello.com/1/cards/{}/checkItem/{}".format(_GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
+    requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
