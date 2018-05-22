@@ -25,7 +25,7 @@ class IntentReceiver(hass.Hass):
             self.handler_map[module.INTENT] = module
 
     def _reload_handlers(self):
-        for _, module in self.handler_map:
+        for _, module in self.handler_map.items():
             reloaded = importlib.reload(module)
             self.handler_map[reloaded.INTENT] = reloaded
 
