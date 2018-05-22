@@ -6,8 +6,8 @@ from util import trello_util
 INTENT = "ListIntent"
 
 def initialize(api):
-    api.listen_event(partial(on_archive_mealplan, api), "archive_mealplan")
-    api.listen_event(partial(on_generate_mealplan, api), "generate_mealplan")
+    api.register_handler_event(on_archive_mealplan, "archive_mealplan")
+    api.register_handler_event(on_generate_mealplan, "generate_mealplan")
 
 def on_archive_mealplan(api, event, data, kwargs):
     api.log("on_archive_mealplan")

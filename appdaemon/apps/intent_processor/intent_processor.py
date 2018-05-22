@@ -12,6 +12,7 @@ class IntentReceiver(hass.Hass):
         self.received_room = None
         self.group_yaml = None
         self.handler_map = {}
+        self.handler_events = {}
         self._load_handlers()
 
     def _load_handlers(self):
@@ -24,6 +25,7 @@ class IntentReceiver(hass.Hass):
             self.handler_map[module.INTENT] = module
 
     def initialize(self):
+        self.handler_events.clear()
         self.group_yaml = hassutil.read_config_file(hassutil.GROUPS)
         if self.group_yaml:
             self.log("Successfully parsed groups.yaml")
@@ -32,6 +34,19 @@ class IntentReceiver(hass.Hass):
         self.listen_event(self.on_assistant_command, "VOICE_ASSISTANT_INTENT")
         for _, handler in self.handler_map.items():
             handler.initialize(self)
+
+    def register_handler_event(self, callback, event):
+        if event not in self.handler_events:
+            self.handler_events[event] = []
+
+        self.handler_event[event].append(callback)
+
+    def on_handler_event(self, event, data, kwargs):
+        callbacks = self.handler_events.get(event)
+        if callbacks:
+            for callback in callbacks:
+                callback(self, event, data, kwargs)
+
 
     def on_assistant_command(self, event_name, data, kwargs):
         json_payload = {}
