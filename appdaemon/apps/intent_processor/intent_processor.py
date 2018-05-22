@@ -24,7 +24,13 @@ class IntentReceiver(hass.Hass):
             module = importlib.import_module(".".join(["intent_handlers", module_name.replace('.py', '')]))
             self.handler_map[module.INTENT] = module
 
+    def _reload_handlers(self):
+        for _, module in self.hanlder_map:
+            reloaded = importlib.reload(module)
+            self.handler_map[reloaded.INTENT] = reloaded
+
     def initialize(self):
+        self._reload_handlers()
         self.handler_events.clear()
         self.group_yaml = hassutil.read_config_file(hassutil.GROUPS)
         if self.group_yaml:
