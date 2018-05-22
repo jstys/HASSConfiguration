@@ -117,13 +117,14 @@ def _get_grocery_list():
         return {}
 
 def _get_grocery_items_for_day(day):
+    ingredients = []
     trello_id = _DAY_LIST_MAP[day]
     day_recipes = requests.get("https://api.trello.com/1/lists/{}/cards".format(trello_id), auth=_get_auth()).json()
     for day_recipe in day_recipes:
         for ingredient_list_ids in day_recipe['idChecklists']:
-            return requests.get("https://api.trello.com/1/checklists/{}/checkitems".format(ingredient_list_ids), auth=_get_auth()).json() 
-    else:
-        return []
+            ingredients.extend(requests.get("https://api.trello.com/1/checklists/{}/checkitems".format(ingredient_list_ids), auth=_get_auth()).json())
+
+    return ingredients
 
 def _get_auth():
     global _AUTH
