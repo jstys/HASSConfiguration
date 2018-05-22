@@ -38,6 +38,7 @@ class IntentReceiver(hass.Hass):
     def register_handler_event(self, callback, event):
         if event not in self.handler_events:
             self.handler_events[event] = []
+            self.listen_event(self.on_handler_event, event)
 
         self.handler_events[event].append(callback)
 
