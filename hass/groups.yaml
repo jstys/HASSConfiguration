@@ -3,7 +3,7 @@ default_view:
   view: yes
   entities:
     # - group.garage
-    # - group.front_porch
+    - group.front_porch
     - group.kitchen
     - group.living_room
     # - group.dining_room
@@ -24,11 +24,12 @@ default_view:
 #   control: hidden
 #   entities:
 
-# front_porch:
-#   name: Front Porch
-#   view: no
-#   control: hidden
-#   entities:
+front_porch:
+  name: Front Porch
+  view: no
+  control: hidden
+  entities:
+    - lock.front_door
 
 kitchen:
   name: Kitchen
