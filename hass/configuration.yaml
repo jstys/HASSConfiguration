@@ -2,7 +2,7 @@ homeassistant:
   name: Home
   latitude: !secret home_latitude
   longitude: !secret home_longitude
-  elevation: 32
+  elevation: 54
   unit_system: imperial
   time_zone: !secret home_timezone
   customize: !include customize.yaml
@@ -116,6 +116,11 @@ xiaomi_aqara:
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /home/homeassistant/.homeassistant/zigbee.db
+
+august:
+  login_method: email
+  username: !secret august_user
+  password: !secret august_pass
 
 ##############################################################
 #                       INCLUDES                             #

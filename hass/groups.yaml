@@ -2,9 +2,123 @@ default_view:
   name: Rooms
   view: yes
   entities:
+    # - group.garage
+    # - group.front_porch
     - group.kitchen
     - group.living_room
-    - group.bedroom
+    # - group.dining_room
+    # - group.office
+    # - group.master_bedroom
+    # - group.guest_bedroom
+    # - group.upstairs_bathroom
+    # - group.upstairs_den
+    # - group.attic
+    # - group.basement_bathroom
+    # - group.laundry_room
+    # - group.basement
+    # - group.backyard
+
+# garage:
+#   name: Garage
+#   view: no
+#   control: hidden
+#   entities:
+
+# front_porch:
+#   name: Front Porch
+#   view: no
+#   control: hidden
+#   entities:
+
+kitchen:
+  name: Kitchen
+  view: no
+  control: hidden
+  entities:
+    # - vacuum.xiaomi_vacuum_cleaner
+    - script.generate_grocery_list
+    - script.archive_mealplan
+    # TODO: add lights, water leak, door sensors
+
+living_room:
+  name: Living Room
+  view: no
+  control: hidden
+  entities:
+    - light.living_room_lamp_1
+    - light.living_room_lamp_2
+
+# dining_room:
+#   name: Dining Room
+#   view: no
+#   control: hidden
+#   entities:
+
+# office:
+#   name: Office
+#   view: no
+#   control: hidden
+#   entities:
+
+master_bedroom:
+  name: Master Bedroom
+  view: no
+  control: hidden
+  entities:
+    - light.jim_night_lamp
+    - light.erica_night_lamp
+
+# guest_bedroom:
+#   name: Guest Bedroom
+#   view: no
+#   control: hidden
+#   entities:
+
+# upstairs_bathroom:
+#   name: Upstairs Bathroom
+#   view: no
+#   control: hidden
+#   entities:
+
+# upstairs_den:
+#   name: Upstairs Den
+#   view: no
+#   control: hidden
+#   entities:
+
+# attic:
+#   name: Attic
+#   view: no
+#   control: hidden
+#   entities:
+
+# basement_bathroom:
+#   name: Basement Bathroom
+#   view: no
+#   control: hidden
+#   entities:
+
+# laundry_room:
+#   name: Laundry Room
+#   view: no
+#   control: hidden
+#   entities:
+
+# basement:
+#   name: Basement
+#   view: no
+#   control: hidden
+#   entities:
+
+# backyard:
+#   name: backyard
+#   view: no
+#   control: hidden
+#   entities:
+
+##############################################################
+#                       DEVICES VIEW                         #
+##############################################################
 
 devices_view:
   name: Devices
@@ -29,92 +143,9 @@ erica_cell_device:
     - device_tracker.wifi_erica_cell
     - device_tracker.owntracks_erica
 
-kitchen:
-  name: Kitchen
-  view: no
-  control: hidden
-  entities:
-    - binary_sensor.motion_sensor_158d00016612a5
-    - binary_sensor.door_window_sensor_158d0001d3a024
-    - group.kitchen_lights
-    - vacuum.xiaomi_vacuum_cleaner
-    - script.generate_grocery_list
-    - script.archive_mealplan
-
-kitchen_lights:
-  name: Lights
-  view: no
-  entities:
-    - switch.kitchen_light
-
-living_room:
-  name: Living Room
-  view: no
-  control: hidden
-  entities:
-    - binary_sensor.motion_sensor_158d0001661247
-    - sensor.temperature_158d0001d6f386
-    - group.living_room_lights
-    - group.living_room_tv_control
-    - group.living_room_lamps
-    - media_player.mibox3
-    - media_player.living_room_home
-
-living_room_tv_control:
-  name: TV Control
-  view: no
-  control: hidden
-  entities:
-    - switch.living_room_tv
-    - script.living_room_tv_mute
-    - script.living_room_tv_cable_input
-    - script.living_room_tv_xbox_input
-    - script.living_room_tv_chromecast_input
-    - script.living_room_tv_steam_input
-
-living_room_lamps:
-  name: Lamps
-  view: no
-  entities:
-    - light.living_room_lamp_1
-    - light.living_room_lamp_2
-
-living_room_lights:
-  name: Lights
-  view: no
-  entities:
-    - switch.living_room_light
-
-bedroom:
-  name: Bedroom
-  view: no
-  control: hidden
-  entities:
-    - group.bedroom_tv_control
-    - group.bedroom_lights
-    - group.bedroom_lamps
-    - media_player.bedroom_cast
-
-bedroom_lights:
-  name: Lights
-  view: no
-  entities:
-    - switch.bedroom_light
-
-bedroom_lamps:
-  name: Night Lamps
-  view: no
-  entities:
-    - light.jim_night_lamp
-    - light.erica_night_lamp
-
-bedroom_tv_control:
-  name: TV Control
-  view: no
-  control: hidden
-  entities:
-    - switch.bedroom_tv
-    - script.bedroom_tv_mute
+##############################################################
+#                       DEBUG VIEW                           #
+##############################################################
 
 debug_view:
   name: Debug
