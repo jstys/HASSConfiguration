@@ -16,7 +16,7 @@ default_view:
     # - group.basement_bathroom
     # - group.laundry_room
     # - group.basement
-    # - group.backyard
+    - group.backyard
 
 # garage:
 #   name: Garage
@@ -39,6 +39,7 @@ kitchen:
     # - vacuum.xiaomi_vacuum_cleaner
     - script.generate_grocery_list
     - script.archive_mealplan
+    - switch.kitchen_high_hats
     # TODO: add lights, water leak, door sensors
 
 living_room:
@@ -111,11 +112,12 @@ master_bedroom:
 #   control: hidden
 #   entities:
 
-# backyard:
-#   name: backyard
-#   view: no
-#   control: hidden
-#   entities:
+backyard:
+  name: backyard
+  view: no
+  control: hidden
+  entities:
+    - switch.backyard_string_lights
 
 ##############################################################
 #                       DEVICES VIEW                         #
