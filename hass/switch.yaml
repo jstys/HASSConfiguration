@@ -61,8 +61,3 @@
 - platform: broadlink
   host: 10.0.0.11
   mac: !secret broadlink2_mac
-- platform: broadlink
-  host: 10.0.0.20
-  mac: !secret spmini1_mac
-  friendly_name: "Modem Kill Switch"
-  type: sp3

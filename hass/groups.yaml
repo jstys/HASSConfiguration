@@ -113,7 +113,7 @@ master_bedroom:
 #   entities:
 
 backyard:
-  name: backyard
+  name: Backyard
   view: no
   control: hidden
   entities:
@@ -166,14 +166,6 @@ service_updater:
   entities:
     - script.update_hass_config
     - script.update_appdaemon_config
-
-internet_monitor:
-  name: Internet Monitor
-  view: no
-  control: hidden
-  entities:
-    - binary_sensor.google_dns_ping
-    - switch.modem_kill_switch
 
 ircontrol:
   name: IR Control
