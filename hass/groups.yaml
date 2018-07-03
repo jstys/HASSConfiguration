@@ -7,7 +7,7 @@ default_view:
     - group.kitchen
     - group.living_room
     # - group.dining_room
-    # - group.office
+    - group.office
     # - group.master_bedroom
     # - group.guest_bedroom
     # - group.upstairs_bathroom
@@ -56,11 +56,12 @@ living_room:
 #   control: hidden
 #   entities:
 
-# office:
-#   name: Office
-#   view: no
-#   control: hidden
-#   entities:
+office:
+  name: Office
+  view: no
+  control: hidden
+  entities:
+    - sensor.google_wifi
 
 master_bedroom:
   name: Master Bedroom

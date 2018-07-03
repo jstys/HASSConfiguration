@@ -80,6 +80,9 @@ sensor:
   - platform: nhl_box_score
     team: 'New Jersey Devils'
     calendar: 'calendar.new_jersey_devils'
+
+  - platform: google_wifi
+    host: 10.0.0.1
   
 logger:
   default: warning
