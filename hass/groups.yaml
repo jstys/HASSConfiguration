@@ -50,11 +50,12 @@ living_room:
     - light.living_room_lamp_1
     - light.living_room_lamp_2
 
-# dining_room:
-#   name: Dining Room
-#   view: no
-#   control: hidden
-#   entities:
+dining_room:
+  name: Dining Room
+  view: no
+  control: hidden
+  entities:
+    - switch.dining_room_ac
 
 office:
   name: Office
