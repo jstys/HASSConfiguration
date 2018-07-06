@@ -1,58 +1,82 @@
-bedroom_tv_mute:
-  alias: Mute
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_11
-      data:
-        packet:
-          - !secret bedroom_soundbar_mute
-bedroom_tv_volume_up:
-  alias: Volume +
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_11
-      data:
-        packet:
-          - !secret bedroom_soundbar_volume_up
-bedroom_tv_volume_down:
-  alias: Volume -
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_11
-      data:
-        packet:
-          - !secret bedroom_soundbar_volume_down
-bedroom_tv_on:
+master_bedroom_ac_on:
   sequence:
     - condition: state
-      entity_id: input_boolean.bedroom_tv
+      entity_id: input_boolean.master_bedroom_ac
       state: 'off'
-    - service: switch.broadlink_send_packet_10_0_0_11
+    - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
-          - !secret bedroom_tv_on
-          - !secret bedroom_tv_on
-          - !secret bedroom_tv_on
-          - !secret bedroom_soundbar_power
-          - !secret bedroom_soundbar_power
-          - !secret bedroom_soundbar_power
+          - !secret master_bedroom_ac_on
     - service: input_boolean.turn_on
       data:
-        entity_id: input_boolean.bedroom_tv
-bedroom_tv_off:
+        entity_id: input_boolean.master_bedroom_ac
+master_bedroom_ac_off:
   sequence:
     - condition: state
-      entity_id: input_boolean.bedroom_tv
+      entity_id: input_boolean.master_bedroom_ac
       state: 'on'
-    - service: switch.broadlink_send_packet_10_0_0_11
+    - service: switch.broadlink_send_packet_10_0_0_4
       data:
         packet:
-          - !secret bedroom_tv_off
-          - !secret bedroom_tv_off
-          - !secret bedroom_tv_off
-          - !secret bedroom_soundbar_power
-          - !secret bedroom_soundbar_power
-          - !secret bedroom_soundbar_power
+          - !secret master_bedroom_ac_off
     - service: input_boolean.turn_off
       data:
-        entity_id: input_boolean.bedroom_tv
+        entity_id: input_boolean.master_bedroom_ac
+master_bedroom_tv_mute:
+  alias: Mute
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret master_bedroom_soundbar_mute
+master_bedroom_tv_volume_up:
+  alias: Volume +
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret master_bedroom_soundbar_volume_up
+master_bedroom_tv_volume_down:
+  alias: Volume -
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret master_bedroom_soundbar_volume_down
+master_bedroom_tv_on:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.master_bedroom_tv
+      state: 'off'
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret master_bedroom_tv_on
+          - !secret master_bedroom_tv_on
+          - !secret master_bedroom_tv_on
+          - !secret master_bedroom_soundbar_power
+          - !secret master_bedroom_soundbar_power
+          - !secret master_bedroom_soundbar_power
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.master_bedroom_tv
+master_bedroom_tv_off:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.master_bedroom_tv
+      state: 'on'
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret master_bedroom_tv_off
+          - !secret master_bedroom_tv_off
+          - !secret master_bedroom_tv_off
+          - !secret master_bedroom_soundbar_power
+          - !secret master_bedroom_soundbar_power
+          - !secret master_bedroom_soundbar_power
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.master_bedroom_tv
 rick_flair_woo:
   alias: WOO
   sequence:

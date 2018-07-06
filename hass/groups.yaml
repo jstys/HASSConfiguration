@@ -69,8 +69,20 @@ master_bedroom:
   view: no
   control: hidden
   entities:
+    - switch.master_bedroom_ac
+    - group.master_bedroom_tv_control
     - light.jim_night_lamp
     - light.erica_night_lamp
+
+master_bedroom_tv_control:
+  name: TV Control
+  view: no
+  control: hidden
+  entities:
+    - switch.master_bedroom_tv
+    - script.master_bedroom_tv_mute
+    - script.master_bedroom_tv_volume_up
+    - script.master_bedroom_tv_volume_down
 
 # guest_bedroom:
 #   name: Guest Bedroom

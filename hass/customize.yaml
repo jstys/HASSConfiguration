@@ -1,26 +1,9 @@
-    script.bedroom_tv:
+    script.master_bedroom_tv_mute:
       can_cancel: False
-    script.living_room_tv:
+    script.master_bedroom_tv_volume_up:
       can_cancel: False
-    switch.bedroom_light:
-      assumed_state: False
-    switch.kitchen_light:
-      assumed_state: False
-    switch.living_room_light:
-      assumed_state: False
-    switch.lamps:
-      assumed_state: False
-      friendly_name: "Living Room Lamps"
-    script.goal_horn:
-      emulated_hue: False
-    script.living_room_tv_on:
-      emulated_hue: False
-    script.living_room_tv_off:
-      emulated_hue: False
-    script.bedroom_tv_on:
-      emulated_hue: False
-    script.bedroom_tv_off:
-      emulated_hue: False
+    script.master_bedroom_tv_volume_down:
+      can_cancel: False
     media_player.mibox3:
       friendly_name: "Mi Box"
     light.gateway_light_34ce008dcec1:
