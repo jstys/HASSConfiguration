@@ -77,6 +77,30 @@ master_bedroom_tv_off:
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.master_bedroom_tv
+dining_room_ac_on:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.dining_room_ac
+      state: 'off'
+    - service: switch.broadlink_send_packet_10_0_0_11
+      data:
+        packet:
+          - !secret dining_room_ac_power
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.dining_room_ac
+dining_room_ac_off:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.dining_room_ac
+      state: 'on'
+    - service: switch.broadlink_send_packet_10_0_0_11
+      data:
+        packet:
+          - !secret dining_room_ac_power
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.dining_room_ac
 rick_flair_woo:
   alias: WOO
   sequence:
