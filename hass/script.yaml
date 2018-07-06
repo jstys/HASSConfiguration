@@ -77,6 +77,30 @@ master_bedroom_tv_off:
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.master_bedroom_tv
+master_bedroom_light_on:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.master_bedroom_light
+      state: 'off'
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret lutron_maestro_on
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.master_bedroom_light
+master_bedroom_light_off:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.master_bedroom_light
+      state: 'on'
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret lutron_maestro_off
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.master_bedroom_light
 dining_room_ac_on:
   sequence:
     - condition: state

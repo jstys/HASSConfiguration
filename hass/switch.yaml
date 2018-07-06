@@ -14,6 +14,13 @@
         service: script.master_bedroom_tv_on
       turn_off:
         service: script.master_bedroom_tv_off
+    master_bedroom_light:
+      friendly_name: "Master Bedroom Light"
+      value_template: "{{ is_state('input_boolean.master_bedroom_light', 'on') }}"
+      turn_on:
+        service: script.master_bedroom_light_on
+      turn_off:
+        service: script.master_bedroom_light_off
     dining_room_ac:
       friendly_name: "Dining Room AC"
       value_template: "{{ is_state('input_boolean.dining_room_ac', 'on') }}"

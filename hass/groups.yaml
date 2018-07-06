@@ -72,6 +72,7 @@ master_bedroom:
   entities:
     - switch.master_bedroom_ac
     - group.master_bedroom_tv_control
+    - switch.master_bedroom_light
     - light.jim_night_lamp
     - light.erica_night_lamp
 
