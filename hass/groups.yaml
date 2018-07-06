@@ -8,7 +8,7 @@ default_view:
     - group.living_room
     # - group.dining_room
     - group.office
-    # - group.master_bedroom
+    - group.master_bedroom
     # - group.guest_bedroom
     # - group.upstairs_bathroom
     # - group.upstairs_den
@@ -174,5 +174,5 @@ ircontrol:
   view: no
   control: hidden
   entities:
+    - script.learnir_mbr
     - script.learnir_lr
-    - script.learnir_br

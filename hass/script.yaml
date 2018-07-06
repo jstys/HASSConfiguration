@@ -1,100 +1,3 @@
-living_room_tv_cable_input:
-  alias: Cable Input
-  sequence:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.living_room_tv
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_tv_cable_input
-          - !secret living_room_tv_cable_input
-living_room_tv_xbox_input:
-  alias: Xbox Input
-  sequence:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.living_room_tv
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_tv_xbox_input
-          - !secret living_room_tv_xbox_input
-living_room_tv_steam_input:
-  alias: Steam Input
-  sequence:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.living_room_tv
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_tv_steam_input
-          - !secret living_room_tv_steam_input
-living_room_tv_chromecast_input:
-  alias: Chromecast Input
-  sequence:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.living_room_tv
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_tv_chromecast_input
-          - !secret living_room_tv_chromecast_input
-living_room_tv_mute:
-  alias: Mute
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_soundbar_mute
-living_room_tv_volume_up:
-  alias: Volume +
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_soundbar_volume_up
-living_room_tv_volume_down:
-  alias: Volume -
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_soundbar_volume_down
-living_room_tv_on:
-  sequence:
-    - condition: state
-      entity_id: input_boolean.living_room_tv
-      state: 'off'
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_tv_on
-          - !secret living_room_tv_on
-          - !secret living_room_tv_on
-          - !secret living_room_soundbar_power
-          - !secret living_room_soundbar_power
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.living_room_tv
-living_room_tv_off:
-  sequence:
-    - condition: state
-      entity_id: input_boolean.living_room_tv
-      state: 'on'
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret living_room_tv_off
-          - !secret living_room_tv_off
-          - !secret living_room_tv_off
-          - !secret living_room_soundbar_power
-          - !secret living_room_soundbar_power
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.living_room_tv
 bedroom_tv_mute:
   alias: Mute
   sequence:
@@ -183,13 +86,13 @@ goal_horn:
         entity_id: group.living_room_lamps
         effect: "Stop"
 
-learnir_lr:
-  alias: Learn IR Code Living Room
+learnir_mbr:
+  alias: Learn IR Code Master Bedroom
   sequence:
     - service: switch.broadlink_learn_command_10_0_0_4
 
-learnir_br:
-  alias: Learn IR Code Bedroom
+learnir_lr:
+  alias: Learn IR Code Living Room
   sequence:
     - service: switch.broadlink_learn_command_10_0_0_11
 
