@@ -116,6 +116,8 @@ def convert_device_information(intent_json, allowed_object_types):
         device = "light"
     elif device_type == "LampObject":
         device = "lamp"
+    elif device_type == "ACObject":
+        device = "ac"
 
     return device, device_type
 

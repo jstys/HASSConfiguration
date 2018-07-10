@@ -15,7 +15,7 @@ def handle(api, json_message, received_room, group_yaml, *args, **kwargs):
     allMod = json_message.get('AllModifier') is not None
     is_on_action = (json_message.get('PowerVerb') == "turn on")
 
-    device, device_type = hassutil.convert_device_information(json_message, ["LightObject", "LampObject", "MediaObject", "InputName"])
+    device, device_type = hassutil.convert_device_information(json_message, ["LightObject", "LampObject", "MediaObject", "InputName", "ACObject"])
     devices = hassutil.get_devices_for_type(device_type, room, group_yaml)
 
     if allMod:
