@@ -39,7 +39,7 @@ intents.append(\
     .require("PowerVerb")\
     .optionally("AllModifier")\
     .optionally("Room")\
-    .one_of("LightObject", "LampObject", "MediaObject", "InputName")\
+    .one_of("LightObject", "LampObject", "MediaObject", "InputName", "ACObject")\
     .optionally("Percentage")\
     .build())
 

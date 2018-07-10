@@ -27,9 +27,15 @@ entity_json = {
             "green",
             "pink"
         ],
+        "ACObject": [
+            "ac",
+            "air conditioner"
+        ],
         "LightObject": [
             "lights",
-            "light"
+            "light",
+            "hi hats",
+            "high hats"
         ],
         "LampObject": [
             "lamp",
