@@ -55,6 +55,7 @@ dining_room:
   view: no
   control: hidden
   entities:
+    - light.dining_room_light
     - switch.dining_room_ac
 
 office:
