@@ -8,3 +8,5 @@
       name: Jim Night Lamp
     10.0.0.24:
       name: Erica Night Lamp
+
+- platform: lifx
