@@ -12,7 +12,8 @@ entity_json = {
             "garage",
             "bedroom",
             "office",
-            "house"
+            "house",
+            "dining"
         ],
         "ModifyVerb": [
             "change",
