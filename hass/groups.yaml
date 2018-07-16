@@ -36,7 +36,7 @@ kitchen:
   view: no
   control: hidden
   entities:
-    # - vacuum.xiaomi_vacuum_cleaner
+    - vacuum.xiaomi_vacuum_cleaner
     - script.generate_grocery_list
     - script.archive_mealplan
     - switch.kitchen_high_hats
