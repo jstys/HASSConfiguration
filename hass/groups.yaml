@@ -47,6 +47,7 @@ living_room:
   view: no
   control: hidden
   entities:
+    - media_player.living_room_tv
     - light.living_room_lamp_1
     - light.living_room_lamp_2
 

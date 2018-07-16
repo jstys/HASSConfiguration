@@ -61,6 +61,11 @@ binary_sensor:
     count: 5
     scan_interval: 300
 
+media_player:
+  - platform: vizio
+    host: 10.0.0.5
+    access_token: !secret living_room_vizio_token
+
 sensor:
   - platform: darksky
     api_key: !secret dark_sky_key
