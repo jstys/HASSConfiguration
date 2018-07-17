@@ -46,7 +46,9 @@ entity_json = {
             "lamps"
         ],
         "MediaObject": [
-            "TV"
+            "TV",
+            "Speaker",
+            "Speakers"
         ],
         "LevelVerb": [
             "dim",
