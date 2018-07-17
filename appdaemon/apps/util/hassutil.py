@@ -10,7 +10,7 @@ OBJECT_MAP = {
     "LightObject": ["light", "lights", "hi_hats"],
     "LampObject": ["lamp", "lamps"],
     "ACObject": ["ac", "air_conditioner"],
-    "MediaObject": ["tv", "speaker", "speakers"],
+    "MediaObject": ["tv", "speaker", "speakers", "smartcast"],
     "InputName": ["tv_input"]
 }
 
