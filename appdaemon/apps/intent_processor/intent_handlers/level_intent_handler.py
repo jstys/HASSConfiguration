@@ -20,14 +20,6 @@ def handle(api, json_message, received_room, group_yaml, *args, **kwargs):
 
     allMod = json_message.get('AllModifier') is not None
 
-    if allMod:
-        if device_type == "LightObject":
-            hassutil.tts_say(api, random.choice(hassutil.AFFIRMATIVE_RESPONSES), tts_room=received_room)
-            for entity in devices:
-                if "lamp" in entity.name or "light" in entity.name:
-                    hassutil.set_level(api, entity, level)
-    else:
-        hassutil.tts_say(api, random.choice(hassutil.AFFIRMATIVE_RESPONSES), tts_room=received_room)
-        for entity in devices:
-            if device in entity.name:
-                hassutil.set_level(api, entity, level)
+    # hassutil.tts_say(api, random.choice(hassutil.AFFIRMATIVE_RESPONSES), tts_room=received_room)
+    for entity in devices:
+        hassutil.set_level(api, entity, level)

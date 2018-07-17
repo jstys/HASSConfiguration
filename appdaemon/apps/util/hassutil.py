@@ -6,6 +6,13 @@ GROUPS = os.path.join(HASS_DIR, "groups.yaml")
 SECRETS = os.path.join(HASS_DIR, "secrets.yaml")
 BROADCAST_ROOM = "broadcast"
 AFFIRMATIVE_RESPONSES = ["sure thing", "you got it", "as you wish", "no worries", "roger that"]
+OBJECT_MAP = {
+    "LightObject": ["light", "lights", "hi_hats"],
+    "LampObject": ["lamp", "lamps"],
+    "ACObject": ["ac", "air_conditioner"],
+    "MediaObject": ["tv", "speaker", "speakers"],
+    "InputName": ["tv_input"]
+}
 
 class Entity(object):
     def __init__(self, fully_qualified_name):
@@ -24,45 +31,6 @@ def read_config_file(filename):
             return yaml.load(yamlfile)
     except:
         return {}
-
-def get_tv_input_scripts(room, parsed_yaml):
-    result = []
-
-    group_entity = parsed_yaml.get(room)
-    if group_entity is not None:
-        for entity_id in group_entity['entities']:
-            entity = Entity(entity_id)
-            if entity.domain == "script" and "input" in entity.name:
-                result.append(entity)
-            elif entity.domain == "group":
-                result.extend(get_tv_input_scripts(entity.name, parsed_yaml))
-
-    return result
-
-def get_all_switches_and_lights(parsed_yaml):
-    result = []
-
-    for _, group in parsed_yaml.items():
-        for entity_name in group['entities']:
-            entity = Entity(entity_name)
-            if entity.domain == "switch" or entity.domain == "light":
-                result.append(entity)
-
-    return result
-
-def get_group_switches_and_lights(group, parsed_yaml):
-    result = []
-
-    group_entity = parsed_yaml.get(group)
-    if group_entity is not None:
-        for entity_name in group_entity['entities']:
-            entity = Entity(entity_name)
-            if entity.domain in ["light", "switch"]:
-                result.append(entity)
-            elif entity.domain == "group":
-                result.extend(get_group_switches_and_lights(entity.name, parsed_yaml))
-
-    return result
 
 def gui_notify(api, title, message):
     call_service(api, "persistent_notification", "create", title=title, message=message)
@@ -123,11 +91,26 @@ def convert_device_information(intent_json, allowed_object_types):
 
 def get_devices_for_type(device_type, room, groups):
     devices = []
-    if device_type == "InputName":
-        devices = [entity for entity in get_tv_input_scripts(room, groups)]
-    elif room == "house":
-        devices = [entity for entity in get_all_switches_and_lights(groups)]
+    if room == "house":
+        for name, _ in groups.items():
+            devices.extend(_get_devices_for_type_in_group(device_type, name, groups))
     else:
-        devices = [entity for entity in get_group_switches_and_lights(room, groups)]
+        devices = _get_devices_for_type_in_group(device_type, room, groups)
 
     return devices
+
+def _get_devices_for_type_in_group(device_type, group, parsed_yaml):
+    result = []
+    if device_type not in OBJECT_MAP:
+        return []
+
+    group_entity = parsed_yaml.get(group)
+    if group_entity is not None:
+        for entity_name in group_entity['entities']:
+            entity = Entity(entity_name)
+            if entity.name in OBJECT_MAP.get(device_type):
+                result.append(entity)
+            elif entity.domain == "group":
+                result.extend(_get_devices_for_type_in_group(device_type, entity.name, parsed_yaml))
+
+    return result
