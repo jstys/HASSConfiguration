@@ -108,9 +108,15 @@ def _get_devices_for_type_in_group(device_type, group, parsed_yaml):
     if group_entity is not None:
         for entity_name in group_entity['entities']:
             entity = Entity(entity_name)
-            if OBJECT_MAP.get(device_type) in entity.name:
-                result.append(entity)
-            elif entity.domain == "group":
+            if entity.domain == "group":
                 result.extend(_get_devices_for_type_in_group(device_type, entity.name, parsed_yaml))
+            elif _is_matched_device_for_type(device_type, entity):
+                result.append(entity)
 
     return result
+
+def _is_matched_device_for_type(device_type, entity):
+    for identifier in OBJECT_MAP.get(device_type):
+        if identifier in entity.name:
+            return True
+    return False
