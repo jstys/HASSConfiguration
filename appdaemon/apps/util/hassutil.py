@@ -108,7 +108,7 @@ def _get_devices_for_type_in_group(device_type, group, parsed_yaml):
     if group_entity is not None:
         for entity_name in group_entity['entities']:
             entity = Entity(entity_name)
-            if entity.name in OBJECT_MAP.get(device_type):
+            if OBJECT_MAP.get(device_type) in entity.name:
                 result.append(entity)
             elif entity.domain == "group":
                 result.extend(_get_devices_for_type_in_group(device_type, entity.name, parsed_yaml))
