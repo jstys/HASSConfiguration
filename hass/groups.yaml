@@ -57,7 +57,7 @@ dining_room:
   control: hidden
   entities:
     - light.dining_room_light
-    - switch.dining_room_ac
+    - script.dining_room_ac
 
 office:
   name: Office
