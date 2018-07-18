@@ -90,6 +90,7 @@ master_bedroom_light_off:
       data:
         entity_id: input_boolean.master_bedroom_light
 dining_room_ac:
+  alias: Dining Room AC
   sequence:
     - service: switch.broadlink_send_packet_10_0_0_11
       data:
