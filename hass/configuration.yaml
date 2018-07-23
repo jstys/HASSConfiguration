@@ -95,6 +95,13 @@ logger:
     homeassistant.components.switch.broadlink: info
     homeassistant.components.recorder: info
     homeassistant.components.media_player.plex: critical
+    # ZHADEBUG
+    # homeassistant.components.zha: debug
+    # bellows.ezsp: debug
+    # bellows.uart: debug
+    # zigpy.zdo: debug
+    # zigpy.application: debug
+    # /ZHADEBUG
 
 google:
   client_id: !secret google_client_id

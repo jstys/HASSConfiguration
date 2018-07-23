@@ -203,7 +203,6 @@ update_hass_config:
   alias: Update HASS Config
   sequence:
     - service: shell_command.update_hass_config
-    - service: homeassistant.restart
     
 update_appdaemon_config:
   alias: Update Appdaemon Config
