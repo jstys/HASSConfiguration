@@ -32,12 +32,9 @@ switchmate_switcher:
   global_dependencies:
     - hassutil
   switches:
-    living_room_switchmate:
-      mac: !secret living_room_switchmate_mac
-      auth: !secret living_room_switchmate_auth
-    bedroom_switchmate:
-      mac: !secret bedroom_switchmate_mac
-      auth: !secret bedroom_switchmate_auth
+    hallway_switchmate:
+      mac: !secret hallway_switchmate_mac
+      auth: !secret hallway_switchmate_auth
     kitchen_switchmate:
       mac: !secret kitchen_switchmate_mac
       auth: !secret kitchen_switchmate_auth
