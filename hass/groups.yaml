@@ -8,6 +8,7 @@ default_view:
     - group.living_room
     - group.dining_room
     - group.office
+    - group.hallway
     - group.master_bedroom
     # - group.guest_bedroom
     # - group.upstairs_bathroom
@@ -40,7 +41,7 @@ kitchen:
     - script.generate_grocery_list
     - script.archive_mealplan
     - switch.kitchen_high_hats
-    # TODO: add lights, water leak, door sensors
+    - switch.kitchen_fixture_light
 
 living_room:
   name: Living Room
@@ -67,6 +68,13 @@ office:
     - sensor.google_wifi_local_ip
     - sensor.google_wifi_status
 
+hallway:
+  name: Hallway
+  view: no
+  control: hidden
+  entities:
+    - switch.hallway_switchmate
+
 master_bedroom:
   name: Master Bedroom
   view: no
@@ -77,6 +85,7 @@ master_bedroom:
     - switch.master_bedroom_light
     - light.jim_night_lamp
     - light.erica_night_lamp
+    - media_player.mibox3
 
 master_bedroom_tv_control:
   name: TV Control

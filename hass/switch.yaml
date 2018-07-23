@@ -21,6 +21,32 @@
         service: script.master_bedroom_light_on
       turn_off:
         service: script.master_bedroom_light_off
+    kitchen_fixture_light:
+      friendly_name: 'Kitchen Light'
+      value_template: "{{ is_state('input_boolean.kitchen_switchmate', 'on') }}"
+      turn_on:
+        event: kitchen_switchmate
+        event_data:
+          command: switch
+          is_on: True
+      turn_off:
+        event: kitchen_switchmate
+        event_data:
+          command: switch
+          is_on: False
+    hallway_light:
+      friendly_name: 'Hallway Light'
+      value_template: "{{ is_state('input_boolean.hallway_switchmate', 'on') }}"
+      turn_on:
+        event: hallway_switchmate
+        event_data:
+          command: switch
+          is_on: True
+      turn_off:
+        event: hallway_switchmate
+        event_data:
+          command: switch
+          is_on: False
 - platform: broadlink
   host: 10.0.0.4
   mac: !secret broadlink1_mac
