@@ -21,6 +21,25 @@
         service: script.master_bedroom_light_on
       turn_off:
         service: script.master_bedroom_light_off
+    zigbee_debug:
+      friendly_name: "Zigbee Debugging"
+      value_template: "{{ is_state('input_boolean.zigbee_debug', 'on') }}"
+      turn_on:
+        service: logger.set_level
+        data:
+          homeassistant.components.zha: debug
+          bellows.ezsp: debug
+          bellows.uart: debug
+          zigpy.zdo: debug
+          zigpy.application: debug
+      turn_off:
+        service: logger.set_level
+        data:
+          homeassistant.components.zha: warning
+          bellows.ezsp: warning
+          bellows.uart: warning
+          zigpy.zdo: warning
+          zigpy.application: warning
 - platform: broadlink
   host: 10.0.0.4
   mac: !secret broadlink1_mac

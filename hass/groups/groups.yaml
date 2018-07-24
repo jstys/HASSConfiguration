@@ -176,6 +176,7 @@ debug_view:
     - group.ircontrol
     - group.service_updater
     - group.internet_monitor
+    - group.debugging
 
 service_updater:
   name: Service Updater
@@ -192,3 +193,10 @@ ircontrol:
   entities:
     - script.learnir_mbr
     - script.learnir_lr
+
+debugging:
+  name: HASS Debugging
+  view: no
+  control: hidden
+  entities:
+    - switch.zigbee_debug
