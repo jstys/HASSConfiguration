@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#! /srv/homeassistant/bin/python3
 
 import argparse
 import datetime

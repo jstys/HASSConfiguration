@@ -1,1 +1,1 @@
-z_wave_graph: python3 /home/homeassistant/.homeassistant/python_scripts/z-wave-graph.py
+z_wave_graph: /home/homeassistant/.homeassistant/python_scripts/z-wave-graph.py
