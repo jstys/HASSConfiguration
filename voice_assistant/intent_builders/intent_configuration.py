@@ -1,6 +1,7 @@
 translations = {
     "zip lock bags": "ziploc bags",
-    "lampes": "lamps"
+    "lampes": "lamps",
+    "backyard": "back yard"
 }
 
 entity_json = {
