@@ -135,14 +135,15 @@ august:
 #                       INCLUDES                             #
 ##############################################################
 
-group: !include groups.yaml
-script: !include script.yaml
+group: !include_dir_merge_named groups/
+script: !include_dir_merge_named scripts/
 switch: !include switch.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list automations/
 zone: !include zones.yaml
 input_boolean: !include input_boolean.yaml
 light: !include light.yaml
-shell_command: !include shell.yaml
+shell_command: !include_dir_merge_named shell_commands/
+panel_iframe: !include_dir_merge_named panel_iframes/
 
 ##############################################################
 #                       ENABLED                              #
