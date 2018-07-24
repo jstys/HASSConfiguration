@@ -1,7 +1,7 @@
 translations = {
     "zip lock bags": "ziploc bags",
     "lampes": "lamps",
-    "backyard": "back yard"
+    "front yard": "frontyard"
 }
 
 entity_json = {
@@ -11,13 +11,14 @@ entity_json = {
             "bathroom",
             "kitchen",
             "garage",
-            "bedroom",
             "office",
             "house",
             "dining room",
-            "back yard",
-            "front yard",
-            "attic"
+            "backyard",
+            "frontyard",
+            "attic",
+            "guest bedroom",
+            "master bedroom"
         ],
         "ModifyVerb": [
             "change",
