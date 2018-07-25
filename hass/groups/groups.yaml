@@ -2,7 +2,7 @@ default_view:
   name: Rooms
   view: yes
   entities:
-    # - group.garage
+    - group.garage
     - group.front_porch
     - group.kitchen
     - group.living_room
@@ -17,11 +17,12 @@ default_view:
     # - group.basement
     - group.backyard
 
-# garage:
-#   name: Garage
-#   view: no
-#   control: hidden
-#   entities:
+garage:
+  name: Garage
+  view: no
+  control: hidden
+  entities:
+    - binary_sensor.visonic_mct340_e_0b121b78_1_1280
 
 front_porch:
   name: Front Porch
