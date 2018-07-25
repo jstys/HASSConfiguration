@@ -6,7 +6,6 @@ default_view:
     - group.front_porch
     - group.kitchen
     - group.living_room
-    - group.dining_room
     - group.office
     - group.master_bedroom
     # - group.guest_bedroom
@@ -30,6 +29,7 @@ front_porch:
   control: hidden
   entities:
     - lock.front_door
+    - binary_sensor.visonic_mct340_e_0b121662_1_1280
 
 kitchen:
   name: Kitchen
@@ -49,14 +49,9 @@ living_room:
     - media_player.vizio_smartcast
     - light.living_room_lamp_1
     - light.living_room_lamp_2
-
-dining_room:
-  name: Dining Room
-  view: no
-  control: hidden
-  entities:
     - light.dining_room_light
     - script.dining_room_ac
+    - sensor.temperature_158d0001d6f386
 
 office:
   name: Office
