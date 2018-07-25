@@ -25,29 +25,9 @@
       friendly_name: "Zigbee Debugging"
       value_template: "{{ is_state('input_boolean.zigbee_debug', 'on') }}"
       turn_on:
-        sequence:
-          - service: logger.set_level
-            data:
-              homeassistant.components.zha: debug
-              bellows.ezsp: debug
-              bellows.uart: debug
-              zigpy.zdo: debug
-              zigpy.application: debug
-          - service: input_boolean.turn_on
-            data:
-              entity_id: input_boolean.zigbee_debug
+        service: script.zigbee_debug_on
       turn_off:
-        sequence:
-          - service: logger.set_level
-            data:
-              homeassistant.components.zha: warning
-              bellows.ezsp: warning
-              bellows.uart: warning
-              zigpy.zdo: warning
-              zigpy.application: warning
-          - service: input_boolean.turn_off
-            data:
-              entity_id: input_boolean.zigbee_debug
+        service: script.zigbee_debug_off
 - platform: broadlink
   host: 10.0.0.4
   mac: !secret broadlink1_mac
