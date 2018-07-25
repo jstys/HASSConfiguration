@@ -40,6 +40,7 @@ kitchen:
     - script.generate_grocery_list
     - script.archive_mealplan
     - switch.kitchen_high_hats
+    - binary_sensor.door_window_sensor_158d0001d3a024
 
 living_room:
   name: Living Room

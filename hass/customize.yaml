@@ -12,3 +12,5 @@
       friendly_name: "Downstairs Temperature"
     binary_sensor.visonic_mct340_e_0b121662_1_1280:
       friendly_name: "Front Door Sensor"
+    binary_sensor.door_window_sensor_158d0001d3a024:
+      friendly_name: "Fridge Door Sensor"
