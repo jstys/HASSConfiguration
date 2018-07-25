@@ -222,3 +222,11 @@ http:
   # api_password: PASSWORD
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
+
+history_graph:
+  temperature:
+    name: Temperature Graph
+    entities: 
+      - sensor.temperature_158d0001d6f386
+    hours_to_show: 48
+    refresh: 600
