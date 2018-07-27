@@ -133,6 +133,7 @@ backyard:
   control: hidden
   entities:
     - switch.backyard_string_lights
+    - camera.backyard_cam
 
 ##############################################################
 #                       DEVICES VIEW                         #
