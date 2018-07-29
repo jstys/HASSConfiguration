@@ -64,6 +64,7 @@ binary_sensor:
 media_player:
   - platform: vizio
     host: 10.0.0.5
+    scan_interval: 30
     access_token: !secret living_room_vizio_token
 
 sensor:
