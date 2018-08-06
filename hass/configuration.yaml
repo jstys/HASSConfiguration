@@ -133,6 +133,13 @@ august:
   login_method: email
   username: !secret august_user
   password: !secret august_pass
+  
+arlo:
+  username: !secret arlo_user
+  password: !secret arlo_pass
+
+camera:
+  - platform: arlo
 
 arlo:
   username: !secret arlo_user
