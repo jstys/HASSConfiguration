@@ -54,6 +54,8 @@ device_tracker:
 tts:
   platform: google
 
+cast:
+
 binary_sensor:
   - platform: ping
     name: Google DNS Ping
@@ -131,6 +133,13 @@ august:
   login_method: email
   username: !secret august_user
   password: !secret august_pass
+
+arlo:
+  username: !secret arlo_user
+  password: !secret arlo_pass
+
+camera:
+  - platform: arlo
 
 ##############################################################
 #                       INCLUDES                             #
