@@ -31,6 +31,7 @@ front_porch:
   entities:
     - lock.front_door
     - binary_sensor.visonic_mct340_e_0b121662_1_1280
+    - camera.front_door
 
 kitchen:
   name: Kitchen
