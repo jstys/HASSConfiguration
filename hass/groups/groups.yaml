@@ -6,7 +6,7 @@ default_view:
     - group.front_porch
     - group.kitchen
     - group.living_room
-    - group.office
+    # - group.office
     - group.master_bedroom
     # - group.guest_bedroom
     # - group.upstairs_bathroom
@@ -58,13 +58,11 @@ living_room:
     - script.dining_room_ac
     - sensor.temperature_158d0001d6f386
 
-office:
-  name: Office
-  view: no
-  control: hidden
-  entities:
-    - sensor.google_wifi_local_ip
-    - sensor.google_wifi_status
+# office:
+#   name: Office
+#   view: no
+#   control: hidden
+#   entities:
 
 master_bedroom:
   name: Master Bedroom
@@ -155,7 +153,7 @@ jim_cell_device:
   view: no
   entities:
     - device_tracker.bt_jim_cell
-    # - device_tracker.wifi_jim_cell
+    - device_tracker.wifi_jim_cell
     - device_tracker.owntracks_jim
 
 erica_cell_device:
@@ -163,7 +161,7 @@ erica_cell_device:
   view: no
   entities:
     - device_tracker.bt_erica_cell
-    # - device_tracker.wifi_erica_cell
+    - device_tracker.wifi_erica_cell
     - device_tracker.owntracks_erica
 
 ##############################################################
