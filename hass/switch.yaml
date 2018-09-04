@@ -21,6 +21,13 @@
         service: script.master_bedroom_light_on
       turn_off:
         service: script.master_bedroom_light_off
+    dining_room_ac:
+      friendly_name: "Dining Room AC"
+      value_template: "{{ is_state('input_boolean.dining_room_ac', 'on') }}"
+      turn_on:
+        service: script.dining_room_ac
+      turn_off:
+        service: script.dining_room_ac
     zigbee_debug:
       friendly_name: "Zigbee Debugging"
       value_template: "{{ is_state('input_boolean.zigbee_debug', 'on') }}"

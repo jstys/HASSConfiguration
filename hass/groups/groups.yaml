@@ -55,7 +55,7 @@ living_room:
     - light.piano_led
     - switch.hank_hkzwso03_smart_plug_switch_2
     - light.dining_room_light
-    - script.dining_room_ac
+    - switch.dining_room_ac
     - sensor.temperature_158d0001d6f386
 
 # office:
