@@ -15,6 +15,7 @@ default_view:
     # - group.basement_bathroom
     # - group.laundry_room
     # - group.basement
+    - group.frontyard  
     - group.backyard
 
 garage:
@@ -127,6 +128,13 @@ master_bedroom_tv_control:
 #   view: no
 #   control: hidden
 #   entities:
+
+frontyard:
+  name: Frontyard
+  view: no
+  control: hidden
+  entities:
+    - light.osram_lightify_gardenspot_rgb_00a72c35_3
 
 backyard:
   name: Backyard
