@@ -76,6 +76,7 @@ master_bedroom:
     - light.jim_night_lamp
     - light.erica_night_lamp
     - media_player.mibox3
+    - sensor.temperature_158d000245a6a2
 
 master_bedroom_tv_control:
   name: TV Control
