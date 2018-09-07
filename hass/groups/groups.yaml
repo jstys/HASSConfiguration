@@ -14,7 +14,7 @@ default_view:
     # - group.attic
     # - group.basement_bathroom
     # - group.laundry_room
-    # - group.basement
+    - group.basement
     - group.hallway
     - group.frontyard  
     - group.backyard
