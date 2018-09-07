@@ -243,11 +243,3 @@ recorder:
 http:
   trusted_networks:
     - 127.0.0.1
-
-history_graph:
-  temperature:
-    name: Temperature Graph
-    entities: 
-      - sensor.temperature_158d0001d6f386
-    hours_to_show: 48
-    refresh: 600
