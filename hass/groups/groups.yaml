@@ -15,6 +15,7 @@ default_view:
     # - group.basement_bathroom
     # - group.laundry_room
     # - group.basement
+    - group.hallway
     - group.frontyard  
     - group.backyard
 
@@ -33,6 +34,7 @@ front_porch:
     - lock.front_door
     - binary_sensor.visonic_mct340_e_0b121662_1_1280
     - camera.front_door
+    - light.cree_connected_a19_60w_equivalent_fe041885_10
 
 kitchen:
   name: Kitchen
@@ -124,11 +126,19 @@ master_bedroom_tv_control:
 #   control: hidden
 #   entities:
 
-# basement:
-#   name: Basement
-#   view: no
-#   control: hidden
-#   entities:
+basement:
+  name: Basement
+  view: no
+  control: hidden
+  entities:
+    - light.cree_connected_a19_60w_equivalent_fe05fbf3_10
+
+hallway:
+  name: Hallway
+  view: no
+  control: hidden
+  entities:
+    - light.cree_connected_a19_60w_equivalent_fe040989_10
 
 frontyard:
   name: Frontyard
