@@ -26,3 +26,5 @@
       friendly_name: "Porch Light"
     light.cree_connected_a19_60w_equivalent_fe05fbf3_10:
       friendly_name: "Basement Staircase Light"
+    switch.ledvance_plug_00051d4d_1:
+      friendly_name: "Guitar Amp Power"
