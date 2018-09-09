@@ -221,3 +221,10 @@ archive_mealplan:
   alias: Archive Last Week
   sequence:
     - event: archive_mealplan
+
+add_xiaomi_device:
+  alias: Add Xiaomi Device
+  sequence:
+    - service: xiaomi_aqara.add_device
+      data:
+        gw_mac: !secret xiaomi1_mac

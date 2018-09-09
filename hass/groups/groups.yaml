@@ -220,3 +220,4 @@ debugging:
   control: hidden
   entities:
     - switch.zigbee_debug
+    - script.add_xiaomi_device
