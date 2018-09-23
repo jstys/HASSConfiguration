@@ -107,13 +107,6 @@ logger:
     homeassistant.components.switch.broadlink: info
     homeassistant.components.recorder: info
     homeassistant.components.media_player.plex: critical
-    # ZHADEBUG
-    # homeassistant.components.zha: debug
-    # bellows.ezsp: debug
-    # bellows.uart: debug
-    # zigpy.zdo: debug
-    # zigpy.application: debug
-    # /ZHADEBUG
 
 google:
   client_id: !secret google_client_id
@@ -237,8 +230,9 @@ config:
 map:
 
 recorder:
-  purge_interval: 2
-  purge_keep_days: 2
+  db_url: !secret mariadb_url
+  purge_interval: 1
+  purge_keep_days: 5
 
 http:
   trusted_networks:
