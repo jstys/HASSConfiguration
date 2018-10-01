@@ -127,9 +127,13 @@ xiaomi_aqara:
 zwave:
   usb_path: /dev/ttyUSB0
 
-zha:
-  usb_path: /dev/ttyUSB1
-  database_path: /home/homeassistant/.homeassistant/zigbee.db
+zha_new:
+    usb_path: /dev/ttyUSB1
+    database_path: /home/homeassistant/.homeassistant/zigbee.db
+
+# zha:
+#   usb_path: /dev/ttyUSB1
+#   database_path: /home/homeassistant/.homeassistant/zigbee.db
 
 august:
   login_method: email
