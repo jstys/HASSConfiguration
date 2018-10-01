@@ -20,11 +20,11 @@
       friendly_name: "Piano Power"
     sensor.temperature_158d000245a6a2:
       friendly_name: "Master Bedroom Temperature"
-    light.cree_connected_a19_60w_equivalent_fe040989_10:
+    light.cree_connected_a19_60w_equivalent_fe040989_10_2:
       friendly_name: "Hallway Light"
-    light.cree_connected_a19_60w_equivalent_fe041885_10:
+    light.cree_connected_a19_60w_equivalent_fe041885_10_2:
       friendly_name: "Porch Light"
-    light.cree_connected_a19_60w_equivalent_fe05fbf3_10:
+    light.cree_connected_a19_60w_equivalent_fe05fbf3_10_2:
       friendly_name: "Basement Staircase Light"
     switch.ledvance_plug_00051d4d_1:
       friendly_name: "Guitar Amp Power"
