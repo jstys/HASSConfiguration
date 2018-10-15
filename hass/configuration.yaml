@@ -7,8 +7,8 @@ homeassistant:
   time_zone: !secret home_timezone
   customize: !include customize.yaml
   auth_providers:
-  - type: homeassistant
-  - type: trusted_networks
+    - type: homeassistant
+    - type: trusted_networks
 
 mqtt:
   broker: !secret mqtt_host
@@ -143,9 +143,6 @@ august:
 nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
-
-camera:
-  - platform: arlo
 
 ##############################################################
 #                       INCLUDES                             #
