@@ -6,6 +6,9 @@ homeassistant:
   unit_system: imperial
   time_zone: !secret home_timezone
   customize: !include customize.yaml
+  auth_providers:
+  - type: homeassistant
+  - type: trusted_networks
 
 mqtt:
   broker: !secret mqtt_host
