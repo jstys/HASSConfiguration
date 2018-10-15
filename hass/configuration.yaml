@@ -137,10 +137,6 @@ august:
   username: !secret august_user
   password: !secret august_pass
 
-arlo:
-  username: !secret arlo_user
-  password: !secret arlo_pass
-
 nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
