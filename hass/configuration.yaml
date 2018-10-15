@@ -124,9 +124,13 @@ xiaomi_aqara:
 zwave:
   usb_path: /dev/ttyUSB0
 
-zha:
-  usb_path: /dev/ttyUSB1
-  database_path: /home/homeassistant/.homeassistant/zigbee.db
+zha_new:
+    usb_path: /dev/ttyUSB1
+    database_path: /home/homeassistant/.homeassistant/zigbee.db
+
+# zha:
+#   usb_path: /dev/ttyUSB1
+#   database_path: /home/homeassistant/.homeassistant/zigbee.db
 
 august:
   login_method: email
@@ -230,6 +234,36 @@ recorder:
   db_url: !secret mariadb_url
   purge_interval: 1
   purge_keep_days: 5
+  exclude:
+    entities:
+      - sensor.hank_hkzwso03_smart_plug_voltage_2
+      - sensor.hank_hkzwso03_smart_plug_voltage
+      - sensor.hank_hkzwso03_smart_plug_previous_reading_4
+      - sensor.hank_hkzwso03_smart_plug_previous_reading_3
+      - sensor.hank_hkzwso03_smart_plug_previous_reading_2
+      - sensor.hank_hkzwso03_smart_plug_previous_reading
+      - sensor.hank_hkzwso03_smart_plug_power_2
+      - sensor.hank_hkzwso03_smart_plug_power
+      - sensor.hank_hkzwso03_smart_plug_energy_2
+      - sensor.hank_hkzwso03_smart_plug_energy
+      - sensor.hank_hkzwso03_smart_plug_current_2
+      - sensor.hank_hkzwso03_smart_plug_current
+
+history:
+  exclude:
+    entities:
+      - sensor.hank_hkzwso03_smart_plug_voltage_2
+      - sensor.hank_hkzwso03_smart_plug_voltage
+      - sensor.hank_hkzwso03_smart_plug_previous_reading_4
+      - sensor.hank_hkzwso03_smart_plug_previous_reading_3
+      - sensor.hank_hkzwso03_smart_plug_previous_reading_2
+      - sensor.hank_hkzwso03_smart_plug_previous_reading
+      - sensor.hank_hkzwso03_smart_plug_power_2
+      - sensor.hank_hkzwso03_smart_plug_power
+      - sensor.hank_hkzwso03_smart_plug_energy_2
+      - sensor.hank_hkzwso03_smart_plug_energy
+      - sensor.hank_hkzwso03_smart_plug_current_2
+      - sensor.hank_hkzwso03_smart_plug_current
 
 http:
   trusted_networks:

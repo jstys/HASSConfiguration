@@ -34,7 +34,7 @@ front_porch:
     - lock.front_door
     - binary_sensor.visonic_mct340_e_0b121662_1_1280
     - camera.front_door
-    - light.cree_connected_a19_60w_equivalent_fe041885_10
+    - light.cree_connected_a19_60w_equivalent_fe041885_10_2
 
 kitchen:
   name: Kitchen
@@ -132,14 +132,14 @@ basement:
   view: no
   control: hidden
   entities:
-    - light.cree_connected_a19_60w_equivalent_fe05fbf3_10
+    - light.cree_connected_a19_60w_equivalent_fe05fbf3_10_2
 
 hallway:
   name: Hallway
   view: no
   control: hidden
   entities:
-    - light.cree_connected_a19_60w_equivalent_fe040989_10
+    - light.cree_connected_a19_60w_equivalent_fe040989_10_2
 
 frontyard:
   name: Frontyard
@@ -221,3 +221,4 @@ debugging:
   entities:
     - switch.zigbee_debug
     - script.add_xiaomi_device
+    - zha_new.controller
