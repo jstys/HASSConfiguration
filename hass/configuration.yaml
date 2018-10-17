@@ -6,9 +6,6 @@ homeassistant:
   unit_system: imperial
   time_zone: !secret home_timezone
   customize: !include customize.yaml
-  auth_providers:
-    - type: homeassistant
-    - type: trusted_networks
 
 mqtt:
   broker: !secret mqtt_host
@@ -262,5 +259,6 @@ history:
       - sensor.hank_hkzwso03_smart_plug_current
 
 http:
+  api_password: !secret api_password
   trusted_networks:
     - 127.0.0.1
