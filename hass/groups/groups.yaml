@@ -56,7 +56,6 @@ living_room:
     - light.living_room_lamp_1
     - light.living_room_lamp_2
     - light.piano_led
-    - switch.hank_hkzwso03_smart_plug_switch_2
     - switch.ledvance_plug_00051d4d_1
     - light.dining_room_light
     - switch.dining_room_ac

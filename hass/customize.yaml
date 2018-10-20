@@ -7,6 +7,8 @@
     media_player.mibox3:
       friendly_name: "Mi Box"
     switch.hank_hkzwso03_smart_plug_switch_2:
+      friendly_name: "Coffee Pot"
+    switch.ledvance_plug_00051d4d_1:
       friendly_name: "Piano Power"
     binary_sensor.visonic_mct340_e_0b121b78_1_1280:
       friendly_name: "Garage Door Sensor"
