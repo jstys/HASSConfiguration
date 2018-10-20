@@ -25,7 +25,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
 class NHLBoxScoreSensor(Entity):
 
-    SCHEDULE_ENDPOINT = 'http://statsapi.web.nhl.com/api/v1/schedule/'
+    SCHEDULE_ENDPOINT = 'http://statsapi.web.nhl.com/api/v1/schedule/?date={}'
     FEED_ENDPOINT = 'http://statsapi.web.nhl.com/api/v1/game/{}/feed/live'
 
     def __init__(self, hass, team, calendar):
@@ -33,7 +33,7 @@ class NHLBoxScoreSensor(Entity):
         self.game_id = None
         self.is_gameday = False
         self.last_checked = datetime.datetime.fromtimestamp(0)
-        self.schedule_rest = self.setup_rest(NHLBoxScoreSensor.SCHEDULE_ENDPOINT)
+        self.schedule_rest = None
         self.feed_rest = None
         self.scoring_plays = []
         self.penalties = []
@@ -79,6 +79,7 @@ class NHLBoxScoreSensor(Entity):
 
     def fetch_game_id(self):
         if self.is_gameday:
+            self.schedule_rest = self.setup_rest(NHLBoxScoreSensor.SCHEDULE_ENDPOINT.format(hassdt.now().strftime("%Y-%m-%d")))
             self.schedule_rest.update()
             json_data = None
             try:
