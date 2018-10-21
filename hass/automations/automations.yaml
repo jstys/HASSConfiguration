@@ -43,3 +43,14 @@
     event_data_template:
       payload: '{{ trigger.payload }}'
       topic: '{{ trigger.topic }}'
+
+- id: new_snips_intent
+  alias: New Snips Intent
+  trigger:
+    platform: mqtt
+    topic: 'hermes/intent/+'
+  action:
+    event: SNIPS_INTENT
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+      topic: '{{ trigger.topic }}'

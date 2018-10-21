@@ -38,6 +38,7 @@ class IntentReceiver(hass.Hass):
         else:
             self.log("Error parsing groups.yaml")
         self.listen_event(self.on_assistant_command, "VOICE_ASSISTANT_INTENT")
+        self.listen_event(self.on_snips_command, "SNIPS_INTENT")
         for _, handler in self.handler_map.items():
             handler.initialize(self)
 
@@ -54,6 +55,15 @@ class IntentReceiver(hass.Hass):
             for callback in callbacks:
                 callback(self, event, data, kwargs)
 
+    def on_snips_command(self, event_name, data, kwargs):
+        json_payload = {}
+        try:
+            payload = data.get('payload')
+            json_payload = json.loads(payload)
+        except ValueError:
+            self.log("Error parsing snips intent")
+
+        self.handle_snips_json(json_payload)
 
     def on_assistant_command(self, event_name, data, kwargs):
         json_payload = {}
@@ -73,3 +83,12 @@ class IntentReceiver(hass.Hass):
             target_handler.handle(self, json_message, self.received_room, self.group_yaml)
         else:
             hassutil.tts_say(self, "Sorry, I dont understand what youre asking", tts_room=self.received_room)
+
+    def handle_snips_json(self, json_message):
+        self.received_room = json_message.get('siteId')
+        intent = json_message.get('intent')
+        slots = json_message.get('slots')
+        raw = json_message.get('input')
+        self.log("Snips intent: " + intent)
+        self.log("Snips slots: " + slots)
+        self.log("Snips input: " + raw)
