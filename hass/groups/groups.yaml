@@ -61,11 +61,12 @@ living_room:
     - switch.dining_room_ac
     - sensor.temperature_158d0001d6f386
 
-# office:
-#   name: Office
-#   view: no
-#   control: hidden
-#   entities:
+office:
+  name: Office
+  view: no
+  control: hidden
+  entities:
+    - sensor.temperature_158d000245ae4b
 
 master_bedroom:
   name: Master Bedroom
@@ -90,11 +91,12 @@ master_bedroom_tv_control:
     - script.master_bedroom_tv_volume_up
     - script.master_bedroom_tv_volume_down
 
-# guest_bedroom:
-#   name: Guest Bedroom
-#   view: no
-#   control: hidden
-#   entities:
+guest_bedroom:
+  name: Guest Bedroom
+  view: no
+  control: hidden
+  entities:
+    - sensor.temperature_158d00023cf8f7
 
 # upstairs_bathroom:
 #   name: Upstairs Bathroom
@@ -102,11 +104,12 @@ master_bedroom_tv_control:
 #   control: hidden
 #   entities:
 
-# upstairs_den:
-#   name: Upstairs Den
-#   view: no
-#   control: hidden
-#   entities:
+upstairs_den:
+  name: Upstairs Den
+  view: no
+  control: hidden
+  entities:
+    - sensor.temperature_158d00023cf950
 
 # attic:
 #   name: Attic

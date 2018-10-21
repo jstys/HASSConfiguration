@@ -22,6 +22,12 @@
       friendly_name: "Downstairs Temperature"
     sensor.temperature_158d000245a6a2:
       friendly_name: "Master Bedroom Temperature"
+    sensor.temperature_158d00023cf8f7:
+      friendly_name: "Guest Bedroom Temperature"
+    sensor.temperature_158d000245ae4b:
+      friendly_name: "Office Temperature"
+    sensor.temperature_158d00023cf950:
+      friendly_name: "Upstairs Temperature"
     light.cree_connected_a19_60w_equivalent_fe040989_10:
       friendly_name: "Hallway Light"
     light.cree_connected_a19_60w_equivalent_fe041885_10:
