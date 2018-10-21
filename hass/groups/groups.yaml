@@ -6,11 +6,11 @@ default_view:
     - group.front_porch
     - group.kitchen
     - group.living_room
-    # - group.office
+    - group.office
     - group.master_bedroom
-    # - group.guest_bedroom
+    - group.guest_bedroom
     # - group.upstairs_bathroom
-    # - group.upstairs_den
+    - group.upstairs_den
     # - group.attic
     # - group.basement_bathroom
     # - group.laundry_room
