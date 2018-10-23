@@ -1,0 +1,39 @@
+- platform: mqtt
+  name: "Hallway Light"
+  state_topic: "smartthings/hallway_light/switch"
+  command_topic: "smartthings/hallway_light/switch"
+  brightness_state_topic: "smartthings/hallway_light/level"
+  brightness_command_topic: "smartthings/hallway_light/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Porch Light"
+  state_topic: "smartthings/porch_light/switch"
+  command_topic: "smartthings/porch_light/switch"
+  brightness_state_topic: "smartthings/porch_light/level"
+  brightness_command_topic: "smartthings/porch_light/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Basement Staircase Light"
+  state_topic: "smartthings/basement_staircase_light/switch"
+  command_topic: "smartthings/basement_staircase_light/switch"
+  brightness_state_topic: "smartthings/basement_staircase_light/level"
+  brightness_command_topic: "smartthings/basement_staircase_light/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Deck Light"
+  state_topic: "smartthings/deck_light/switch"
+  command_topic: "smartthings/deck_light/switch"
+  brightness_state_topic: "smartthings/deck_light/level"
+  brightness_command_topic: "smartthings/deck_light/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true

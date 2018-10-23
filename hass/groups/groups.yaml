@@ -24,7 +24,7 @@ garage:
   view: no
   control: hidden
   entities:
-    - binary_sensor.visonic_mct340_e_0b121b78_1_1280
+    - binary_sensor.garage_sensor
 
 front_porch:
   name: Front Porch
@@ -32,9 +32,9 @@ front_porch:
   control: hidden
   entities:
     - lock.front_door
-    - binary_sensor.visonic_mct340_e_0b121662_1_1280
+    - binary_sensor.front_door_sensor
     - camera.front_door
-    - light.cree_connected_a19_60w_equivalent_fe041885_10
+    - light.porch_light
 
 kitchen:
   name: Kitchen
@@ -56,7 +56,7 @@ living_room:
     - light.living_room_lamp_1
     - light.living_room_lamp_2
     - light.piano_led
-    - switch.ledvance_plug_00051d4d_1
+    - switch.piano_power
     - light.dining_room_light
     - switch.dining_room_ac
     - sensor.temperature_158d0001d6f386
@@ -134,14 +134,14 @@ basement:
   view: no
   control: hidden
   entities:
-    - light.cree_connected_a19_60w_equivalent_fe05fbf3_10
+    - light.basement_staircase_light
 
 hallway:
   name: Hallway
   view: no
   control: hidden
   entities:
-    - light.cree_connected_a19_60w_equivalent_fe040989_10
+    - light.hallway_light
 
 frontyard:
   name: Frontyard
@@ -155,6 +155,7 @@ backyard:
   view: no
   control: hidden
   entities:
+    - light.deck_light
     - switch.backyard_string_lights
     - media_player.backyard_speaker
 
