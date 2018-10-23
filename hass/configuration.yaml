@@ -21,26 +21,6 @@ notify:
     platform: pushbullet
     api_key: !secret erica_pushbullet_token
 
-device_tracker:
-  - platform: owntracks
-    secret: !secret owntracks_encryption
-    new_device_defaults:
-      track_new_devices: False
-      hide_if_away: False
-  - platform: bluetooth_tracker
-    new_device_defaults:
-      track_new_devices: False
-      hide_if_away: False
-  # - platform: asuswrt
-  #   host: 10.0.0.1
-  #   username: !secret router_user
-  #   password: !secret router_password
-  #   protocol: ssh
-  #   mode: ap
-  #   new_device_defaults:
-  #     track_new_devices: False
-  #     hide_if_away: False
-
 tts:
   platform: google
 
@@ -56,13 +36,6 @@ media_player:
     host: 10.0.0.5
     scan_interval: 30
     access_token: !secret living_room_vizio_token
-
-# binary_sensor:
-#   - platform: ping
-#     name: Google DNS Ping
-#     host: 8.8.8.8
-#     count: 5
-#     scan_interval: 300
   
 logger:
   default: warning
@@ -118,6 +91,7 @@ panel_iframe: !include_dir_merge_named panel_iframes/
 binary_sensor: !include_dir_merge_list binary_sensor/
 sensor: !include_dir_merge_list sensor/
 switch: !include_dir_merge_list switch/
+device_tracker: !include_dir_merge_list device_tracker/
 
 ##############################################################
 #                       ENABLED                              #
