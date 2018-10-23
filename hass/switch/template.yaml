@@ -35,9 +35,3 @@
         service: script.zigbee_debug_on
       turn_off:
         service: script.zigbee_debug_off
-- platform: broadlink
-  host: 10.0.0.4
-  mac: !secret broadlink1_mac
-- platform: broadlink
-  host: 10.0.0.11
-  mac: !secret broadlink2_mac
