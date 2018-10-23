@@ -1,0 +1,14 @@
+- platform: darksky
+  api_key: !secret dark_sky_key
+  update_interval:
+    minutes: 30
+  monitored_conditions:
+    - temperature
+    - humidity
+    - precip_probability
+    - precip_intensity
+    - wind_speed
+    - pressure
+    - wind_bearing
+    - apparent_temperature
+    - icon

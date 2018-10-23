@@ -1,0 +1,9 @@
+- platform: mqtt
+  name: "Garage Temperature"
+  state_topic: "smartthings/garage_sensor/temperature"
+  unit_of_measurement: "F"
+
+- platform: mqtt
+  name: "Front Door Temperature"
+  state_topic: "smartthings/front_door_sensor/temperature"
+  unit_of_measurement: "F"

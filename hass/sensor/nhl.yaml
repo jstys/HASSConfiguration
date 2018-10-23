@@ -1,0 +1,3 @@
+- platform: nhl_box_score
+  team: 'New Jersey Devils'
+  calendar: 'calendar.new_jersey_devils'

@@ -63,26 +63,6 @@ media_player:
 #     host: 8.8.8.8
 #     count: 5
 #     scan_interval: 300
-
-sensor:
-  - platform: darksky
-    api_key: !secret dark_sky_key
-    update_interval:
-      minutes: 30
-    monitored_conditions:
-      - temperature
-      - humidity
-      - precip_probability
-      - precip_intensity
-      - wind_speed
-      - pressure
-      - wind_bearing
-      - apparent_temperature
-      - icon
-
-  - platform: nhl_box_score
-    team: 'New Jersey Devils'
-    calendar: 'calendar.new_jersey_devils'
   
 logger:
   default: warning
@@ -137,6 +117,7 @@ light: !include_dir_merge_list light/
 shell_command: !include_dir_merge_named shell_commands/
 panel_iframe: !include_dir_merge_named panel_iframes/
 binary_sensor: !include_dir_merge_list binary_sensor/
+sensor: !include_dir_merge_list sensor/
 
 ##############################################################
 #                       ENABLED                              #
