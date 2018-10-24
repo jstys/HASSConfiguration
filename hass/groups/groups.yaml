@@ -150,7 +150,7 @@ frontyard:
   view: no
   control: hidden
   entities:
-    - light.osram_lightify_gardenspot_rgb_00a72c35_3
+    - light.front_garden_lights
 
 backyard:
   name: Backyard

@@ -37,3 +37,13 @@
   payload_on: "on"
   payload_off: "off"
   retain: true
+
+- platform: mqtt
+  name: "Front Garden Lights"
+  state_topic: "smartthings/front_garden_lights/switch"
+  command_topic: "smartthings/front_garden_lights/switch"
+  brightness_state_topic: "smartthings/front_garden_lights/level"
+  brightness_command_topic: "smartthings/front_garden_lights/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
