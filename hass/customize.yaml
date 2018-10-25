@@ -22,7 +22,5 @@
       friendly_name: "Office Temperature"
     sensor.temperature_158d00023cf950:
       friendly_name: "Upstairs Temperature"
-    sensor.linear_gctbz48_battery_powered_zwave_thermostat_temperature:
-      friendly_name: "Thermostat Temperature"
     climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1:
       friendly_name: "Oil Heater"
