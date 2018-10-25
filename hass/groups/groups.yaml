@@ -62,6 +62,8 @@ living_room:
     - switch.dining_room_ac
     - sensor.temperature_158d0001d6f386
     - sensor.front_door_temperature
+    - sensor.linear_gctbz48_battery_powered_zwave_thermostat_temperature
+    - climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
 
 office:
   name: Office
