@@ -145,6 +145,7 @@ hallway:
   control: hidden
   entities:
     - light.hallway_light
+    - binary_sensor.motion_sensor_158d00016612a5
 
 frontyard:
   name: Frontyard

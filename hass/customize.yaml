@@ -22,5 +22,7 @@
       friendly_name: "Office Temperature"
     sensor.temperature_158d00023cf950:
       friendly_name: "Upstairs Temperature"
+    binary_sensor.motion_sensor_158d00016612a5:
+      friendly_name: "Hallway Motion"
     climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1:
       friendly_name: "Oil Heater"
