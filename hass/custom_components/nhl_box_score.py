@@ -42,6 +42,7 @@ class NHLBoxScoreSensor(Entity):
         self.is_intermission = False
         self.team = team
         self.calendar = calendar
+        self.schedule_query = NHLBoxScoreSensor.SCHEDULE_ENDPOINT.format(hassdt.now().strftime("%Y-%m-%d"))
 
     @property
     def state_attributes(self):
@@ -50,7 +51,8 @@ class NHLBoxScoreSensor(Entity):
             "gameday": self.is_gameday,
             "last_checked": self.last_checked,
             "period": self.period,
-            "intermission": self.is_intermission
+            "intermission": self.is_intermission,
+            "query": self.schedule_query
         }
 
     @property
