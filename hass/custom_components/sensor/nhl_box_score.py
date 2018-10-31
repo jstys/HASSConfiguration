@@ -81,7 +81,8 @@ class NHLBoxScoreSensor(Entity):
 
     def fetch_game_id(self):
         if self.is_gameday:
-            self.schedule_rest = self.setup_rest(NHLBoxScoreSensor.SCHEDULE_ENDPOINT.format(hassdt.now().strftime("%Y-%m-%d")))
+            self.schedule_query = NHLBoxScoreSensor.SCHEDULE_ENDPOINT.format(hassdt.now().strftime("%Y-%m-%d"))
+            self.schedule_rest = self.setup_rest(self.schedule_query)
             self.schedule_rest.update()
             json_data = None
             try:
