@@ -22,12 +22,20 @@ class IntentReceiver(hass.Hass):
         module_files = [pyfile for pyfile in ls_output if re.match(r'^.+\.py$', pyfile) and '__init__.py' not in pyfile]
         for module_name in module_files:
             module = importlib.import_module(".".join(["intent_handlers", module_name.replace('.py', '')]))
-            self.handler_map[module.INTENT] = module
+            if hasattr(module, "INTENT"):
+                self.handler_map[module.INTENT] = module
+            if hasattr(module, "SNIPS_INTENTS"):
+                for intent in module.SNIPS_INTENTS:
+                    self.handler_map[intent] = module
 
     def _reload_handlers(self):
         for _, module in self.handler_map.items():
             reloaded = importlib.reload(module)
-            self.handler_map[reloaded.INTENT] = reloaded
+            if hasattr(reloaded, "INTENT"):
+                self.handler_map[reloaded.INTENT] = reloaded
+            if hasattr(reloaded, "SNIPS_INTENTS"):
+                for intent in reloaded.SNIPS_INTENTS:
+                    self.handler_map[intent] = reloaded
 
     def initialize(self):
         self._reload_handlers()
@@ -84,6 +92,10 @@ class IntentReceiver(hass.Hass):
         else:
             hassutil.tts_say(self, "Sorry, I dont understand what youre asking", tts_room=self.received_room)
 
+    def _remove_snips_username(self, intent):
+        if "intentName" in intent and ":" in intent['intentName']:
+            intent['intentName'] = intent['intentName'].split(":")[1]
+
     def handle_snips_json(self, json_message):
         self.received_room = json_message.get('siteId')
         intent = json_message.get('intent')
@@ -92,3 +104,5 @@ class IntentReceiver(hass.Hass):
         self.log("Snips intent: {}".format(intent))
         self.log("Snips slots: {}".format(slots))
         self.log("Snips input: {}".format(raw))
+        self._remove_snips_username(intent)
+        self.handler_map.get(intent.get('intentName')).handleSnips(self, intent, slots, raw, self.received_room, self.group_yaml)
