@@ -54,3 +54,14 @@
     event_data_template:
       payload: '{{ trigger.payload }}'
       topic: '{{ trigger.topic }}'
+
+- id: new_snips_nlu_intent
+  alias: New Snips NLU Intent
+  trigger:
+    platform: mqtt
+    topic: 'hermes/nlu/intentParsed'
+  action:
+    event: SNIPS_NLU_INTENT
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+      topic: '{{ trigger.topic }}'

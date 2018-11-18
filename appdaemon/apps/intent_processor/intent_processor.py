@@ -47,6 +47,7 @@ class IntentReceiver(hass.Hass):
             self.log("Error parsing groups.yaml")
         self.listen_event(self.on_assistant_command, "VOICE_ASSISTANT_INTENT")
         self.listen_event(self.on_snips_command, "SNIPS_INTENT")
+        self.listen_event(self.on_snips_command, "SNIPS_NLU_INTENT")
         for _, handler in self.handler_map.items():
             handler.initialize(self)
 
