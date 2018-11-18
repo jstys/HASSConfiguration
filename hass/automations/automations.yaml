@@ -20,8 +20,8 @@
   action:
     service: script.goal_horn
 
-- id: bedroom_lights_button
-  alias: Bedroom lights button
+- id: master_bedroom_button_single
+  alias: Master Bedroom Button Single
   trigger:
     platform: event
     event_type: click
@@ -29,9 +29,29 @@
       entity_id: binary_sensor.switch_158d00016dbf86
       click_type: single
   action:
-    service: switch.toggle
-    data:
-      entity_id: switch.master_bedroom_light
+    event: MASTER_BEDROOM_SINGLE_CLICK
+
+- id: master_bedroom_button_double
+  alias: Master Bedroom Button Double
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00016dbf86
+      click_type: double
+  action:
+    event: MASTER_BEDROOM_DOUBLE_CLICK
+
+- id: master_bedroom_button_long
+  alias: Master Bedroom Button Long
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00016dbf86
+      click_type: long_click_press
+  action:
+    event: MASTER_BEDROOM_LONG_CLICK
 
 - id: new_voice_assistant_intent
   alias: New Voice Assistant Intent
