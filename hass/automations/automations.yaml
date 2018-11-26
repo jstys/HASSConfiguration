@@ -53,6 +53,34 @@
   action:
     event: MASTER_BEDROOM_LONG_CLICK
 
+- id: downstairs_hallway_top_button
+  alias: Downstairs Hallway Top Button
+  trigger:
+  - event_data:
+      entity_id: zwave.linear_wa00z1_scene_switch
+      scene_id: 1
+      scene_data: 0
+    event_type: zwave.scene_activated
+    platform: event
+  condition: []
+  action:
+    - service: light.turn_on
+      entity_id: light.hallway_light
+
+- id: downstairs_hallway_bottom_button
+  alias: Downstairs Hallway Bottom Button
+  trigger:
+  - event_data:
+      entity_id: zwave.linear_wa00z1_scene_switch
+      scene_id: 2
+      scene_data: 0
+    event_type: zwave.scene_activated
+    platform: event
+  condition: []
+  action:
+    - service: light.turn_off
+      entity_id: light.hallway_light
+
 - id: new_voice_assistant_intent
   alias: New Voice Assistant Intent
   trigger:
