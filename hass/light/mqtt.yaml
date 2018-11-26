@@ -47,3 +47,19 @@
   payload_on: "on"
   payload_off: "off"
   retain: true
+
+- platform: mqtt
+  name: "Kitchen Fixture"
+  state_topic: "smartthings/kitchen_fixture/switch"
+  command_topic: "smartthings/kitchen_fixture/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Office Lights"
+  state_topic: "smartthings/office_lights/switch"
+  command_topic: "smartthings/office_lights/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
