@@ -46,6 +46,7 @@ kitchen:
     - script.generate_grocery_list
     - script.archive_mealplan
     - switch.kitchen_high_hats
+    - light.kitchen_fixture
     - binary_sensor.door_window_sensor_158d0001d3a024
 
 living_room:
@@ -70,6 +71,7 @@ office:
   control: hidden
   entities:
     - sensor.temperature_158d000245ae4b
+    - light.office_lights
 
 master_bedroom:
   name: Master Bedroom
