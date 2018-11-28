@@ -81,6 +81,34 @@
     - service: light.turn_off
       entity_id: light.hallway_light
 
+- id: upstairs_hallway_top_button
+  alias: Upstairs Hallway Top Button
+  trigger:
+  - event_data:
+      entity_id: zwave.linear_wa00z1_scene_switch_2
+      scene_id: 1
+      scene_data: 0
+    event_type: zwave.scene_activated
+    platform: event
+  condition: []
+  action:
+    - service: light.turn_on
+      entity_id: light.hallway_light
+
+- id: upstairs_hallway_bottom_button
+  alias: Upstairs Hallway Bottom Button
+  trigger:
+  - event_data:
+      entity_id: zwave.linear_wa00z1_scene_switch_2
+      scene_id: 2
+      scene_data: 0
+    event_type: zwave.scene_activated
+    platform: event
+  condition: []
+  action:
+    - service: light.turn_off
+      entity_id: light.hallway_light
+
 - id: new_voice_assistant_intent
   alias: New Voice Assistant Intent
   trigger:
