@@ -8,6 +8,9 @@ global_modules:
   - power_intent_handler
   - talk_intent_handler
   - vacuum_intent_handler
+automation_hub:
+  module: automation_hub
+  class: AutomationHub
 nhl_announcer:
   module: nhl_announcer
   class: NHLAnnouncer
