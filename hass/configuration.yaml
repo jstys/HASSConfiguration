@@ -55,6 +55,7 @@ xiaomi_aqara:
 
 zwave:
   usb_path: /dev/ttyUSB0
+  network_key: !secret zwave_key
 
 # zha_new:
 #     usb_path: /dev/ttyUSB1
