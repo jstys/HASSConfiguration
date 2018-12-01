@@ -39,7 +39,7 @@ front_porch:
   view: no
   control: hidden
   entities:
-    - lock.front_door
+    - lock.assa_abloy_yale_push_button_deadbolt_yrd1
     - binary_sensor.front_door_sensor
     - camera.front_door
     - light.porch_light

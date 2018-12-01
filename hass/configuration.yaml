@@ -65,11 +65,6 @@ zwave:
 #   usb_path: /dev/ttyUSB1
 #   database_path: /home/homeassistant/.homeassistant/zigbee.db
 
-august:
-  login_method: email
-  username: !secret august_user
-  password: !secret august_pass
-
 nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
