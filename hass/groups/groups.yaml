@@ -27,6 +27,13 @@ garage:
     - binary_sensor.garage_sensor
     - sensor.garage_temperature
 
+frontyard:
+  name: Frontyard
+  view: no
+  control: hidden
+  entities:
+    - light.front_garden_lights
+
 front_porch:
   name: Front Porch
   view: no
@@ -65,13 +72,14 @@ living_room:
     - sensor.front_door_temperature
     - climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
 
-office:
-  name: Office
+hallway:
+  name: Hallway
   view: no
   control: hidden
   entities:
-    - sensor.temperature_158d000245ae4b
-    - light.office_lights
+    - light.hallway_fixture
+    - light.hallway_wall_light
+    - binary_sensor.motion_sensor_158d00016612a5
 
 master_bedroom:
   name: Master Bedroom
@@ -95,6 +103,14 @@ master_bedroom_tv_control:
     - script.master_bedroom_tv_mute
     - script.master_bedroom_tv_volume_up
     - script.master_bedroom_tv_volume_down
+
+office:
+  name: Office
+  view: no
+  control: hidden
+  entities:
+    - sensor.temperature_158d000245ae4b
+    - light.office_lights
 
 guest_bedroom:
   name: Guest Bedroom
@@ -140,21 +156,6 @@ basement:
   control: hidden
   entities:
     - light.basement_staircase_light
-
-hallway:
-  name: Hallway
-  view: no
-  control: hidden
-  entities:
-    - light.hallway_light
-    - binary_sensor.motion_sensor_158d00016612a5
-
-frontyard:
-  name: Frontyard
-  view: no
-  control: hidden
-  entities:
-    - light.front_garden_lights
 
 backyard:
   name: Backyard

@@ -1,9 +1,19 @@
 - platform: mqtt
-  name: "Hallway Light"
-  state_topic: "smartthings/hallway_light/switch"
-  command_topic: "smartthings/hallway_light/switch"
-  brightness_state_topic: "smartthings/hallway_light/level"
-  brightness_command_topic: "smartthings/hallway_light/level"
+  name: "Hallway Fixture"
+  state_topic: "smartthings/hallway_fixture/switch"
+  command_topic: "smartthings/hallway_fixture/switch"
+  brightness_state_topic: "smartthings/hallway_fixture/level"
+  brightness_command_topic: "smartthings/hallway_fixture/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Hallway Wall Light"
+  state_topic: "smartthings/hallway_wall_light/switch"
+  command_topic: "smartthings/hallway_wall_light/switch"
+  brightness_state_topic: "smartthings/hallway_wall_light/level"
+  brightness_command_topic: "smartthings/hallway_wall_light/level"
   payload_on: "on"
   payload_off: "off"
   retain: true

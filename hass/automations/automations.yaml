@@ -65,7 +65,9 @@
   condition: []
   action:
     - service: light.turn_on
-      entity_id: light.hallway_light
+      entity_id: light.hallway_fixture
+    - service: light.turn_on
+      entity_id: light.hallway_wall_light
 
 - id: downstairs_hallway_bottom_button
   alias: Downstairs Hallway Bottom Button
@@ -79,7 +81,9 @@
   condition: []
   action:
     - service: light.turn_off
-      entity_id: light.hallway_light
+      entity_id: light.hallway_fixture
+    - service: light.turn_off
+      entity_id: light.hallway_wall_light
 
 - id: upstairs_hallway_top_button
   alias: Upstairs Hallway Top Button
@@ -93,7 +97,9 @@
   condition: []
   action:
     - service: light.turn_on
-      entity_id: light.hallway_light
+      entity_id: light.hallway_fixture
+    - service: light.turn_on
+      entity_id: light.hallway_wall_light
 
 - id: upstairs_hallway_bottom_button
   alias: Upstairs Hallway Bottom Button
@@ -107,7 +113,9 @@
   condition: []
   action:
     - service: light.turn_off
-      entity_id: light.hallway_light
+      entity_id: light.hallway_fixture
+    - service: light.turn_off
+      entity_id: light.hallway_wall_light
 
 - id: new_voice_assistant_intent
   alias: New Voice Assistant Intent
