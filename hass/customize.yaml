@@ -26,5 +26,5 @@
       friendly_name: "Hallway Motion"
     climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1:
       friendly_name: "Oil Heater"
-    lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked:
+    lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4:
       friendly_name: "Front Door Lock"
