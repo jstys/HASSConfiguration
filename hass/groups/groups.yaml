@@ -80,7 +80,7 @@ living_room_christmas_lights:
     - switch.aeotec_dsc11_smart_strip_switch # Tree
     - switch.aeotec_dsc11_smart_strip_switch_4 # Mantle
     - switch.aeotec_dsc11_smart_strip_switch_5 # Star
-    - switch.couch_outlet
+    - light.couch_outlet
 
 hallway:
   name: Hallway
