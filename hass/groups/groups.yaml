@@ -65,12 +65,22 @@ living_room:
     - light.living_room_lamp_1
     - light.living_room_lamp_2
     - light.piano_led
+    - group.living_room_christmas_lights
     - switch.piano_power
     - light.dining_room_light
     - switch.dining_room_ac
     - sensor.temperature_158d0001d6f386
     - sensor.front_door_temperature
     - climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
+
+living_room_christmas_lights:
+  name: Christmas Lights
+  view: no
+  entities:
+    - switch.aeotec_dsc11_smart_strip_switch # Tree
+    - switch.aeotec_dsc11_smart_strip_switch_4 # Mantle
+    - switch.aeotec_dsc11_smart_strip_switch_5 # Star
+    - switch.couch_outlet
 
 hallway:
   name: Hallway
