@@ -8,6 +8,12 @@
       friendly_name: "Mi Box"
     switch.hank_hkzwso03_smart_plug_switch_2:
       friendly_name: "Coffee Pot"
+    switch.aeotec_dsc11_smart_strip_switch: # Tree
+      friendly_name: "Tree Lights"
+    switch.aeotec_dsc11_smart_strip_switch_4: # Mantle
+      friendly_name: "Mantle Lights"
+    switch.aeotec_dsc11_smart_strip_switch_5: # Star
+      friendly_name: "Star"
     light.gateway_light_34ce008dcec1:
       friendly_name: "Gateway Light"
     binary_sensor.door_window_sensor_158d0001d3a024:
