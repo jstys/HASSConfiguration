@@ -11,6 +11,36 @@ global_modules:
 automation_hub:
   module: automation_hub
   class: AutomationHub
+  event_list:
+    - placeholder_event
+  entity_map:
+    binary_sensor.water_leak_sensor_158d00023a58df: 
+      name: basement_water_sensor
+      type: water_sensor
+    binary_sensor.motion_sensor_158d00016612a5: 
+      name: hallway_motion_sensor
+      type: motion_sensor
+    binary_sensor.front_door_sensor: 
+      name: front_door_sensor
+      type: door_sensor
+    binary_sensor.garage_sensor: 
+      name: garage_door_sensor
+      type: door_sensor
+    binary_sensor.door_window_sensor_158d0001d3a024: 
+      name: kitchen_fridge_sensor
+      type: door_sensor
+    binary_sensor.switch_158d00016da2c9: 
+      name: living_room_button
+      type: xiaomi_button
+    binary_sensor.switch_158d00016dbf86: 
+      name: master_bedroom_button
+      type: xiaomi_button
+    group.erica_cell_device: 
+      name: erica_tracker
+      type: device_tracker
+    group.jim_cell_device: 
+      name: jim_tracker
+      type: device_tracker
 nhl_announcer:
   module: nhl_announcer
   class: NHLAnnouncer
