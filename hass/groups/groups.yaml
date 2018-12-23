@@ -41,7 +41,6 @@ front_porch:
   entities:
     - lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
     - binary_sensor.front_door_sensor
-    - camera.front_door
     - light.porch_light
 
 kitchen:
