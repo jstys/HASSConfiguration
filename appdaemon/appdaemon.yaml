@@ -5,10 +5,9 @@ appdaemon:
     HASS:
       type: hass
       ha_url: !secret hass_url
+      ha_key: !secret api_password
 log:
   logfile: /tmp/appdaemon.log
   errorfile: /tmp/appdaemon.log
   logsize: 100000
   log_generations: 3
-hadashboard:
-  dash_url: !secret dash_url
