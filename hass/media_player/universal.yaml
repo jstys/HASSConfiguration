@@ -1,0 +1,41 @@
+- platform: universal
+  name: Living Room TV
+  children:
+    - media_player.shield
+  commands:
+    turn_on:
+      service: media_player.turn_on
+      data:
+        entity_id: media_player.vizio_smartcast
+    turn_off:
+      service: media_player.turn_off
+      data:
+        entity_id: media_player.vizio_smartcast
+    volume_up:
+      service: media_player.volume_up
+      data:
+        entity_id: media_player.vizio_smartcast
+    volume_down:
+      service: media_player.volume_down
+      data:
+        entity_id: media_player.vizio_smartcast
+    volume_mute:
+      service: media_player.volume_mute
+      data:
+        entity_id: media_player.vizio_smartcast
+    select_source:
+      service: media_player.select_source
+      data_template:
+        entity_id: media_player.vizio_smartcast
+        source: '{{ source }}'
+    volume_set:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.vizio_smartcast
+        volume_level: '{{ volume_level }}'
+
+  attributes:
+    state: media_player.vizio_smartcast|state
+    volume_level: media_player.vizio_smartcast|volume_level
+    source: media_player.vizio_smartcast|source
+    source_list: media_player.vizio_smartcast|source_list

@@ -81,3 +81,13 @@
   payload_on: "on"
   payload_off: "off"
   retain: true
+
+- platform: mqtt
+  name: "First Floor Staircase LED"
+  state_topic: "smartthings/first_floor_staircase_led/switch"
+  command_topic: "smartthings/first_floor_staircase_led/switch"
+  brightness_state_topic: "smartthings/first_floor_staircase_led/level"
+  brightness_command_topic: "smartthings/first_floor_staircase_led/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
