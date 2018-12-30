@@ -35,6 +35,7 @@
         volume_level: '{{ volume_level }}'
   attributes:
     state: media_player.vizio_smartcast
+    is_volume_muted: media_player.vizio_smartcast|is_volume_muted
     volume_level: media_player.vizio_smartcast|volume_level
     source: media_player.vizio_smartcast|source
     source_list: media_player.vizio_smartcast|source_list
