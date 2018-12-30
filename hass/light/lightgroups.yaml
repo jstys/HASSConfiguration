@@ -1,5 +1,5 @@
 - platform: group
-    name: Master Bedroom Fixture
-    entities:
-      - light.master_bedroom_fixture_1
-      - light.master_bedroom_fixture_2
+  name: Master Bedroom Fixture
+  entities:
+    - light.master_bedroom_fixture_1
+    - light.master_bedroom_fixture_2
