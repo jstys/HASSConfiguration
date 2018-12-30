@@ -97,22 +97,11 @@ master_bedroom:
   control: hidden
   entities:
     - switch.master_bedroom_ac
-    - group.master_bedroom_tv_control
     - light.master_bedroom_fixture
     - light.jim_night_lamp
     - light.erica_night_lamp
-    - media_player.mibox3
     - sensor.temperature_158d000245a6a2
-
-master_bedroom_tv_control:
-  name: TV Control
-  view: no
-  control: hidden
-  entities:
-    - switch.master_bedroom_tv
-    - script.master_bedroom_tv_mute
-    - script.master_bedroom_tv_volume_up
-    - script.master_bedroom_tv_volume_down
+    - media_player.master_bedroom_tv
 
 office:
   name: Office

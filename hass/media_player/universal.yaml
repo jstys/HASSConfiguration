@@ -39,3 +39,31 @@
     volume_level: media_player.vizio_smartcast|volume_level
     source: media_player.vizio_smartcast|source
     source_list: media_player.vizio_smartcast|source_list
+
+- platform: universal
+  name: Master Bedroom TV
+  children:
+    - media_player.mibox3
+  commands:
+    turn_on:
+      service: switch.turn_on
+      data:
+        entity_id: switch.master_bedroom_tv
+    turn_off:
+      service: switch.turn_off
+      data:
+        entity_id: switch.master_bedroom_tv
+    volume_up:
+      service: script.turn_on
+      data:
+        entity_id: script.master_bedroom_tv_volume_up
+    volume_down:
+      service: script.turn_on
+      data:
+        entity_id: script.master_bedroom_tv_volume_down
+    volume_mute:
+      service: script.turn_on
+      data:
+        entity_id: script.master_bedroom_tv_mute
+  attributes:
+    state: input_boolean.master_bedroom_tv
