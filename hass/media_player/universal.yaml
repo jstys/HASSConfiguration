@@ -33,9 +33,8 @@
       data_template:
         entity_id: media_player.vizio_smartcast
         volume_level: '{{ volume_level }}'
-
   attributes:
-    state: media_player.vizio_smartcast|state
+    state: media_player.vizio_smartcast
     volume_level: media_player.vizio_smartcast|volume_level
     source: media_player.vizio_smartcast|source
     source_list: media_player.vizio_smartcast|source_list
