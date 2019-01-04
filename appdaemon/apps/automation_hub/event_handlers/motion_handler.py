@@ -16,7 +16,7 @@ def on_motion_cleared(event):
         hallway_cleared(event)
     
 def hallway_motion(event):
-    logger.log("Hallway motion detected")
+    logger.info("Hallway motion detected")
 
 def hallway_cleared(event):
-    logger.log("Hallway motion cleared")
+    logger.info("Hallway motion cleared")
