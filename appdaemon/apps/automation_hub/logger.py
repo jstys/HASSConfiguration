@@ -12,7 +12,23 @@ def set_logger(the_logger):
     handler.setFormatter(formatter)
     _logger.propagate = False
     _logger.addHandler(handler)
-    
-def log(message):
+
+def debug(message):
     if _logger:
-        _logger.log(message)
+        _logger.debug(message)
+    
+def info(message):
+    if _logger:
+        _logger.info(message)
+        
+def warning(message):
+    if _logger:
+        _logger.warning(message)
+
+def error(message):
+    if _logger:
+        _logger.error(message)
+
+def critical(message):
+    if _logger:
+        _logger.critical(message)

@@ -21,12 +21,12 @@ def create_from_state_change(friendly_name, entity_type, entity, attribute, old,
     
 def create_motion_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs):
     if old == "off" and new == "on":
-        logger.log("Creating MotionTriggeredEvent")
+        logger.info("Creating MotionTriggeredEvent")
         event = MotionTriggeredEvent()
         event.name = friendly_name
         return event
     elif old == "on" and new == "off":
-        logger.log("Creating MotionClearedEvent")
+        logger.info("Creating MotionClearedEvent")
         event = MotionClearedEvent()
         event.name = friendly_name
         return event
