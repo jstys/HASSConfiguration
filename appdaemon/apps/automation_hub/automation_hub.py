@@ -43,9 +43,7 @@ class AutomationHub(hass.Hass):
     
     def setup_logger(self):
         log = self.get_main_log()
-        FORMAT = "[%(filename)s - %(funcName)20s() ] %(message)s"
-        logging.basicConfig(format=FORMAT)
-        logger.set_logger(self)
+        logger.set_logger(log)
     
     def subscribe_events(self):
         self.listen_event(self.on_event)
