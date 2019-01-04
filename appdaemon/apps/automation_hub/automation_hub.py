@@ -7,6 +7,7 @@ import re
 import appdaemon.plugins.hass.hassapi as hass
 import event_factory
 import event_dispatcher
+import logger
 
 class AutomationHub(hass.Hass):
     def initialize(self):
@@ -44,6 +45,7 @@ class AutomationHub(hass.Hass):
         log = self.get_main_log()
         FORMAT = "[%(filename)s - %(funcName)20s() ] %(message)s"
         logging.basicConfig(format=FORMAT)
+        logger.set_logger(self)
     
     def subscribe_events(self):
         self.listen_event(self.on_event)
@@ -65,6 +67,9 @@ class AutomationHub(hass.Hass):
             self.log("Received New State Change - entity = {} attribute = {} old = {} new = {} kwargs = {}".format(entity, attribute, old, new, kwargs))
             self.log("Received state change for subscribed entity (name = {}, type = {}".format(self.entity_map[entity]['name'], self.entity_map[entity]['type']))
             
-            adevent = event_factory.create_from_state_change(entity, attribute, old, new, kwargs)
+            friendly_name = self.entity_map["entity"]["name"]
+            entity_type = self.entity_map["entity"]["type"]
+            
+            adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs)
             if adevent:
                 event_dispatcher.dispatch(adevent)
