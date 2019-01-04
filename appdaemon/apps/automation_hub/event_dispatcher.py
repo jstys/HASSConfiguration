@@ -6,10 +6,14 @@ def dispatch(event):
         callback(event)
 
 def register_callback(event_name, callback):
+    global callbacks
+    
     if event_name not in callbacks:
         callbacks[event_name] = []
         
     callbacks[event_name].append(callback)
     
 def clear_callbacks():
+    global callbacks
+    
     callbacks.clear()
