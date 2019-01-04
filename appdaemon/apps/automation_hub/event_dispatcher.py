@@ -5,7 +5,7 @@ def dispatch(event):
     for callback in callbacks.get(event_name, []):
         callback(event)
 
-def register_callback(event_name, callback):
+def register_callback(callback, event_name):
     global callbacks
     
     if event_name not in callbacks:
