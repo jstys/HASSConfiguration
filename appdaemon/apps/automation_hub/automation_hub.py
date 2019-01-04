@@ -67,8 +67,8 @@ class AutomationHub(hass.Hass):
             self.log("Received New State Change - entity = {} attribute = {} old = {} new = {} kwargs = {}".format(entity, attribute, old, new, kwargs))
             self.log("Received state change for subscribed entity (name = {}, type = {}".format(self.entity_map[entity]['name'], self.entity_map[entity]['type']))
             
-            friendly_name = self.entity_map["entity"]["name"]
-            entity_type = self.entity_map["entity"]["type"]
+            friendly_name = self.entity_map[entity]["name"]
+            entity_type = self.entity_map[entity]["type"]
             
             adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs)
             if adevent:
