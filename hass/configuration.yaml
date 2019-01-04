@@ -31,12 +31,6 @@ cast:
     - host: 10.0.0.28 # master bedroom tv
     - host: 10.0.0.29 # basement tv
 
-media_player:
-  - platform: vizio
-    host: 10.0.0.5
-    scan_interval: 30
-    access_token: !secret living_room_vizio_token
-
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
@@ -86,6 +80,7 @@ binary_sensor: !include_dir_merge_list binary_sensor/
 sensor: !include_dir_merge_list sensor/
 switch: !include_dir_merge_list switch/
 device_tracker: !include_dir_merge_list device_tracker/
+media_player: !include_dir_merge_list media_player/
 
 ##############################################################
 #                       ENABLED                              #

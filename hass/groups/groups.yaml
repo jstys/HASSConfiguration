@@ -41,7 +41,6 @@ front_porch:
   entities:
     - lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
     - binary_sensor.front_door_sensor
-    - camera.front_door
     - light.porch_light
 
 kitchen:
@@ -61,10 +60,11 @@ living_room:
   view: no
   control: hidden
   entities:
-    - media_player.vizio_smartcast
+    - media_player.living_room_tv
     - light.living_room_lamp_1
     - light.living_room_lamp_2
     - light.piano_led
+    - light.first_floor_staircase_led
     - group.living_room_christmas_lights
     - switch.piano_power
     - light.dining_room_light
@@ -97,22 +97,11 @@ master_bedroom:
   control: hidden
   entities:
     - switch.master_bedroom_ac
-    - group.master_bedroom_tv_control
-    - switch.master_bedroom_light
+    - light.master_bedroom_fixture
     - light.jim_night_lamp
     - light.erica_night_lamp
-    - media_player.mibox3
     - sensor.temperature_158d000245a6a2
-
-master_bedroom_tv_control:
-  name: TV Control
-  view: no
-  control: hidden
-  entities:
-    - switch.master_bedroom_tv
-    - script.master_bedroom_tv_mute
-    - script.master_bedroom_tv_volume_up
-    - script.master_bedroom_tv_volume_down
+    - media_player.master_bedroom_tv
 
 office:
   name: Office
