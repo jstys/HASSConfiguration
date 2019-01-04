@@ -1,5 +1,4 @@
 #!/srv/homeassistant/bin/python3
-import logging
 import os
 import importlib
 import re

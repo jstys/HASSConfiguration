@@ -1,4 +1,4 @@
-from automation_hub import logger
+import logger
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 
