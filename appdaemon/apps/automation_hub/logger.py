@@ -10,7 +10,7 @@ def set_logger(the_logger):
     formatter = logging.Formatter(fmt=FORMAT)
     handler = logging.StreamHandler()
     handler.setFormatter(formatter)
-    _logger.propagate = False
+    _logger.handlers = []
     _logger.addHandler(handler)
 
 def debug(message):
