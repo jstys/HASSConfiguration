@@ -1,6 +1,6 @@
 from automation_hub import event_dispatcher
-from automation_hub.events import motion_triggered_event
-from automation_hub.events import motion_cleared_event
+from automation_hub.events.motion_triggered_event import MotionTriggeredEvent
+from automation_hub.events.motion_cleared_event import MotionClearedEvent
 from automation_hub import logger
 
 def register_callbacks():

@@ -1,5 +1,5 @@
-from events import motion_triggered_event
-from events import motion_cleared_event
+from events.motion_triggered_event import MotionTriggeredEvent
+from events.motion_cleared_event import MotionClearedEvent
 
 def create_from_event(event_name, data, kwargs):
     return None
