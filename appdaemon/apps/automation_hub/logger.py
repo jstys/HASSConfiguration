@@ -6,12 +6,12 @@ def set_logger(the_logger):
     global _logger
     
     _logger = the_logger
-    FORMAT = "[%(filename)s - %(funcName)20s() ] %(message)s"
-    formatter = logging.Formatter(fmt=FORMAT)
-    handler = logging.StreamHandler()
-    handler.setFormatter(formatter)
-    _logger.handlers = []
-    _logger.addHandler(handler)
+    # FORMAT = "[%(filename)s - %(funcName)20s() ] %(message)s"
+    # formatter = logging.Formatter(fmt=FORMAT)
+    # handler = logging.StreamHandler()
+    # handler.setFormatter(formatter)
+    # _logger.handlers = []
+    # _logger.addHandler(handler)
 
 def debug(message):
     if _logger:
