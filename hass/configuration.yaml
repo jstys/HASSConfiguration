@@ -192,6 +192,3 @@ history:
       - sensor.hank_hkzwso03_smart_plug_current
 
 http:
-  api_password: !secret api_password
-  trusted_networks:
-    - 127.0.0.1
