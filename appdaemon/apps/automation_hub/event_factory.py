@@ -1,9 +1,25 @@
 import logger
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
+from events.button_click_event import ButtonClickEvent
 
-def create_from_event(event_name, data, kwargs):
+def create_from_event(event_name, data, kwargs, entity_map):
+    if event_name == "click":
+        return create_click_event(event_name, data, kwargs, entity_map)
+
     return None
+
+def create_click_event(event_name, data, kwargs, entity_map):
+    click_type = data.get("click_type")
+    entity = data.get("entity_id")
+    if entity in entity_map:
+        friendly_name = entity_map[entity]["name"]
+        event = ButtonClickEvent()
+        event.button_name = friendly_name
+        event.click_type = click_type
+        return event
+    else:
+        return None
 
 def create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs):
     if entity_type == "water_sensor":

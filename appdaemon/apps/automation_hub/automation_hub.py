@@ -56,7 +56,7 @@ class AutomationHub(hass.Hass):
         if event_name in self.event_list:
             logger.info("Received subscribed event")
             
-            adevent = event_factory.create_from_event(event_name, data, kwargs)
+            adevent = event_factory.create_from_event(event_name, data, kwargs, self.entity_map)
             if adevent:
                 event_dispatcher.dispatch(adevent)
         

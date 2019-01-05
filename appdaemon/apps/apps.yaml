@@ -12,7 +12,7 @@ automation_hub:
   module: automation_hub
   class: AutomationHub
   event_list:
-    - placeholder_event
+    - click
   entity_map:
     binary_sensor.water_leak_sensor_158d00023a58df: 
       name: basement_water_sensor
