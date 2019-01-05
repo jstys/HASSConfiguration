@@ -1,0 +1,3 @@
+- platform: switch
+  name: Kitchen High Hats
+  entity_id: switch.kitchen_high_hats

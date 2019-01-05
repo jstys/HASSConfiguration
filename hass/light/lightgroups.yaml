@@ -3,3 +3,21 @@
   entities:
     - light.master_bedroom_fixture_1
     - light.master_bedroom_fixture_2
+
+- platform: group
+  name: Living Room Lamps
+  entities:
+    - light.living_room_lamp_1
+    - light.living_room_lamp_2
+
+- platform: group
+  name: Hallway Lights
+  entities:
+    - light.hallway_fixture
+    - light.hallway_wall_light
+
+- platform: group
+  name: Kitchen Lights
+  entities:
+    - light.kitchen_fixture
+    - light.kitchen_high_hats

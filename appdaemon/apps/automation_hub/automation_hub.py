@@ -4,6 +4,7 @@ import importlib
 import re
 import sys
 
+from util.entity_map import entity_map
 import appdaemon.plugins.hass.hassapi as hass
 import event_factory
 import event_dispatcher
@@ -11,7 +12,6 @@ import logger
 
 class AutomationHub(hass.Hass):
     def initialize(self):
-        self.entity_map = self.args["entity_map"]
         self.event_list = self.args["event_list"]
         self.setup_logger()
         self.subscribe_events()
@@ -56,7 +56,7 @@ class AutomationHub(hass.Hass):
         if event_name in self.event_list:
             logger.info("Received subscribed event")
             
-            adevent = event_factory.create_from_event(event_name, data, kwargs, self.entity_map)
+            adevent = event_factory.create_from_event(event_name, data, kwargs)
             if adevent:
                 event_dispatcher.dispatch(adevent)
         
@@ -65,12 +65,12 @@ class AutomationHub(hass.Hass):
         
     def on_state_changed(self, entity, attribute, old, new, kwargs):
         
-        if entity in self.entity_map:
+        if entity in entity_map:
             logger.info("Received New State Change - entity = {} attribute = {} old = {} new = {} kwargs = {}".format(entity, attribute, old, new, kwargs))
-            logger.info("Received state change for subscribed entity (name = {}, type = {}".format(self.entity_map[entity]['name'], self.entity_map[entity]['type']))
+            logger.info("Received state change for subscribed entity (name = {}, type = {}".format(entity_map[entity]['name'], entity_map[entity]['type']))
             
-            friendly_name = self.entity_map[entity]["name"]
-            entity_type = self.entity_map[entity]["type"]
+            friendly_name = entity_map[entity]["name"]
+            entity_type = entity_map[entity]["type"]
             
             adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs)
             if adevent:

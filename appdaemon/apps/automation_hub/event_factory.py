@@ -1,17 +1,18 @@
 import logger
+from util.entity_map import entity_map
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 from events.button_click_event import ButtonClickEvent
 from events.door_closed_event import DoorClosedEvent
 from events.door_open_event import DoorOpenEvent
 
-def create_from_event(event_name, data, kwargs, entity_map):
+def create_from_event(event_name, data, kwargs):
     if event_name == "click":
-        return create_click_event(event_name, data, kwargs, entity_map)
+        return create_click_event(event_name, data, kwargs)
 
     return None
 
-def create_click_event(event_name, data, kwargs, entity_map):
+def create_click_event(event_name, data, kwargs):
     click_type = data.get("click_type")
     entity = data.get("entity_id")
     if entity in entity_map:

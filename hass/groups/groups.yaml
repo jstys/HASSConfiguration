@@ -51,8 +51,7 @@ kitchen:
     - vacuum.xiaomi_vacuum_cleaner
     - script.generate_grocery_list
     - script.archive_mealplan
-    - switch.kitchen_high_hats
-    - light.kitchen_fixture
+    - light.kitchen_lights
     - binary_sensor.door_window_sensor_158d0001d3a024
 
 living_room:
@@ -61,8 +60,7 @@ living_room:
   control: hidden
   entities:
     - media_player.living_room_tv
-    - light.living_room_lamp_1
-    - light.living_room_lamp_2
+    - light.living_room_lamps
     - light.piano_led
     - light.first_floor_staircase_led
     - group.living_room_christmas_lights
@@ -87,8 +85,7 @@ hallway:
   view: no
   control: hidden
   entities:
-    - light.hallway_fixture
-    - light.hallway_wall_light
+    - light.hallway_lights
     - binary_sensor.motion_sensor_158d00016612a5
 
 master_bedroom:
