@@ -20,39 +20,6 @@
   action:
     service: script.goal_horn
 
-- id: master_bedroom_button_single
-  alias: Master Bedroom Button Single
-  trigger:
-    platform: event
-    event_type: click
-    event_data:
-      entity_id: binary_sensor.switch_158d00016dbf86
-      click_type: single
-  action:
-    event: MASTER_BEDROOM_SINGLE_CLICK
-
-- id: master_bedroom_button_double
-  alias: Master Bedroom Button Double
-  trigger:
-    platform: event
-    event_type: click
-    event_data:
-      entity_id: binary_sensor.switch_158d00016dbf86
-      click_type: double
-  action:
-    event: MASTER_BEDROOM_DOUBLE_CLICK
-
-- id: master_bedroom_button_long
-  alias: Master Bedroom Button Long
-  trigger:
-    platform: event
-    event_type: click
-    event_data:
-      entity_id: binary_sensor.switch_158d00016dbf86
-      click_type: long_click_press
-  action:
-    event: MASTER_BEDROOM_LONG_CLICK
-
 - id: downstairs_hallway_top_button
   alias: Downstairs Hallway Top Button
   trigger:
@@ -108,36 +75,3 @@
   action:
     - service: light.turn_off
       entity_id: light.hallway_lights
-
-- id: new_voice_assistant_intent
-  alias: New Voice Assistant Intent
-  trigger:
-    platform: mqtt
-    topic: 'assistant/+/intent'
-  action:
-    event: VOICE_ASSISTANT_INTENT
-    event_data_template:
-      payload: '{{ trigger.payload }}'
-      topic: '{{ trigger.topic }}'
-
-- id: new_snips_intent
-  alias: New Snips Intent
-  trigger:
-    platform: mqtt
-    topic: 'hermes/intent/+'
-  action:
-    event: SNIPS_INTENT
-    event_data_template:
-      payload: '{{ trigger.payload }}'
-      topic: '{{ trigger.topic }}'
-
-- id: new_snips_nlu_intent
-  alias: New Snips NLU Intent
-  trigger:
-    platform: mqtt
-    topic: 'hermes/nlu/intentParsed'
-  action:
-    event: SNIPS_NLU_INTENT
-    event_data_template:
-      payload: '{{ trigger.payload }}'
-      topic: '{{ trigger.topic }}'

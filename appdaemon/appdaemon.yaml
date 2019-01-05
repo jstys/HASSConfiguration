@@ -6,6 +6,16 @@ appdaemon:
       type: hass
       ha_url: !secret hass_url
       token: !secret hass_token
+    MQTT:
+      type: mqtt
+      client_host: 127.0.0.1
+      client_port: 1883
+      client_id: appdaemon
+      client_user: appdaemon
+      client_topics: 
+        - 'assistant/+/intent'
+        - 'hermes/intent/+'
+        - 'hermes/nlu/intentParsed'
 log:
   logfile: /tmp/appdaemon.log
   errorfile: /tmp/appdaemon.log
