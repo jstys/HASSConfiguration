@@ -51,8 +51,10 @@ class AutomationHub(hass.Hass):
         self.listen_event(self.on_event)
         
     def on_event(self, event_name, data, kwargs):
+        logger.info("Received New Event - name = {} data = {} kwargs = {}".format(event_name, data, kwargs))
+
         if event_name in self.event_list:
-            logger.info("Received New Event - name = {} data = {} kwargs = {}".format(event_name, data, kwargs))
+            logger.info("Received subscribed event")
             
             adevent = event_factory.create_from_event(event_name, data, kwargs)
             if adevent:
