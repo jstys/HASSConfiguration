@@ -4,10 +4,12 @@ appdaemon:
   plugins:
     HASS:
       type: hass
+      namespace: hass
       ha_url: !secret hass_url
       token: !secret hass_token
     MQTT:
       type: mqtt
+      namespace: mqtt
       client_host: 127.0.0.1
       client_port: 1883
       client_id: appdaemon
