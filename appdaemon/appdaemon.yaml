@@ -5,7 +5,7 @@ appdaemon:
     HASS:
       type: hass
       ha_url: !secret hass_url
-      ha_key: !secret api_password
+      token: !secret hass_token
 log:
   logfile: /tmp/appdaemon.log
   errorfile: /tmp/appdaemon.log
