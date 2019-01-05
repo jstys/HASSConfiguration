@@ -4,7 +4,7 @@ callbacks = {}
 
 def dispatch(event):
     event_name = event.__class__.__name__
-    logger.info("Dispatching callbacks for {}".format(event_name))
+    logger.info("Dispatching {} callbacks for {}".format(event_name, len(callbacks.get(event_name, []))))
     for callback in callbacks.get(event_name, []):
         callback(event)
 
