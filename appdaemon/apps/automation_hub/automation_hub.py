@@ -16,6 +16,7 @@ class AutomationHub(hass.Hass):
         self.subscribe_events()
         self.subscribe_states()
         self.event_handlers = []
+        self._load_handlers()
         
     def _load_handlers(self):
         cwd = os.path.dirname(os.path.realpath(__file__))
