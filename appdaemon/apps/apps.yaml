@@ -9,7 +9,7 @@ global_modules:
   - talk_intent_handler
   - vacuum_intent_handler
 automation_hub:
-  module: automation_hub
+  module: automation_hub_main
   class: AutomationHub
   event_list:
     - placeholder_event
