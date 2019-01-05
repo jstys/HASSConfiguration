@@ -1,8 +1,8 @@
 from automation_hub import event_dispatcher
-from automation_hub.events.nhl_goal_event import NHLGoalEvent
-from automation_hub.events.nhl_penalty_event import NHLPenaltyEvent
-from automation_hub.events.nhl_period_start_event import NHLPeriodStartEvent
-from automation_hub.events.nhl_period_end_event import NHLPeriodEndEvent
+from events.nhl_goal_event import NHLGoalEvent
+from events.nhl_penalty_event import NHLPenaltyEvent
+from events.nhl_period_start_event import NHLPeriodStartEvent
+from events.nhl_period_end_event import NHLPeriodEndEvent
 
 def register_callbacks():
     event_dispatcher.register_callback(on_nhl_goal, NHLGoalEvent().__class__.__name__)

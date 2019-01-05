@@ -1,6 +1,6 @@
 from automation_hub import event_dispatcher
-from automation_hub.events.door_closed_event import DoorClosedEvent
-from automation_hub.events.door_open_event import DoorOpenEvent
+from events.door_closed_event import DoorClosedEvent
+from events.door_open_event import DoorOpenEvent
 
 def register_callbacks():
     event_dispatcher.register_callback(on_door_closed, DoorClosedEvent().__class__.__name__)
