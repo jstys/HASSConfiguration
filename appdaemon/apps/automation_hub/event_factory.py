@@ -5,6 +5,8 @@ from events.motion_cleared_event import MotionClearedEvent
 from events.button_click_event import ButtonClickEvent
 from events.door_closed_event import DoorClosedEvent
 from events.door_open_event import DoorOpenEvent
+from events.zwave_scene_event import ZwaveSceneEvent
+from events.mqtt_event import MQTTEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "click":
@@ -29,10 +31,25 @@ def create_click_event(event_name, data, kwargs):
         return None
         
 def create_mqtt_event(event_name, data, kwargs):
-    return None
+    payload = data.get("payload")
+    topic = data.get("topic")
+    event = MQTTEvent()
+    event.payload = payload
+    event.topic = topic
+    return event
 
 def create_zwave_scene_event(event_name, data, kwargs):
-    return None
+    entity = data.get("entity_id")
+    scene_id = data.get("scene_id")
+    scene_data = data.get("scene_data")
+    if entity in entity_map:
+        event = ZwaveSceneEvent()
+        event.name = entity_map[entity]["name"]
+        event.scene_id = scene_id
+        event.scene_data = scene_data
+        return event
+    else:
+        return None
 
 def create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs):
     if entity_type == "water_sensor":
