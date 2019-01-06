@@ -9,8 +9,8 @@ from events.zwave_scene_event import ZwaveSceneEvent
 from events.mqtt_event import MQTTEvent
 
 def create_from_event(event_name, data, kwargs):
-    if event_name == "click":
-        return create_click_event(event_name, data, kwargs)
+    if event_name == "xiaomi_aqara.click":
+        return create_xiaomi_click_event(event_name, data, kwargs)
     elif event_name == "MQTT_MESSAGE":
         return create_mqtt_event(event_name, data, kwargs)
     elif event_name == "zwave.scene_activated":
@@ -19,7 +19,7 @@ def create_from_event(event_name, data, kwargs):
     logger.warning("Received invalid event type")
     return None
 
-def create_click_event(event_name, data, kwargs):
+def create_xiaomi_click_event(event_name, data, kwargs):
     click_type = data.get("click_type")
     entity = data.get("entity_id")
     if entity in entity_map:
