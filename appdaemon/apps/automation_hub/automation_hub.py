@@ -5,6 +5,7 @@ import re
 import sys
 
 from util import entity_map
+from util import hass_api_handle
 from util.entity_map import entity_map
 from util.hass_api_handle import set_hass_api_handle
 from util import logger
