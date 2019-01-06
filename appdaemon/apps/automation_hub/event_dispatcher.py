@@ -1,4 +1,4 @@
-import logger
+from util import logger
 
 callbacks = {}
 

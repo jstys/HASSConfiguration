@@ -51,8 +51,8 @@ entity_map = {
         "room": "living_room",
         "floor": "first"
     },
-    "light.hallway_wall_lights": {
-        "name": "hallway_wall_lights",
+    "light.hallway_lights": {
+        "name": "hallway_lights",
         "type": "light",
         "room": "hallway",
         "floor": "second"
@@ -69,6 +69,12 @@ entity_map = {
         "room": "landing",
         "floor": "basement"
     },
+    "light.kitchen_lights": {
+        "name": "kitchen_lights",
+        "type": "light",
+        "room": "kitchen",
+        "floor": "first"
+    },
     "zwave.linear_wa00z1_scene_switch": {
         "name": "staircase_bottom_switch",
         "type": "switch"
@@ -78,3 +84,11 @@ entity_map = {
         "type": "switch"
     }
 }
+
+name_map = get_name_map()
+
+def get_name_map():
+    result = {}
+    for entity_id, mapped in entity_map.items():
+        result[mapped["name"]] = entity_id
+    return result

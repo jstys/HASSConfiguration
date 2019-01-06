@@ -1,6 +1,7 @@
 from automation_hub import event_dispatcher
-from automation_hub import logger
+from util import logger
 from events.zwave_scene_event import ZwaveSceneEvent
+from actions.light_action import LightAction
 
 def event_filter(event):
     return event.name in ["staircase_top_switch", "staircase_bottom_switch"]
@@ -15,7 +16,7 @@ def on_scene_activated(event):
         on_bottom_button(event)
 
 def on_top_button(event):
-    pass
+    LightAction().add_light("hallway_lights").turn_on()
 
 def on_bottom_button(event):
-    pass
+    LightAction().add_light("hallway_lights").turn_off()

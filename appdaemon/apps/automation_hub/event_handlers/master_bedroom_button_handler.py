@@ -1,5 +1,5 @@
 from automation_hub import event_dispatcher
-from automation_hub import logger
+from util import logger
 from events.button_click_event import ButtonClickEvent
 
 def event_filter(event):

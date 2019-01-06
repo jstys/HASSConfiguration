@@ -1,5 +1,5 @@
 from automation_hub import event_dispatcher
-from automation_hub import logger
+from util import logger
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 

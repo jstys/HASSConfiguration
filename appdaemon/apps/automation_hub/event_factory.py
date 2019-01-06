@@ -1,4 +1,4 @@
-import logger
+from util import logger
 from util.entity_map import entity_map
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent

@@ -1,5 +1,5 @@
 from automation_hub import event_dispatcher
-from automation_hub import logger
+from util import logger
 from events.door_closed_event import DoorClosedEvent
 from events.door_open_event import DoorOpenEvent
 
