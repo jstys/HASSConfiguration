@@ -7,8 +7,8 @@ def event_filter(event):
     return event.name == "hallway_motion_sensor"
 
 def register_callbacks():
-    event_dispatcher.register_callback(on_motion_triggered, MotionTriggeredEvent().__class__.__name__, event_filter=event_filter)
-    event_dispatcher.register_callback(on_motion_cleared, MotionClearedEvent().__class__.__name__, event_filter=event_filter)
+    event_dispatcher.register_callback(on_motion_triggered, MotionTriggeredEvent.__name__, event_filter=event_filter)
+    event_dispatcher.register_callback(on_motion_cleared, MotionClearedEvent.__name__, event_filter=event_filter)
     
 def on_motion_triggered(event):
     logger.info("Hallway motion detected")

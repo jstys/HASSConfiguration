@@ -5,10 +5,10 @@ from events.nhl_period_start_event import NHLPeriodStartEvent
 from events.nhl_period_end_event import NHLPeriodEndEvent
 
 def register_callbacks():
-    event_dispatcher.register_callback(on_nhl_goal, NHLGoalEvent().__class__.__name__)
-    event_dispatcher.register_callback(on_nhl_penalty, NHLPenaltyEvent().__class__.__name__)
-    event_dispatcher.register_callback(on_nhl_period_start, NHLPeriodStartEvent().__class__.__name__)
-    event_dispatcher.register_callback(on_nhl_period_end, NHLPeriodEndEvent().__class__.__name__)
+    event_dispatcher.register_callback(on_nhl_goal, NHLGoalEvent.__name__)
+    event_dispatcher.register_callback(on_nhl_penalty, NHLPenaltyEvent.__name__)
+    event_dispatcher.register_callback(on_nhl_period_start, NHLPeriodStartEvent.__name__)
+    event_dispatcher.register_callback(on_nhl_period_end, NHLPeriodEndEvent.__name__)
     
 def on_nhl_goal(event):
     pass
