@@ -16,7 +16,9 @@ def on_scene_activated(event):
         on_bottom_button(event)
 
 def on_top_button(event):
+    logger.info("Turning on hallway lights")
     LightAction().add_light("hallway_lights").turn_on()
 
 def on_bottom_button(event):
+    logger.info("Turning off hallway lights")
     LightAction().add_light("hallway_lights").turn_off()

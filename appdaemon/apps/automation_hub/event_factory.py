@@ -16,6 +16,7 @@ def create_from_event(event_name, data, kwargs):
     elif event_name == "zwave.scene_activated":
         return create_zwave_scene_event(event_name, data, kwargs)
 
+    logger.warning("Received invalid event type")
     return None
 
 def create_click_event(event_name, data, kwargs):
@@ -28,6 +29,7 @@ def create_click_event(event_name, data, kwargs):
         event.click_type = click_type
         return event
     else:
+        logger.warning("Received invalid click entity")
         return None
         
 def create_mqtt_event(event_name, data, kwargs):
@@ -49,6 +51,7 @@ def create_zwave_scene_event(event_name, data, kwargs):
         event.scene_data = scene_data
         return event
     else:
+        logger.warning("Received invalid zwave entity")
         return None
 
 def create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs):
@@ -61,6 +64,7 @@ def create_from_state_change(friendly_name, entity_type, entity, attribute, old,
     if entity_type == "device_tracker":
         pass
     
+    logger.warning("Received invalid state change entity")
     return None
     
 def create_motion_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs):
@@ -75,6 +79,7 @@ def create_motion_sensor_state_change_event(friendly_name, entity, attribute, ol
         event.name = friendly_name
         return event
     else:
+        logger.warning("Received invalid motion state transition")
         return None
 
 def create_door_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs):
@@ -89,4 +94,5 @@ def create_door_sensor_state_change_event(friendly_name, entity, attribute, old,
         event.name = friendly_name
         return event
     else:
+        logger.warning("Received invalid door state transition")
         return None
