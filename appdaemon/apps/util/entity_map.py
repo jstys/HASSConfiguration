@@ -85,10 +85,11 @@ entity_map = {
     }
 }
 
-name_map = get_name_map()
+name_map = {}
+load_name_map()
 
-def get_name_map():
-    result = {}
+def load_name_map():
+    global name_map
+
     for entity_id, mapped in entity_map.items():
-        result[mapped["name"]] = entity_id
-    return result
+        name_map[mapped["name"]] = entity_id
