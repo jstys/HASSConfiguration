@@ -16,8 +16,8 @@ mqtt:
 notify:
   - platform: joaoapps_join
     api_key: !secret jim_join_key
-    device_names: jim_cell, jim_chromebook, jim_chrome
-    name: HomeAssistant
+    device_names: jim_cell
+    name: jim_cell
 
 tts:
   platform: google
