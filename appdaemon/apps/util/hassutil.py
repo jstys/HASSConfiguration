@@ -41,25 +41,25 @@ def read_config_file(filename):
 
 def gui_notify(title, message):
     if API_HANDLE:
-        call_service(API_HANDLE, "persistent_notification", "create", title=title, message=message)
+        call_service("persistent_notification", "create", title=title, message=message)
     else:
         logger.error("API Handle is None")
 
 def pushbullet_notify(account, devices, title, message):
     if API_HANDLE:
-        call_service(API_HANDLE, "notify", account, title=title, message=message, target=devices)
+        call_service("notify", account, title=title, message=message, target=devices)
     else:
         logger.error("API Handle is None")
 
 def tts_say(message, tts_room):
     if API_HANDLE:
-        call_service(API_HANDLE, "script", "assistant_voice", message=message, room=tts_room)
+        call_service("script", "assistant_voice", message=message, room=tts_room)
     else:
         logger.error("API Handle is None")
 
 def tts_broadcast(message, source="HASS"):
     if API_HANDLE:
-        call_service(API_HANDLE, "script", "assistant_broadcast", message=message, source=source)
+        call_service("script", "assistant_broadcast", message=message, source=source)
     else:
         logger.error("API Handle is None")
 
@@ -73,24 +73,24 @@ def turn_off_on(entity, on, brightness=None, color=None, effect=None):
             optionals["color_name"] = "white" if color is None else color
         if on:
             if entity.domain == "light":
-                API_HANDLE.turn_on(entity.entity_id, **optionals)
+                API_HANDLE.turn_on(entity.entity_id, **optionals, namespace="hass")
             else:
-                API_HANDLE.turn_on(entity.entity_id)
+                API_HANDLE.turn_on(entity.entity_id, namespace="hass")
         else:
-            API_HANDLE.turn_off(entity.entity_id)
+            API_HANDLE.turn_off(entity.entity_id, namespace="hass")
     else:
         logger.error("API Handle is None")
         
 def set_level(entity, percentage):
     if API_HANDLE:
         if entity.domain == "light":
-            API_HANDLE.turn_on(entity.entity_id, brightness_pct=percentage.replace("%", ""))
+            API_HANDLE.turn_on(entity.entity_id, brightness_pct=percentage.replace("%", ""), namespace="hass")
     else:
         logger.error("API Handle is None")
 
 def call_service(domain, action, **kwargs):
     if API_HANDLE:
-        API_HANDLE.call_service("/".join([domain, action]), **kwargs)
+        API_HANDLE.call_service("/".join([domain, action]), **kwargs, namespace="hass")
     else:
         logger.error("API Handle is None")
 
