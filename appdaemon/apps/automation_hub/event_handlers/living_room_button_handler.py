@@ -1,5 +1,6 @@
 from automation_hub import event_dispatcher
 from util import logger
+from actions.script_action import ScriptAction
 from events.button_click_event import ButtonClickEvent
 
 def event_filter(event):
@@ -18,9 +19,11 @@ def on_button_clicked(event):
 
 def on_single_click(event):
     logger.info("Living Room Button single clicked")
+    ScriptAction().add_script("rick_flair_woo").run()
 
 def on_double_click(event):
     logger.info("Living Room Button double clicked")
+    ScriptAction().add_script("goal_horn").run()
 
 def on_long_press(event):
     logger.info("Living Room Button long pressed")
