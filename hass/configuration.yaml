@@ -14,12 +14,10 @@ mqtt:
   username: !secret mqtt_user
 
 notify:
-  - name: jim_pushbullet
-    platform: pushbullet
-    api_key: !secret jim_pushbullet_token
-  - name: erica_pushbullet
-    platform: pushbullet
-    api_key: !secret erica_pushbullet_token
+  - platform: joaoapps_join
+    api_key: !secret jim_join_key
+    device_names: jim_cell, jim_chromebook, jim_chrome
+    name: HomeAssistant
 
 tts:
   platform: google
