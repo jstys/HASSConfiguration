@@ -45,9 +45,9 @@ def gui_notify(title, message):
     else:
         logger.error("API Handle is None")
 
-def pushbullet_notify(account, devices, title, message):
+def join_notify(target, message, title="Home Assistant"):
     if API_HANDLE:
-        call_service("notify", account, title=title, message=message, target=devices)
+        call_service("notify", target, message=message, title=title)
     else:
         logger.error("API Handle is None")
 
