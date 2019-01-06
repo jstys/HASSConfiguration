@@ -20,7 +20,6 @@ class AutomationHub(hass.Hass):
         self.subscribe_events()
         self.subscribe_states()
         self.event_handlers = []
-        logger.info("Python module paths: {}".format(sys.path))
         self._load_handlers()
         
     def _load_handlers(self):
