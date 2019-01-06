@@ -50,7 +50,7 @@ class AutomationHub(hass.Hass):
         logger.set_logger(log)
     
     def subscribe_events(self):
-        self.listen_event(self.on_event)
+        self.listen_event(self.on_event, namespace="global")
         
     def on_event(self, event_name, data, kwargs):
         logger.info("Received New Event - name = {} data = {} kwargs = {}".format(event_name, data, kwargs))
@@ -63,7 +63,7 @@ class AutomationHub(hass.Hass):
                 event_dispatcher.dispatch(adevent)
         
     def subscribe_states(self):
-        self.listen_state(self.on_state_changed)
+        self.listen_state(self.on_state_changed, namespace="global")
         
     def on_state_changed(self, entity, attribute, old, new, kwargs):
         
