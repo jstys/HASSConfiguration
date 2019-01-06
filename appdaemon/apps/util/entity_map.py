@@ -86,10 +86,6 @@ entity_map = {
 }
 
 name_map = {}
-load_name_map()
 
-def load_name_map():
-    global name_map
-
-    for entity_id, mapped in entity_map.items():
-        name_map[mapped["name"]] = entity_id
+for entity_id, mapped in entity_map.items():
+    name_map[mapped["name"]] = entity_id
