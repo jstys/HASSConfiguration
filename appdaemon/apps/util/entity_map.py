@@ -68,5 +68,13 @@ entity_map = {
         "type": "light",
         "room": "landing",
         "floor": "basement"
+    },
+    "zwave.linear_wa00z1_scene_switch": {
+        "name": "staircase_bottom_switch",
+        "type": "switch"
+    },
+    "zwave.linear_wa00z1_scene_switch_2": {
+        "name": "staircase_top_switch",
+        "type": "switch"
     }
 }

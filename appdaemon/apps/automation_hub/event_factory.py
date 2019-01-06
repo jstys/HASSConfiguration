@@ -9,6 +9,10 @@ from events.door_open_event import DoorOpenEvent
 def create_from_event(event_name, data, kwargs):
     if event_name == "click":
         return create_click_event(event_name, data, kwargs)
+    elif event_name == "MQTT_MESSAGE":
+        return create_mqtt_event(event_name, data, kwargs)
+    elif event_name == "zwave.scene_activated":
+        return create_zwave_scene_event(event_name, data, kwargs)
 
     return None
 
@@ -23,6 +27,12 @@ def create_click_event(event_name, data, kwargs):
         return event
     else:
         return None
+        
+def create_mqtt_event(event_name, data, kwargs):
+    return None
+
+def create_zwave_scene_event(event_name, data, kwargs):
+    return None
 
 def create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs):
     if entity_type == "water_sensor":
