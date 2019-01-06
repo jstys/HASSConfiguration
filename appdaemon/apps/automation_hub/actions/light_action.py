@@ -1,6 +1,5 @@
 from util.entity_map import name_map
 from util import hassutil
-from util.hass_api_handle import hass_api_handle as api
 
 class LightAction():
     def __init__(self):
@@ -20,20 +19,20 @@ class LightAction():
 
     def turn_on(self, level=None):
         for light in self._lights:
-            hassutil.turn_off_on(api, light, True, brightness=level)
+            hassutil.turn_off_on(light, True, brightness=level)
 
     def turn_off(self):
         for light in self._lights:
-            hassutil.turn_off_on(api, light, False)
+            hassutil.turn_off_on(light, False)
 
     def set_level(self, level):
         for light in self._lights:
-            hassutil.turn_off_on(api, light, True, brightness=level)
+            hassutil.turn_off_on(light, True, brightness=level)
 
     def set_effect(self, effect):
         for light in self._lights:
-            hassutil.turn_off_on(api, light, True, effect=effect)
+            hassutil.turn_off_on(light, True, effect=effect)
 
     def set_color(self, color):
         for light in self._lights:
-            hassutil.turn_off_on(api, light, True, color=color)
+            hassutil.turn_off_on(light, True, color=color)

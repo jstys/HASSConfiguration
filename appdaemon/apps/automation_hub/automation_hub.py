@@ -4,10 +4,9 @@ import importlib
 import re
 import sys
 
+from util import hassutil
 from util import entity_map
-from util import hass_api_handle
 from util.entity_map import entity_map
-from util.hass_api_handle import set_hass_api_handle
 from util import logger
 import appdaemon.plugins.hass.hassapi as hass
 import event_factory
@@ -15,7 +14,7 @@ import event_dispatcher
 
 class AutomationHub(hass.Hass):
     def initialize(self):
-        set_hass_api_handle(self)
+        hassutil.set_api_handle(self)
         self.event_list = self.args["event_list"]
         self.setup_logger()
         self.subscribe_events()

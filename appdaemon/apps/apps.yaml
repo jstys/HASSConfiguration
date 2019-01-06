@@ -1,13 +1,8 @@
 global_modules:
   - hassutil
   - trello_util
-  - color_intent_handler
-  - level_intent_handler
-  - list_intent_handler
-  - mode_intent_handler
-  - power_intent_handler
-  - talk_intent_handler
-  - vacuum_intent_handler
+  - logger
+  - entity_map
 automation_hub:
   module: automation_hub
   class: AutomationHub
@@ -15,21 +10,21 @@ automation_hub:
     - click
     - zwave.scene_activated
     - MQTT_MESSAGE
-nhl_announcer:
-  module: nhl_announcer
-  class: NHLAnnouncer
-  global_dependencies:
-    - hassutil
-intent_processor:
-  module: intent_processor
-  class: IntentReceiver
-  global_dependencies:
-    - hassutil
-    - trello_util
-    - color_intent_handler
-    - level_intent_handler
-    - list_intent_handler
-    - mode_intent_handler
-    - power_intent_handler
-    - talk_intent_handler
-    - vacuum_intent_handler
+# nhl_announcer:
+#   module: nhl_announcer
+#   class: NHLAnnouncer
+#   global_dependencies:
+#     - hassutil
+# intent_processor:
+#   module: intent_processor
+#   class: IntentReceiver
+#   global_dependencies:
+#     - hassutil
+#     - trello_util
+#     - color_intent_handler
+#     - level_intent_handler
+#     - list_intent_handler
+#     - mode_intent_handler
+#     - power_intent_handler
+#     - talk_intent_handler
+#     - vacuum_intent_handler

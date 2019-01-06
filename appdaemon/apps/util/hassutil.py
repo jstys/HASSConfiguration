@@ -1,6 +1,8 @@
 import yaml
 import os
 
+import logger
+
 HASS_DIR = "/home/homeassistant/.homeassistant"
 GROUPS = os.path.join(HASS_DIR, "groups", "groups.yaml")
 SECRETS = os.path.join(HASS_DIR, "secrets.yaml")
@@ -13,6 +15,7 @@ OBJECT_MAP = {
     "MediaObject": ["tv", "speaker", "speakers", "smartcast"],
     "InputName": ["tv_input"]
 }
+API_HANDLE = None
 
 class Entity(object):
     def __init__(self, fully_qualified_name):
@@ -25,6 +28,10 @@ class Entity(object):
     def fromSplitName(cls, domain, name):
         return cls(".".join([domain, name]))
 
+def set_api_handle(handle):
+    global API_HANDLE
+    API_HANDLE = handle
+
 def read_config_file(filename):
     try:
         with open(filename) as yamlfile:
@@ -32,39 +39,60 @@ def read_config_file(filename):
     except:
         return {}
 
-def gui_notify(api, title, message):
-    call_service(api, "persistent_notification", "create", title=title, message=message)
-
-def pushbullet_notify(api, account, devices, title, message):
-    call_service(api, "notify", account, title=title, message=message, target=devices)
-
-def tts_say(api, message, tts_room):
-    call_service(api, "script", "assistant_voice", message=message, room=tts_room)
-
-def tts_broadcast(api, message, source="HASS"):
-    call_service(api, "script", "assistant_broadcast", message=message, source=source)
-
-def turn_off_on(api, entity, on, brightness=None, color=None, effect=None):
-    optionals = {}
-    if effect is not None:
-        optionals["effect"] = effect
+def gui_notify(title, message):
+    if API_HANDLE:
+        call_service(API_HANDLE, "persistent_notification", "create", title=title, message=message)
     else:
-        optionals["brightness_pct"] = 75 if brightness is None else brightness.replace("%", "")
-        optionals["color_name"] = "white" if color is None else color
-    if on:
-        if entity.domain == "light":
-            api.turn_on(entity.entity_id, **optionals)
+        logger.error("API Handle is None")
+
+def pushbullet_notify(account, devices, title, message):
+    if API_HANDLE:
+        call_service(API_HANDLE, "notify", account, title=title, message=message, target=devices)
+    else:
+        logger.error("API Handle is None")
+
+def tts_say(message, tts_room):
+    if API_HANDLE:
+        call_service(API_HANDLE, "script", "assistant_voice", message=message, room=tts_room)
+    else:
+        logger.error("API Handle is None")
+
+def tts_broadcast(message, source="HASS"):
+    if API_HANDLE:
+        call_service(API_HANDLE, "script", "assistant_broadcast", message=message, source=source)
+    else:
+        logger.error("API Handle is None")
+
+def turn_off_on(entity, on, brightness=None, color=None, effect=None):
+    if API_HANDLE:
+        optionals = {}
+        if effect is not None:
+            optionals["effect"] = effect
         else:
-            api.turn_on(entity.entity_id)
+            optionals["brightness_pct"] = 75 if brightness is None else brightness.replace("%", "")
+            optionals["color_name"] = "white" if color is None else color
+        if on:
+            if entity.domain == "light":
+                API_HANDLE.turn_on(entity.entity_id, **optionals)
+            else:
+                API_HANDLE.turn_on(entity.entity_id)
+        else:
+            API_HANDLE.turn_off(entity.entity_id)
     else:
-        api.turn_off(entity.entity_id)
+        logger.error("API Handle is None")
         
-def set_level(api, entity, percentage):
-    if entity.domain == "light":
-        api.turn_on(entity.entity_id, brightness_pct=percentage.replace("%", ""))
+def set_level(entity, percentage):
+    if API_HANDLE:
+        if entity.domain == "light":
+            API_HANDLE.turn_on(entity.entity_id, brightness_pct=percentage.replace("%", ""))
+    else:
+        logger.error("API Handle is None")
 
-def call_service(api, domain, action, **kwargs):
-    api.call_service("/".join([domain, action]), **kwargs)
+def call_service(domain, action, **kwargs):
+    if API_HANDLE:
+        API_HANDLE.call_service("/".join([domain, action]), **kwargs)
+    else:
+        logger.error("API Handle is None")
 
 def convert_device_information(intent_json, allowed_object_types):
     device = None
