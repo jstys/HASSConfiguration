@@ -14,6 +14,7 @@ automation_hub:
   event_list:
     - click
     - zwave.scene_activated
+    - MQTT_MESSAGE
 nhl_announcer:
   module: nhl_announcer
   class: NHLAnnouncer
