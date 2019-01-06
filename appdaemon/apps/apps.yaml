@@ -10,6 +10,7 @@ automation_hub:
     - xiaomi_aqara.click
     - zwave.scene_activated
     - MQTT_MESSAGE
+    - state_machine.state_changed
 # nhl_announcer:
 #   module: nhl_announcer
 #   class: NHLAnnouncer

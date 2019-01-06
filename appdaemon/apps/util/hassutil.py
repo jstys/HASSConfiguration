@@ -94,6 +94,12 @@ def call_service(domain, action, **kwargs):
     else:
         logger.error("API Handle is None")
 
+def fire_event(event, **kwargs):
+    if API_HANDLE:
+        API_HANDLE.fire_event(event, kwargs)
+    else:
+        logger.error("API Handle is None")
+
 def convert_device_information(intent_json, allowed_object_types):
     device = None
     device_type = None
