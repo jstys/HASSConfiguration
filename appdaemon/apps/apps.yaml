@@ -7,7 +7,7 @@ automation_hub:
   module: automation_hub
   class: AutomationHub
   event_list:
-    - click
+    - xiaomi_aqara.click
     - zwave.scene_activated
     - MQTT_MESSAGE
 # nhl_announcer:
