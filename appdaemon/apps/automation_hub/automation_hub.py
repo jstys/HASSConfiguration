@@ -8,9 +8,12 @@ from util import hassutil
 from util import entity_map
 from util.entity_map import entity_map
 from util import logger
+from events.sunrise_event import SunriseEvent
+from events.sunset_event import SunsetEvent
 import appdaemon.plugins.hass.hassapi as hass
 import event_factory
 import event_dispatcher
+import state_machine
 
 class AutomationHub(hass.Hass):
     def initialize(self):
@@ -21,6 +24,8 @@ class AutomationHub(hass.Hass):
         self.subscribe_states()
         self.event_handlers = []
         self._load_handlers()
+        self._initialize_states()
+        self._initialize_callbacks()
         
     def _load_handlers(self):
         cwd = os.path.dirname(os.path.realpath(__file__))
@@ -44,6 +49,19 @@ class AutomationHub(hass.Hass):
             reloaded_handlers.append(reloaded)
             
         self.event_handlers = reloaded_handlers
+        
+    def _initialize_callbacks(self):
+        self.run_at_sunrise(self.on_sunrise)
+        self.run_at_sunset(self.on_sunset)
+        
+    def _initialize_states(self):
+        state_machine.set_state(state_machine.SUN_UP_STATE, self.sun_up())
+        
+    def on_sunrise(self, kwargs):
+        event_dispatcher.dispatch(SunriseEvent())
+        
+    def on_sunset(self, kwargs):
+        event_dispatcher.dispatch(SunsetEvent())
     
     def setup_logger(self):
         log = self.get_main_log()

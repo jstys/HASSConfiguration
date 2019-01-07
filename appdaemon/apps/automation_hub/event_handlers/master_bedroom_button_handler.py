@@ -1,4 +1,5 @@
 from automation_hub import event_dispatcher
+from automation_hub import state_machine
 from util import logger
 from events.button_click_event import ButtonClickEvent
 
@@ -24,3 +25,5 @@ def on_double_click(event):
 
 def on_long_press(event):
     logger.info("Master Bedroom Button long pressed")
+    
+    state_machine.set_state(state_machine.SLEEP_STATE, True)

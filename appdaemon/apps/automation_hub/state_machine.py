@@ -3,6 +3,9 @@ from util import logger
 
 state_map = {}
 
+SLEEP_STATE = "sleep"
+SUN_UP_STATE = "sun"
+
 def set_state(state, new_value):
     global state_map
 
