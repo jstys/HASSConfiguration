@@ -40,28 +40,16 @@ def read_config_file(filename):
         return {}
 
 def gui_notify(title, message):
-    if API_HANDLE:
-        call_service("persistent_notification", "create", title=title, message=message)
-    else:
-        logger.error("API Handle is None")
+    call_service("persistent_notification", "create", title=title, message=message)
 
 def join_notify(target, message, title="Home Assistant"):
-    if API_HANDLE:
-        call_service("notify", target, message=message, title=title)
-    else:
-        logger.error("API Handle is None")
+    call_service("notify", target, message=message, title=title)
 
 def tts_say(message, tts_room):
-    if API_HANDLE:
-        call_service("script", "assistant_voice", message=message, room=tts_room)
-    else:
-        logger.error("API Handle is None")
+    call_service("script", "assistant_voice", message=message, room=tts_room)
 
 def tts_broadcast(message, source="HASS"):
-    if API_HANDLE:
-        call_service("script", "assistant_broadcast", message=message, source=source)
-    else:
-        logger.error("API Handle is None")
+    call_service("script", "assistant_broadcast", message=message, source=source)
 
 def turn_off_on(entity, on, brightness=None, color=None, effect=None):
     if API_HANDLE:
