@@ -3,7 +3,7 @@ from automation_hub import state_machine
 from util import logger
 from events.sunrise_event import SunriseEvent
 from events.sunset_event import SunsetEvent
-from actions.LightAction import LightAction
+from actions.light_action import LightAction
 
 def register_callbacks():
     event_dispatcher.register_callback(on_sunrise, SunriseEvent.__name__)
