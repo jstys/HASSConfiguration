@@ -1,5 +1,6 @@
 from util.entity_map import name_map
 from util import hassutil
+from util import logger
 
 class LightAction():
     def __init__(self):
@@ -14,6 +15,8 @@ class LightAction():
     def add_light(self, light):
         if light in name_map:
             self._lights.append(hassutil.Entity(name_map[light]))
+        else:
+            logger.error("Unable to add unknown light to LightAction: {}".format(light))
 
         return self
 
