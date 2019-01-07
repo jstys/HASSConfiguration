@@ -5,4 +5,4 @@ class EventAction():
         pass
 
     def fire(self, event, **kwargs):
-        hassutil.fire_event(event, kwargs)
+        hassutil.fire_event(event, **kwargs)

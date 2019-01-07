@@ -96,7 +96,7 @@ def call_service(domain, action, **kwargs):
 
 def fire_event(event, **kwargs):
     if API_HANDLE:
-        API_HANDLE.fire_event(event, kwargs)
+        API_HANDLE.fire_event(event, **kwargs)
     else:
         logger.error("API Handle is None")
 
