@@ -82,6 +82,10 @@ entity_map = {
     "zwave.linear_wa00z1_scene_switch_2": {
         "name": "staircase_top_switch",
         "type": "switch"
+    },
+    "lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4": {
+        "name": "front_door_lock",
+        "type": "lock"
     }
 }
 

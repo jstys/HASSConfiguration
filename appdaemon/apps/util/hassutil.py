@@ -50,6 +50,12 @@ def tts_say(message, tts_room):
 
 def tts_broadcast(message, source="HASS"):
     call_service("script", "assistant_broadcast", message=message, source=source)
+    
+def lock(lock_entity):
+    call_service("lock", "lock", entity_id=lock_entity.entity_id)
+    
+def unlock(lock_entity):
+    call_service("lock", "unlock", entity_id=lock_entity.entity_id)
 
 def turn_off_on(entity, on, brightness=None, color=None, effect=None):
     if API_HANDLE:

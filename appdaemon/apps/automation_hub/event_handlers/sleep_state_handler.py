@@ -2,6 +2,7 @@ from automation_hub import event_dispatcher
 from automation_hub import state_machine
 from util import logger
 from events.state_machine_event import StateMachineEvent
+from actions.door_lock_action import DoorLockAction
 
 def event_filter(event):
     return event.state == state_machine.SLEEP_STATE
@@ -19,6 +20,8 @@ def on_state_changed(event):
 
 def on_sleep_state_enabled(event):
     logger.info("Sleep state enabled")
+    
+    DoorLockAction().add_lock("front_door_lock").lock()
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
