@@ -11,6 +11,10 @@ entity_map = {
         "name": "master_bedroom_motion",
         "type": "motion_sensor"
     },
+    "binary_sensor.motion_sensor_158d0002b6fe4e": {
+        "name": "landing_motion",
+        "type": "motion_sensor"
+    },
     "binary_sensor.front_door_sensor": {
         "name": "front_door_sensor",
         "type": "door_sensor"
