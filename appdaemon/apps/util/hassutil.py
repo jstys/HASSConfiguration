@@ -67,7 +67,7 @@ def turn_off_on(entity, on, brightness=None, color=None, effect=None):
             optionals["color_name"] = "white" if color is None else color
         if on:
             if entity.domain == "light":
-                API_HANDLE.turn_on(entity.entity_id, **optionals, namespace="hass")
+                API_HANDLE.turn_on(entity.entity_id, namespace="hass", **optionals)
             else:
                 API_HANDLE.turn_on(entity.entity_id, namespace="hass")
         else:
@@ -84,13 +84,13 @@ def set_level(entity, percentage):
 
 def call_service(domain, action, **kwargs):
     if API_HANDLE:
-        API_HANDLE.call_service("/".join([domain, action]), **kwargs, namespace="hass")
+        API_HANDLE.call_service("/".join([domain, action]), namespace="hass", **kwargs)
     else:
         logger.error("API Handle is None")
 
 def fire_event(event, **kwargs):
     if API_HANDLE:
-        API_HANDLE.fire_event(event, **kwargs, namespace="hass")
+        API_HANDLE.fire_event(event, namespace="hass", **kwargs)
     else:
         logger.error("API Handle is None")
 

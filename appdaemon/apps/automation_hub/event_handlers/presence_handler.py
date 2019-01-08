@@ -14,14 +14,14 @@ def on_presence_changed(event):
         on_person_away(event.name)
 
 def on_person_away(name):
-    logger.info("{} has left home".format(name)))
+    logger.info("{} has left home".format(name))
     
     if name == "jim_presence":
         PushNotifyAction().add_target("jim_cell_notify").set_message("Come back soon!").notify()
 
 
 def on_person_home(name):
-    logger.info("{} has arrived home".format(name)))
+    logger.info("{} has arrived home".format(name))
     
     if name == "jim_presence":
         PushNotifyAction().add_target("jim_cell_notify").set_message("Welcome home!").notify()
