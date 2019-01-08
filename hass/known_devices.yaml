@@ -14,6 +14,14 @@ bt_jim_cell:
   track: true
   vendor:
 
+bt_jim_keyring:
+  hide_if_away: false
+  mac: !secret jim_keyring_bt_mac
+  name: Fob
+  picture: 
+  track: true
+  vendor:
+
 wifi_erica_cell:
   hide_if_away: false
   mac: !secret erica_cell_wifi_mac
