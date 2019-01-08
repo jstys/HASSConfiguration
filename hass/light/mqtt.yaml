@@ -91,3 +91,13 @@
   payload_on: "on"
   payload_off: "off"
   retain: true
+
+- platform: mqtt
+  name: "Driveway Light"
+  state_topic: "smartthings/driveway_light/switch"
+  command_topic: "smartthings/driveway_light/switch"
+  brightness_state_topic: "smartthings/driveway_light/level"
+  brightness_command_topic: "smartthings/driveway_light/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
