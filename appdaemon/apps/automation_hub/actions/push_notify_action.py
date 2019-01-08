@@ -1,15 +1,29 @@
 from util import hassutil
+from util.entity_map import name_map
 
 class PushNotifyAction():
     def __init__(self):
-        self.target = None
-        self.message = None
-        self.title = None
-
+        self._targets = []
+        self._message = None
+        self._title = None
+        
+    def add_targets(self, targets):
+        for target in targets:
+            self.add_target(target)
+        
+        return self
+        
+    def add_target(self, target):
+        if target in name_map:
+            self._targets.append(name_map[target])
+        
+        return self
+            
     def set_message(self, message, title="Home Assistant"):
-        self.message = message
-        self.title = title
+        self._message = message
+        self._title = title
         return self
 
     def notify(self):
-        hassutil.join_notify(self.target, self.message, title=self.title)
+        for target in self._targets:
+            hassutil.join_notify(target, self._message, title=self._title)

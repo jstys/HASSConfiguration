@@ -94,6 +94,14 @@ entity_map = {
     "lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4": {
         "name": "front_door_lock",
         "type": "lock"
+    },
+    "group.jim_cell_device": {
+        "name": "jim_presence",
+        "type": "presence"
+    },
+    "notify.jim_cell": {
+        "name": "jim_cell_notify",
+        "type": "notify"
     }
 }
 

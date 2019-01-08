@@ -8,6 +8,7 @@ from events.door_open_event import DoorOpenEvent
 from events.zwave_scene_event import ZwaveSceneEvent
 from events.mqtt_event import MQTTEvent
 from events.state_machine_event import StateMachineEvent
+from events.presence_event import PresenceEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -74,8 +75,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attribute, old,
         return create_motion_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs)
     if entity_type == "door_sensor":
         return create_door_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs)
-    if entity_type == "device_tracker":
-        pass
+    if entity_type == "presence":
+        return create_presence_change_event(friendly_name, entity, attribute, old, new, kwargs)
     
     logger.warning("Received invalid state change entity")
     return None
@@ -109,3 +110,11 @@ def create_door_sensor_state_change_event(friendly_name, entity, attribute, old,
     else:
         logger.warning("Received invalid door state transition")
         return None
+        
+def create_presence_change_event(friendly_name, entity, attribute, old, new, kwargs):
+    logger.info("Creating PresenceEvent")
+    event = PresenceEvent()
+    event.name = friendly_name
+    event.old = old
+    event.new = new
+    return event
