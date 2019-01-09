@@ -81,7 +81,7 @@ class AutomationHub(hass.Hass):
                 event_dispatcher.dispatch(adevent)
         
     def subscribe_states(self):
-        self.listen_state(self.on_state_changed, namespace="global")
+        self.listen_state(self.on_state_changed, attribute="all", namespace="global")
         
     def on_state_changed(self, entity, attribute, old, new, kwargs):
         
