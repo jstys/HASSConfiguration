@@ -1317,7 +1317,7 @@
 			</CommandClass>
 		</CommandClasses>
 	</Node>
-	<Node id="84" name="" location="" basic="4" generic="64" specific="3" type="Secure Keypad Door Lock" listening="false" frequentListening="true" beaming="true" routing="true" max_baud_rate="40000" version="4" query_stage="Complete">
+	<Node id="86" name="" location="" basic="4" generic="64" specific="3" type="Secure Keypad Door Lock" listening="false" frequentListening="true" beaming="true" routing="true" max_baud_rate="40000" version="4" query_stage="Complete">
 		<Manufacturer id="129" name="Assa Abloy">
 			<Product type="4" id="800" name="Yale Push Button Deadbolt (YRD110)" />
 		</Manufacturer>
