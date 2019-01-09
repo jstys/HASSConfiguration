@@ -9,6 +9,7 @@ from events.zwave_scene_event import ZwaveSceneEvent
 from events.mqtt_event import MQTTEvent
 from events.state_machine_event import StateMachineEvent
 from events.presence_event import PresenceEvent
+from events.lock_event import LockEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -68,20 +69,22 @@ def create_state_machine_state_changed_event(event_name, data, kwargs):
     event.new = new
     return event
 
-def create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs):
+def create_from_state_change(friendly_name, entity_type, entity, attributes, old, new, kwargs):
     if entity_type == "water_sensor":
         pass
     if entity_type == "motion_sensor":
-        return create_motion_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs)
+        return create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "door_sensor":
-        return create_door_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs)
+        return create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "presence":
-        return create_presence_change_event(friendly_name, entity, attribute, old, new, kwargs)
+        return create_presence_change_event(friendly_name, entity, attributes, old, new, kwargs)
+    if entity_type == "lock":
+        return create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs)
     
     logger.warning("Received invalid state change entity")
     return None
     
-def create_motion_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs):
+def create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
     if old == "off" and new == "on":
         logger.info("Creating MotionTriggeredEvent")
         event = MotionTriggeredEvent()
@@ -96,7 +99,7 @@ def create_motion_sensor_state_change_event(friendly_name, entity, attribute, ol
         logger.warning("Received invalid motion state transition")
         return None
 
-def create_door_sensor_state_change_event(friendly_name, entity, attribute, old, new, kwargs):
+def create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
     if old == "off" and new == "on":
         logger.info("Creating DoorOpenEvent")
         event = DoorOpenEvent()
@@ -111,10 +114,18 @@ def create_door_sensor_state_change_event(friendly_name, entity, attribute, old,
         logger.warning("Received invalid door state transition")
         return None
         
-def create_presence_change_event(friendly_name, entity, attribute, old, new, kwargs):
+def create_presence_change_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.info("Creating PresenceEvent")
     event = PresenceEvent()
     event.name = friendly_name
     event.old = old
     event.new = new
+    return event
+
+def create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs):
+    logger.info("Creating LockEvent")
+    event = LockEvent()
+    event.lock = friendly_name
+    event.is_locked = (new == "locked")
+    event.status = attributes.get("lock_status")
     return event
