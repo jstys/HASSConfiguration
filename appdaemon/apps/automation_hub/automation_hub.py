@@ -93,7 +93,8 @@ class AutomationHub(hass.Hass):
             entity_type = entity_map[entity]["type"]
             old_state = old.get("state")
             new_state = new.get("state")
+            attributes = new.get("attributes")
             
-            adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, new, old_state, new_state, kwargs)
+            adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, attributes, old_state, new_state, kwargs)
             if adevent:
                 event_dispatcher.dispatch(adevent)

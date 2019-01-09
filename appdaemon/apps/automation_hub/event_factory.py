@@ -124,8 +124,12 @@ def create_presence_change_event(friendly_name, entity, attributes, old, new, kw
 
 def create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.info("Creating LockEvent")
-    event = LockEvent()
-    event.name = friendly_name
-    event.is_locked = (new == "locked")
-    event.status = attributes.get("lock_status")
-    return event
+    if new != old:
+        event = LockEvent()
+        event.name = friendly_name
+        event.is_locked = True if new == "locked" else False
+        event.status = attributes.get("lock_status")
+        return event
+    else:
+        logger.warning("Received invalid lock transition")
+        return None
