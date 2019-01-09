@@ -64,7 +64,10 @@ def turn_off_on(entity, on, brightness=None, color=None, effect=None):
             optionals["effect"] = effect
         else:
             optionals["brightness_pct"] = 100 if brightness is None else brightness.replace("%", "")
-            optionals["color_name"] = "white" if color is None else color
+            if color is None:
+                optionals["color_temp"] = 255
+            else:
+                optionals["color_name"] = color
         if on:
             if entity.domain == "light":
                 API_HANDLE.turn_on(entity.entity_id, namespace="hass", **optionals)
