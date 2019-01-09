@@ -28,4 +28,4 @@ def on_door_lock_changed(event):
         PushNotifyAction().add_target("jim_cell_notify").set_message("Front door locked ({})".format(event.status)).notify()
     else:
         logger.info("Front door unlocked")
-        PushNotifyAction().add_target("jim_cell_notify").set_message("Front door locked ({})".format(event.status)).notify()
+        PushNotifyAction().add_target("jim_cell_notify").set_message("Front door Unlocked ({})".format(event.status)).notify()
