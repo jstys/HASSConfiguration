@@ -125,7 +125,7 @@ def create_presence_change_event(friendly_name, entity, attributes, old, new, kw
 def create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.info("Creating LockEvent")
     event = LockEvent()
-    event.lock = friendly_name
+    event.name = friendly_name
     event.is_locked = (new == "locked")
     event.status = attributes.get("lock_status")
     return event
