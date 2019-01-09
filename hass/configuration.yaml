@@ -2,6 +2,7 @@ homeassistant:
   name: Home
   latitude: !secret home_latitude
   longitude: !secret home_longitude
+  radius: 50
   elevation: 54
   unit_system: imperial
   time_zone: !secret home_timezone
@@ -25,6 +26,7 @@ tts:
 cast:
   media_player:
     - host: 10.0.0.26 # living room tv
+    - host: 10.0.0.33 # living room speaker
     - host: 10.0.0.27 # backyard speaker
     - host: 10.0.0.28 # master bedroom tv
     - host: 10.0.0.29 # basement tv
