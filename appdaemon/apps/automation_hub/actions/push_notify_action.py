@@ -15,7 +15,7 @@ class PushNotifyAction():
         
     def add_target(self, target):
         if target in name_map:
-            self._targets.append(name_map[target])
+            self._targets.append(hassutil.Entity(name_map[target]).name)
         
         return self
             

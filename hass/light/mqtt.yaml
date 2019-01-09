@@ -54,6 +54,8 @@
   command_topic: "smartthings/front_garden_lights/switch"
   brightness_state_topic: "smartthings/front_garden_lights/level"
   brightness_command_topic: "smartthings/front_garden_lights/level"
+  hs_command_topic: "smartthings/front_garden_lights/color"
+  hs_state_topic: "smartthings/front_garden_lights/color"
   payload_on: "on"
   payload_off: "off"
   retain: true
@@ -88,6 +90,18 @@
   command_topic: "smartthings/first_floor_staircase_led/switch"
   brightness_state_topic: "smartthings/first_floor_staircase_led/level"
   brightness_command_topic: "smartthings/first_floor_staircase_led/level"
+  hs_command_topic: "smartthings/first_floor_staircase_led/color"
+  hs_state_topic: "smartthings/first_floor_staircase_led/color"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Driveway Light"
+  state_topic: "smartthings/driveway_light/switch"
+  command_topic: "smartthings/driveway_light/switch"
+  brightness_state_topic: "smartthings/driveway_light/level"
+  brightness_command_topic: "smartthings/driveway_light/level"
   payload_on: "on"
   payload_off: "off"
   retain: true

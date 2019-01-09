@@ -1,75 +1,64 @@
 default_view:
-  name: Rooms
+  name: Home
   view: yes
   entities:
-    - group.garage
-    - group.front_porch
-    - group.kitchen
-    - group.living_room
-    - group.office
-    - group.master_bedroom
-    - group.guest_bedroom
-    # - group.upstairs_bathroom
-    - group.upstairs_den
-    # - group.attic
-    # - group.basement_bathroom
-    # - group.laundry_room
-    - group.basement
-    - group.hallway
-    - group.frontyard  
-    - group.backyard
-
-garage:
-  name: Garage
-  view: no
-  control: hidden
-  entities:
-    - binary_sensor.garage_sensor
-    - sensor.garage_temperature
-
-frontyard:
-  name: Frontyard
-  view: no
-  control: hidden
-  entities:
-    - light.front_garden_lights
-
-front_porch:
-  name: Front Porch
-  view: no
-  control: hidden
-  entities:
     - lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
-    - binary_sensor.front_door_sensor
-    - light.porch_light
-
-kitchen:
-  name: Kitchen
-  view: no
-  control: hidden
-  entities:
     - vacuum.xiaomi_vacuum_cleaner
-    - script.generate_grocery_list
-    - script.archive_mealplan
-    - light.kitchen_lights
-    - binary_sensor.door_window_sensor_158d0001d3a024
+    - group.all_lights
+    - group.climate_control
+    - group.outlets
+    - group.media_players
 
-living_room:
-  name: Living Room
+all_lights:
+  name: Lighting
   view: no
-  control: hidden
   entities:
-    - media_player.living_room_tv
+    - light.driveway_light
+    - light.front_garden_lights
+    - light.porch_light
+    - light.kitchen_lights
     - light.living_room_lamps
     - light.piano_led
     - light.first_floor_staircase_led
     - group.living_room_christmas_lights
-    - switch.piano_power
     - light.dining_room_light
+    - light.hallway_lights
+    - light.master_bedroom_fixture
+    - light.jim_night_lamp
+    - light.erica_night_lamp
+    - light.office_lights
+    - light.basement_staircase_light
+    - light.deck_light
+    - switch.backyard_string_lights
+
+climate_control:
+  name: Climate
+  view: no
+  entities:
+    - sensor.garage_temperature
     - switch.dining_room_ac
     - sensor.temperature_158d0001d6f386
     - sensor.front_door_temperature
     - climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
+    - switch.master_bedroom_ac
+    - sensor.temperature_158d000245a6a2
+    - sensor.temperature_158d000245ae4b
+    - sensor.temperature_158d00023cf8f7
+    - sensor.temperature_158d00023cf950
+
+outlets:
+  name: Outlets
+  view: no
+  entities:
+    - switch.piano_power 
+
+media_players:
+  name: Media Players
+  view: no
+  entities:
+    - media_player.living_room_tv
+    - media_player.master_bedroom_tv
+    - media_player.backyard_speaker
 
 living_room_christmas_lights:
   name: Christmas Lights
@@ -79,88 +68,6 @@ living_room_christmas_lights:
     - switch.aeotec_dsc11_smart_strip_switch_4 # Mantle
     - switch.aeotec_dsc11_smart_strip_switch_5 # Star
     - light.couch_outlet
-
-hallway:
-  name: Hallway
-  view: no
-  control: hidden
-  entities:
-    - light.hallway_lights
-    - binary_sensor.motion_sensor_158d00016612a5
-
-master_bedroom:
-  name: Master Bedroom
-  view: no
-  control: hidden
-  entities:
-    - switch.master_bedroom_ac
-    - light.master_bedroom_fixture
-    - light.jim_night_lamp
-    - light.erica_night_lamp
-    - sensor.temperature_158d000245a6a2
-    - media_player.master_bedroom_tv
-
-office:
-  name: Office
-  view: no
-  control: hidden
-  entities:
-    - sensor.temperature_158d000245ae4b
-    - light.office_lights
-
-guest_bedroom:
-  name: Guest Bedroom
-  view: no
-  control: hidden
-  entities:
-    - sensor.temperature_158d00023cf8f7
-
-# upstairs_bathroom:
-#   name: Upstairs Bathroom
-#   view: no
-#   control: hidden
-#   entities:
-
-upstairs_den:
-  name: Upstairs Den
-  view: no
-  control: hidden
-  entities:
-    - sensor.temperature_158d00023cf950
-
-# attic:
-#   name: Attic
-#   view: no
-#   control: hidden
-#   entities:
-
-# basement_bathroom:
-#   name: Basement Bathroom
-#   view: no
-#   control: hidden
-#   entities:
-
-# laundry_room:
-#   name: Laundry Room
-#   view: no
-#   control: hidden
-#   entities:
-
-basement:
-  name: Basement
-  view: no
-  control: hidden
-  entities:
-    - light.basement_staircase_light
-
-backyard:
-  name: Backyard
-  view: no
-  control: hidden
-  entities:
-    - light.deck_light
-    - switch.backyard_string_lights
-    - media_player.backyard_speaker
 
 ##############################################################
 #                       DEVICES VIEW                         #

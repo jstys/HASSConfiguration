@@ -9,9 +9,9 @@ def register_callbacks():
     
 def on_presence_changed(event):
     if event.old == "home" and event.new == "not_home":
-        on_person_home(event.name)
-    elif event.old == "not_home" and event.new == "home":
         on_person_away(event.name)
+    elif event.old == "not_home" and event.new == "home":
+        on_person_home(event.name)
 
 def on_person_away(name):
     logger.info("{} has left home".format(name))

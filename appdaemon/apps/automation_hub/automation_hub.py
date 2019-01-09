@@ -81,7 +81,7 @@ class AutomationHub(hass.Hass):
                 event_dispatcher.dispatch(adevent)
         
     def subscribe_states(self):
-        self.listen_state(self.on_state_changed, namespace="global")
+        self.listen_state(self.on_state_changed, attribute="all", namespace="global")
         
     def on_state_changed(self, entity, attribute, old, new, kwargs):
         
@@ -91,7 +91,10 @@ class AutomationHub(hass.Hass):
             
             friendly_name = entity_map[entity]["name"]
             entity_type = entity_map[entity]["type"]
+            old_state = old.get("state")
+            new_state = new.get("state")
+            attributes = new.get("attributes")
             
-            adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, attribute, old, new, kwargs)
+            adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, attributes, old_state, new_state, kwargs)
             if adevent:
                 event_dispatcher.dispatch(adevent)
