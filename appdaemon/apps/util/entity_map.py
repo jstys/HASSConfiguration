@@ -83,6 +83,17 @@ entity_map = {
         "room": "kitchen",
         "floor": "first"
     },
+    "light.driveway_light": {
+        "name": "driveway_light",
+        "type": "light",
+        "room": "frontyard"
+    },
+    "light.first_floor_staircase_led": {
+        "name": "staircase_led",
+        "type": "light",
+        "room": "living_room",
+        "floor": "first"
+    },
     "zwave.linear_wa00z1_scene_switch": {
         "name": "staircase_bottom_switch",
         "type": "switch"
