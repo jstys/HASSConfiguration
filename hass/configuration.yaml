@@ -2,7 +2,6 @@ homeassistant:
   name: Home
   latitude: !secret home_latitude
   longitude: !secret home_longitude
-  radius: 50
   elevation: 54
   unit_system: imperial
   time_zone: !secret home_timezone
