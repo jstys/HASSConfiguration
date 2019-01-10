@@ -94,6 +94,11 @@ entity_map = {
         "room": "living_room",
         "floor": "first"
     },
+    "light.front_garden_lights": {
+        "name": "front_garden_lights",
+        "type": "light",
+        "room": "frontyard"
+    },
     "zwave.linear_wa00z1_scene_switch": {
         "name": "staircase_bottom_switch",
         "type": "switch"
