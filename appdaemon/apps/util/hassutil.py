@@ -57,24 +57,36 @@ def lock(lock_entity):
 def unlock(lock_entity):
     call_service("lock", "unlock", entity_id=lock_entity.entity_id)
 
-def turn_off_on(entity, on, brightness=None, color=None, effect=None):
+def turn_on(entity, brightness_pct=100, color_temp=255):
+    if API_HANDLE is not None:
+        if entity.domain == "light":
+            API_HANDLE.turn_on(entity.entity_id, brightness_pct=brightness_pct, color_temp=color_temp, namespace="hass")
+        else:
+            API_HANDLE.turn_on(entity.entity_id, namespace="hass")
+    else:
+        logger.error("API Handle is None")
+
+def set_light_effect(entity, effect=None):
+    if API_HANDLE is not None:
+        if effect:
+            API_HANDLE.turn_on(entity.entity_id, effect=effect, namespace="hass")
+        else:
+            logger.error("Missing effect")
+    else:
+        logger.error("API Handle is None")
+
+def set_light_color(entity, color=None):
     if API_HANDLE:
-        optionals = {}
-        if effect is not None:
-            optionals["effect"] = effect
+        if color:
+            API_HANDLE.turn_on(entity.entity_id, color_name=color, namespace="hass")
         else:
-            optionals["brightness_pct"] = 100 if brightness is None else brightness.replace("%", "")
-            if color is None:
-                optionals["color_temp"] = 255
-            else:
-                optionals["color_name"] = color
-        if on:
-            if entity.domain == "light":
-                API_HANDLE.turn_on(entity.entity_id, namespace="hass", **optionals)
-            else:
-                API_HANDLE.turn_on(entity.entity_id, namespace="hass")
-        else:
-            API_HANDLE.turn_off(entity.entity_id, namespace="hass")
+            logger.error("Missing color")
+    else:
+        logger.error("API Handle is None")
+
+def turn_off(entity):
+    if API_HANDLE:
+        API_HANDLE.turn_off(entity.entity_id, namespace="hass")
     else:
         logger.error("API Handle is None")
         
@@ -82,6 +94,8 @@ def set_level(entity, percentage):
     if API_HANDLE:
         if entity.domain == "light":
             API_HANDLE.turn_on(entity.entity_id, brightness_pct=percentage.replace("%", ""), namespace="hass")
+        else:
+            logger.error("Can't set level on non-light entity")
     else:
         logger.error("API Handle is None")
 
