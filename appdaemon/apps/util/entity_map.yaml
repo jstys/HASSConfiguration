@@ -1,0 +1,106 @@
+entities:
+    light:
+        light.master_bedroom_fixture:
+            room: master_bedroom
+        light.living_room_lamps:
+            room: living_room
+        light.hallway_lights:
+            room: hallway
+        light.porch_light:
+            room: front_porch
+        light.basement_staircase_light:
+            room: landing
+        light.kitchen_lights:
+            room: kitchen
+        light.driveway_light:
+            room: frontyard
+        light.first_floor_staircase_led:
+            room: living_room
+        light.front_garden_lights:
+            room: frontyard
+    
+    motion_sensor:
+        binary_sensor.motion_sensor_158d00016612a5:
+            room: hallway
+        binary_sensor.motion_sensor_158d0002b95de8:
+            room: master_bedroom
+        binary_sensor.motion_sensor_158d0002b6fe4e:
+            room: landing
+    
+    water_sensor:
+        binary_sensor.water_leak_sensor_158d00023a58df:
+            room: utility_room
+    
+    door_sensor:
+        binary_sensor.front_door_sensor:
+            room: front_entrance
+        binary_sensor.garage_sensor:
+            room: garage
+         binary_sensor.door_window_sensor_158d0001d3a024:
+            name: kitchen_fridge_sensor
+            room: kitchen
+    
+    button:
+        binary_sensor.switch_158d00016da2c9:
+            room: living_room
+        binary_sensor.switch_158d00016dbf86:
+            room: master_bedroom
+    
+    tv:
+        media_player.living_room_tv:
+            room: living_room
+        media_player.master_bedroom_tv:
+            room: master_bedroom
+        media_player.basement_tv:
+            room: basement
+        media_player.guest_bedroom_tv:
+            room: guest_bedroom
+            
+    speakers:
+        media_player.backyard_speaker:
+            room: backyard
+    
+    switch:
+        zwave.linear_wa00z1_scene_switch:
+            name: staircase_bottom_switch
+            room: living_room
+        zwave.linear_wa00z1_scene_switch_2:
+            name: staircase_top_switch
+            room: hallway
+    
+    lock:
+        lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4:
+            room: entrance
+    
+    presence:
+        group.jim_cell_device:
+            name: jim_presence
+        group.erica_cell_device:
+            name: erica_presence
+    
+    notify:
+        notify.jim_cell:
+            name: jim_cell_notify
+
+areas:
+    front_porch: frontyard
+    entrance: first_floor
+    living_room: first_floor
+    dining_room: first_floor
+    kitchen: first_floor
+    hallway: second_floor
+    master_bedroom: second_floor
+    main_bathroom: second_floor
+    office: second_floor
+    guest_bedroom: second_floor
+    fourth_bedroom: third_floor
+    attic: fourth_floor
+    grill: backyard
+    pool: backyard
+    back_deck: backyard
+    landing: basement
+    basement_main: basement
+    utility_room: basement
+    basement_bathroom: basement
+    laundry: basement
+    garage: garage
