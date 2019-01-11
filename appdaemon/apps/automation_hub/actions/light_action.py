@@ -22,7 +22,7 @@ class LightAction():
 
     def turn_on(self, level=None):
         for light in self._lights:
-            hassutil.turn_on(light, brightness=level)
+            hassutil.turn_on(light, brightness_pct=level)
 
     def turn_off(self):
         for light in self._lights:
@@ -30,7 +30,7 @@ class LightAction():
 
     def set_level(self, level):
         for light in self._lights:
-            hassutil.set_level(light, brightness=level)
+            hassutil.set_level(light, brightness_pct=level)
 
     def set_effect(self, effect):
         for light in self._lights:
