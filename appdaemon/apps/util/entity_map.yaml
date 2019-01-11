@@ -1,6 +1,7 @@
 entities:
     light:
         light.master_bedroom_fixture:
+            name: master_bedroom_fixture
             room: master_bedroom
         light.living_room_lamps:
             name: living_room_lamps
