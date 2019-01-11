@@ -20,6 +20,7 @@ class AutomationHub(hass.Hass):
         hassutil.set_api_handle(self)
         self.event_list = self.args["event_list"]
         self.setup_logger()
+        logger.info(entity_map)
         self.subscribe_events()
         self.subscribe_states()
         self.event_handlers = []

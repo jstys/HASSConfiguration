@@ -4,8 +4,10 @@ import os
 import logger
 
 HASS_DIR = "/home/homeassistant/.homeassistant"
+APPD_DIR = "/home/homeassistant/appdaemon"
 GROUPS = os.path.join(HASS_DIR, "groups", "groups.yaml")
 SECRETS = os.path.join(HASS_DIR, "secrets.yaml")
+ENTITY_MAP = os.path.join(APPD_DIR, "apps", "util", "entity_map.yaml")
 BROADCAST_ROOM = "broadcast"
 AFFIRMATIVE_RESPONSES = ["sure thing", "you got it", "as you wish", "no worries", "roger that"]
 OBJECT_MAP = {

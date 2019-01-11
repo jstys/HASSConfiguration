@@ -1,11 +1,12 @@
 import yaml
+from hassutil import read_config_file, ENTITY_MAP
 
 file_contents = {}
 entity_map = {}
 name_map = {}
 room_map = {}
 
-def create_entity_and_name_maps():
+def create_entity_and_name_maps(file_contents):
     global entity_map
     global name_map
     
@@ -20,17 +21,13 @@ def create_entity_and_name_maps():
                 else:
                     del entity_map[entity]
     
-def create_room_map():
+def create_room_map(file_contents):
     global room_map
     
     if file_contents:
         room_map = file_contents.get("areas")
 
-try:
-    with open("entity_map.yaml") as yamlfile:
-        file_contents = yaml.load(yamlfile)
-except:
-    file_contents = {}
+file_contents = read_config_file(ENTITY_MAP)
     
-create_entity_and_name_maps()
-create_room_map()
+create_entity_and_name_maps(file_contents)
+create_room_map(file_contents)
