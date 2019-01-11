@@ -56,7 +56,7 @@ entities:
             room: front_entrance
         binary_sensor.garage_sensor:
             room: garage
-         binary_sensor.door_window_sensor_158d0001d3a024:
+        binary_sensor.door_window_sensor_158d0001d3a024:
             name: kitchen_fridge_sensor
             room: kitchen
     
