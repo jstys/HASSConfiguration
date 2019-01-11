@@ -21,7 +21,7 @@ def on_state_changed(event):
 def on_sleep_state_enabled(event):
     logger.info("Sleep state enabled")
     
-    DoorLockAction().add_lock("front_door_lock").lock()
+    DoorLockAction().add_lock("front_entrance_lock").lock()
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")

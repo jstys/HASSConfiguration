@@ -6,7 +6,7 @@ from events.motion_cleared_event import MotionClearedEvent
 from actions.light_action import LightAction
 
 def event_filter(event):
-    return event.name == "master_bedroom_motion"
+    return event.name == "master_bedroom_motion_sensor"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_motion_triggered, MotionTriggeredEvent.__name__, event_filter=event_filter)
