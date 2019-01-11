@@ -13,6 +13,7 @@ def create_entity_and_name_maps(file_contents):
     if file_contents and "entities" in file_contents:
         for category, entities in file_contents.get("entities").items():
             for entity, attribs in entities.items():
+                attribs["type"] = category
                 entity_map[entity] = attribs
                 if "name" in attribs:
                     name_map[attribs["name"]] = entity
