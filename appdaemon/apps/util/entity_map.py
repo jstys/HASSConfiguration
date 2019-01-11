@@ -5,15 +5,6 @@ entity_map = {}
 name_map = {}
 room_map = {}
 
-try:
-    with open("entity_map.yaml") as yamlfile:
-        file_contents = yaml.load(yamlfile)
-except:
-    file_contents = {}
-    
-create_entity_and_name_maps()
-create_room_map()
-    
 def create_entity_and_name_maps():
     global entity_map
     global name_map
@@ -34,3 +25,12 @@ def create_room_map():
     
     if file_contents:
         room_map = file_contents.get("areas")
+
+try:
+    with open("entity_map.yaml") as yamlfile:
+        file_contents = yaml.load(yamlfile)
+except:
+    file_contents = {}
+    
+create_entity_and_name_maps()
+create_room_map()
