@@ -62,7 +62,7 @@ def unlock(lock_entity):
 def turn_on(entity, brightness_pct=100, color_temp=255):
     if API_HANDLE is not None:
         if entity.domain == "light":
-            API_HANDLE.turn_on(entity.entity_id, brightness_pct=brightness_pct, color_temp=color_temp, namespace="hass")
+            API_HANDLE.turn_on(entity.entity_id, brightness_pct=float(brightness_pct), color_temp=color_temp, namespace="hass")
         else:
             API_HANDLE.turn_on(entity.entity_id, namespace="hass")
     else:
@@ -95,7 +95,7 @@ def turn_off(entity):
 def set_level(entity, brightness_pct):
     if API_HANDLE:
         if entity.domain == "light":
-            API_HANDLE.turn_on(entity.entity_id, brightness_pct=brightness_pct.replace("%", ""), namespace="hass")
+            API_HANDLE.turn_on(entity.entity_id, brightness_pct=float(brightness_pct), namespace="hass")
         else:
             logger.error("Can't set level on non-light entity")
     else:
