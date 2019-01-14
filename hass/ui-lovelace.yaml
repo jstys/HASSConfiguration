@@ -88,3 +88,36 @@ views:
         type: glance
         title: At Home
         show_state: false
+        
+    - title: Debug
+      cards:
+        - type: entities
+          title: Software Update
+          entities:
+            - type: call-service
+              name: Update HASS
+              service: shell_command.update_hass_config
+            - type: call-service
+              name: Update Appdaemon
+              service: shell_command.update_appdaemon_config
+              
+        - type: entities
+          title: IR Learning
+          entities:
+            - type: call-service
+              name: Living Room Learn
+              service: switch.broadlink_learn_command_10_0_0_11
+            - type: call-service
+              name: Master BR Learn
+              service: switch.broadlink_learn_command_10_0_0_4
+              
+        - type: entities
+          title: Zigbee Setup
+          entities:
+            - type: call-service
+              name: Living Room Learn
+              service: xiaomi_aqara.add_device
+              service_data:
+                gw_mac: !secret xiaomi1_mac
+            - entity: switch.zigbee_debug
+              name: Zigbee Debug Logging

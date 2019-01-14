@@ -31,16 +31,6 @@ goal_horn:
         entity_id: group.living_room_lamps
         effect: "Stop"
 
-learnir_mbr:
-  alias: Learn IR Code Master Bedroom
-  sequence:
-    - service: switch.broadlink_learn_command_10_0_0_4
-
-learnir_lr:
-  alias: Learn IR Code Living Room
-  sequence:
-    - service: switch.broadlink_learn_command_10_0_0_11
-
 google_home_sound:
   sequence:
     - service: media_player.play_media
@@ -86,16 +76,6 @@ assistant_broadcast_ask:
         payload: "{{ message }}:{{ source }}"
         topic: "assistant/broadcast/ask"
 
-update_hass_config:
-  alias: Update HASS Config
-  sequence:
-    - service: shell_command.update_hass_config
-    
-update_appdaemon_config:
-  alias: Update Appdaemon Config
-  sequence:
-    - service: shell_command.update_appdaemon_config
-
 generate_grocery_list:
   alias: Create Grocery List
   sequence:
@@ -105,10 +85,3 @@ archive_mealplan:
   alias: Archive Last Week
   sequence:
     - event: archive_mealplan
-
-add_xiaomi_device:
-  alias: Add Xiaomi Device
-  sequence:
-    - service: xiaomi_aqara.add_device
-      data:
-        gw_mac: !secret xiaomi1_mac
