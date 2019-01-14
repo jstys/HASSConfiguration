@@ -2,8 +2,7 @@ rick_flair_woo:
   alias: WOO
   sequence:
     - service: xiaomi_aqara.play_ringtone
-      data:master_bedroom_light_on:
-  sequence:
+      data:
         gw_mac: !secret xiaomi1_mac
         ringtone_id: 10003
         ringtone_vol: 60
