@@ -1,6 +1,6 @@
 title: Home Assistant Frontend
 views:
-  - type: entities:
+  - type: entities
     title: Lights
     entities:
       - type: section
