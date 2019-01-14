@@ -14,13 +14,27 @@
         service: script.master_bedroom_tv_on
       turn_off:
         service: script.master_bedroom_tv_off
-    master_bedroom_light:
-      friendly_name: "Master Bedroom Light"
-      value_template: "{{ is_state('input_boolean.master_bedroom_light', 'on') }}"
+    guest_bedroom_ac:
+      friendly_name: "Guest Bedroom AC"
+      value_template: "{{ is_state('input_boolean.guest_bedroom_ac', 'on') }}"
       turn_on:
-        service: script.master_bedroom_light_on
+        service: script.guest_bedroom_ac_on
       turn_off:
-        service: script.master_bedroom_light_off
+        service: script.guest_bedroom_ac_off
+    guest_bedroom_heat:
+      friendly_name: "Guest Bedroom Heat"
+      value_template: "{{ is_state('input_boolean.guest_bedroom_heat', 'on') }}"
+      turn_on:
+        service: script.guest_bedroom_heat_on
+      turn_off:
+        service: script.guest_bedroom_heat_off
+    guest_bedroom_tv:
+      friendly_name: "Guest Bedroom TV"
+      value_template: "{{ is_state('input_boolean.guest_bedroom_tv', 'on') }}"
+      turn_on:
+        service: script.guest_bedroom_tv_on
+      turn_off:
+        service: script.guest_bedroom_tv_off
     dining_room_ac:
       friendly_name: "Dining Room AC"
       value_template: "{{ is_state('input_boolean.dining_room_ac', 'on') }}"
@@ -28,6 +42,13 @@
         service: script.dining_room_ac
       turn_off:
         service: script.dining_room_ac
+    basement_tv:
+      friendly_name: "Basement TV"
+      value_template: "{{ is_state('input_boolean.basement_tv', 'on') }}"
+      turn_on:
+        service: script.basement_tv_on
+      turn_off:
+        service: script.basement_tv_off
     zigbee_debug:
       friendly_name: "Zigbee Debugging"
       value_template: "{{ is_state('input_boolean.zigbee_debug', 'on') }}"

@@ -68,3 +68,59 @@
         entity_id: script.master_bedroom_tv_mute
   attributes:
     state: input_boolean.master_bedroom_tv
+    
+  - platform: universal
+    name: Basement TV
+    children:
+      - media_player.basement_tv
+    commands:
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.basement_tv
+      turn_off:
+        service: switch.turn_off
+        data:
+          entity_id: switch.basement_tv
+      volume_up:
+        service: script.turn_on
+        data:
+          entity_id: script.basement_tv_volume_up
+      volume_down:
+        service: script.turn_on
+        data:
+          entity_id: script.basement_tv_volume_down
+      volume_mute:
+        service: script.turn_on
+        data:
+          entity_id: script.basement_tv_volume_mute
+    attributes:
+      state: input_boolean.basement_tv
+      
+  - platform: universal
+    name: Guest Bedroom TV
+    children:
+      - media_player.guest_bedroom_tv
+    commands:
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.guest_bedroom_tv
+      turn_off:
+        service: switch.turn_off
+        data:
+          entity_id: switch.guest_bedroom_tv
+      volume_up:
+        service: script.turn_on
+        data:
+          entity_id: script.guest_bedroom_tv_volume_up
+      volume_down:
+        service: script.turn_on
+        data:
+          entity_id: script.guest_bedroom_tv_volume_down
+      volume_mute:
+        service: script.turn_on
+        data:
+          entity_id: script.guest_bedroom_tv_volume_mute
+    attributes:
+      state: input_boolean.guest_bedroom_tv

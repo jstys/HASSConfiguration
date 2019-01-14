@@ -1,0 +1,10 @@
+dining_room_ac:
+  alias: Dining Room AC
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_11
+      data:
+        packet:
+          - !secret dining_room_ac_power
+    - service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.dining_room_ac

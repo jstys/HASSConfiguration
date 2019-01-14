@@ -1,0 +1,53 @@
+guest_bedroom_tv_mute:
+  alias: Mute
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret guest_bedroom_tv_mute
+
+guest_bedroom_tv_volume_up:
+  alias: Volume +
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret guest_bedroom_tv_volume_up
+
+guest_bedroom_tv_volume_down:
+  alias: Volume -
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret guest_bedroom_tv_volume_down
+
+guest_bedroom_tv_on:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.guest_bedroom_tv
+      state: 'off'
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret guest_bedroom_tv_on
+          - !secret guest_bedroom_tv_on
+          - !secret guest_bedroom_tv_on
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.guest_bedroom_tv
+
+guest_bedroom_tv_off:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.guest_bedroom_tv
+      state: 'on'
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret guest_bedroom_tv_off
+          - !secret guest_bedroom_tv_off
+          - !secret guest_bedroom_tv_off
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.guest_bedroom_tv

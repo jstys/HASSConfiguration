@@ -1,6 +1,9 @@
   living_room_tv:
   master_bedroom_ac:
   master_bedroom_tv:
-  master_bedroom_light:
+  guest_bedroom_tv:
+  guest_bedroom_ac:
+  guest_bedroom_heat:
+  basement_tv:
   dining_room_ac:
   zigbee_debug:

@@ -1,0 +1,19 @@
+master_bedroom_ac_on:
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret master_bedroom_ac_on
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.master_bedroom_ac
+
+master_bedroom_ac_off:
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret master_bedroom_ac_off
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.master_bedroom_ac

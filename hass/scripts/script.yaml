@@ -1,109 +1,9 @@
-master_bedroom_ac_on:
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret master_bedroom_ac_on
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.master_bedroom_ac
-master_bedroom_ac_off:
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret master_bedroom_ac_off
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.master_bedroom_ac
-master_bedroom_tv_mute:
-  alias: Mute
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret master_bedroom_soundbar_mute
-master_bedroom_tv_volume_up:
-  alias: Volume +
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret master_bedroom_soundbar_volume_up
-master_bedroom_tv_volume_down:
-  alias: Volume -
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret master_bedroom_soundbar_volume_down
-master_bedroom_tv_on:
-  sequence:
-    - condition: state
-      entity_id: input_boolean.master_bedroom_tv
-      state: 'off'
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret master_bedroom_tv_on
-          - !secret master_bedroom_tv_on
-          - !secret master_bedroom_tv_on
-          - !secret master_bedroom_soundbar_power
-          - !secret master_bedroom_soundbar_power
-          - !secret master_bedroom_soundbar_power
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.master_bedroom_tv
-master_bedroom_tv_off:
-  sequence:
-    - condition: state
-      entity_id: input_boolean.master_bedroom_tv
-      state: 'on'
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret master_bedroom_tv_off
-          - !secret master_bedroom_tv_off
-          - !secret master_bedroom_tv_off
-          - !secret master_bedroom_soundbar_power
-          - !secret master_bedroom_soundbar_power
-          - !secret master_bedroom_soundbar_power
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.master_bedroom_tv
-master_bedroom_light_on:
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret lutron_maestro_on
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.master_bedroom_light
-master_bedroom_light_off:
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
-      data:
-        packet:
-          - !secret lutron_maestro_off
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.master_bedroom_light
-dining_room_ac:
-  alias: Dining Room AC
-  sequence:
-    - service: switch.broadlink_send_packet_10_0_0_11
-      data:
-        packet:
-          - !secret dining_room_ac_power
-    - service: input_boolean.toggle
-      data:
-        entity_id: input_boolean.dining_room_ac
 rick_flair_woo:
   alias: WOO
   sequence:
     - service: xiaomi_aqara.play_ringtone
-      data:
+      data:master_bedroom_light_on:
+  sequence:
         gw_mac: !secret xiaomi1_mac
         ringtone_id: 10003
         ringtone_vol: 60
@@ -141,21 +41,6 @@ learnir_lr:
   alias: Learn IR Code Living Room
   sequence:
     - service: switch.broadlink_learn_command_10_0_0_11
-
-bedtime:
-  sequence:
-    - service: switch.turn_off
-      entity_id: switch.kitchen_light
-    - service: switch.turn_off
-      entity_id: switch.living_room_light
-    - service: switch.turn_off
-      entity_id: switch.bedroom_light
-    - service: switch.turn_off
-      entity_id: switch.living_room_tv
-    - service: switch.turn_off
-      entity_id: switch.bedroom_tv
-    - service: light.turn_off
-      entity_id: group.living_room_lamps
 
 google_home_sound:
   sequence:

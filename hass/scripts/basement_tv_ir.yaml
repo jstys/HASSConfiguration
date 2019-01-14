@@ -1,0 +1,59 @@
+basement_tv_mute:
+  alias: Mute
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret basement_soundbar_mute
+
+basement_tv_volume_up:
+  alias: Volume +
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret basement_soundbar_volume_up
+
+basement_tv_volume_down:
+  alias: Volume -
+  sequence:
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret basement_soundbar_volume_down
+
+basement_tv_on:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.basement_tv
+      state: 'off'
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret basement_tv_on
+          - !secret basement_tv_on
+          - !secret basement_tv_on
+          - !secret basement_soundbar_power
+          - !secret basement_soundbar_power
+          - !secret basement_soundbar_power
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.basement_tv
+
+basement_tv_off:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.basement_tv
+      state: 'on'
+    - service: switch.broadlink_send_packet_10_0_0_4
+      data:
+        packet:
+          - !secret basement_tv_off
+          - !secret basement_tv_off
+          - !secret basement_tv_off
+          - !secret basement_soundbar_power
+          - !secret basement_soundbar_power
+          - !secret basement_soundbar_power
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.basement_tv
