@@ -7,6 +7,9 @@ homeassistant:
   time_zone: !secret home_timezone
   customize: !include customize.yaml
 
+lovelace:
+  mode: yaml
+
 mqtt:
   broker: !secret mqtt_host
   port: !secret mqtt_port
