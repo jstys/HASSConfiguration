@@ -1,7 +1,7 @@
 title: Home Assistant Frontend
 views:
   - title: Main
-  - cards:
+    cards:
     - type: entities
       title: Lights
       entities:
