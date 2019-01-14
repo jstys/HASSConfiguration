@@ -87,3 +87,4 @@ views:
       card:
         type: glance
         title: At Home
+        show_state: false
