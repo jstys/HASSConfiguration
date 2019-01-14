@@ -18,6 +18,8 @@ views:
         - group.living_room_christmas_lights
         - light.dining_room_light
         - light.kitchen_lights
+        - entity: light.gateway_light_34ce008dcec1
+          name: "Gateway Light"
         - type: section
           label: Second Floor
         - light.hallway_lights
@@ -32,6 +34,12 @@ views:
           label: Back Yard
         - light.deck_light
         - switch.backyard_string_lights
+        
+    - type: entities
+      title: Lock
+      entities:
+        - entity: lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
+          name: Front Door Lock
         
     - type: thermostat
       entity: climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
@@ -60,9 +68,20 @@ views:
       entities:
         - entity: media_player.living_room_tv
         - entity: media_player.master_bedroom_tv
+        - entity: media_player.basement_tv
+        - entity: media_player.guest_bedroom_tv
   
     - type: entities
       title: Speakers
       entities:
         - entity: media_player.backyard_speaker
         
+    - type: entity-filter
+      entities:
+        - group.jim_cell_device
+        - group.erica_cell_device
+      state_filter:
+        - home
+      card:
+        type: glance
+        title: At Home
