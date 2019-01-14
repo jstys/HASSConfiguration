@@ -38,18 +38,22 @@ views:
       name: Oil Heater
       
     - type: glance
-      title: Climate
+      title: Temperature
       entities:
-        - sensor.garage_temperature
-        - switch.dining_room_ac
-        - sensor.temperature_158d0001d6f386
-        - sensor.front_door_temperature
-        - climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
-        - switch.master_bedroom_ac
-        - sensor.temperature_158d000245a6a2
-        - sensor.temperature_158d000245ae4b
-        - sensor.temperature_158d00023cf8f7
-        - sensor.temperature_158d00023cf950
+        - entity: sensor.garage_temperature
+          name: Garage
+        - entity: sensor.temperature_158d0001d6f386
+          name: Downstairs
+        - entity: sensor.front_door_temperature
+          name: Front Door
+        - entity: sensor.temperature_158d000245a6a2
+          name: Master BR
+        - entity: sensor.temperature_158d000245ae4b
+          name: Office
+        - entity: sensor.temperature_158d00023cf8f7
+          name: Guest BR
+        - entity: sensor.temperature_158d00023cf950
+          name: Upstairs
   
     - type: entities
       title: TVs
