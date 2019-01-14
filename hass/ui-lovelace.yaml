@@ -55,7 +55,7 @@ views:
       - entity: media_player.living_room_tv
       - entity: media_player.master_bedroom_tv
 
-  - type: entities:
+  - type: entities
     title: Speakers
     entities:
       - entity: media_player.backyard_speaker
