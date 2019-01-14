@@ -37,6 +37,7 @@ views:
         
     - type: entities
       title: Lock
+      show_header_toggle: false
       entities:
         - entity: lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
           name: Front Door Lock
@@ -65,6 +66,7 @@ views:
   
     - type: entities
       title: TVs
+      show_header_toggle: false
       entities:
         - entity: media_player.living_room_tv
         - entity: media_player.master_bedroom_tv
@@ -73,6 +75,7 @@ views:
   
     - type: entities
       title: Speakers
+      show_header_toggle: false
       entities:
         - entity: media_player.backyard_speaker
         
@@ -93,6 +96,7 @@ views:
     cards:
     - type: entities
       title: Software Update
+      show_header_toggle: false
       entities:
         - type: call-service
           name: Update HASS
@@ -103,6 +107,7 @@ views:
           
     - type: entities
       title: IR Learning
+      show_header_toggle: false
       entities:
         - type: call-service
           name: Living Room Learn
@@ -113,6 +118,7 @@ views:
           
     - type: entities
       title: Zigbee Setup
+      show_header_toggle: false
       entities:
         - type: call-service
           name: Living Room Learn
