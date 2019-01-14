@@ -78,8 +78,10 @@ views:
         
     - type: entity-filter
       entities:
-        - group.jim_cell_device
-        - group.erica_cell_device
+        - entity: group.jim_cell_device
+          icon: /local/jim.jpg
+        - entity: group.erica_cell_device
+          icon: /local/erica.jpg
       state_filter:
         - home
       card:
