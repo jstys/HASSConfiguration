@@ -121,7 +121,7 @@ views:
       show_header_toggle: false
       entities:
         - type: call-service
-          name: Living Room Learn
+          name: Add Xiaomi Device
           service: xiaomi_aqara.add_device
           service_data:
             gw_mac: !secret xiaomi1_mac
