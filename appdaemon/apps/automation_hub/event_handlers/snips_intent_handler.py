@@ -13,7 +13,8 @@ def on_intent(event):
     source = event.payload.get("siteId")
     raw = event.payload.get("input")
     intent = event.payload.get("intent")
-    if intent:
+    if intent and source and raw:
+        logger.info("Received Snips intent from {} with raw input ({})".format(source, raw))
         name = intent.get("intentName")
         if name == "jstys:thermostatSet":
             handle_thermostat(intent, source, raw)
@@ -26,7 +27,7 @@ def on_intent(event):
         elif name == "jstys:lightOff":
             handle_light_off(intent, source, raw)
     else:
-        logger.error("Missing snips intent")
+        logger.error("Missing valid snips intent")
 
 def handle_thermostat(intent, source, raw):
     logger.info("Received Thermostat set intent from snips")
