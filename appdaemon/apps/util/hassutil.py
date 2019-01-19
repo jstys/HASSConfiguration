@@ -70,7 +70,7 @@ def turn_on(entity, brightness_pct=100, color_temp=255):
 
 def toggle(entity):
     if API_HANDLE is not None:
-        API_HANDLE.toggle(entity.entity_id)
+        API_HANDLE.toggle(entity.entity_id, namespace="hass")
     else:
         logger.error("API Handle is None")
 
