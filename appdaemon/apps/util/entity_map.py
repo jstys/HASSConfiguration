@@ -30,6 +30,9 @@ def create_room_map(file_contents):
     if file_contents:
         room_map = file_contents.get("areas")
 
+def find_room_entities(entity_type, room):
+    return [entity for entity in entity_map if entity_map[entity].get("room") == room and entity_map[entity].get("type") == entity_type]
+
 file_contents = read_config_file(ENTITY_MAP)
     
 create_entity_and_name_maps(file_contents)

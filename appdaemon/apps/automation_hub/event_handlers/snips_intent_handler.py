@@ -3,6 +3,9 @@ import json
 from automation_hub import event_dispatcher
 from automation_hub import state_machine
 from util import logger
+from util.entity_map import room_map
+from util.entity_map import find_room_entities
+from actions.light_action import LightAction
 from events.mqtt_event import MQTTEvent
 
 def event_filter(event):
@@ -49,6 +52,14 @@ def handle_tv_off(intent, source, raw):
 def handle_light_on(intent, source, raw):
     logger.info("Received Light On intent from snips")
 
+    if source in room_map:
+        lights = find_room_entities("light", source)
+        LightAction().add_lights(lights).turn_on()
+
 def handle_light_off(intent, source, raw):
     logger.info("Received Light off intent from snips")
+
+    if source in room_map:
+        lights = find_room_entities("light", source)
+        LightAction().add_lights(lights).turn_off()
     
