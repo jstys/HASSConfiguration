@@ -68,6 +68,12 @@ def turn_on(entity, brightness_pct=100, color_temp=255):
     else:
         logger.error("API Handle is None")
 
+def toggle(entity):
+    if API_HANDLE is not None:
+        API_HANDLE.toggle(entity.entity_id)
+    else:
+        logger.error("API Handle is None")
+
 def set_light_effect(entity, effect=None):
     if API_HANDLE is not None:
         if effect:

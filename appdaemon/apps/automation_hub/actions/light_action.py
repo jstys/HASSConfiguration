@@ -20,6 +20,10 @@ class LightAction():
 
         return self
 
+    def toggle(self):
+        for light in self._lights:
+            hassutil.toggle(light)
+
     def turn_on(self, brightness_pct=100):
         for light in self._lights:
             hassutil.turn_on(light, brightness_pct=brightness_pct)
