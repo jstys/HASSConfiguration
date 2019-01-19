@@ -6,7 +6,7 @@ from util import logger
 from events.mqtt_event import MQTTEvent
 
 def event_filter(event):
-    return "hermes/intent/" in event.topic
+    return "snips/intent/" in event.topic or event.topic == "snips/nluIntent"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_intent, MQTTEvent.__name__, event_filter=event_filter)

@@ -16,8 +16,8 @@ appdaemon:
       client_user: appdaemon
       client_topics: 
         - 'assistant/+/intent'
-        - 'hermes/intent/+'
-        - 'hermes/nlu/intentParsed'
+        - 'snips/intent/+'
+        - 'snips/nluIntent'
         - 'smartthings/#'
 log:
   logfile: /tmp/appdaemon.log
