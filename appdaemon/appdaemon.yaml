@@ -18,6 +18,7 @@ appdaemon:
         - 'assistant/+/intent'
         - 'hermes/intent/+'
         - 'hermes/nlu/intentParsed'
+        - 'smartthings/#'
 log:
   logfile: /tmp/appdaemon.log
   errorfile: /tmp/appdaemon.log
