@@ -43,7 +43,7 @@ entities:
         binary_sensor.motion_sensor_158d00016612a5:
             room: hallway
         binary_sensor.motion_sensor_158d0002b95de8:
-            room: master_bedroom
+            room: office
         binary_sensor.motion_sensor_158d0002b6fe4e:
             room: landing
     

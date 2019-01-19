@@ -4,7 +4,6 @@ callbacks = {}
 
 def dispatch(event):
     event_name = event.__class__.__name__
-    logger.info("Dispatching {} callbacks for {}".format(len(callbacks.get(event_name, [])), event_name))
     for tup in callbacks.get(event_name, []):
         callback = tup[0]
         event_filter = tup[1]
