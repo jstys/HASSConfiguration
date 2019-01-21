@@ -20,10 +20,10 @@ class AutomationHub(hass.Hass):
         hassutil.set_api_handle(self)
         self.event_list = self.args["event_list"]
         self.setup_logger()
-        logger.info(entity_map)
         self.subscribe_events()
         self.subscribe_states()
-        self.event_handlers = []
+        if not hasattr(self, "event_handler_map"):
+            self.event_handler_map = {}
         self._load_handlers()
         self._initialize_states()
         self._initialize_callbacks()
@@ -32,24 +32,17 @@ class AutomationHub(hass.Hass):
         cwd = os.path.dirname(os.path.realpath(__file__))
         handler_path = os.path.join(cwd, "event_handlers")
         ls_output = os.listdir(handler_path)
-        module_files = [pyfile for pyfile in ls_output if re.match(r'^.+\.py$', pyfile) and '__init__.py' not in pyfile]
+        module_files = [pyfile.replace('.py', '') for pyfile in ls_output if re.match(r'^.+\.py$', pyfile) and '__init__.py' not in pyfile]
         
         event_dispatcher.clear_callbacks()
         
         for module_name in module_files:
-            module = importlib.import_module(".".join(["event_handlers", module_name.replace('.py', '')]))
+            if module_name in self.event_handler_map:
+                module = importlib.reload(self.event_handler_map[module_name])
+            else:
+                module = importlib.import_module(".".join(["event_handlers", module_name]))
             module.register_callbacks()
-            self.event_handlers.append(module)
-
-    def _reload_handlers(self):
-        event_dispatcher.clear_callbacks()
-        reloaded_handlers = []
-        for module in self.event_handlers:
-            reloaded = importlib.reload(module)
-            reloaded.register_callbacks()
-            reloaded_handlers.append(reloaded)
-            
-        self.event_handlers = reloaded_handlers
+            self.event_handler_map[module_name] = module
         
     def _initialize_callbacks(self):
         self.run_at_sunrise(self.on_sunrise)

@@ -1,8 +1,11 @@
 import json
+import functools
 
 from automation_hub import event_dispatcher
 from automation_hub import state_machine
+from automation_hub import timer_manager
 from util import logger
+from util import hassutil
 from util.entity_map import room_map
 from util.entity_map import find_room_entities
 from actions.light_action import LightAction
@@ -51,9 +54,9 @@ def on_intent(event):
         elif name == "lightOff":
             handle_light_off(intent, source, raw, slotMap)
         elif name == "SetTimer":
-            pass
+            handle_set_timer(intent, source, raw, slotMap)
         elif name == "StopTimer":
-            pass
+            handle_stop_timer(intent, source, raw, slotMap)
         elif name == "VacuumStart":
             pass
         elif name == "VacuumStop":
@@ -103,4 +106,34 @@ def handle_light_off(intent, source, raw, slotMap):
     if room in room_map:
         lights = find_room_entities("light", room)
         LightAction().add_lights(lights).turn_off()
+        
+def handle_set_timer(intent, source, raw, slotMap):
+    if not "timer_name" in slotMap or not "timer_duration" in slotMap:
+        logger.error("Must have name and duration of timer")
+        return
+    
+    if source not in room_map:
+        logger.error("Invalid source room supplied")
+        return
+    
+    duration = slotMap["timer_duration"]
+    name = slotMap["timer_name"]
+    callback = functools.partial(hassutil.tts_say, "{} timer has finished".format(name), source.replace("_"," "))
+    timer_manager.start_timer(name, callback, seconds=duration["seconds"], minutes=duration["minutes"], hours=duration["hours"], days=duration["days"])
+    
+    hassutil.tts_say("{} timer started".format(name), source.replace("_", " "))
+
+def handle_stop_timer(intent, source, raw, slotMap):
+    if not "timer_name" in slotMap:
+        logger.error("Must have name of timer")
+        return
+    
+    if source not in room_map:
+        logger.error("Invalid source room supplied")
+        return
+    
+    name = slotMap["timer_name"]
+    timer_manager.cancel_timer(name)
+    hassutil.tts_say("{} timer cancelled".format(name), source.replace("_", " "))
+
     
