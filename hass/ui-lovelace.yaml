@@ -92,6 +92,14 @@ views:
         title: At Home
         show_state: false
         
+  - title: Config
+    cards:
+    - type: entities
+      title: Configuration
+      show_header_toggle: false
+      entities:
+        - input_select.thermostat_mode
+        
   - title: Debug
     cards:
     - type: entities

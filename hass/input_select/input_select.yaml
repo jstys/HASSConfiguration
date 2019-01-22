@@ -1,0 +1,7 @@
+thermostat_mode:
+    name: Thermostat Mode
+    options:
+    - Heating
+    - Cooling
+    initial: Heating
+    icon: mdi:oil-temperature
