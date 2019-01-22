@@ -101,6 +101,15 @@ entities:
     notify:
         notify.jim_cell:
             name: jim_cell_notify
+            
+    input_select:
+        input_select.thermostat_mode:
+            name: thermostat_mode
+            
+    vacuum:
+        vacuum.xiaomi_vacuum_cleaner:
+            name: robot_vacuum
+            room: kitchen
 
 areas:
     front_lawn: frontyard

@@ -1,9 +1,12 @@
 from automation_hub import event_dispatcher
 from automation_hub import state_machine
+from util import entity_map
 from util import logger
 from util import hassutil
 from events.state_machine_event import StateMachineEvent
 from actions.door_lock_action import DoorLockAction
+from actions.vacuum_action import VacuumAction
+from actions.light_action import LightAction
 
 def event_filter(event):
     return event.state == state_machine.SLEEP_STATE
@@ -22,7 +25,11 @@ def on_state_changed(event):
 def on_sleep_state_enabled(event):
     logger.info("Sleep state enabled")
     
+    all_lights = entity_map.find_type_entities("light")
+    
     DoorLockAction().add_lock("front_entrance_lock").lock()
+    LightAction().add_lights(all_lights).turn_off()
+    VacuumAction().add_vacuum("robot_vacuum").start()
     
     hassutil.disable_snips_hotword("master_bedroom")
 
