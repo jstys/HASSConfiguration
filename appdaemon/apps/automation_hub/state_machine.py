@@ -5,6 +5,9 @@ state_map = {}
 
 SLEEP_STATE = "sleep"
 SUN_UP_STATE = "sun"
+JIM_HOME_STATE = "jim_home"
+ERICA_HOME_STATE = "erica_home"
+NOBODY_HOME_STATE = "nobody_home"
 
 def set_state(state, new_value):
     global state_map
