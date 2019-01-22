@@ -118,7 +118,7 @@ def handle_set_timer(intent, source, raw, slotMap):
     
     duration = slotMap["timer_duration"]
     name = slotMap["timer_name"]
-    callback = functools.partial(hassutil.tts_say, "{} timer has finished".format(name), source.replace("_"," "))
+    callback = functools.partial(hassutil.tts_say, "{} timer has finished".format(name), source)
     timer_manager.start_timer(name, callback, seconds=duration["seconds"], minutes=duration["minutes"], hours=duration["hours"], days=duration["days"])
     
     hassutil.tts_say("{} timer started".format(name), source.replace("_", " "))
@@ -134,6 +134,6 @@ def handle_stop_timer(intent, source, raw, slotMap):
     
     name = slotMap["timer_name"]
     timer_manager.cancel_timer(name)
-    hassutil.tts_say("{} timer cancelled".format(name), source.replace("_", " "))
+    hassutil.tts_say("{} timer cancelled".format(name), source)
 
     
