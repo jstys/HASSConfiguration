@@ -19,6 +19,7 @@ import timer_manager
 class AutomationHub(hass.Hass):
     def initialize(self):
         hassutil.set_api_handle(self)
+        timer_manager.set_api_handle(self)
         self.event_list = self.args["event_list"]
         self.setup_logger()
         self.subscribe_events()

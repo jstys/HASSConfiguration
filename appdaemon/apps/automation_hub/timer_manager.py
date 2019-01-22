@@ -1,8 +1,12 @@
-from util.hassutil import API_HANDLE
 from util import logger
 import datetime
 
+API_HANDLE = None
 timer_map = {}
+
+def set_api_handle(handle):
+    global API_HANDLE
+    API_HANDLE = handle
 
 def start_timer(name, callback, seconds=0, minutes=0, hours=0, days=0):
     global timer_map
