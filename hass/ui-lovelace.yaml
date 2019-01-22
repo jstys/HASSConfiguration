@@ -28,6 +28,9 @@ views:
         - light.erica_night_lamp
         - light.office_lights
         - type: section
+          label: Third Floor
+        - light.fourth_bedroom_fixture
+        - type: section
           label: Basement
         - light.basement_staircase_light
         - type: section
