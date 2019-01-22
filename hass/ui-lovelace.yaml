@@ -42,9 +42,14 @@ views:
         - entity: lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
           name: Front Door Lock
         
-    - type: thermostat
-      entity: climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
-      name: Oil Heater
+    - type: conditional
+      conditions:
+        - entity: input_select.thermostat_mode
+          state: "Heating"
+      card:
+        type: thermostat
+        entity: climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
+        name: Oil Heater
       
     - type: glance
       title: Temperature
