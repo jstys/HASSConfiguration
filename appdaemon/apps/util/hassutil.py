@@ -6,18 +6,8 @@ import logger
 
 HASS_DIR = "/home/homeassistant/.homeassistant"
 APPD_DIR = "/home/homeassistant/appdaemon"
-GROUPS = os.path.join(HASS_DIR, "groups", "groups.yaml")
 SECRETS = os.path.join(HASS_DIR, "secrets.yaml")
 ENTITY_MAP = os.path.join(APPD_DIR, "apps", "util", "entity_map.yaml")
-BROADCAST_ROOM = "broadcast"
-AFFIRMATIVE_RESPONSES = ["sure thing", "you got it", "as you wish", "no worries", "roger that"]
-OBJECT_MAP = {
-    "LightObject": ["light", "lights", "hi_hats"],
-    "LampObject": ["lamp", "lamps"],
-    "ACObject": ["ac", "air_conditioner"],
-    "MediaObject": ["tv", "speaker", "speakers", "smartcast"],
-    "InputName": ["tv_input"]
-}
 API_HANDLE = None
 
 class Entity(object):
@@ -128,6 +118,6 @@ def fire_event(event, **kwargs):
 
 def is_someone_home():
     if API_HANDLE:
-        return API_HANDLE.anyone_home()
+        return API_HANDLE.anyone_home(namespace="hass")
     else:
         logger.error("API Handle is None")
