@@ -14,6 +14,7 @@ import appdaemon.plugins.hass.hassapi as hass
 import event_factory
 import event_dispatcher
 import state_machine
+import timer_manager
 
 class AutomationHub(hass.Hass):
     def initialize(self):
