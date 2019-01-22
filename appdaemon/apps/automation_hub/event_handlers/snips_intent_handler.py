@@ -8,8 +8,10 @@ from util import logger
 from util import hassutil
 from util.entity_map import room_map
 from util.entity_map import find_room_entities
+from util.entity_map import assistant_list
 from actions.light_action import LightAction
 from actions.media_player_action import MediaPlayerAction
+from actions.assistant_action import AssistantAction
 from events.mqtt_event import MQTTEvent
 
 def event_filter(event):
@@ -114,28 +116,29 @@ def handle_set_timer(intent, source, raw, slotMap):
         logger.error("Must have name and duration of timer")
         return
     
-    if source not in room_map:
+    if source not in assistant_list:
         logger.error("Invalid source room supplied")
         return
     
     duration = slotMap["timer_duration"]
     name = slotMap["timer_name"]["value"]
-    callback = functools.partial(hassutil.tts_say, "{} timer has finished".format(name), source)
+    action = AssistantAction().add_assistant(source).tts_say
+    callback = functools.partial(action, "{} timer has finished".format(name))
     timer_manager.start_timer(name, callback, seconds=duration["seconds"], minutes=duration["minutes"], hours=duration["hours"], days=duration["days"])
     
-    hassutil.tts_say("{} timer started".format(name), source)
+    AssistantAction().add_assistant(source).tts_say("{} timer started".format(name))
 
 def handle_stop_timer(intent, source, raw, slotMap):
     if not "timer_name" in slotMap:
         logger.error("Must have name of timer")
         return
     
-    if source not in room_map:
+    if source not in assistant_list:
         logger.error("Invalid source room supplied")
         return
     
     name = slotMap["timer_name"]["value"]
     timer_manager.cancel_timer(name)
-    hassutil.tts_say("{} timer cancelled".format(name), source)
+    AssistantAction().add_assistant(source).tts_say("{} timer cancelled".format(name))
 
     
