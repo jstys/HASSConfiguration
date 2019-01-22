@@ -1,6 +1,7 @@
 from automation_hub import event_dispatcher
 from automation_hub import state_machine
 from util import logger
+from util import hassutil
 from events.state_machine_event import StateMachineEvent
 from actions.door_lock_action import DoorLockAction
 
@@ -22,6 +23,10 @@ def on_sleep_state_enabled(event):
     logger.info("Sleep state enabled")
     
     DoorLockAction().add_lock("front_entrance_lock").lock()
+    
+    hassutil.disable_snips_hotword("master_bedroom")
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
+    
+    hassutil.enable_snips_hotword("master_bedroom")

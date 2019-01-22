@@ -54,6 +54,12 @@ def tts_say(message, tts_room):
 def tts_broadcast(message, source="HASS"):
     call_service("script", "assistant_broadcast", message=message, source=source)
     
+def disable_snips_hotword(room):
+    call_service("mqtt", "publish", topic="snips/{}/hotword/toggleOff".format(room), payload=json.dumps({"siteId": room}))
+    
+def enable_snips_hotword(room):
+    call_service("mqtt", "publish", topic="snips/{}/hotword/toggleOn".format(room), payload=json.dumps({"siteId": room}))
+    
 def lock(lock_entity):
     call_service("lock", "lock", entity_id=lock_entity.entity_id)
     
