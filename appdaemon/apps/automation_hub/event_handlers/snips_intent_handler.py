@@ -121,7 +121,7 @@ def handle_set_timer(intent, source, raw, slotMap):
     callback = functools.partial(hassutil.tts_say, "{} timer has finished".format(name), source)
     timer_manager.start_timer(name, callback, seconds=duration["seconds"], minutes=duration["minutes"], hours=duration["hours"], days=duration["days"])
     
-    hassutil.tts_say("{} timer started".format(name), source.replace("_", " "))
+    hassutil.tts_say("{} timer started".format(name), source)
 
 def handle_stop_timer(intent, source, raw, slotMap):
     if not "timer_name" in slotMap:
