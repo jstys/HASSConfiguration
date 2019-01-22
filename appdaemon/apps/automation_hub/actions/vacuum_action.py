@@ -9,12 +9,16 @@ class VacuumAction():
     def add_vacuums(self, vacuums):
         for vacuum in vacuums:
             self.add_vacuum(vacuum)
+            
+        return self
         
     def add_vacuum(self, vacuum):
         if vacuum in name_map:
             self._vacuums.append(hassutil.Entity(name_map[vacuum]))
         else:
             logger.error("Unable to add unknown light to VacuumAction: {}".format(vacuum))
+            
+        return self
         
     def start(self):
         for vacuum in self._vacuums:
