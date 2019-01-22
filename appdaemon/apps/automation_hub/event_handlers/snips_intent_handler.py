@@ -73,7 +73,8 @@ def handle_tv_on(intent, source, raw, slotMap):
     room = slotMap["room"]["value"] if "room" in slotMap else source
 
     if room in room_map:
-        media_players = find_room_entities("tv", room).extend(find_room_entities("speakers", room))
+        media_players = find_room_entities("tv", room)
+        media_players.extend(find_room_entities("speakers", room))
         MediaPlayerAction().add_media_players(media_players).turn_on()
         
 
@@ -83,7 +84,8 @@ def handle_tv_off(intent, source, raw, slotMap):
     room = slotMap["room"]["value"] if "room" in slotMap else source
 
     if room in room_map:
-        media_players = find_room_entities("tv", room).extend(find_room_entities("speakers", room))
+        media_players = find_room_entities("tv", room)
+        media_players.extend(find_room_entities("speakers", room))
         MediaPlayerAction().add_media_players(media_players).turn_off()
         
 def handle_tv_input(intent, source, raw, slotMap):
