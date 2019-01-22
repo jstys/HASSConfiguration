@@ -8,7 +8,7 @@ def timer_callback(self, kwargs):
     global timer_map
     
     partial = kwargs.get("partial")
-    name = kwargs.get("name")
+    name = kwargs.get("title")
     if partial:
         partial()
     if name in timer_map:
@@ -25,7 +25,7 @@ def start_timer(name, callback, seconds=0, minutes=0, hours=0, days=0):
     if API_HANDLE:
         if name not in timer_map:
             logger.info("Scheduling callback in {} seconds".format(delta.total_seconds()))
-            timer = API_HANDLE.run_in(timer_callback, int(delta.total_seconds()), name=name, partial=callback)
+            timer = API_HANDLE.run_in(timer_callback, int(delta.total_seconds()), title=name, partial=callback)
             timer_map[name] = timer
             return True
         else:
