@@ -49,7 +49,7 @@ def join_notify(target, message, title="Home Assistant"):
     call_service("notify", target, message=message, title=title)
 
 def tts_say(message, tts_room):
-    call_service("mqtt", "publish", topic="snips/{}/tts/say".format(tts_room), payload=json.dumps({"input": message}))
+    call_service("mqtt", "publish", topic="snips/{}/tts/say".format(tts_room), payload=json.dumps({"text": message, "siteId": tts_room}))
 
 def tts_broadcast(message, source="HASS"):
     call_service("script", "assistant_broadcast", message=message, source=source)

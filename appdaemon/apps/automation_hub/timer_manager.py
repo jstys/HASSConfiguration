@@ -15,7 +15,7 @@ def start_timer(name, callback, seconds=0, minutes=0, hours=0, days=0):
     if API_HANDLE:
         if name not in timer_map:
             logger.info("Scheduling callback in {} seconds".format(delta.total_seconds()))
-            timer = API_HANDLE.run_in(callback, delta.total_seconds())
+            timer = API_HANDLE.run_in(callback, int(delta.total_seconds()))
             timer_map[name] = timer
         else:
             logger.warning("Timer {} is already in map, not starting".format(name))
