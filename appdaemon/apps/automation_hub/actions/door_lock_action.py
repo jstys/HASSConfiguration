@@ -16,7 +16,7 @@ class DoorLockAction():
         if lock in name_map:
             self._locks.append(hassutil.Entity(name_map[lock]))
         else:
-            logger.error("Unable to add unknown lock to DoorLockAction: {}".format(light))
+            logger.error("Unable to add unknown lock to DoorLockAction: {}".format(lock))
 
         return self
 
