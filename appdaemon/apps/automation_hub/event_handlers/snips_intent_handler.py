@@ -117,7 +117,7 @@ def handle_set_timer(intent, source, raw, slotMap):
         return
     
     duration = slotMap["timer_duration"]
-    name = slotMap["timer_name"]
+    name = slotMap["timer_name"]["value"]
     callback = functools.partial(hassutil.tts_say, "{} timer has finished".format(name), source)
     timer_manager.start_timer(name, callback, seconds=duration["seconds"], minutes=duration["minutes"], hours=duration["hours"], days=duration["days"])
     
@@ -132,7 +132,7 @@ def handle_stop_timer(intent, source, raw, slotMap):
         logger.error("Invalid source room supplied")
         return
     
-    name = slotMap["timer_name"]
+    name = slotMap["timer_name"]["value"]
     timer_manager.cancel_timer(name)
     hassutil.tts_say("{} timer cancelled".format(name), source)
 
