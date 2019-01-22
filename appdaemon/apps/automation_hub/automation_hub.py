@@ -94,3 +94,10 @@ class AutomationHub(hass.Hass):
             adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, attributes, old_state, new_state, kwargs)
             if adevent:
                 event_dispatcher.dispatch(adevent)
+                
+    def timer_callback(self, kwargs):
+        partial = kwargs.get("partial")
+        name = kwargs.get("title")
+        if partial:
+            partial()
+        timer_manager.remove_timer(name)

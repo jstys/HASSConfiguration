@@ -4,16 +4,6 @@ import datetime
 API_HANDLE = None
 timer_map = {}
 
-def timer_callback(self, **kwargs):
-    global timer_map
-    
-    partial = kwargs.get("partial")
-    name = kwargs.get("title")
-    if partial:
-        partial()
-    if name in timer_map:
-        del timer_map[name]
-
 def set_api_handle(handle):
     global API_HANDLE
     API_HANDLE = handle
@@ -25,7 +15,7 @@ def start_timer(name, callback, seconds=0, minutes=0, hours=0, days=0):
     if API_HANDLE:
         if name not in timer_map:
             logger.info("Scheduling callback in {} seconds".format(delta.total_seconds()))
-            timer = API_HANDLE.run_in(timer_callback, int(delta.total_seconds()), title=name, partial=callback)
+            timer = API_HANDLE.run_in(API_HANDLE.timer_callback, int(delta.total_seconds()), title=name, partial=callback)
             timer_map[name] = timer
             return True
         else:
@@ -45,3 +35,9 @@ def cancel_timer(name):
     else:
         logger.error("API Handle is None")
             
+            
+def remove_timer(name):
+    global timer_map
+    
+    if name in timer_map:
+        del timer_map[name]
