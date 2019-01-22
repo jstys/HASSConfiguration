@@ -25,12 +25,19 @@ def set_api_handle(handle):
     global API_HANDLE
     API_HANDLE = handle
 
+def get_www_file(filename):
+    return os.path.join(HASS_DIR, "www", filename)
+
 def read_config_file(filename):
     try:
         with open(filename) as yamlfile:
             return yaml.load(yamlfile)
     except:
         return {}
+
+def read_binary_file(filename):
+    with open(filename, "rb") as binary_file:
+        return binary_file.read()
 
 def gui_notify(title, message):
     call_service("persistent_notification", "create", title=title, message=message)
@@ -49,6 +56,13 @@ def disable_snips_hotword(room):
     
 def enable_snips_hotword(room):
     call_service("mqtt", "publish", topic="snips/{}/hotword/toggleOn".format(room), payload=json.dumps({"siteId": room}))
+
+def snips_play_audio_file(room, file):
+    try:
+        contents = read_binary_file(file)
+        call_service("mqtt", "publish", topic="snips/audioServer/{}/playBytes/1234".format(room), payload=contents)
+    except:
+        return
     
 def lock(lock_entity):
     call_service("lock", "lock", entity_id=lock_entity.entity_id)

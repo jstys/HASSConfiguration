@@ -35,4 +35,8 @@ class AssistantAction():
     def disable_hotword(self):
         for assistant in self._assistants:
             hassutil.disable_snips_hotword(assistant)
+
+    def play_audio_file(self, filename):
+        for assistant in self._assistants:
+            hassutil.snips_play_audio_file(assistant, hassutil.get_www_file(filename))
     
