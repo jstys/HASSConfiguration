@@ -29,6 +29,14 @@ def create_room_map(file_contents):
     
     if file_contents:
         room_map = file_contents.get("areas")
+        
+def find_type_entities(entity_type):
+    matches = []
+    for _, attribs in entity_map.items():
+        if attribs.get("type") == entity_type:
+            matches.append(attribs.get("name"))
+
+    return matches
 
 def find_room_entities(entity_type, room):
     matches = []
