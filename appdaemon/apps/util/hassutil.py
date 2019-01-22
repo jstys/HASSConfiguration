@@ -126,57 +126,8 @@ def fire_event(event, **kwargs):
     else:
         logger.error("API Handle is None")
 
-def convert_device_information(intent_json, allowed_object_types):
-    device = None
-    device_type = None
-    for object_type in allowed_object_types:
-        try:
-            device = intent_json[object_type].lower().replace(" ", "_")
-            device_type = object_type
-        except KeyError:
-            device = None
-            device_type = None
-            continue
-        else:
-            break
-
-    if device_type == "LightObject":
-        device = "light"
-    elif device_type == "LampObject":
-        device = "lamp"
-    elif device_type == "ACObject":
-        device = "ac"
-
-    return device, device_type
-
-def get_devices_for_type(device_type, room, groups):
-    devices = []
-    if room == "house":
-        for name, _ in groups.items():
-            devices.extend(_get_devices_for_type_in_group(device_type, name, groups))
+def is_someone_home():
+    if API_HANDLE:
+        return API_HANDLE.anyone_home()
     else:
-        devices = _get_devices_for_type_in_group(device_type, room, groups)
-
-    return devices
-
-def _get_devices_for_type_in_group(device_type, group, parsed_yaml):
-    result = []
-    if device_type not in OBJECT_MAP:
-        return []
-
-    group_entity = parsed_yaml.get(group)
-    if group_entity is not None:
-        for entity_name in group_entity['entities']:
-            entity = Entity(entity_name)
-            if entity.domain == "group":
-                result.extend(_get_devices_for_type_in_group(device_type, entity.name, parsed_yaml))
-            elif _is_matched_device_for_type(device_type, entity):
-                result.append(entity)
-
-    return result
-
-def _is_matched_device_for_type(device_type, entity):
-    for identifier in OBJECT_MAP.get(device_type):
-        if identifier in entity.name:
-            return True
-    return False
+        logger.error("API Handle is None")
