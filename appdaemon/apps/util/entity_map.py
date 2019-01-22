@@ -5,6 +5,7 @@ file_contents = {}
 entity_map = {}
 name_map = {}
 room_map = {}
+assistant_list = []
 
 def create_entity_and_name_maps(file_contents):
     global entity_map
@@ -30,6 +31,12 @@ def create_room_map(file_contents):
     if file_contents:
         room_map = file_contents.get("areas")
         
+def create_assistant_list(file_contents):
+    global assistant_list
+    
+    if file_contents:
+        assistant_list = file_contents.get("assistants")
+        
 def find_type_entities(entity_type):
     matches = []
     for _, attribs in entity_map.items():
@@ -50,3 +57,4 @@ file_contents = read_config_file(ENTITY_MAP)
     
 create_entity_and_name_maps(file_contents)
 create_room_map(file_contents)
+create_assistant_list(file_contents)

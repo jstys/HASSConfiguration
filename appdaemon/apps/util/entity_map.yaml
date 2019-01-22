@@ -110,6 +110,10 @@ entities:
         vacuum.xiaomi_vacuum_cleaner:
             name: robot_vacuum
             room: kitchen
+            
+assistants:
+    - master_bedroom
+    - living_room
 
 areas:
     front_lawn: frontyard
