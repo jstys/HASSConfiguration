@@ -4,7 +4,7 @@ import datetime
 API_HANDLE = None
 timer_map = {}
 
-def timer_callback(self, kwargs):
+def timer_callback(self, **kwargs):
     global timer_map
     
     partial = kwargs.get("partial")
