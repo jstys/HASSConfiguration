@@ -21,3 +21,9 @@
   entities:
     - light.kitchen_fixture
     - light.kitchen_high_hats
+
+- platform: group
+  name: Fourth Bedroom Fixture
+  entities:
+    - light.fourth_bedroom_fixture_1
+    - light.fourth_bedroom_fixture_2

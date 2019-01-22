@@ -38,6 +38,9 @@ entities:
         light.piano_led:
             name: piano_led
             room: living_room
+        light.fourth_bedroom_fixture:
+            name: fourth_bedroom_fixture
+            room: fourth_bedroom
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:

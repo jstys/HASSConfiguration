@@ -105,3 +105,23 @@
   payload_on: "on"
   payload_off: "off"
   retain: true
+
+- platform: mqtt
+  name: "Fourth Bedroom Fixture 1"
+  state_topic: "smartthings/fourth_bedroom_fixture_1/switch"
+  command_topic: "smartthings/fourth_bedroom_fixture_1/switch"
+  brightness_state_topic: "smartthings/fourth_bedroom_fixture_1/level"
+  brightness_command_topic: "smartthings/fourth_bedroom_fixture_1/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Fourth Bedroom Fixture 2"
+  state_topic: "smartthings/fourth_bedroom_fixture_2/switch"
+  command_topic: "smartthings/fourth_bedroom_fixture_2/switch"
+  brightness_state_topic: "smartthings/fourth_bedroom_fixture_2/level"
+  brightness_command_topic: "smartthings/fourth_bedroom_fixture_2/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
