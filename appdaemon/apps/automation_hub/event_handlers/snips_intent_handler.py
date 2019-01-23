@@ -12,6 +12,7 @@ from util.entity_map import assistant_list
 from actions.light_action import LightAction
 from actions.media_player_action import MediaPlayerAction
 from actions.assistant_action import AssistantAction
+from actions.vacuum_action import VacuumAction
 from events.mqtt_event import MQTTEvent
 
 def event_filter(event):
@@ -59,10 +60,12 @@ def on_intent(event):
             handle_set_timer(intent, source, raw, slotMap)
         elif name == "StopTimer":
             handle_stop_timer(intent, source, raw, slotMap)
-        elif name == "VacuumStart":
-            pass
-        elif name == "VacuumStop":
-            pass
+        elif name == "vacuumStart":
+            handle_start_vacuum(intent, source, raw, slotMap)
+        elif name == "vacuumStop":
+            handle_stop_vacuum(intent, source, raw, slotMap)
+        elif name == "vacuumLocate":
+            handle_locate_vacuum(intent, source, raw, slotMap)
     else:
         logger.error("Missing valid snips intent")
 
@@ -141,4 +144,14 @@ def handle_stop_timer(intent, source, raw, slotMap):
     timer_manager.cancel_timer(name)
     AssistantAction().add_assistant(source).tts_say("{} timer cancelled".format(name))
 
-    
+def handle_start_vacuum(intent, source, raw, slotMap):
+    logger.info("Starting the vacuum")
+    VacuumAction().add_vacuum("robot_vacuum").start()
+
+def handle_stop_vacuum(intent, source, raw, slotMap):
+    logger.info("Stopping the vacuum")
+    VacuumAction().add_vacuum("robot_vacuum").stop()
+
+def handle_locate_vacuum(intent, source, raw, slotMap):
+    logger.info("Locating the vacuum")
+    VacuumAction().add_vacuum("robot_vacuum").locate()
