@@ -6,6 +6,7 @@ class IConnection(object):
         self._on_broadcast_message = on_broadcast
         self._on_ask_message = on_ask
         self._on_broadcast_ask_message = on_broadcast_ask
+        self._user_callbacks = {}
     
     def validate_config(self):
         pass

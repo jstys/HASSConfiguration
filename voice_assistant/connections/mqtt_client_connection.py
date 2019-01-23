@@ -7,10 +7,11 @@ class MqttClientConnection(IConnection):
     
     BROADCAST_TTS_TOPIC = "assistant/broadcast/tts"
     BROADCAST_ASK_TOPIC = "assistant/broadcast/ask"
+    SNIPS_INTENT_TOPIC = "hermes/intent/+"
     MQTT_V_3_1 = "3.1"
     MQTT_V_3_1_1 = "3.1.1"
     
-    def __init__(self, config, assistant_room, on_tts, on_broadcast, on_ask, on_broadcast_ask):
+    def __init__(self, config, assistant_room, on_tts, on_broadcast, on_ask, on_broadcast_ask, **user_callbacks):
         super().__init__(config, assistant_room, on_tts, on_broadcast, on_ask, on_broadcast_ask)
         self._mqtt_client = None
         self._client_id = None
@@ -21,6 +22,9 @@ class MqttClientConnection(IConnection):
         self._username = None
         self._password = None
         self._mqtt_version = None
+        for topic in user_callbacks.iteritems():
+            self._user_callbacks[topic] = user_callbacks[topic]
+        
     
     def validate_config(self):
         try:
@@ -71,6 +75,7 @@ class MqttClientConnection(IConnection):
         self._mqtt_client.subscribe(self._ask_topic, qos=2)
         self._mqtt_client.subscribe(MqttClientConnection.BROADCAST_TTS_TOPIC, qos=2)
         self._mqtt_client.subscribe(MqttClientConnection.BROADCAST_ASK_TOPIC, qos=2)
+        self._mqtt_client.subscribe(MqttClientConnection.SNIPS_INTENT_TOPIC, qos=2)
         
     def on_message(self, client, userdata, msg):
         if msg.topic == self._tts_topic:
@@ -88,6 +93,9 @@ class MqttClientConnection(IConnection):
             message = msg_split[0]
             source = msg_split[1]
             self._on_broadcast_ask_message(message, source)
+        elif msg.topic in self._user_callbacks:
+            self._user_callbacks[msg.topic](msg)
+            
 
     def send_message(self, message, source=None):
         self._mqtt_client.publish("assistant/{}/intent".format(source), message, qos=2)
