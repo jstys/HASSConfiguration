@@ -10,6 +10,7 @@ from events.mqtt_event import MQTTEvent
 from events.state_machine_event import StateMachineEvent
 from events.presence_event import PresenceEvent
 from events.lock_event import LockEvent
+from events.input_event import InputEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -80,6 +81,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         return create_presence_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "lock":
         return create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs)
+    if entity_type in ["input_boolean", "input_select"]:
+        return create_input_change_event(friendly_name, entity, attributes, old, new, kwargs)
     
     logger.warning("Received invalid state change entity")
     return None
@@ -132,4 +135,16 @@ def create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs
         return event
     else:
         logger.warning("Received invalid lock transition")
+        return None
+
+def create_input_change_event(friendly_name, entity, attributes, old, new, kwargs):
+    logger.info("Creating InputEvent")
+    if new != old:
+        event = InputEvent()
+        event.name = friendly_name
+        event.old = old
+        event.new = new
+        return event
+    else:
+        logger.warning("Received invalid input transition")
         return None
