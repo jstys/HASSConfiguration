@@ -7,6 +7,7 @@ from events.state_machine_event import StateMachineEvent
 from actions.door_lock_action import DoorLockAction
 from actions.vacuum_action import VacuumAction
 from actions.light_action import LightAction
+from actions.assistant_action import AssistantAction
 
 def event_filter(event):
     return event.state == state_machine.SLEEP_STATE
@@ -30,10 +31,9 @@ def on_sleep_state_enabled(event):
     DoorLockAction().add_lock("front_entrance_lock").lock()
     LightAction().add_lights(all_lights).turn_off()
     VacuumAction().add_vacuum("robot_vacuum").start()
-    
-    hassutil.disable_snips_hotword("master_bedroom")
+    AssistantAction().add_assistant("master_bedroom").disable_hotword()
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
     
-    hassutil.enable_snips_hotword("master_bedroom")
+    AssistantAction().add_assistant("master_bedroom").enable_hotword()
