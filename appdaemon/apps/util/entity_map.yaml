@@ -16,6 +16,11 @@ entities:
         light.kitchen_lights:
             name: kitchen_lights
             room: kitchen
+        light.dining_room_light:
+            room: dining_room
+        light.gateway_light_34ce008dcec1:
+            name: gateway_light
+            room: living_room
         light.driveway_light:
             room: driveway
         light.first_floor_staircase_led:
