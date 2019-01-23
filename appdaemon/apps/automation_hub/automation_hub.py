@@ -51,7 +51,16 @@ class AutomationHub(hass.Hass):
         self.run_at_sunset(self.on_sunset)
         
     def _initialize_states(self):
-        state_machine.set_state(state_machine.SUN_UP_STATE, self.sun_up())
+        # Get HASS States
+        sleep_state = self.get_state(entity="input_boolean.sleep_mode", namespace="hass") == "on"
+        thermostat_mode = self.get_state(entity="input_select.thermostat_mode", namespace="hass")
+        sunup_state = self.sun_up()
+        nobody_home = self.noone_home(namespace="hass")
+        
+        state_machine.set_state(state_machine.SUN_UP_STATE, sunup_state)
+        state_machine.set_state(state_machine.SLEEP_STATE, sleep_state)
+        state_machine.set_state(state_machine.THERMOSTAT_STATE, thermostat_mode)
+        state_machine.set_state(state_machine.NOBODY_HOME_STATE, nobody_home)
         
     def on_sunrise(self, kwargs):
         event_dispatcher.dispatch(SunriseEvent())
