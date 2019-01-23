@@ -86,6 +86,12 @@ views:
       show_header_toggle: false
       entities:
         - entity: media_player.backyard_speaker
+
+    - type: entities
+      title: Vacuums
+      show_header_toggle: false
+      entities:
+        - entity: vacuum.xiaomi_vacuum_cleaner
         
     - type: entity-filter
       entities:

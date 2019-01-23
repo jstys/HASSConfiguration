@@ -150,7 +150,7 @@ def handle_start_vacuum(intent, source, raw, slotMap):
 
 def handle_stop_vacuum(intent, source, raw, slotMap):
     logger.info("Stopping the vacuum")
-    VacuumAction().add_vacuum("robot_vacuum").stop()
+    VacuumAction().add_vacuum("robot_vacuum").return_home()
 
 def handle_locate_vacuum(intent, source, raw, slotMap):
     logger.info("Locating the vacuum")
