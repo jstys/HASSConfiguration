@@ -17,8 +17,10 @@ def on_motion_triggered(event):
     
     if not state_machine.get_state(state_machine.SLEEP_STATE):
         LightAction().add_light("hallway_lights").turn_on()
+    else:
+        LightAction().add_lights(["gateway_light", "first_floor_staircase_led"]).turn_on()
 
 def on_motion_cleared(event):
     logger.info("Hallway motion cleared")
     
-    LightAction().add_light("hallway_lights").turn_off()
+    LightAction().add_lights(["hallway_lights", "gateway_light", "first_floor_staircase_led"]).turn_off()
