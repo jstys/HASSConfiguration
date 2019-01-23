@@ -1,6 +1,7 @@
 from automation_hub import event_dispatcher
-from automation_hub import state_machine
 from util import logger
+from util import hassutil
+from util.entity_map import name_map
 from events.button_click_event import ButtonClickEvent
 
 def event_filter(event):
@@ -26,4 +27,4 @@ def on_double_click(event):
 def on_long_press(event):
     logger.info("Master Bedroom Button long pressed")
     
-    state_machine.set_state(state_machine.SLEEP_STATE, True)
+    hassutil.turn_on(hassutil.Entity(name_map["sleep_mode"]))
