@@ -113,6 +113,9 @@ views:
       show_header_toggle: false
       entities:
         - input_select.thermostat_mode
+        - entity: input_boolean.sleep_mode
+          name: Sleep Mode
+          icon: mdi:sleep
         
   - title: Debug
     cards:

@@ -113,6 +113,10 @@ entities:
     input_select:
         input_select.thermostat_mode:
             name: thermostat_mode
+    
+    input_boolean:
+        input_boolean.sleep_mode:
+            name: sleep_mode
             
     vacuum:
         vacuum.xiaomi_vacuum_cleaner:
