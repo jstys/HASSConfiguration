@@ -77,12 +77,21 @@ entities:
     tv:
         media_player.living_room_tv:
             room: living_room
+            inputs:
+                tv: hdmi_2
+                gaming: hdmi_5
         media_player.master_bedroom_tv:
             room: master_bedroom
+            inputs:
+                tv: null
         media_player.basement_tv:
             room: basement
+            inputs:
+                tv: null
         media_player.guest_bedroom_tv:
             room: guest_bedroom
+            inputs:
+                tv: null
             
     speakers:
         media_player.backyard_speaker:

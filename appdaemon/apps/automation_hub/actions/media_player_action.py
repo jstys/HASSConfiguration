@@ -1,4 +1,5 @@
 from util.entity_map import name_map
+from util.entity_map import entity_map
 from util import hassutil
 from util import logger
 
@@ -38,7 +39,12 @@ class MediaPlayerAction():
             
     def change_input(self, input_name):
         for media_player in self._media_players:
-            hassutil.call_service("media_player", "select_source", entity_id=media_player, source=input_name)
+            inputs = entity_map.get(media_player.entity_id).get("inputs")
+            if input_name in inputs:
+                hassutil.call_service("media_player", "select_source", entity_id=media_player, source=inputs.get(input_name))
+            else:
+                logger.error("Unable to set {} input on {}".format(media_player, input_name))
+            
             
     def mute(self):
         for media_player in self._media_players:

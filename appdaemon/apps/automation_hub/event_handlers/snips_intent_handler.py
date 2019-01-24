@@ -95,6 +95,11 @@ def handle_tv_off(intent, source, raw, slotMap):
         
 def handle_tv_input(intent, source, raw, slotMap):
     logger.info("Received TV Input intent from snips")
+    
+    tv_input = slotMap["inputName"]["value"]
+    
+    media_players = find_room_entities("tv", source)
+    MediaPlayerAction().add_media_players(media_players).change_input(tv_input)
 
 def handle_light_on(intent, source, raw, slotMap):
     logger.info("Received Light On intent from snips")
