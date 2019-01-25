@@ -11,7 +11,6 @@ def register_callbacks():
     
 def on_sunrise(event):
     state_machine.set_state(state_machine.SUN_UP_STATE, True)
-    state_machine.set_state(state_machine.SLEEP_STATE, False)
     
     LightAction().add_light("front_garden_lights").turn_off()
 

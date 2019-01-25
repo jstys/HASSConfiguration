@@ -31,25 +31,25 @@ class MediaPlayerAction():
             
     def pause(self):
         for media_player in self._media_players:
-            hassutil.call_service("media_player", "pause", entity_id=media_player)
+            hassutil.call_service("media_player", "pause", entity_id=media_player.entity_id)
         
     def play(self):
         for media_player in self._media_players:
-            hassutil.call_service("media_player", "play", entity_id=media_player)
+            hassutil.call_service("media_player", "play", entity_id=media_player.entity_id)
             
     def change_input(self, input_name):
         for media_player in self._media_players:
             inputs = entity_map.get(media_player.entity_id).get("inputs")
             if input_name in inputs:
-                hassutil.call_service("media_player", "select_source", entity_id=media_player, source=inputs.get(input_name))
+                hassutil.call_service("media_player", "select_source", entity_id=media_player.entity_id, source=inputs.get(input_name))
             else:
                 logger.error("Unable to set {} input on {}".format(media_player, input_name))
             
             
     def mute(self):
         for media_player in self._media_players:
-            hassutil.call_service("media_player", "volume_mute", entity_id=media_player, is_volume_muted=True)
+            hassutil.call_service("media_player", "volume_mute", entity_id=media_player.entity_id, is_volume_muted=True)
             
     def unmute(self):
         for media_player in self._media_players:
-            hassutil.call_service("media_player", "volume_mute", entity_id=media_player, is_volume_muted=False)
+            hassutil.call_service("media_player", "volume_mute", entity_id=media_player.entity_id, is_volume_muted=False)
