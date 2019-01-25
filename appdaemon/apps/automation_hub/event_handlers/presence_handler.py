@@ -48,6 +48,10 @@ def handle_nobody_home():
     LightAction().add_lights(all_lights).turn_off()
     MediaPlayerAction().add_media_players(all_tvs).turn_off()
     DoorLockAction().add_lock("front_door_lock").lock()
+    
+    # Turn off sleep mode
+    hassutil.turn_off(hassutil.Entity(entity_map.name_map["sleep_mode"]))
+    
     #TODO: schedule timer for simulating someone being home
     
 def handle_somebody_home():
