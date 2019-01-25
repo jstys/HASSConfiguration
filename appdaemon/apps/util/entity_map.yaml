@@ -78,8 +78,8 @@ entities:
         media_player.living_room_tv:
             room: living_room
             inputs:
-                tv: hdmi_2
-                gaming: hdmi_5
+                tv: HDMI-2
+                gaming: HDMI-5
         media_player.master_bedroom_tv:
             room: master_bedroom
             inputs:
