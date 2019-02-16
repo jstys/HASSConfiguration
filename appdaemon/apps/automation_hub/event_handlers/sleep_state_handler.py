@@ -28,10 +28,8 @@ def on_sleep_state_enabled(event):
 
     state_machine.set_state(state_machine.SLEEP_STATE, True)
     
-    all_lights = entity_map.find_type_entities("light")
-    
     DoorLockAction().add_lock("front_entrance_lock").lock()
-    LightAction().add_lights(all_lights).turn_off()
+    LightAction().add_light("manual_off_lights").turn_off()
     VacuumAction().add_vacuum("robot_vacuum").start()
     AssistantAction().add_assistant("master_bedroom").disable_hotword()
 
