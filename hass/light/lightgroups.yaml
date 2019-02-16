@@ -27,3 +27,20 @@
   entities:
     - light.fourth_bedroom_fixture_1
     - light.fourth_bedroom_fixture_2
+
+- platform: group
+  name: manual_off_lights
+  entities:
+    - light.master_bedroom_fixture
+    - light.living_room_lamps
+    - light.porch_light
+    - light.kitchen_lights
+    - light.dining_room_light
+    - light.gateway_light_34ce008dcec1
+    - light.driveway_light
+    - light.deck_light
+    - light.office_light
+    - light.jim_night_lamp
+    - light.erica_night_lamp
+    - light.piano_led
+    - light.fourth_bedroom_fixture
