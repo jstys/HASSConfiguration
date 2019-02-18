@@ -46,6 +46,8 @@ entities:
         light.fourth_bedroom_fixture:
             name: fourth_bedroom_fixture
             room: fourth_bedroom
+        light.manual_off_lights:
+            name: manual_off_lights
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:

@@ -33,6 +33,9 @@ def on_person_home(name):
     
     if state_machine.get_state(state_machine.NOBODY_HOME_STATE):
         handle_somebody_home()
+
+    if not state_machine.get_state(state_machine.SUN_UP_STATE):
+        LightAction().add_light("driveway_light").turn_on()
     
     if name == "jim_presence":
         PushNotifyAction().add_target("jim_cell_notify").set_message("Welcome home!").notify()
@@ -42,10 +45,9 @@ def handle_nobody_home():
     logger.info("Nobody home...")
     state_machine.set_state(state_machine.NOBODY_HOME_STATE, True)
     
-    all_lights = entity_map.find_type_entities("light")
     all_tvs = entity_map.find_type_entities("tv")
     
-    LightAction().add_lights(all_lights).turn_off()
+    LightAction().add_light("manual_off_lights").turn_off()
     MediaPlayerAction().add_media_players(all_tvs).turn_off()
     DoorLockAction().add_lock("front_entrance_lock").lock()
     
