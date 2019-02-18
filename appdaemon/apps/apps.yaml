@@ -8,6 +8,7 @@ automation_hub:
   class: AutomationHub
   event_list:
     - xiaomi_aqara.click
+    - xiaomi_aqara.motion
     - zwave.scene_activated
     - MQTT_MESSAGE
     - state_machine.state_changed
