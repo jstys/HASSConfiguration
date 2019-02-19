@@ -40,7 +40,7 @@ def create_xiaomi_click_event(event_name, data, kwargs):
         logger.warning("Received invalid click entity")
         return None
         
-def create_xioami_motion_event(event_name, data, kwargs):
+def create_xiaomi_motion_event(event_name, data, kwargs):
     entity = data.get("entity_id")
     if entity in entity_map:
         friendly_name = entity_map[entity]["name"]
