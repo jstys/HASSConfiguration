@@ -22,8 +22,8 @@ def on_message(event):
         handle_turned_off()
 
 def handle_turned_on():
-    LightAction().add_light("kitchen_lights").turn_on()
+    LightAction().add_light("kitchen_high_hats").turn_on()
     
 def handle_turned_off():
-    LightAction().add_light("kitchen_lights").turn_off()
+    LightAction().add_light("kitchen_high_hats").turn_off()
     
