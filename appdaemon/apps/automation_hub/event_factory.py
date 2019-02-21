@@ -86,6 +86,8 @@ def create_state_machine_state_changed_event(event_name, data, kwargs):
 def create_from_state_change(friendly_name, entity_type, entity, attributes, old, new, kwargs):
     if entity_type == "water_sensor":
         pass
+    if entity_type == "motion_sensor":
+        return create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "door_sensor":
         return create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "presence":
@@ -97,6 +99,16 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
     
     logger.warning("Received invalid state change entity")
     return None
+
+def create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
+    if new == "off":
+        logger.info("Creating MotionClearedEvent")
+        event = MotionClearedEvent()
+        event.name = friendly_name
+        return event
+    else:
+        logger.warning("Received invalid motion state transition")
+        return None
 
 def create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
     if old == "off" and new == "on":
