@@ -1,7 +1,6 @@
 import requests
 import re
 from requests_oauthlib import OAuth1
-from util import hassutil
 
 API_BASE = "https://api.trello.com/1"
 CHECKED_STATE = "complete"
@@ -20,6 +19,18 @@ _DAY_LIST_MAP = {
 _GROCERY_LIST_ID = "1iKTzp7F"
 _RECENT_RECIPES_ID = "57b1272100998a82de83e0e7"
 
+def sort_grocery_list():
+    grocery_json = _get_grocery_list()
+    
+    for category in grocery_json:
+        category_items = category.get("checkItems")
+        category_items = sorted(category_items, key=lambda item: item["name"])
+        for item in category_items:
+            _delete_item(item)
+            _add_item(category, item)
+
+    return None
+
 def archive_last_week():
     for day, _ in _DAY_LIST_MAP.items():
         trello_id = _DAY_LIST_MAP[day]
@@ -30,6 +41,9 @@ def archive_last_week():
 
 def generate_grocery_list_from_meal_plan():
     failed_to_add = []
+    
+    reset_all_item_amounts()
+    sort_grocery_list()
 
     for day, _ in _DAY_LIST_MAP.items():
         for item in _get_grocery_items_for_day(day):
@@ -66,18 +80,14 @@ def reset_all_item_amounts():
     grocery_json = _get_grocery_list()
     for category in grocery_json:
         for grocery_item in category.get("checkItems"):
-            _update_item_amount(grocery_item, "")
-            _save_item(grocery_item)
-
-def _load_auth():
-    secrets = hassutil.read_config_file(hassutil.SECRETS)
-    if secrets:
-        try:
-            return OAuth1(secrets['trello_key'], secrets['trello_secret'], secrets['trello_oauth'])
-        except KeyError:
-            pass
-
-    return None
+            if grocery_item.get("state") == CHECKED_STATE:
+                _update_item_amount(grocery_item, "")
+                _save_item(grocery_item)
+    
+def set_auth(key, secret, oauth):
+    global _AUTH
+    
+    _AUTH = OAuth1(key, secret, oauth)
 
 def _get_day_list(day):
     if _DAY_LIST_MAP.get(day.title) is not None:
@@ -93,7 +103,10 @@ def _get_item_reference_from_grocery_list(item, grocery_json):
 
 def _get_grocery_item_name(item):
     orig_name = item.get("name")
-    return orig_name[:orig_name.index("(")].strip().lower()
+    if "(" in orig_name:
+        return orig_name[:orig_name.index("(")].strip().lower()
+    else:
+        return orig_name.strip().lower()
 
 def _get_grocery_item_amount(item):
     match = re.search(r"\((?P<amount>.+)\)", item.get("name"))
@@ -126,11 +139,6 @@ def _get_grocery_items_for_day(day):
     return ingredients
 
 def _get_auth():
-    global _AUTH
-
-    if _AUTH is None:
-        _AUTH = _load_auth()
-
     return _AUTH
 
 def _save_item(item):
@@ -139,3 +147,13 @@ def _save_item(item):
     params["state"] = item["state"]
     params["idChecklist"] = item["idChecklist"]
     requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
+    
+def _delete_item(item):
+    requests.request("DELETE", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), auth=_get_auth())
+    
+def _add_item(checklist, item):
+    params = {}
+    params["name"] = item["name"]
+    params["pos"] = "bottom"
+    params["checked"] = "true" if (item.get("state", "complete") == CHECKED_STATE) else "false"
+    requests.request("POST", "{}/checklists/{}/checkItems".format(API_BASE, checklist.get("id"), params=params, auth=_get_auth()))
