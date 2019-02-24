@@ -1,5 +1,6 @@
 import requests
 import re
+import time
 from requests_oauthlib import OAuth1
 
 API_BASE = "https://api.trello.com/1"
@@ -24,10 +25,12 @@ def sort_grocery_list():
     
     for category in grocery_json:
         category_items = category.get("checkItems")
-        category_items = sorted(category_items, key=lambda item: item["name"])
-        for item in category_items:
-            _delete_item(item)
-            _add_item(category, item)
+        sorted_items = sorted(category_items, key=lambda it: it["name"])
+        for i, item in enumerate(category_items):
+            new_item = item.copy()
+            new_item["name"] = sorted_items[i]["name"]
+            new_item["state"] = sorted_items[i]["state"]
+            _save_item(new_item)
 
     return None
 
@@ -146,7 +149,9 @@ def _save_item(item):
     params["name"] = item["name"]
     params["state"] = item["state"]
     params["idChecklist"] = item["idChecklist"]
-    requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
+    print("PUTing {}/cards/{}/checkItem/{} with params = {}".format(API_BASE, _GROCERY_LIST_ID, item.get("id"), params))
+    res = requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
+    print(res)
     
 def _delete_item(item):
     requests.request("DELETE", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), auth=_get_auth())
@@ -156,4 +161,6 @@ def _add_item(checklist, item):
     params["name"] = item["name"]
     params["pos"] = "bottom"
     params["checked"] = "true" if (item.get("state", "complete") == CHECKED_STATE) else "false"
-    requests.request("POST", "{}/checklists/{}/checkItems".format(API_BASE, checklist.get("id"), params=params, auth=_get_auth()))
+    print("POSTing to {}/checklists/{}/checkItems with params = {}".format(API_BASE, checklist.get("id"), params))
+    res = requests.post("{}/checklists/{}/checkItems".format(API_BASE, checklist.get("id"), params=params, auth=_get_auth()))
+    print(res)
