@@ -15,7 +15,6 @@ views:
         - light.living_room_lamps
         - light.piano_led
         - light.first_floor_staircase_led
-        - group.living_room_christmas_lights
         - light.dining_room_light
         - light.kitchen_lights
         - entity: light.gateway_light_34ce008dcec1
