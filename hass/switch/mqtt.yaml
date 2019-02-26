@@ -1,0 +1,48 @@
+- platform: mqtt
+  state_topic: "smartthings/centralite_outlet_1/switch"
+  command_topic: "smartthings/centralite_outlet_1/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+  
+- platform: mqtt
+  state_topic: "smartthings/centralite_outlet_2/switch"
+  command_topic: "smartthings/centralite_outlet_2/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+  
+- platform: mqtt
+  state_topic: "smartthings/centralite_outlet_3/switch"
+  command_topic: "smartthings/centralite_outlet_3/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+  
+- platform: mqtt
+  state_topic: "smartthings/centralite_outlet_4/switch"
+  command_topic: "smartthings/centralite_outlet_4/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+  
+- platform: mqtt
+  state_topic: "smartthings/tradfri_outlet_1/switch"
+  command_topic: "smartthings/tradfri_outlet_1/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+  
+- platform: mqtt
+  state_topic: "smartthings/tradfri_outlet_2/switch"
+  command_topic: "smartthings/tradfri_outlet_2/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+  
+- platform: mqtt
+  state_topic: "smartthings/osram_outlet_1/switch"
+  command_topic: "smartthings/osram_outlet_1/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true

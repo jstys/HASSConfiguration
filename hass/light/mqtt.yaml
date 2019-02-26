@@ -77,14 +77,6 @@
   retain: true
 
 - platform: mqtt
-  name: "Couch Outlet"
-  state_topic: "smartthings/couch_outlet/switch"
-  command_topic: "smartthings/couch_outlet/switch"
-  payload_on: "on"
-  payload_off: "off"
-  retain: true
-
-- platform: mqtt
   name: "First Floor Staircase LED"
   state_topic: "smartthings/first_floor_staircase_led/switch"
   command_topic: "smartthings/first_floor_staircase_led/switch"
