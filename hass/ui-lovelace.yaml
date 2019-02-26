@@ -1,6 +1,6 @@
 title: Home Assistant Frontend
 views:
-  - title: Main
+  - title: Lights
     cards:
     - type: entities
       title: Lights
@@ -35,15 +35,46 @@ views:
         - type: section
           label: Back Yard
         - light.deck_light
-        - switch.backyard_string_lights
-        
+
+  - title: Media
+    cards:
     - type: entities
-      title: Lock
+      title: TVs
       show_header_toggle: false
       entities:
-        - entity: lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
-          name: Front Door Lock
+        - entity: media_player.living_room_tv
+        - entity: media_player.master_bedroom_tv
+        - entity: media_player.basement_tv
+        - entity: media_player.guest_bedroom_tv
+  
+    - type: entities
+      title: Speakers
+      show_header_toggle: false
+      entities:
+        - entity: media_player.backyard_speaker
         
+  - title: Outlets
+    cards:
+    - type: entities
+      title: Outlets
+      entities:
+        - entity: switch.tradfri_outlet_2
+          name: "Kitchen Fragrance"
+        - entity: switch.hank_hkzwso03_smart_plug_switch_2
+          name: "Rice Cooker"
+        - entity: switch.centralite_outlet_1
+          name: "Kettle"
+        - entity: switch.osram_outlet_1
+          name: "Piano Power"
+        - entity: switch.centralite_outlet_2
+          name: "Couch Outlet"
+        - entity: switch.centralite_outlet_3
+          name: "Hallway Outlet"
+        - entity: switch.hank_hkzwso03_smart_plug_switch
+          name: "Living Room Fragrance"
+          
+  - title: Climate
+    cards:
     - type: conditional
       conditions:
         - entity: input_select.thermostat_mode
@@ -70,21 +101,15 @@ views:
           name: Guest BR
         - entity: sensor.temperature_158d00023cf950
           name: Upstairs
-  
+
+  - title: Misc
+    cards:
     - type: entities
-      title: TVs
+      title: Lock
       show_header_toggle: false
       entities:
-        - entity: media_player.living_room_tv
-        - entity: media_player.master_bedroom_tv
-        - entity: media_player.basement_tv
-        - entity: media_player.guest_bedroom_tv
-  
-    - type: entities
-      title: Speakers
-      show_header_toggle: false
-      entities:
-        - entity: media_player.backyard_speaker
+        - entity: lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
+          name: Front Door Lock
 
     - type: entities
       title: Vacuums
@@ -116,7 +141,7 @@ views:
           name: Sleep Mode
           icon: mdi:sleep
         
-  - title: Debug
+  - title: Advanced
     cards:
     - type: entities
       title: Software Update
