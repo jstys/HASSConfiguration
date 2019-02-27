@@ -149,9 +149,7 @@ def _save_item(item):
     params["name"] = item["name"]
     params["state"] = item["state"]
     params["idChecklist"] = item["idChecklist"]
-    print("PUTing {}/cards/{}/checkItem/{} with params = {}".format(API_BASE, _GROCERY_LIST_ID, item.get("id"), params))
     res = requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
-    print(res)
     
 def _delete_item(item):
     requests.request("DELETE", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), auth=_get_auth())
@@ -161,6 +159,4 @@ def _add_item(checklist, item):
     params["name"] = item["name"]
     params["pos"] = "bottom"
     params["checked"] = "true" if (item.get("state", "complete") == CHECKED_STATE) else "false"
-    print("POSTing to {}/checklists/{}/checkItems with params = {}".format(API_BASE, checklist.get("id"), params))
     res = requests.post("{}/checklists/{}/checkItems".format(API_BASE, checklist.get("id"), params=params, auth=_get_auth()))
-    print(res)
