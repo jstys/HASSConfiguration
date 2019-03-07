@@ -31,11 +31,15 @@ def on_sleep_state_enabled(event):
     DoorLockAction().add_lock("front_entrance_lock").lock()
     LightAction().add_light("manual_off_lights").turn_off()
     VacuumAction().add_vacuum("robot_vacuum").start()
-    AssistantAction().add_assistant("master_bedroom").disable_hotword()
+    assistant_action = AssistantAction().add_assistant("master_bedroom")
+    assistant_action.disable_hotword()
+    assistant_action.disable_led()
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
     
     state_machine.set_state(state_machine.SLEEP_STATE, False)
 
-    AssistantAction().add_assistant("master_bedroom").enable_hotword()
+    assistant_action = AssistantAction().add_assistant("master_bedroom")
+    assistant_action.enable_hotword()
+    assistant_action.enable_led()

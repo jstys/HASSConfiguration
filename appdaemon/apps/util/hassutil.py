@@ -56,6 +56,12 @@ def disable_snips_hotword(room):
     
 def enable_snips_hotword(room):
     call_service("mqtt", "publish", topic="snips/{}/hotword/toggleOn".format(room), payload=json.dumps({"siteId": room}))
+    
+def disable_snips_led(room):
+    call_service("mqtt", "publish", topic="snips/{}/leds/toggleOff".format(room), payload=json.dumps({"siteId": room}))
+    
+def enable_snips_led(room):
+    call_service("mqtt", "publish", topic="snips/{}/leds/toggleOn".format(room), payload=json.dumps({"siteId": room}))
 
 def snips_play_audio_file(room, file):
     try:

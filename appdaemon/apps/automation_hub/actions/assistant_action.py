@@ -35,6 +35,14 @@ class AssistantAction():
     def disable_hotword(self):
         for assistant in self._assistants:
             hassutil.disable_snips_hotword(assistant)
+            
+    def disable_led(self):
+        for assistant in self._assistants:
+            hassutil.disable_snips_led(assistant)
+            
+    def enable_led(self):
+        for assistant in self._assistants:
+            hassutil.enable_snips_led(assistant)
 
     def play_audio_file(self, filename):
         for assistant in self._assistants:
