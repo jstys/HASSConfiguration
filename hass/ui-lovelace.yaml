@@ -131,12 +131,16 @@ views:
         show_state: false
 
     - type: entity-button
-      entity: script.generate_mealplan
+      entity: script.generate_grocery_list
       name: Generate Mealplan
+      tap_action: call_service
+      service: script.turn_on
     
     - type: entity-button
       entity: script.archive_mealplan
       name: Archive Mealplan
+      tap_action: call_service
+      service: script.turn_on
         
   - title: Config
     cards:
