@@ -129,6 +129,14 @@ views:
         type: glance
         title: At Home
         show_state: false
+
+    - type: entity-button
+      entity: script.generate_mealplan
+      name: Generate Mealplan
+    
+    - type: entity-button
+      entity: script.archive_mealplan
+      name: Archive Mealplan
         
   - title: Config
     cards:
