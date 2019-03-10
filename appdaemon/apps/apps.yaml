@@ -12,6 +12,8 @@ automation_hub:
     - zwave.scene_activated
     - MQTT_MESSAGE
     - state_machine.state_changed
+    - generate_mealplan
+    - archive_mealplan
 # nhl_announcer:
 #   module: nhl_announcer
 #   class: NHLAnnouncer

@@ -11,6 +11,8 @@ from events.state_machine_event import StateMachineEvent
 from events.presence_event import PresenceEvent
 from events.lock_event import LockEvent
 from events.input_event import InputEvent
+from events.generate_mealplan_event import GenerateMealplanEvent
+from events.archive_mealplan_event import ArchiveMealplanEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -23,6 +25,10 @@ def create_from_event(event_name, data, kwargs):
         return create_zwave_scene_event(event_name, data, kwargs)
     elif event_name == "state_machine.state_changed":
         return create_state_machine_state_changed_event(event_name, data, kwargs)
+    elif event_name == "generate_mealplan":
+        return GenerateMealplanEvent()
+    elif event_name == "archive_mealplan":
+        return ArchiveMealplanEvent()
 
     logger.warning("Received invalid event type")
     return None
