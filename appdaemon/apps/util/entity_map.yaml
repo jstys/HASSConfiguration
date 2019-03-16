@@ -113,6 +113,9 @@ entities:
         zwave.linear_wa00z1_scene_switch_2:
             name: staircase_top_switch
             room: hallway
+        zwave.linear_wa00z_1_scene_switch:
+            name: dining_room_switch
+            room: dining_room
         switch.fortrezz_mimolite_switch:
             name: garage_door_switch
             room: garage
