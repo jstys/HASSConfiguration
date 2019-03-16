@@ -22,7 +22,8 @@ entities:
         light.kitchen_high_hats:
             name: kitchen_high_hats
             room: kitchen
-        light.dining_room_light:
+        light.dining_room_light_2:
+            name: dining_room_light
             room: dining_room
         light.gateway_light_34ce008dcec1:
             name: gateway_light
