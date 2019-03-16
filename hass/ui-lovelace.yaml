@@ -112,6 +112,15 @@ views:
           name: Front Door Lock
 
     - type: entities
+      title: Garage
+      show_header_toggle: false
+      entities:
+        - entity: switch.fortrezz_mimolite_switch
+          name: Garage Door Switch
+        - entity: binary_sensor.garage_sensor
+          name: Garage Door Sensor
+
+    - type: entities
       title: Vacuums
       show_header_toggle: false
       entities:

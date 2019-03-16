@@ -64,8 +64,6 @@ nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
 
-lifx:
-
 owntracks:
   secret: !secret owntracks_encryption
 

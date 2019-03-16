@@ -112,6 +112,9 @@ entities:
         zwave.linear_wa00z1_scene_switch_2:
             name: staircase_top_switch
             room: hallway
+        switch.fortrezz_mimolite_switch:
+            name: garage_door_switch
+            room: garage
     
     lock:
         lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4:
