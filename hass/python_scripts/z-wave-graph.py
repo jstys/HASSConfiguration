@@ -189,6 +189,8 @@ class ZWave(object):
             self.api_password = os.environ['HASSIO_TOKEN']
         elif self.args.token:
             self.api_token = self.args.token
+        elif self.haconf['panel_iframes']['z_wave_graph']['token']:
+            self.api_token = self.haconf['panel_iframes']['z_wave_graph']['token']
         elif self.haconf['http'] is not None and 'api_password' in self.haconf['http']:
             self.api_password = str(self.haconf['http']['api_password'])
 
