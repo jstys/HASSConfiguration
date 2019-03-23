@@ -1,0 +1,61 @@
+version: '3'
+services:
+  mysql:
+    container_name: maria-db
+    image: youbasystems/alpine-mariadb
+    restart: unless-stopped
+    environment: 
+    expose:
+      - "3306"
+  mosquitto:
+    container_name: mqtt-broker
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    volumes:
+      - /home/dietpi/mosquitto/config:/mosquitto/config
+      - /home/dietpi/mosquitto/data:/mosquitto/data
+      - /home/dietpi/mosquitto/log:/mosquitto/log
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+  smartthingsbridge:
+    container_name: smartthings-bridge
+    image: stjohnjohnson/smartthings-mqtt-bridge
+    restart: unless-stopped
+    volumes:
+      - /home/dietpi/smartthingsmqttbridge:/config
+    expose:
+      - "8080"
+    depends_on:
+      - "mosquitto"
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/tinker-homeassistant
+    restart: unless-stopped
+    volumes:
+      - /home/dietpi/HASSConfiguration/hass:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
+    ports:
+      - "8123:8123"
+    depends_on:
+      - "mosquitto"
+  appdaemon:
+    container_name: appdaemon
+    image: acockburn/appdaemon:latest
+    restart: unless-stopped
+    volumes:
+      - /home/dietpi/HASSConfiguration/appdaemon:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - HA_URL="http://homeassistant:8123"
+      - TOKEN="$HASS_TOKEN"
+    expose:
+      - "5000"
+    depends_on:
+      - "homeassistant"
+    
+    
