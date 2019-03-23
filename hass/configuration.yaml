@@ -23,7 +23,7 @@ notify:
     name: jim_cell
 joaoapps_join:
   - name: jim_cell
-    device_id: jim_cell
+    device_id: !secret jim_cell_device_id
     api_key: !secret jim_join_key
 
 tts:
