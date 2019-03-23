@@ -21,6 +21,10 @@ notify:
     api_key: !secret jim_join_key
     device_names: jim_cell
     name: jim_cell
+joaoapps_join:
+  - name: jim_cell
+    device_id: jim_cell
+    api_key: !secret jim_join_key
 
 tts:
   platform: google

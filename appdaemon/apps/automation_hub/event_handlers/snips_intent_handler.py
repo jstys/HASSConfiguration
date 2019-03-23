@@ -33,9 +33,17 @@ def on_intent(event):
     intent = parsed.get("intent")
     slotMap = {}
     slots = parsed.get("slots")
+
     if slots:
         for slot in slots:
-            slotMap[slot.get("slotName")] = slot.get("value")
+            slotName = slot.get("slotName")
+            slotValue = slot.get("value")
+            
+            if slotName == "room":
+                slotValue["value"] = slotValue["value"].replace(" ", "_")
+                
+            slotMap[slotName] = slotValue
+            
     if intent and source and raw:
         logger.info("Received Snips intent from {} with raw input ({})".format(source, raw))
         name = intent.get("intentName").split(":")
@@ -56,6 +64,12 @@ def on_intent(event):
             handle_light_on(intent, source, raw, slotMap)
         elif name == "lightOff":
             handle_light_off(intent, source, raw, slotMap)
+        elif name == "lightDim":
+            handle_light_dim(intent, source, raw, slotMap)
+        elif name == "lightBrighten":
+            handle_light_brighten(intent, source, raw, slotMap)
+        elif name == "setScene":
+            handle_set_scene(intent, source, raw, slotMap)
         elif name == "SetTimer":
             handle_set_timer(intent, source, raw, slotMap)
         elif name == "StopTimer":
@@ -66,6 +80,12 @@ def on_intent(event):
             handle_stop_vacuum(intent, source, raw, slotMap)
         elif name == "vacuumLocate":
             handle_locate_vacuum(intent, source, raw, slotMap)
+        elif name == "findPhone":
+            handle_find_phone(intent, source, raw, slotMap)
+        elif name == "openGarage":
+            handle_open_garage(intent, source, raw, slotMap)
+        elif name == "closeGarage":
+            handle_close_garage(intent, source, raw, slotMap)
     else:
         logger.error("Missing valid snips intent")
 
@@ -119,6 +139,15 @@ def handle_light_off(intent, source, raw, slotMap):
         lights = find_room_entities("light", room)
         LightAction().add_lights(lights).turn_off()
         
+def handle_light_dim(intent, source, raw, slotMap):
+    pass
+
+def handle_light_brighten(intent, source, raw, slotMap):
+    pass
+
+def handle_set_scene(intent, source, raw, slotMap):
+    pass
+        
 def handle_set_timer(intent, source, raw, slotMap):
     if not "timer_name" in slotMap or not "timer_duration" in slotMap:
         logger.error("Must have name and duration of timer")
@@ -160,3 +189,12 @@ def handle_stop_vacuum(intent, source, raw, slotMap):
 def handle_locate_vacuum(intent, source, raw, slotMap):
     logger.info("Locating the vacuum")
     VacuumAction().add_vacuum("robot_vacuum").locate()
+    
+def handle_find_phone(intent, source, raw, slotMap):
+    pass
+
+def handle_open_garage(intent, source, raw, slotMap):
+    pass
+
+def handle_close_garage(intent, source, raw, slotMap):
+    pass
