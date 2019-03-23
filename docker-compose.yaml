@@ -1,12 +1,5 @@
 version: '3'
 services:
-  mysql:
-    container_name: maria-db
-    image: youbasystems/alpine-mariadb
-    restart: unless-stopped
-    environment: 
-    expose:
-      - "3306"
   mosquitto:
     container_name: mqtt-broker
     image: eclipse-mosquitto
