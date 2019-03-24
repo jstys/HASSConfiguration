@@ -38,7 +38,7 @@ services:
       - "mosquitto"
   appdaemon:
     container_name: appdaemon
-    image: torkildr/rpi-appdaemon:latest
+    build: /home/dietpi/appdaemon
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/appdaemon:/conf
