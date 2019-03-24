@@ -5,7 +5,6 @@ homeassistant:
   elevation: 54
   unit_system: imperial
   time_zone: !secret home_timezone
-  customize: !include customize.yaml
 
 lovelace:
   mode: yaml
