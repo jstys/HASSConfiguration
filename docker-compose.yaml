@@ -29,9 +29,9 @@ services:
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
       - /etc/localtime:/etc/localtime:ro
-    devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
-      - /dev/ttyUSB1:/dev/ttyUSB1
+    # devices:
+      # - /dev/ttyUSB0:/dev/ttyUSB0
+      # - /dev/ttyUSB1:/dev/ttyUSB1
     ports:
       - "8123:8123"
     depends_on:
