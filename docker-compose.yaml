@@ -28,6 +28,7 @@ services:
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
+      - /home/dietpi/secrets_hass.yaml:/config/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
     # devices:
       # - /dev/ttyUSB0:/dev/ttyUSB0
@@ -42,6 +43,7 @@ services:
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/appdaemon:/config
+      - /home/dietpi/secrets_appdaemon.yaml:/config/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
     environment:
       - HA_URL="http://homeassistant:8123"
