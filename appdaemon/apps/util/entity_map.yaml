@@ -22,7 +22,7 @@ entities:
         light.kitchen_high_hats:
             name: kitchen_high_hats
             room: kitchen
-        light.dining_room_light_2:
+        light.dining_room_light:
             name: dining_room_light
             room: dining_room
         light.gateway_light_34ce008dcec1:
@@ -107,13 +107,13 @@ entities:
             room: backyard
     
     switch:
-        zwave.linear_wa00z1_scene_switch:
+        zwave.linear_wa00z_1_scene_switch:
             name: staircase_bottom_switch
             room: living_room
-        zwave.linear_wa00z1_scene_switch_2:
+        zwave.linear_wa00z_1_scene_switch_2:
             name: staircase_top_switch
             room: hallway
-        zwave.linear_wa00z_1_scene_switch:
+        zwave.linear_wa00z_1_scene_switch_3:
             name: dining_room_switch
             room: dining_room
         switch.fortrezz_mimolite_switch:
@@ -121,7 +121,7 @@ entities:
             room: garage
     
     lock:
-        lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4:
+        lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked:
             room: front_entrance
     
     presence:
