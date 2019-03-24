@@ -46,5 +46,6 @@ class AssistantAction():
 
     def play_audio_file(self, filename):
         for assistant in self._assistants:
-            hassutil.snips_play_audio_file(assistant, hassutil.get_www_file(filename))
+            # TODO: support playing audio file
+            pass
     

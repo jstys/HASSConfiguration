@@ -4,9 +4,8 @@ import json
 
 import logger
 
-HASS_DIR = "/home/homeassistant/.homeassistant"
-APPD_DIR = "/home/homeassistant/appdaemon"
-SECRETS = os.path.join(HASS_DIR, "secrets.yaml")
+APPD_DIR = "/conf"
+SECRETS = os.path.join(APPD_DIR, "secrets.yaml")
 ENTITY_MAP = os.path.join(APPD_DIR, "apps", "util", "entity_map.yaml")
 API_HANDLE = None
 
@@ -24,9 +23,6 @@ class Entity(object):
 def set_api_handle(handle):
     global API_HANDLE
     API_HANDLE = handle
-
-def get_www_file(filename):
-    return os.path.join(HASS_DIR, "www", filename)
 
 def read_config_file(filename):
     try:

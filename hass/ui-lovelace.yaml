@@ -15,7 +15,7 @@ views:
         - light.living_room_lamps
         - light.piano_led
         - light.first_floor_staircase_led
-        - light.dining_room_light_2
+        - light.dining_room_light
         - light.kitchen_lights
         - entity: light.gateway_light_34ce008dcec1
           name: "Gateway Light"
@@ -60,7 +60,7 @@ views:
       entities:
         - entity: switch.tradfri_outlet_2
           name: "Kitchen Fragrance"
-        - entity: switch.hank_hkzwso03_smart_plug_switch_2
+        - entity: switch.hank_hkzw_so03_smart_plug_switch_2
           name: "Rice Cooker"
         - entity: switch.centralite_outlet_1
           name: "Kettle"
@@ -70,7 +70,7 @@ views:
           name: "Couch Outlet"
         - entity: switch.centralite_outlet_3
           name: "Hallway Outlet"
-        - entity: switch.hank_hkzwso03_smart_plug_switch
+        - entity: switch.hank_hkzw_so03_smart_plug_switch
           name: "Living Room Fragrance"
           
   - title: Climate
@@ -81,7 +81,7 @@ views:
           state: "Heating"
       card:
         type: thermostat
-        entity: climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
+        entity:  climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1
         name: Oil Heater
       
     - type: glance
@@ -108,7 +108,7 @@ views:
       title: Lock
       show_header_toggle: false
       entities:
-        - entity: lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_4
+        - entity:  lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked
           name: Front Door Lock
 
     - type: entities
