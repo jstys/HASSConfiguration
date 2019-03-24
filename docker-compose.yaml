@@ -33,8 +33,7 @@ services:
     # devices:
       # - /dev/ttyUSB0:/dev/ttyUSB0
       # - /dev/ttyUSB1:/dev/ttyUSB1
-    ports:
-      - "8123:8123"
+    network_mode: host
     depends_on:
       - "mosquitto"
   appdaemon:
