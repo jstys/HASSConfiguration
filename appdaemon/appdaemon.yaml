@@ -10,7 +10,7 @@ appdaemon:
     MQTT:
       type: mqtt
       namespace: mqtt
-      client_host: 127.0.0.1
+      client_host: mosquitto
       client_port: 1883
       client_id: appdaemon
       client_user: appdaemon
@@ -20,7 +20,5 @@ appdaemon:
         - 'snips/nluIntent'
         - 'smartthings/#'
 log:
-  logfile: /tmp/appdaemon.log
-  errorfile: /tmp/appdaemon.log
   logsize: 100000
   log_generations: 3
