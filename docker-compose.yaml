@@ -30,9 +30,9 @@ services:
       - /home/dietpi/HASSConfiguration/hass:/config
       - /home/dietpi/secrets_hass.yaml:/config/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
-    # devices:
-      # - /dev/ttyUSB0:/dev/ttyUSB0
-      # - /dev/ttyUSB1:/dev/ttyUSB1
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
     network_mode: host
     depends_on:
       - "mosquitto"
