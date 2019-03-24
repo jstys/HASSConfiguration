@@ -44,9 +44,6 @@ services:
       - /home/dietpi/HASSConfiguration/appdaemon:/conf
       - /home/dietpi/secrets_appdaemon.yaml:/conf/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
-    environment:
-      - HA_URL="http://homeassistant:8123"
-      - TOKEN="$HASS_TOKEN"
     expose:
       - "5000"
     depends_on:
