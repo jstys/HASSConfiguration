@@ -108,7 +108,7 @@ views:
       title: Lock
       show_header_toggle: false
       entities:
-        - entity:  lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked
+        - entity:  lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2
           name: Front Door Lock
 
     - type: entities

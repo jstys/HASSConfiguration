@@ -121,7 +121,7 @@ entities:
             room: garage
     
     lock:
-        lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked:
+        lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
             room: front_entrance
     
     presence:
