@@ -1,5 +1,15 @@
 version: '3'
 services:
+  mariadb:
+    container_name: mariadb
+    image: lsioarmhf/mariadb
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/dietpi/mariadb:/config
+    environment:
+      TZ: "America/New_York"
   mosquitto:
     container_name: mqtt-broker
     image: eclipse-mosquitto
@@ -36,6 +46,7 @@ services:
     network_mode: host
     depends_on:
       - "mosquitto"
+      - "mariadb"
   appdaemon:
     container_name: appdaemon
     build: /home/dietpi/appdaemon
