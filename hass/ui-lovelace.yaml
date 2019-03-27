@@ -9,7 +9,8 @@ views:
           label: Front Yard
         - entity: light.driveway
           name: "Driveway Light"
-        - light.front_garden_lights
+        - entity: light.front_garden
+          name: "Front Garden Lights"
         - light.porch_light
         - type: section
           label: First Floor
