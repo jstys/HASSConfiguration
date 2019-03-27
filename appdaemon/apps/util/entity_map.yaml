@@ -33,7 +33,7 @@ entities:
         light.stairs_led:
             name: first_floor_staircase_led
             room: living_room
-        light.front_garden_lights:
+        light.front_garden:
             name: front_garden_lights
             room: frontyard
         light.deck_light:
