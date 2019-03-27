@@ -25,7 +25,7 @@ def on_person_away(name):
         handle_nobody_home()
     
     if name == "jim_presence":
-        PushNotifyAction().add_target("jim_cell_notify").set_message("Come back soon!").notify()
+        PushNotifyAction().add_target("jim_cell").set_message("Come back soon!").notify()
 
 
 def on_person_home(name):
@@ -38,7 +38,7 @@ def on_person_home(name):
         LightAction().add_light("driveway_light").turn_on()
     
     if name == "jim_presence":
-        PushNotifyAction().add_target("jim_cell_notify").set_message("Welcome home!").notify()
+        PushNotifyAction().add_target("jim_cell").set_message("Welcome home!").notify()
         
         
 def handle_nobody_home():

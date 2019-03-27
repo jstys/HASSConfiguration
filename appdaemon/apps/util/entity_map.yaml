@@ -129,10 +129,6 @@ entities:
             name: jim_presence
         group.erica_cell_device:
             name: erica_presence
-    
-    notify:
-        notify.jim_cell:
-            name: jim_cell_notify
             
     input_select:
         input_select.thermostat_mode:
@@ -150,6 +146,10 @@ entities:
 assistants:
     - master_bedroom
     - living_room
+    
+join_targets:
+    - jim_cell
+    - erica_cell
 
 areas:
     front_lawn: frontyard

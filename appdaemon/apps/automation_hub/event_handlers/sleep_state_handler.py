@@ -8,6 +8,7 @@ from actions.door_lock_action import DoorLockAction
 from actions.vacuum_action import VacuumAction
 from actions.light_action import LightAction
 from actions.assistant_action import AssistantAction
+from actions.join_action import JoinAction
 
 def event_filter(event):
     return event.name == "sleep_mode"
@@ -34,6 +35,7 @@ def on_sleep_state_enabled(event):
     assistant_action = AssistantAction().add_assistant("master_bedroom")
     assistant_action.disable_hotword()
     assistant_action.disable_led()
+    JoinAction().add_target("jim_cell").send_taker_command("bed_command")
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
@@ -43,3 +45,4 @@ def on_sleep_state_disabled(event):
     assistant_action = AssistantAction().add_assistant("master_bedroom")
     assistant_action.enable_hotword()
     assistant_action.enable_led()
+    JoinAction().add_target("jim_cell").send_taker_command("awake_command")

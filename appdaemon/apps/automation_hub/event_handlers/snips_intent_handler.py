@@ -13,6 +13,7 @@ from actions.light_action import LightAction
 from actions.media_player_action import MediaPlayerAction
 from actions.assistant_action import AssistantAction
 from actions.vacuum_action import VacuumAction
+from actions.join_action import JoinAction
 from events.mqtt_event import MQTTEvent
 
 def event_filter(event):
@@ -191,7 +192,9 @@ def handle_locate_vacuum(intent, source, raw, slotMap):
     VacuumAction().add_vacuum("robot_vacuum").locate()
     
 def handle_find_phone(intent, source, raw, slotMap):
-    pass
+    logger.info("Handling find phone query")
+    owner = slotMap["owner"]["value"]
+    JoinAction().add_target("{}_cell".format(owner)).ring()
 
 def handle_open_garage(intent, source, raw, slotMap):
     pass
