@@ -7,14 +7,16 @@ views:
       entities:
         - type: section
           label: Front Yard
-        - light.driveway
+        - entity: light.driveway
+          name: "Driveway Light"
         - light.front_garden_lights
         - light.porch_light
         - type: section
           label: First Floor
         - light.living_room_lamps
         - light.piano_led
-        - light.stairs_led
+        - entity: light.stairs_led
+          name: "Staircase LED"
         - light.dining_room_light
         - light.kitchen_lights
         - entity: light.gateway_light_34ce008dcec1
