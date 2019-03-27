@@ -7,14 +7,14 @@ views:
       entities:
         - type: section
           label: Front Yard
-        - light.driveway_light
+        - light.driveway
         - light.front_garden_lights
         - light.porch_light
         - type: section
           label: First Floor
         - light.living_room_lamps
         - light.piano_led
-        - light.first_floor_staircase_led
+        - light.stairs_led
         - light.dining_room_light
         - light.kitchen_lights
         - entity: light.gateway_light_34ce008dcec1
@@ -64,7 +64,7 @@ views:
           name: "Rice Cooker"
         - entity: switch.centralite_outlet_1
           name: "Kettle"
-        - entity: switch.osram_outlet_1
+        - entity: light.piano_plug
           name: "Piano Power"
         - entity: switch.centralite_outlet_2
           name: "Couch Outlet"

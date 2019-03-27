@@ -28,9 +28,9 @@ entities:
         light.gateway_light_34ce008dcec1:
             name: gateway_light
             room: living_room
-        light.driveway_light:
+        light.driveway:
             room: driveway
-        light.first_floor_staircase_led:
+        light.stairs_led:
             name: first_floor_staircase_led
             room: living_room
         light.front_garden_lights:

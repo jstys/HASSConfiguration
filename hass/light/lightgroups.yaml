@@ -37,7 +37,7 @@
     - light.kitchen_lights
     - light.dining_room_light
     - light.gateway_light_34ce008dcec1
-    - light.driveway_light
+    - light.driveway
     - light.deck_light
     - light.office_lights
     - light.jim_night_lamp
