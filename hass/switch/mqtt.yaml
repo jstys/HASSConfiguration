@@ -45,11 +45,3 @@
   payload_on: "on"
   payload_off: "off"
   retain: true
-  
-- platform: mqtt
-  name: "Osram Outlet 1"
-  state_topic: "smartthings/osram_outlet_1/switch"
-  command_topic: "smartthings/osram_outlet_1/switch"
-  payload_on: "on"
-  payload_off: "off"
-  retain: true
