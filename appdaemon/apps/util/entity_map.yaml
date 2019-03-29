@@ -82,6 +82,9 @@ entities:
             room: living_room
         binary_sensor.switch_158d00016dbf86:
             room: master_bedroom
+        zwave.fibaro_system_fgkf601_keyfob:
+            name: fibaro_keychain
+            room: living_room
     
     tv:
         media_player.living_room_tv:
@@ -119,6 +122,12 @@ entities:
         switch.fortrezz_mimolite_switch:
             name: garage_door_switch
             room: garage
+        zwave.linear_wa00z_1_scene_switch_4:
+            name: master_bedroom_switch
+            room: master_bedroom
+        zwave.linear_wa00z_1_scene_switch_5:
+            name: fourth_bedroom_switch
+            room: fourth_bedroom
     
     lock:
         lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:

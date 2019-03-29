@@ -1,24 +1,26 @@
 from automation_hub import event_dispatcher
 from automation_hub import state_machine
 from util import logger
-from events.mqtt_event import MQTTEvent
+from events.zwave_scene_event import ZwaveSceneEvent
 from actions.light_action import LightAction
 
 def event_filter(event):
-    return "smartthings/master_bedroom_switch/button" in event.topic
+    return event.name in ["master_bedroom_switch"]
 
 def register_callbacks():
-    event_dispatcher.register_callback(on_message, MQTTEvent.__name__, event_filter=event_filter)
+    event_dispatcher.register_callback(on_scene_activated, ZwaveSceneEvent.__name__, event_filter=event_filter)
     
-def on_message(event):
-    topic = event.topic
-    payload = event.payload
+def on_scene_activated(event):
+    if event.scene_id == 1:
+        on_top_button(event)
+    elif event.scene_id == 2:
+        on_bottom_button(event)
     
-    logger.info("Received Master Bedroom MQTT message with topic: {} and payload: {}".format(topic, payload))
+def on_top_button(event):
+    logger.info("Turning on master bedroom light")
+    LightAction().add_light("master_bedroom_fixture").turn_on()
 
-    if payload == "pushed":
-        handle_pushed()
-
-def handle_pushed():
-    LightAction().add_light("master_bedroom_fixture").toggle()
+def on_bottom_button(event):
+    logger.info("Turning off master bedroom light")
+    LightAction().add_light("master_bedroom_fixture").turn_off()
     
