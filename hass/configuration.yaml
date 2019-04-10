@@ -89,6 +89,7 @@ switch: !include_dir_merge_list switch/
 device_tracker: !include_dir_merge_list device_tracker/
 media_player: !include_dir_merge_list media_player/
 input_select: !include_dir_merge_named input_select/
+yeelight: !include_dir_merge_named yeelight/
 
 ##############################################################
 #                       ENABLED                              #
