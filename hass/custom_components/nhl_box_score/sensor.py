@@ -4,7 +4,7 @@ import logging
 import json
 
 from homeassistant.helpers.entity import Entity
-from homeassistant.components.sensor.rest import RestData
+from homeassistant.components.rest.sensor import RestData
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 import homeassistant.util.dt as hassdt
 import homeassistant.helpers.config_validation as cv
