@@ -1,0 +1,244 @@
+title: Home Assistant Frontend
+views:
+  - title: Lights
+    cards:
+    - type: entities
+      title: Lights
+      entities:
+        - type: section
+          label: Front Yard
+        - entity: em:driveway_light
+          name: "Driveway Light"
+        - entity: em:front_garden_lights
+          name: "Front Garden Lights"
+        - entity: em:front_porch_light
+          name: "Porch Light"
+        - type: section
+          label: First Floor
+        - entity: em:living_room_lamps
+          name: "Living Room Lamps" 
+        - entity: em:piano_led
+          name: "Piano LED"
+        - entity: em:first_floor_staircase_led
+          name: "Staircase LED"
+        - entity: em:dining_room_light
+          name: "Dining Room Light"
+        - entity: em:kitchen_lights
+          name: "Kitchen Lights"
+        - entity: em:gateway_light
+          name: "Gateway Light"
+        - type: section
+          label: Second Floor
+        - entity: em:hallway_lights
+          name: "Hallway Lights"
+        - entity: em:master_bedroom_fixture
+          name: "Master Bedroom Fixture"
+        - entity: em:jim_night_lamp
+          name: "Jim Night Lamp"
+        - entity: em:erica_night_lamp
+          name: "Erica Night Lamp"
+        - entity: em:office_lights
+          name: "Office Lights"
+        - type: section
+          label: Third Floor
+        - entity: em:fourth_bedroom_fixture
+          name: "Fourth Bedroom Fixture"
+        - type: section
+          label: Basement
+        - entity: em:landing_light
+          name: "Landing Light"
+        - type: section
+          label: Back Yard
+        - entity: em:back_deck_light
+          name: "Deck Light"
+
+  - title: Media
+    cards:
+    - type: entities
+      title: TVs
+      show_header_toggle: false
+      entities:
+        - entity: em:living_room_tv
+        - entity: em:master_bedroom_tv
+        - entity: em:basement_tv
+        - entity: em:guest_bedroom_tv
+  
+    - type: entities
+      title: Speakers
+      show_header_toggle: false
+      entities:
+        - entity: em:backyard_speakers
+        
+  - title: Outlets
+    cards:
+    - type: entities
+      title: Outlets
+      entities:
+        - entity: em:kitchen_fragrance
+          name: "Kitchen Fragrance"
+        - entity: em:rice_cooker
+          name: "Rice Cooker"
+        - entity: em:kettle
+          name: "Kettle"
+        - entity: em:piano_power
+          name: "Piano Power"
+        - entity: em:couch_outlet
+          name: "Couch Outlet"
+        - entity: em:hallway_outlet
+          name: "Hallway Outlet"
+        - entity: em:living_room_fragrance
+          name: "Living Room Fragrance"
+          
+  - title: Climate
+    cards:
+    - type: conditional
+      conditions:
+        - entity: em:thermostat_mode
+          state: "Heating"
+      card:
+        type: thermostat
+        entity: em:oil_thermostat
+        name: Oil Heater
+      
+    - type: glance
+      title: Temperature
+      entities:
+        - entity: em:garage_temperature
+          name: Garage
+        - entity: em:downstairs_temperature
+          name: Downstairs
+        - entity: em:front_door_temperature
+          name: Front Door
+        - entity: em:master_bedroom_temperature
+          name: Master BR
+        - entity: em:office_temperature
+          name: Office
+        - entity: em:guest_bedroom_temperature
+          name: Guest BR
+        - entity: em:upstairs_temperature
+          name: Upstairs
+
+  - title: Misc
+    cards:
+    - type: entities
+      title: Lock
+      show_header_toggle: false
+      entities:
+        - entity:  em:front_entrance_lock
+          name: Front Door Lock
+
+    - type: entities
+      title: Garage
+      show_header_toggle: false
+      entities:
+        - entity: em:garage_door_switch
+          name: Garage Door Switch
+        - entity: em:garage_door_sensor
+          name: Garage Door Sensor
+
+    - type: entities
+      title: Vacuums
+      show_header_toggle: false
+      entities:
+        - entity: em:robot_vacuum
+        
+    - type: entity-filter
+      entities:
+        - entity: em:jim_presence
+          icon: /local/jim.jpg
+        - entity: em:erica_presence
+          icon: /local/erica.jpg
+      state_filter:
+        - home
+      card:
+        type: glance
+        title: At Home
+        show_state: false
+
+    - type: entity-button
+      entity: script.generate_grocery_list
+      name: Generate Mealplan
+      tap_action: call_service
+      service: script.turn_on
+    
+    - type: entity-button
+      entity: script.archive_mealplan
+      name: Archive Mealplan
+      tap_action: call_service
+      service: script.turn_on
+
+  - title: Batteries
+    cards:
+    - type: entities
+      title: Battery Levels
+      entities:
+        - type: section
+          label: Temperature
+        - entity: sensor.downstairs_temperature_battery
+        - entity: sensor.master_bedroom_temperature_battery
+        - entity: sensor.office_temperature_battery
+        - entity: sensor.guest_bedroom_temperature_battery
+        - type: section
+          label: Door
+        - entity: sensor.fridge_door_battery
+        - type: section
+          label: Button
+        - entity: sensor.living_button_battery
+        - entity: sensor.master_bedroom_button_battery
+        - type: section
+          label: Motion
+        - entity: sensor.hallway_motion_battery
+        - entity: sensor.landing_motion_battery
+        - entity: sensor.office_motion_battery
+        - type: section
+          label: Water
+        - entity: sensor.basement_water_battery
+        
+  - title: Config
+    cards:
+    - type: entities
+      title: Configuration
+      show_header_toggle: false
+      entities:
+        - entity: em:thermostat_mode
+        - entity: em:sleep_mode
+          name: Sleep Mode
+          icon: mdi:sleep
+        
+  - title: Advanced
+    cards:
+    - type: entities
+      title: Software Update
+      show_header_toggle: false
+      entities:
+        - type: call-service
+          name: Update HASS
+          service: shell_command.update_hass_config
+        - type: call-service
+          name: Update Appdaemon
+          service: shell_command.update_appdaemon_config
+        - type: call-service
+          name: Update
+          
+    - type: entities
+      title: IR Learning
+      show_header_toggle: false
+      entities:
+        - type: call-service
+          name: Living Room Learn
+          service: switch.broadlink_learn_command_10_0_0_11
+        - type: call-service
+          name: Master BR Learn
+          service: switch.broadlink_learn_command_10_0_0_4
+          
+    - type: entities
+      title: Zigbee Setup
+      show_header_toggle: false
+      entities:
+        - type: call-service
+          name: Add Xiaomi Device
+          service: xiaomi_aqara.add_device
+          service_data:
+            gw_mac: !secret xiaomi1_mac
+        - entity: switch.zigbee_debug
+          name: Zigbee Debug Logging

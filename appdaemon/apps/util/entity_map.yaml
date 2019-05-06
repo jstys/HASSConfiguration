@@ -108,6 +108,22 @@ entities:
     speakers:
         media_player.backyard_speaker:
             room: backyard
+
+    outlet:
+        switch.tradfri_outlet_2:
+            name: kitchen_fragrance
+        switch.hank_hkzw_so03_smart_plug_switch_2:
+            name: rice_cooker
+        switch.centralite_outlet_1:
+            name: kettle
+        light.piano_plug:
+            name: piano_power
+        switch.centralite_outlet_2:
+            name: couch_outlet
+        switch.centralite_outlet_3:
+            name: hallway_outlet
+        switch.hank_hkzw_so03_smart_plug_switch:
+            name: living_room_fragrance
     
     switch:
         zwave.linear_wa00z_1_scene_switch:
@@ -151,6 +167,26 @@ entities:
         vacuum.xiaomi_vacuum_cleaner:
             name: robot_vacuum
             room: kitchen
+
+    thermostat:
+        climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1:
+            name: oil_thermostat
+
+    temperature:
+        sensor.garage_temperature:
+            name: garage_temperature
+        sensor.temperature_158d0001d6f386:
+            name: downstairs_temperature
+        sensor.front_door_temperature:
+            name: front_door_temperature
+        sensor.temperature_158d000245a6a2:
+            name: master_bedroom_temperature
+        sensor.temperature_158d000245ae4b:
+            name: office_temperature
+        sensor.temperature_158d00023cf8f7:
+            name: guest_bedroom_temperature
+        sensor.temperature_158d00023cf950:
+            name: upstairs_temperature
             
 assistants:
     - master_bedroom
