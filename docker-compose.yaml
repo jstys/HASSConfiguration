@@ -34,7 +34,7 @@ services:
       - "mosquitto"
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:0.91.3
+    image: homeassistant/tinker-homeassistant:0.92.2
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
