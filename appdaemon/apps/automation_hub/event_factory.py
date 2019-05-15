@@ -13,6 +13,8 @@ from events.lock_event import LockEvent
 from events.input_event import InputEvent
 from events.generate_mealplan_event import GenerateMealplanEvent
 from events.archive_mealplan_event import ArchiveMealplanEvent
+from events.sunrise_event import SunriseEvent
+from events.sunset_event import SunsetEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -29,6 +31,10 @@ def create_from_event(event_name, data, kwargs):
         return GenerateMealplanEvent()
     elif event_name == "archive_mealplan":
         return ArchiveMealplanEvent()
+    elif event_name == "sun.sunset":
+        return SunsetEvent()
+    elif event_name == "sun.sunrise":
+        return SunriseEvent()
 
     logger.warning("Received invalid event type")
     return None

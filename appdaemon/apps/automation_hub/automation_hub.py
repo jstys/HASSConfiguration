@@ -28,7 +28,6 @@ class AutomationHub(hass.Hass):
             self.event_handler_map = {}
         self._load_handlers()
         self._initialize_states()
-        self._initialize_callbacks()
         
     def _load_handlers(self):
         cwd = os.path.dirname(os.path.realpath(__file__))
@@ -54,12 +53,9 @@ class AutomationHub(hass.Hass):
         # Get HASS States
         sleep_state = self.get_state(entity="input_boolean.sleep_mode", namespace="hass") == "on"
         thermostat_mode = self.get_state(entity="input_select.thermostat_mode", namespace="hass")
+        sunup_state = self.get_state(entity="sun.sun", namespace="hass") == "above_horizon"
         
         # Add try/except around appdaemon methods which may fail
-        try:
-            sunup_state = self.sun_up()
-        except:
-            sunup_state = False
         try:
             nobody_home = self.noone_home(namespace="hass")
         except:
@@ -69,12 +65,6 @@ class AutomationHub(hass.Hass):
         state_machine.set_state(state_machine.SLEEP_STATE, sleep_state)
         state_machine.set_state(state_machine.THERMOSTAT_STATE, thermostat_mode)
         state_machine.set_state(state_machine.NOBODY_HOME_STATE, nobody_home)
-        
-    def on_sunrise(self, kwargs):
-        event_dispatcher.dispatch(SunriseEvent())
-        
-    def on_sunset(self, kwargs):
-        event_dispatcher.dispatch(SunsetEvent())
     
     def setup_logger(self):
         log = self.get_main_log()
