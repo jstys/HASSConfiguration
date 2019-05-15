@@ -54,8 +54,16 @@ class AutomationHub(hass.Hass):
         # Get HASS States
         sleep_state = self.get_state(entity="input_boolean.sleep_mode", namespace="hass") == "on"
         thermostat_mode = self.get_state(entity="input_select.thermostat_mode", namespace="hass")
-        sunup_state = self.sun_up()
-        nobody_home = self.noone_home(namespace="hass")
+        
+        # Add try/except around appdaemon methods which may fail
+        try:
+            sunup_state = self.sun_up()
+        except:
+            sunup_state = False
+        try:
+            nobody_home = self.noone_home(namespace="hass")
+        except:
+            nobody_home = False
         
         state_machine.set_state(state_machine.SUN_UP_STATE, sunup_state)
         state_machine.set_state(state_machine.SLEEP_STATE, sleep_state)
