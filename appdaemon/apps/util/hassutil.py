@@ -45,7 +45,7 @@ def join_ring_device(target):
     call_service("joaoapps_join", "{}_ring".format(target))
     
 def join_send_tasker(target, command):
-    call_service("joaoapps_join", "{}_send_taker".format(target), command=command)
+    call_service("joaoapps_join", "{}_send_tasker".format(target), command=command)
 
 def tts_say(message, tts_room):
     call_service("mqtt", "publish", topic="snips/{}/tts/say".format(tts_room), payload=json.dumps({"text": message, "siteId": tts_room}))
