@@ -31,10 +31,6 @@ def create_from_event(event_name, data, kwargs):
         return GenerateMealplanEvent()
     elif event_name == "archive_mealplan":
         return ArchiveMealplanEvent()
-    elif event_name == "sun.sunset":
-        return SunsetEvent()
-    elif event_name == "sun.sunrise":
-        return SunriseEvent()
 
     logger.warning("Received invalid event type")
     return None
@@ -108,6 +104,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         return create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type in ["input_boolean", "input_select"]:
         return create_input_change_event(friendly_name, entity, attributes, old, new, kwargs)
+    if friendly_name == "sun":
+        return create_sun_event(old, new)
     
     logger.warning("Received invalid state change entity")
     return None
@@ -168,3 +166,10 @@ def create_input_change_event(friendly_name, entity, attributes, old, new, kwarg
     else:
         logger.warning("Received invalid input transition")
         return None
+
+def create_sun_event(old, new):
+    logger.info("Creating Sun event")
+    if new != old and new == "above_horizon":
+        return SunriseEvent()
+    elif new != old and new == "below_horizon":
+        return SunsetEvent()

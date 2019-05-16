@@ -14,8 +14,6 @@ automation_hub:
     - state_machine.state_changed
     - generate_mealplan
     - archive_mealplan
-    - sun.sunset
-    - sun.sunrise
 # nhl_announcer:
 #   module: nhl_announcer
 #   class: NHLAnnouncer

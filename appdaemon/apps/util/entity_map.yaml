@@ -187,6 +187,10 @@ entities:
             name: guest_bedroom_temperature
         sensor.temperature_158d00023cf950:
             name: upstairs_temperature
+
+    miscellaneous:
+        sun.sun:
+            name: sun
             
 assistants:
     - master_bedroom
