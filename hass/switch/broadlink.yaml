@@ -1,9 +1,17 @@
-- platform: broadlink # Location:
+- platform: broadlink
   host: 10.0.0.4
-  mac: !secret broadlink1_mac # Location: 
+  mac: !secret broadlink1_mac # Location: Master BR
+  switches:
+    master_bedroom_ac:
+      command_on: !secret master_bedroom_ac_on
+      command_off: !secret master_bedroom_ac_off
 - platform: broadlink
   host: 10.0.0.11
-  mac: !secret broadlink2_mac # Location: 
+  mac: !secret broadlink2_mac # Location: Downstairs
+  switches:
+    dining_room_ac:
+      command_on: !secret dining_room_ac_power
+      command_off: !secret dining_room_ac_power
 - platform: broadlink
   host: 10.0.0.30
   mac: !secret broadlink3_mac # Location:
@@ -15,6 +23,5 @@
   mac: !secret broadlink5_mac # Location: 4th br
   switches:
     fourth_bedroom_ac:
-      friendly_name: "Fourth Bedroom AC"
       command_on: !secret fourth_bedroom_ac_power
       command_off: !secret fourth_bedroom_ac_power
