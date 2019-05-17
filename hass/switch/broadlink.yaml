@@ -12,4 +12,9 @@
   mac: !secret broadlink4_mac # Location:
 - platform: broadlink
   host: 10.0.0.40
-  mac: !secret broadlink5_mac # Location: 4th br 
+  mac: !secret broadlink5_mac # Location: 4th br
+  switches:
+    fourth_bedroom_ac:
+      friendly_name: "Fourth Bedroom AC"
+      command_on: !secret fourth_bedroom_ac_power
+      command_off: !secret fourth_bedroom_ac_power

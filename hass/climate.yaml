@@ -1,22 +1,8 @@
-- platform: broadlink
-    name: Downstairs AC
-    host: 192.168.1.85
-    mac: 'BB:BB:BB:BB:BB:BB'
-    ircodes_ini: 'broadlink_climate_codes/toyotomi_akira.ini'
-    min_temp: 16
-    max_temp: 30
-    target_temp: 20
-    target_temp_step: 1
-    temp_sensor: sensor.living_room_temperature
-    default_operation: 'off'
-    default_fan_mode: mid
-    customize:
-      operations:
-        - 'off'
-        - cool
-        - heat
-      fan_modes:
-        - low
-        - mid
-        - high
-        - auto
+- platform: generic_thermostat
+  name: Fourth Bedroom AC
+  heater: switch.fourth_bedroom_ac
+  target_sensor: sensor.temperature_158d00023cf950
+  ac_mode: true
+  min_cycle_duration:
+    seconds: 5
+  initial_operation_mode: "off"
