@@ -93,8 +93,35 @@ views:
           state: "Cooling"
       card:
         type: thermostat
+        entity:  climate.dining_room_ac
+        name: Dining Room
+        
+    - type: conditional
+      conditions:
+        - entity: input_select.thermostat_mode
+          state: "Cooling"
+      card:
+        type: thermostat
+        entity:  climate.master_bedroom_ac
+        name: Master Bedroom
+        
+    - type: conditional
+      conditions:
+        - entity: input_select.thermostat_mode
+          state: "Cooling"
+      card:
+        type: thermostat
+        entity:  climate.guest_bedroom_ac
+        name: Guest Bedroom
+
+    - type: conditional
+      conditions:
+        - entity: input_select.thermostat_mode
+          state: "Cooling"
+      card:
+        type: thermostat
         entity:  climate.fourth_bedroom_ac
-        name: Fourth Bedroom AC
+        name: Fourth Bedroom
       
     - type: glance
       title: Temperature
