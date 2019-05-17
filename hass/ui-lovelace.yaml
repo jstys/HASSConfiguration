@@ -86,6 +86,15 @@ views:
         type: thermostat
         entity:  climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1
         name: Oil Heater
+
+    - type: conditional
+      conditions:
+        - entity: input_select.thermostat_mode
+          state: "Cooling"
+      card:
+        type: thermostat
+        entity:  climate.fourth_bedroom_ac
+        name: Fourth Bedroom AC
       
     - type: glance
       title: Temperature
