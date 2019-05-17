@@ -1,12 +1,15 @@
-- platform: broadlink
+- platform: broadlink # Location:
   host: 10.0.0.4
-  mac: !secret broadlink1_mac
+  mac: !secret broadlink1_mac # Location: 
 - platform: broadlink
   host: 10.0.0.11
-  mac: !secret broadlink2_mac
+  mac: !secret broadlink2_mac # Location: 
 - platform: broadlink
   host: 10.0.0.30
-  mac: !secret broadlink3_mac
+  mac: !secret broadlink3_mac # Location:
 - platform: broadlink
   host: 10.0.0.31
-  mac: !secret broadlink4_mac
+  mac: !secret broadlink4_mac # Location:
+- platform: broadlink
+  host: 10.0.0.40
+  mac: !secret broadlink5_mac # Location: 4th br 
