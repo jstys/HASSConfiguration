@@ -6,3 +6,27 @@
   min_cycle_duration:
     seconds: 5
   initial_operation_mode: "off"
+- platform: generic_thermostat
+  name: Master Bedroom AC
+  heater: switch.master_bedroom_ac
+  target_sensor: sensor.temperature_158d000245a6a2
+  ac_mode: true
+  min_cycle_duration:
+    seconds: 5
+  initial_operation_mode: "off"
+- platform: generic_thermostat
+  name: Dining Room AC
+  heater: switch.dining_room_ac
+  target_sensor: sensor.temperature_158d0001d6f386
+  ac_mode: true
+  min_cycle_duration:
+    seconds: 5
+  initial_operation_mode: "off"
+- platform: generic_thermostat
+  name: Guest Bedroom AC
+  heater: switch.guest_bedroom_ac
+  target_sensor: sensor.temperature_158d00023cf8f7
+  ac_mode: true
+  min_cycle_duration:
+    seconds: 5
+  initial_operation_mode: "off"
