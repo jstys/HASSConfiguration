@@ -227,6 +227,8 @@ views:
         - entity: input_boolean.sleep_mode
           name: Sleep Mode
           icon: mdi:sleep
+        - entity: input_boolean.guest_mode
+          name: Guest Mode
         
   - title: Advanced
     cards:
