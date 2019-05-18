@@ -1,24 +1,27 @@
 basement_tv_mute:
   alias: Mute
   sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
+    - service: broadlink.send
       data:
+        host: "10.0.0.4"
         packet:
           - !secret basement_soundbar_mute
 
 basement_tv_volume_up:
   alias: Volume +
   sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
+    - service: broadlink.send
       data:
+        host: "10.0.0.4"
         packet:
           - !secret basement_soundbar_volume_up
 
 basement_tv_volume_down:
   alias: Volume -
   sequence:
-    - service: switch.broadlink_send_packet_10_0_0_4
+    - service: broadlink.send
       data:
+        host: "10.0.0.4"
         packet:
           - !secret basement_soundbar_volume_down
 
@@ -27,8 +30,9 @@ basement_tv_on:
     - condition: state
       entity_id: input_boolean.basement_tv
       state: 'off'
-    - service: switch.broadlink_send_packet_10_0_0_4
+    - service: broadlink.send
       data:
+        host: "10.0.0.4"
         packet:
           - !secret basement_tv_on
           - !secret basement_tv_on
@@ -45,8 +49,9 @@ basement_tv_off:
     - condition: state
       entity_id: input_boolean.basement_tv
       state: 'on'
-    - service: switch.broadlink_send_packet_10_0_0_4
+    - service: broadlink.send
       data:
+        host: "10.0.0.4"
         packet:
           - !secret basement_tv_off
           - !secret basement_tv_off
