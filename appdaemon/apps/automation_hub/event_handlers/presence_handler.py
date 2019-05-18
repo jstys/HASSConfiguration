@@ -43,18 +43,20 @@ def on_person_home(name):
         
 def handle_nobody_home():
     logger.info("Nobody home...")
+
     state_machine.set_state(state_machine.NOBODY_HOME_STATE, True)
-    
-    all_tvs = entity_map.find_type_entities("tv")
-    
-    LightAction().add_light("manual_off_lights").turn_off()
-    MediaPlayerAction().add_media_players(all_tvs).turn_off()
-    DoorLockAction().add_lock("front_entrance_lock").lock()
-    
-    # Turn off sleep mode
-    hassutil.turn_off(hassutil.Entity(entity_map.name_map["sleep_mode"]))
-    
-    #TODO: schedule timer for simulating someone being home
+
+    if not state_machine.get_state(state_machine.GUEST_STATE):
+        all_tvs = entity_map.find_type_entities("tv")
+        
+        LightAction().add_light("manual_off_lights").turn_off()
+        MediaPlayerAction().add_media_players(all_tvs).turn_off()
+        DoorLockAction().add_lock("front_entrance_lock").lock()
+        
+        # Turn off sleep mode
+        hassutil.turn_off(hassutil.Entity(entity_map.name_map["sleep_mode"]))
+        
+        #TODO: schedule timer for simulating someone being home
     
 def handle_somebody_home():
     logger.info("Someone is home now...")

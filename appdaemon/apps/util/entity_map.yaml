@@ -162,6 +162,8 @@ entities:
     input_boolean:
         input_boolean.sleep_mode:
             name: sleep_mode
+        input_boolean.guest_mode:
+            name: guest_mode
             
     vacuum:
         vacuum.xiaomi_vacuum_cleaner:

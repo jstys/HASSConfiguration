@@ -4,6 +4,7 @@ from util import logger
 state_map = {}
 
 SLEEP_STATE = "sleep"
+GUEST_STATE = "guest"
 SUN_UP_STATE = "sun"
 JIM_HOME_STATE = "jim_home"
 ERICA_HOME_STATE = "erica_home"
