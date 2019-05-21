@@ -32,4 +32,4 @@ def on_guest_state_enabled(event):
 def on_guest_state_disabled(event):
     logger.info("Guest state disabled")
     
-    state_machine.set_state(state_machine.SLEEP_STATE, False)
+    state_machine.set_state(state_machine.GUEST_STATE, False)
