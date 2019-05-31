@@ -1,0 +1,3 @@
+- platform: mpd
+  host: 10.0.0.22
+  name: Master Bedroom MPD

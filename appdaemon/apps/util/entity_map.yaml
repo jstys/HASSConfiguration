@@ -108,6 +108,9 @@ entities:
     speakers:
         media_player.backyard_speaker:
             room: backyard
+        media_player.master_bedroom_mpd:
+            room: master_bedroom
+            name: master_bedroom_mpd
 
     outlet:
         switch.tradfri_outlet_2:
