@@ -68,4 +68,4 @@ class MediaPlayerAction():
 
     def set_volume(self, volume):
         for media_player in self._media_players:
-            hassutil.call_service("media_player", "set_volume", entity_id=media_player.entity_id, volume_level=volume)
+            hassutil.call_service("media_player", "volume_set", entity_id=media_player.entity_id, volume_level=volume)
