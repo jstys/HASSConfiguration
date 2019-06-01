@@ -40,10 +40,10 @@ def on_sleep_state_enabled(event):
     JoinAction().add_target("jim_cell").send_taker_command("bed_command")
     MediaPlayerAction().add_media_player("master_bedroom_mpd").set_volume(0.8)
     play_white_noise()
-    timer_manager.start_timer("white_noise_restart", play_white_noise, hours=1)
 
 def play_white_noise():
     MediaPlayerAction().add_media_player("master_bedroom_mpd").play_music("http://10.0.0.6:8123/local/white_noise.mp3")
+    timer_manager.start_timer("white_noise_restart", play_white_noise, hours=1)
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
@@ -55,3 +55,4 @@ def on_sleep_state_disabled(event):
     assistant_action.enable_led()
     JoinAction().add_target("jim_cell").send_taker_command("awake_command")
     MediaPlayerAction().add_media_player("master_bedroom_mpd").stop()
+    timer_manager.cancel_timer("white_noise_restart")
