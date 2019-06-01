@@ -1,5 +1,6 @@
 from automation_hub import event_dispatcher
 from automation_hub import state_machine
+from automation_hub import timer_manager
 from util import entity_map
 from util import logger
 from util import hassutil
@@ -37,9 +38,12 @@ def on_sleep_state_enabled(event):
     assistant_action.disable_hotword()
     assistant_action.disable_led()
     JoinAction().add_target("jim_cell").send_taker_command("bed_command")
-    mpaction = MediaPlayerAction().add_media_player("master_bedroom_mpd")
-    mpaction.set_volume(0.8)
-    mpaction.play_music("http://10.0.0.6:8123/local/white_noise.mp3")
+    MediaPlayerAction().add_media_player("master_bedroom_mpd").set_volume(0.8)
+    play_white_noise()
+    timer_manager.start_timer("white_noise_restart", play_white_noise, hours=1)
+
+def play_white_noise():
+    MediaPlayerAction().add_media_player("master_bedroom_mpd").play_music("http://10.0.0.6:8123/local/white_noise.mp3")
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
