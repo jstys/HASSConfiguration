@@ -3,6 +3,8 @@ from util import logger
 from util import hassutil
 from util.entity_map import name_map
 from events.button_click_event import ButtonClickEvent
+from actions.media_player_action import MediaPlayerAction
+from automation_hub import state_machine
 
 def event_filter(event):
     return event.button_name == "master_bedroom_button"
@@ -21,10 +23,13 @@ def on_button_clicked(event):
 def on_single_click(event):
     logger.info("Master Bedroom Button single clicked")
 
+    if state_machine.get_state(state_machine.SLEEP_STATE):
+        MediaPlayerAction().add_media_player("master_bedroom_mpd").toggle_pause()
+
 def on_double_click(event):
     logger.info("Master Bedroom Button double clicked")
 
 def on_long_press(event):
     logger.info("Master Bedroom Button long pressed")
     
-    hassutil.turn_on(hassutil.Entity(name_map["sleep_mode"]))
+    hassutil.toggle(hassutil.Entity(name_map["sleep_mode"]))

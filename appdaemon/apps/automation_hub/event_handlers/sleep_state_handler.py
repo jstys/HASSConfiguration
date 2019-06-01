@@ -9,6 +9,7 @@ from actions.vacuum_action import VacuumAction
 from actions.light_action import LightAction
 from actions.assistant_action import AssistantAction
 from actions.join_action import JoinAction
+from actions.media_player_action import MediaPlayerAction
 
 def event_filter(event):
     return event.name == "sleep_mode"
@@ -36,6 +37,9 @@ def on_sleep_state_enabled(event):
     assistant_action.disable_hotword()
     assistant_action.disable_led()
     JoinAction().add_target("jim_cell").send_taker_command("bed_command")
+    mpaction = MediaPlayerAction().add_media_player("master_bedroom_mpd")
+    mpaction.set_volume(0.8)
+    mpaction.play_music("http://10.0.0.6:8123/local/white_noise.mp3")
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
@@ -46,3 +50,4 @@ def on_sleep_state_disabled(event):
     assistant_action.enable_hotword()
     assistant_action.enable_led()
     JoinAction().add_target("jim_cell").send_taker_command("awake_command")
+    MediaPlayerAction().add_media_player("master_bedroom_mpd").stop()

@@ -31,11 +31,23 @@ class MediaPlayerAction():
             
     def pause(self):
         for media_player in self._media_players:
-            hassutil.call_service("media_player", "pause", entity_id=media_player.entity_id)
+            hassutil.call_service("media_player", "media_pause", entity_id=media_player.entity_id)
         
     def play(self):
         for media_player in self._media_players:
-            hassutil.call_service("media_player", "play", entity_id=media_player.entity_id)
+            hassutil.call_service("media_player", "media_play", entity_id=media_player.entity_id)
+
+    def stop(self):
+        for media_player in self._media_players:
+            hassutil.call_service("media_player", "media_stop", entity_id=media_player.entity_id)
+
+    def toggle_pause(self):
+        for media_player in self._media_players:
+            hassutil.call_service("media_player", "media_play_pause", entity_id=media_player.entity_id)
+
+    def play_music(self, uri):
+        for media_player in self._media_players:
+            hassutil.call_service("media_player", "play_media", entity_id=media_player.entity_id, media_content_id=uri, media_content_type="music")
             
     def change_input(self, input_name):
         for media_player in self._media_players:
@@ -53,3 +65,7 @@ class MediaPlayerAction():
     def unmute(self):
         for media_player in self._media_players:
             hassutil.call_service("media_player", "volume_mute", entity_id=media_player.entity_id, is_volume_muted=False)
+
+    def set_volume(self, volume):
+        for media_player in self._media_players:
+            hassutil.call_service("media_player", "set_volume", entity_id=media_player.entity_id, volume_level=volume)
