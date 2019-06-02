@@ -105,6 +105,6 @@ class AutomationHub(hass.Hass):
     def timer_callback(self, kwargs):
         partial = kwargs.get("partial")
         name = kwargs.get("title")
+        timer_manager.remove_timer(name)
         if partial:
             partial()
-        timer_manager.remove_timer(name)
