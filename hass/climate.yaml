@@ -9,8 +9,8 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  initial_operation_mode: "auto"
-  precision: 0.5
+  initial_operation_mode: "off"
+  precision: 0.1
 - platform: generic_thermostat
   name: Master Bedroom AC
   heater: switch.master_bedroom_ac
@@ -24,8 +24,8 @@
     seconds: 30
   keep_alive:
     minutes: 2
-  initial_operation_mode: "auto"
-  precision: 0.5
+  initial_operation_mode: "off"
+  precision: 0.1
 - platform: generic_thermostat
   name: Dining Room AC
   heater: switch.dining_room_ac
@@ -37,8 +37,8 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  initial_operation_mode: "auto"
-  precision: 0.5
+  initial_operation_mode: "off"
+  precision: 0.1
 - platform: generic_thermostat
   name: Guest Bedroom AC
   heater: switch.guest_bedroom_ac
@@ -52,5 +52,5 @@
     seconds: 30
   keep_alive:
     minutes: 2
-  initial_operation_mode: "auto"
-  precision: 0.5
+  initial_operation_mode: "off"
+  precision: 0.1
