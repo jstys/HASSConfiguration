@@ -168,9 +168,9 @@ views:
     - type: entity-filter
       entities:
         - entity: person.jim
-          entity_picture: /local/jim.jpg
+          image: /local/jim.jpg
         - entity: person.erica
-          entity_picture: /local/erica.jpg
+          image: /local/erica.jpg
       state_filter:
         - home
       card:
