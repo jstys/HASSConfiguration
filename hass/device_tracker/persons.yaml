@@ -1,0 +1,10 @@
+- name: Jim
+  id: jimtracker
+  device_trackers:
+    - device_tracker.bt_jim_cell
+    - device_tracker.owntracks_jim
+- name: Erica
+  id: ericatracker
+  device_trackers:
+    - device_tracker.bt_erica_cell
+    - device_tracker.owntracks_erica
