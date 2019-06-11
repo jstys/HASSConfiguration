@@ -25,9 +25,6 @@ joaoapps_join:
     device_id: !secret jim_cell_device_id
     api_key: !secret jim_join_key
 
-tts:
-  platform: google
-
 cast:
   media_player:
     - host: 10.0.0.26 # living room tv
