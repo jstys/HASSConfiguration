@@ -153,9 +153,9 @@ entities:
             room: front_entrance
     
     presence:
-        group.jim_cell_device:
+        person.jim:
             name: jim_presence
-        group.erica_cell_device:
+        person.erica:
             name: erica_presence
             
     input_select:
