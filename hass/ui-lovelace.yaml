@@ -167,9 +167,9 @@ views:
         
     - type: entity-filter
       entities:
-        - entity: group.jim_cell_device
+        - entity: person.jim
           icon: /local/jim.jpg
-        - entity: group.erica_cell_device
+        - entity: person.erica
           icon: /local/erica.jpg
       state_filter:
         - home
