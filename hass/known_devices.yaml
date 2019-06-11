@@ -1,23 +1,7 @@
-wifi_jim_cell:
-  hide_if_away: false
-  mac: !secret jim_cell_wifi_mac
-  name: WiFi
-  picture:
-  track: true
-  vendor:
-
 bt_jim_cell:
   hide_if_away: false
   mac: !secret jim_cell_bt_mac
   name: Bluetooth
-  picture:
-  track: true
-  vendor:
-
-wifi_erica_cell:
-  hide_if_away: false
-  mac: !secret erica_cell_wifi_mac
-  name: WiFi
   picture:
   track: true
   vendor:
@@ -29,16 +13,3 @@ bt_erica_cell:
   picture:
   track: true
   vendor:
-
-owntracks_jim:
-  hide_if_away: false
-  name: GPS
-  track: true
-  picture: /local/jim.jpg
-
-owntracks_erica:
-  hide_if_away: false
-  name: GPS
-  track: true
-  picture: /local/erica.jpg
-
