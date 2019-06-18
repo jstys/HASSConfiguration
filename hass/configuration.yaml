@@ -53,6 +53,8 @@ zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
 
+z_wave_graph:
+
 # zha_new:
 #     usb_path: /dev/ttyUSB1
 #     database_path: /home/homeassistant/.homeassistant/zigbee_new.db
