@@ -5,6 +5,11 @@ homeassistant:
   elevation: 54
   unit_system: imperial
   time_zone: !secret home_timezone
+  customize:
+    device_tracker.owntracks_jim:
+      entity_picture: /local/jim.jpg
+    device_tracker.owntracks_erica:
+      entity_picture: /local/erica.jpg
 
 lovelace:
   mode: yaml

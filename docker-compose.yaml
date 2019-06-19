@@ -39,6 +39,8 @@ services:
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
       - /home/dietpi/secrets_hass.yaml:/config/secrets.yaml
+      - /home/dietpi/jim.jpg:/config/www/jim.jpg
+      - /home/dietpi/erica.jpg:/config/www/erica.jpg
       - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
