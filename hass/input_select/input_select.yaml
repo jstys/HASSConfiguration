@@ -3,5 +3,4 @@ thermostat_mode:
   options:
     - Heating
     - Cooling
-  initial: Heating
   icon: mdi:oil-temperature
