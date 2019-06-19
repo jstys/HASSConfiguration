@@ -28,6 +28,10 @@ class MediaPlayerAction():
     def turn_off(self):
         for media_player in self._media_players:
             hassutil.turn_off(media_player)
+
+    def toggle_power(self):
+        for media_player in self._media_players:
+            hassutil.toggle(media_player)
             
     def pause(self):
         for media_player in self._media_players:

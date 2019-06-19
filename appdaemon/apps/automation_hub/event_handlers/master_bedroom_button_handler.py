@@ -29,6 +29,8 @@ def on_single_click(event):
 def on_double_click(event):
     logger.info("Master Bedroom Button double clicked")
 
+    MediaPlayerAction().add_media_player("master_bedroom_tv").toggle_power()
+
 def on_long_press(event):
     logger.info("Master Bedroom Button long pressed")
     
