@@ -24,7 +24,7 @@ services:
       - "9001:9001"
   smartthingsbridge:
     container_name: smartthings-bridge
-    image: t0rx/rpi-smartthings-mqtt-bridge
+    build: /home/dietpi/smartthings-mqtt-bridge
     restart: unless-stopped
     volumes:
       - /home/dietpi/smartthingsmqttbridge:/config
