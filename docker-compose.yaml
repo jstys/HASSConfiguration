@@ -61,5 +61,13 @@ services:
       - "5000"
     depends_on:
       - "homeassistant"
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:master
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - "homeassistant"
     
     
