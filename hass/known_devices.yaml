@@ -1,15 +1,15 @@
-bt_jim_cell:
+jim_cell_wifi:
   hide_if_away: false
-  mac: !secret jim_cell_bt_mac
-  name: Bluetooth
+  mac: !secret jim_cell_wifi_mac
+  name: Jim Cell Wifi
   picture:
   track: true
   vendor:
 
-bt_erica_cell:
+erica_cell_wifi:
   hide_if_away: false
-  mac: !secret erica_cell_bt_mac
-  name: Bluetooth
+  mac: !secret erica_cell_wifi_mac
+  name: Erica Cell Wifi
   picture:
   track: true
   vendor:
