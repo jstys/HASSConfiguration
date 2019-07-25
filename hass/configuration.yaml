@@ -74,6 +74,12 @@ nest:
 
 owntracks:
   secret: !secret owntracks_encryption
+  
+panel_custom:
+  - name: zwavegraph2
+    sidebar_title: Z-Wave Graph
+    sidebar_icon: mdi:access-point-network
+    url_path: zwave
 
 ##############################################################
 #                       INCLUDES                             #
@@ -207,7 +213,3 @@ history:
       - sensor.hank_hkzw_so03_smart_plug_energy
       - sensor.hank_hkzw_so03_smart_plug_current_2
       - sensor.hank_hkzw_so03_smart_plug_current
-
-http:
-  trusted_networks:
-    - 127.0.0.1
