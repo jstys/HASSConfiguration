@@ -1,4 +1,4 @@
-- platform: nmap
+- platform: nmap_tracker
   hosts:
     - 10.0.0.17
     - 10.0.0.47
