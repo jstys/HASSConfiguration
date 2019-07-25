@@ -25,10 +25,17 @@ notify:
     api_key: !secret jim_join_key
     device_names: jim_cell
     name: jim_cell
+  - platform: joaoapps_join
+    api_key: !secret erica_join_key
+    device_names: erica_cell
+    name: erica_cell
 joaoapps_join:
   - name: jim_cell
     device_id: !secret jim_cell_device_id
     api_key: !secret jim_join_key
+  - name: erica_cell
+    device_id: !secret erica_cell_device_id
+    api_key: !secret erica_join_key
 
 cast:
   media_player:
