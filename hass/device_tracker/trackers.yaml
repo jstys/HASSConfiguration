@@ -1,7 +1,14 @@
-- platform: bluetooth_tracker
+- platform: nmap
+  hosts:
+    - 10.0.0.17
+    - 10.0.0.47
   new_device_defaults:
     track_new_devices: False
     hide_if_away: False
+# - platform: bluetooth_tracker
+#   new_device_defaults:
+#     track_new_devices: False
+#     hide_if_away: False
 # - platform: asuswrt
 #   host: 10.0.0.1
 #   username: !secret router_user
