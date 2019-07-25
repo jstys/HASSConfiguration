@@ -2,7 +2,9 @@
   id: jimtracker
   device_trackers:
     - device_tracker.owntracks_jim
+    - device_tracker.jim_cell_wifi
 - name: Erica
   id: ericatracker
   device_trackers:
     - device_tracker.owntracks_erica
+    - device_tracker.erica_cell_wifi
