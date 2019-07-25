@@ -9,7 +9,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  initial_operation_mode: "off"
+  initial_hvac_mode: "off"
   precision: 0.1
 - platform: generic_thermostat
   name: Master Bedroom AC
@@ -24,7 +24,7 @@
     seconds: 30
   keep_alive:
     minutes: 2
-  initial_operation_mode: "off"
+  initial_hvac_mode: "off"
   precision: 0.1
 - platform: generic_thermostat
   name: Dining Room AC
@@ -37,7 +37,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  initial_operation_mode: "off"
+  initial_hvac_mode: "off"
   precision: 0.1
 - platform: generic_thermostat
   name: Guest Bedroom AC
@@ -52,5 +52,5 @@
     seconds: 30
   keep_alive:
     minutes: 2
-  initial_operation_mode: "off"
+  initial_hvac_mode: "off"
   precision: 0.1
