@@ -76,15 +76,18 @@ views:
         entities:
           - entity: media_player.guest_bedroom_tv
             name: TV
-      - type: glance
+      - type: entities
         title: Fourth Bedroom
+        entities:
+          - entity: light.fourth_bedroom_fixture
+            name: Light
       - type: entities
         title: Basement
         entities: 
           - entity: media_player.basement_tv
             name: TV
-      - type: glance
-        title: Attic
+          - entity: light.basement_staircase_light
+            name: Staircase
       - type: entities
         title: Garage
         entities:
@@ -104,8 +107,6 @@ views:
           - entity: light.front_garden
             name: "Front Garden Lights"
           - light.porch_light
-          - light.fourth_bedroom_fixture
-          - light.basement_staircase_light
           - light.deck_light
       - type: entities
         title: Speakers
