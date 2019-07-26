@@ -68,21 +68,25 @@ views:
             name: "Erica"
       - type: entities
         title: Office
+        show_header_toggle: false
         entities:
           - entity: light.office_lights
             name: Lights
       - type: entities
         title: Guest Bedroom
+        show_header_toggle: false
         entities:
           - entity: media_player.guest_bedroom_tv
             name: TV
       - type: entities
         title: Fourth Bedroom
+        show_header_toggle: false
         entities:
           - entity: light.fourth_bedroom_fixture
             name: Light
       - type: entities
         title: Basement
+        show_header_toggle: false
         entities: 
           - entity: media_player.basement_tv
             name: TV
@@ -90,6 +94,7 @@ views:
             name: Staircase
       - type: entities
         title: Garage
+        show_header_toggle: false
         entities:
           - entity: switch.fortrezz_mimolite_switch
             name: Garage Door Switch
@@ -101,6 +106,7 @@ views:
     cards:
       - type: entities
         title: Lights
+        show_header_toggle: false
         entities:
           - entity: light.driveway
             name: "Driveway Light"
