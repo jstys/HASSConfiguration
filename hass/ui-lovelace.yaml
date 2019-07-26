@@ -95,22 +95,23 @@ views:
 
   - title: Outside
     icon: mdi:weather-sunny
-    - type: entities
-      title: Lights
-      entities:
-        - entity: light.driveway
-          name: "Driveway Light"
-        - entity: light.front_garden
-          name: "Front Garden Lights"
-        - light.porch_light
-        - light.fourth_bedroom_fixture
-        - light.basement_staircase_light
-        - light.deck_light
-    - type: entities
-      title: Speakers
-      show_header_toggle: false
-      entities:
-        - entity: media_player.backyard_speaker
+    cards:
+      - type: entities
+        title: Lights
+        entities:
+          - entity: light.driveway
+            name: "Driveway Light"
+          - entity: light.front_garden
+            name: "Front Garden Lights"
+          - light.porch_light
+          - light.fourth_bedroom_fixture
+          - light.basement_staircase_light
+          - light.deck_light
+      - type: entities
+        title: Speakers
+        show_header_toggle: false
+        entities:
+          - entity: media_player.backyard_speaker
         
           
   - title: Climate
