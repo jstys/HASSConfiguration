@@ -69,17 +69,9 @@ zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
 
-# zha_new:
-#     usb_path: /dev/ttyUSB1
-#     database_path: /home/homeassistant/.homeassistant/zigbee_new.db
-
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
-
-nest:
-  client_id: !secret nest_id
-  client_secret: !secret nest_secret
 
 owntracks:
   secret: !secret owntracks_encryption
