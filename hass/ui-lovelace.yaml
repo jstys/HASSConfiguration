@@ -1,6 +1,7 @@
 title: Home Assistant Frontend
 views:
   - title: Lights
+    icon: mdi:home
     cards:
     - type: entities
       title: Lights
@@ -40,6 +41,7 @@ views:
         - light.deck_light
 
   - title: Media
+    icon: mdi:television
     cards:
     - type: entities
       title: TVs
@@ -57,6 +59,7 @@ views:
         - entity: media_player.backyard_speaker
         
   - title: Outlets
+    icon: mdi:power-socket-us
     cards:
     - type: entities
       title: Outlets
@@ -77,6 +80,7 @@ views:
           name: "Living Room Fragrance"
           
   - title: Climate
+    icon: mdi:thermometer-lines
     cards:
     - type: conditional
       conditions:
@@ -92,36 +96,24 @@ views:
         - entity: input_select.thermostat_mode
           state: "Cooling"
       card:
-        type: thermostat
-        entity:  climate.dining_room_ac
-        name: Dining Room
-        
-    - type: conditional
-      conditions:
-        - entity: input_select.thermostat_mode
-          state: "Cooling"
-      card:
-        type: thermostat
-        entity:  climate.master_bedroom_ac
-        name: Master Bedroom
-        
-    - type: conditional
-      conditions:
-        - entity: input_select.thermostat_mode
-          state: "Cooling"
-      card:
-        type: thermostat
-        entity:  climate.guest_bedroom_ac
-        name: Guest Bedroom
-
-    - type: conditional
-      conditions:
-        - entity: input_select.thermostat_mode
-          state: "Cooling"
-      card:
-        type: thermostat
-        entity:  climate.fourth_bedroom_ac
-        name: Fourth Bedroom
+        type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: thermostat
+                entity:  climate.dining_room_ac
+                name: Dining Room
+              - type: thermostat
+                entity:  climate.master_bedroom_ac
+                name: Master Bedroom
+          - type: horizontal-stack
+            cards:
+              - type: thermostat
+                entity:  climate.guest_bedroom_ac
+                name: Guest Bedroom
+              - type: thermostat
+                entity:  climate.fourth_bedroom_ac
+                name: Fourth Bedroom
       
     - type: glance
       title: Temperature
@@ -142,6 +134,7 @@ views:
           name: Upstairs
 
   - title: Misc
+    icon: mdi:help-box
     cards:
     - type: entities
       title: Lock
@@ -191,6 +184,7 @@ views:
       service: script.turn_on
 
   - title: Batteries
+    icon: mdi:battery-charging
     cards:
     - type: entities
       title: Battery Levels
@@ -218,6 +212,7 @@ views:
         - entity: sensor.basement_water_battery
         
   - title: Config
+    icon: mdi:settings
     cards:
     - type: entities
       title: Configuration
@@ -231,6 +226,7 @@ views:
           name: Guest Mode
         
   - title: Advanced
+    icon: mdi:android-debug-bridge
     cards:
     - type: entities
       title: Software Update
