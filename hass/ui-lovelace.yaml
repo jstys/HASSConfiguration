@@ -3,81 +3,115 @@ views:
   - title: Lights
     icon: mdi:home
     cards:
+      - type: entity-filter
+        entities:
+          - entity: person.jim
+            image: /local/jim.jpg
+          - entity: person.erica
+            image: /local/erica.jpg
+        state_filter:
+          - home
+        card:
+          type: glance
+          title: At Home
+          show_state: false
+      - type: glance
+        title: Living Room
+        entities:
+          - entity:  lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2
+            name: Lock
+          - entity: media_player.living_room_tv
+            name: TV
+          - entity: light.living_room_lamps
+            name: Lamps
+          - entity: light.piano_led
+            name: PianoLED
+          - entity: light.stairs_led
+            name: Stairs
+          - entity: light.dining_room_light
+            name: Dining
+          - entity: light.piano_plug
+            icon: mdi:power-socket-us
+            name: "Piano"
+          - entity: switch.centralite_outlet_2
+            icon: mdi:power-socket-us
+            name: "Couch"
+          - entity: switch.hank_hkzw_so03_smart_plug_switch
+            icon: mdi:power-socket-us
+            name: "Scent"
+      - type: glance
+        title: Kitchen
+        entities:
+          - entity: light.kitchen_lights
+            name: Lights
+          - entity: vacuum.xiaomi_vacuum_cleaner
+            name: Vacuum
+          - entity: switch.tradfri_outlet_2
+            icon: mdi:power-socket-us
+            name: "Scent"
+          - entity: switch.hank_hkzw_so03_smart_plug_switch_2
+            icon: mdi:power-socket-us
+            name: "Rice"
+          - entity: switch.centralite_outlet_1
+            icon: mdi:power-socket-us
+            name: "Kettle"
+      - type: glance
+        title: Master Bedroom
+        entities:
+          - entity: media_player.master_bedroom_tv
+            name: "TV"
+          - entity: light.master_bedroom_fixture
+            name: "Fixture"
+          - entity: light.jim_night_lamp
+            name: "Jim"
+          - entity: light.erica_night_lamp
+            name: "Erica"
+      - type: entities
+        title: Office
+        entities:
+          - entity: light.office_lights
+            name: Lights
+      - type: entities
+        title: Guest Bedroom
+        entities:
+          - entity: media_player.guest_bedroom_tv
+            name: TV
+      - type: glance
+        title: Fourth Bedroom
+      - type: entities
+        title: Basement
+        entities: 
+          - entity: media_player.basement_tv
+            name: TV
+      - type: glance
+        title: Attic
+      - type: entities
+        title: Garage
+        entities:
+          - entity: switch.fortrezz_mimolite_switch
+            name: Garage Door Switch
+          - entity: binary_sensor.garage_sensor
+            name: Garage Door Sensor
+
+  - title: Outside
+    icon: mdi:weather-sunny
     - type: entities
       title: Lights
       entities:
-        - type: section
-          label: Front Yard
         - entity: light.driveway
           name: "Driveway Light"
         - entity: light.front_garden
           name: "Front Garden Lights"
         - light.porch_light
-        - type: section
-          label: First Floor
-        - light.living_room_lamps
-        - light.piano_led
-        - entity: light.stairs_led
-          name: "Staircase LED"
-        - light.dining_room_light
-        - light.kitchen_lights
-        - entity: light.gateway_light_34ce008dcec1
-          name: "Gateway Light"
-        - type: section
-          label: Second Floor
-        - light.hallway_lights
-        - light.master_bedroom_fixture
-        - light.jim_night_lamp
-        - light.erica_night_lamp
-        - light.office_lights
-        - type: section
-          label: Third Floor
         - light.fourth_bedroom_fixture
-        - type: section
-          label: Basement
         - light.basement_staircase_light
-        - type: section
-          label: Back Yard
         - light.deck_light
-
-  - title: Media
-    icon: mdi:television
-    cards:
-    - type: entities
-      title: TVs
-      show_header_toggle: false
-      entities:
-        - entity: media_player.living_room_tv
-        - entity: media_player.master_bedroom_tv
-        - entity: media_player.basement_tv
-        - entity: media_player.guest_bedroom_tv
-  
     - type: entities
       title: Speakers
       show_header_toggle: false
       entities:
         - entity: media_player.backyard_speaker
         
-  - title: Outlets
-    icon: mdi:power-socket-us
-    cards:
-    - type: entities
-      title: Outlets
-      entities:
-        - entity: switch.tradfri_outlet_2
-          name: "Kitchen Fragrance"
-        - entity: switch.hank_hkzw_so03_smart_plug_switch_2
-          name: "Rice Cooker"
-        - entity: switch.centralite_outlet_1
-          name: "Kettle"
-        - entity: light.piano_plug
-          name: "Piano Power"
-        - entity: switch.centralite_outlet_2
-          name: "Couch Outlet"
-        - entity: switch.centralite_outlet_3
-          name: "Hallway Outlet"
-        - entity: switch.hank_hkzw_so03_smart_plug_switch
-          name: "Living Room Fragrance"
           
   - title: Climate
     icon: mdi:thermometer-lines
@@ -133,56 +167,6 @@ views:
         - entity: sensor.temperature_158d00023cf950
           name: Upstairs
 
-  - title: Misc
-    icon: mdi:help-box
-    cards:
-    - type: entities
-      title: Lock
-      show_header_toggle: false
-      entities:
-        - entity:  lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2
-          name: Front Door Lock
-
-    - type: entities
-      title: Garage
-      show_header_toggle: false
-      entities:
-        - entity: switch.fortrezz_mimolite_switch
-          name: Garage Door Switch
-        - entity: binary_sensor.garage_sensor
-          name: Garage Door Sensor
-
-    - type: entities
-      title: Vacuums
-      show_header_toggle: false
-      entities:
-        - entity: vacuum.xiaomi_vacuum_cleaner
-        
-    - type: entity-filter
-      entities:
-        - entity: person.jim
-          image: /local/jim.jpg
-        - entity: person.erica
-          image: /local/erica.jpg
-      state_filter:
-        - home
-      card:
-        type: glance
-        title: At Home
-        show_state: false
-
-    - type: entity-button
-      entity: script.generate_grocery_list
-      name: Generate Mealplan
-      tap_action: call_service
-      service: script.turn_on
-    
-    - type: entity-button
-      entity: script.archive_mealplan
-      name: Archive Mealplan
-      tap_action: call_service
-      service: script.turn_on
-
   - title: Batteries
     icon: mdi:battery-charging
     cards:
@@ -228,36 +212,39 @@ views:
   - title: Advanced
     icon: mdi:android-debug-bridge
     cards:
-    - type: entities
-      title: Software Update
-      show_header_toggle: false
-      entities:
-        - type: call-service
-          name: Update HASS
-          service: shell_command.update_hass_config
-        - type: call-service
-          name: Update Appdaemon
-          service: shell_command.update_appdaemon_config
+      - type: horizontal-stack
+        cards:
+          - type: entity-button
+            entity: script.generate_grocery_list
+            name: Generate Mealplan
+            tap_action: call_service
+            service: script.turn_on
           
-    - type: entities
-      title: IR Learning
-      show_header_toggle: false
-      entities:
-        - type: call-service
-          name: Living Room Learn
-          service: switch.broadlink_learn_command_10_0_0_11
-        - type: call-service
-          name: Master BR Learn
-          service: switch.broadlink_learn_command_10_0_0_4
-          
-    - type: entities
-      title: Zigbee Setup
-      show_header_toggle: false
-      entities:
-        - type: call-service
-          name: Add Xiaomi Device
-          service: xiaomi_aqara.add_device
-          service_data:
-            gw_mac: !secret xiaomi1_mac
-        - entity: switch.zigbee_debug
-          name: Zigbee Debug Logging
+          - type: entity-button
+            entity: script.archive_mealplan
+            name: Archive Mealplan
+            tap_action: call_service
+            service: script.turn_on
+            
+      - type: entities
+        title: IR Learning
+        show_header_toggle: false
+        entities:
+          - type: call-service
+            name: Living Room Learn
+            service: switch.broadlink_learn_command_10_0_0_11
+          - type: call-service
+            name: Master BR Learn
+            service: switch.broadlink_learn_command_10_0_0_4
+            
+      - type: entities
+        title: Zigbee Setup
+        show_header_toggle: false
+        entities:
+          - type: call-service
+            name: Add Xiaomi Device
+            service: xiaomi_aqara.add_device
+            service_data:
+              gw_mac: !secret xiaomi1_mac
+          - entity: switch.zigbee_debug
+            name: Zigbee Debug Logging
