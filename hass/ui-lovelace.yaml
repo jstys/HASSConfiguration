@@ -3,69 +3,91 @@ views:
   - title: Lights
     icon: mdi:home
     cards:
-      - type: entity-filter
-        entities:
-          - entity: person.jim
-            image: /local/jim.jpg
-          - entity: person.erica
-            image: /local/erica.jpg
-        state_filter:
-          - home
-        card:
-          type: glance
-          title: At Home
-          show_state: false
       - type: glance
         title: Living Room
         entities:
           - entity:  lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2
             name: Lock
+            tap_action:
+              action: toggle
           - entity: media_player.living_room_tv
             name: TV
+            tap_action:
+              action: toggle
           - entity: light.living_room_lamps
             name: Lamps
+            tap_action:
+              action: toggle
           - entity: light.piano_led
             name: PianoLED
+            tap_action:
+              action: toggle
           - entity: light.stairs_led
             name: Stairs
+            tap_action:
+              action: toggle
           - entity: light.dining_room_light
             name: Dining
+            tap_action:
+              action: toggle
           - entity: light.piano_plug
             icon: mdi:power-socket-us
             name: "Piano"
+            tap_action:
+              action: toggle
           - entity: switch.centralite_outlet_2
             icon: mdi:power-socket-us
             name: "Couch"
+            tap_action:
+              action: toggle
           - entity: switch.hank_hkzw_so03_smart_plug_switch
             icon: mdi:power-socket-us
             name: "Scent"
+            tap_action:
+              action: toggle
       - type: glance
         title: Kitchen
         entities:
           - entity: light.kitchen_lights
             name: Lights
+            tap_action:
+              action: toggle
           - entity: vacuum.xiaomi_vacuum_cleaner
             name: Vacuum
           - entity: switch.tradfri_outlet_2
             icon: mdi:power-socket-us
             name: "Scent"
+            tap_action:
+              action: toggle
           - entity: switch.hank_hkzw_so03_smart_plug_switch_2
             icon: mdi:power-socket-us
             name: "Rice"
+            tap_action:
+              action: toggle
           - entity: switch.centralite_outlet_1
             icon: mdi:power-socket-us
             name: "Kettle"
+            tap_action:
+              action: toggle
       - type: glance
         title: Master Bedroom
         entities:
           - entity: media_player.master_bedroom_tv
             name: "TV"
+            tap_action:
+              action: toggle
           - entity: light.master_bedroom_fixture
             name: "Fixture"
+            tap_action:
+              action: toggle
           - entity: light.jim_night_lamp
             name: "Jim"
+            tap_action:
+              action: toggle
           - entity: light.erica_night_lamp
             name: "Erica"
+            tap_action:
+              action: toggle
       - type: entities
         title: Office
         show_header_toggle: false
@@ -180,6 +202,7 @@ views:
     cards:
     - type: entities
       title: Battery Levels
+      show_header_toggle: false
       entities:
         - type: section
           label: Temperature
@@ -233,6 +256,19 @@ views:
             name: Archive Mealplan
             tap_action: call_service
             service: script.turn_on
+
+      - type: entity-filter
+        entities:
+          - entity: person.jim
+            image: /local/jim.jpg
+          - entity: person.erica
+            image: /local/erica.jpg
+        state_filter:
+          - home
+        card:
+          type: glance
+          title: At Home
+          show_state: false
             
       - type: entities
         title: IR Learning
