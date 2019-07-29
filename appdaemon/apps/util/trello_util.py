@@ -50,9 +50,11 @@ def generate_grocery_list_from_meal_plan():
 
     for day, _ in _DAY_LIST_MAP.items():
         for item in _get_grocery_items_for_day(day):
-            result, _ = add_to_grocery_list(_get_grocery_item_name(item), _get_grocery_item_amount(item))
+            name = _get_grocery_item_name(item)
+            amount = _get_grocery_item_amount(item)
+            result, _ = add_to_grocery_list(name, amount)
             if not result:
-                failed_to_add.append(_get_grocery_item_name(item))
+                failed_to_add.append("{} ({}) - {}".format(name, amount, day))
 
     if failed_to_add:
         return False, failed_to_add
