@@ -76,6 +76,10 @@ zha:
 owntracks:
   secret: !secret owntracks_encryption
   
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_key
+  
 panel_custom:
   - name: zwavegraph2
     sidebar_title: Z-Wave Graph

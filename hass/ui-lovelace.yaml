@@ -137,6 +137,8 @@ views:
   - title: Outside
     icon: mdi:weather-sunny
     cards:
+      - type: weather-forecast
+        entity: weather.dark_sky
       - type: glance
         title: Backyard
         entities:
