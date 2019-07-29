@@ -69,6 +69,8 @@ views:
             name: "Kettle"
             tap_action:
               action: toggle
+          - entity: binary_sensor.door_window_sensor_158d0001d3a024
+            name: Fridge
       - type: glance
         title: Master Bedroom
         entities:
@@ -88,60 +90,77 @@ views:
             name: "Erica"
             tap_action:
               action: toggle
-      - type: entities
+      - type: glance
         title: Office
-        show_header_toggle: false
         entities:
           - entity: light.office_lights
             name: Lights
-      - type: entities
+            tap_action:
+              action: toggle
+      - type: glance
         title: Guest Bedroom
-        show_header_toggle: false
         entities:
           - entity: media_player.guest_bedroom_tv
             name: TV
-      - type: entities
+            tap_action:
+              action: toggle
+      - type: glance
         title: Fourth Bedroom
-        show_header_toggle: false
         entities:
           - entity: light.fourth_bedroom_fixture
             name: Light
-      - type: entities
+            tap_action:
+              action: toggle
+      - type: glance
         title: Basement
-        show_header_toggle: false
         entities: 
           - entity: media_player.basement_tv
             name: TV
+            tap_action:
+              action: toggle
           - entity: light.basement_staircase_light
             name: Staircase
-      - type: entities
+            tap_action:
+              action: toggle
+          - entity: binary_sensor.water_leak_sensor_158d00023a58df
+            name: Water Sensor
+      - type: glance
         title: Garage
-        show_header_toggle: false
         entities:
           - entity: switch.fortrezz_mimolite_switch
             name: Garage Door Switch
+            tap_action:
+              action: toggle
           - entity: binary_sensor.garage_sensor
             name: Garage Door Sensor
 
   - title: Outside
     icon: mdi:weather-sunny
     cards:
-      - type: entities
-        title: Lights
-        show_header_toggle: false
-        entities:
-          - entity: light.driveway
-            name: "Driveway Light"
-          - entity: light.front_garden
-            name: "Front Garden Lights"
-          - light.porch_light
-          - light.deck_light
-      - type: entities
-        title: Speakers
-        show_header_toggle: false
+      - type: glance
+        title: Backyard
         entities:
           - entity: media_player.backyard_speaker
-        
+            name: Speakers
+          - entity: light.deck_light
+            name: Deck
+            tap_action:
+              action: toggle
+      - type: glance
+        title: Frontyard
+        entities:
+          - entity: light.driveway
+            name: Driveway
+            tap_action:
+              action: toggle
+          - entity: light.front_garden
+            name: Garden
+            tap_action:
+              action: toggle
+          - entity: light.porch_light
+            name: Porch
+            tap_action:
+              action: toggle
           
   - title: Climate
     icon: mdi:thermometer-lines
