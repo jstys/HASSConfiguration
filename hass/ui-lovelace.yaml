@@ -93,6 +93,8 @@ views:
       - type: glance
         title: Office
         entities:
+          - entity: climate.office_ac
+            name: AC
           - entity: light.office_lights
             name: Lights
             tap_action:

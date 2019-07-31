@@ -14,10 +14,14 @@
       command_off: !secret dining_room_ac_power
 - platform: broadlink
   host: 10.0.0.30
-  mac: !secret broadlink3_mac # Location:
+  mac: !secret broadlink3_mac # Location: Office
+  switches:
+    office_ac:
+      command_on: !secret office_ac_on
+      command_off: !secret office_ac_off
 - platform: broadlink
   host: 10.0.0.31
-  mac: !secret broadlink4_mac # Location:
+  mac: !secret broadlink4_mac # Location:Guest Bedroom
 - platform: broadlink
   host: 10.0.0.40
   mac: !secret broadlink5_mac # Location: 4th br
