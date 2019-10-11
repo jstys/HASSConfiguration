@@ -1,10 +1,16 @@
 import yaml
+import re
+import os
+import sys
 
 entity_map = {}
-templates_files = {
-    "hass/template/ui-lovelace.yaml": "hass/ui-lovelace.yaml"
+template_files = {
+    "hass/template/ui-lovelace.yaml": "hass/ui-lovelace.yaml",
+    "hass/template/climate.yaml": "hass/climate.yaml",
     "hass/template/sensor/battery.yaml": "hass/sensor/battery.yaml",
-    "hass/template/media_player/universal.yaml": "hass/media_player/universal.yaml"
+    "hass/template/media_player/universal.yaml": "hass/media_player/universal.yaml",
+    "hass/template/light/lightgroups.yaml": "hass/light/lightgroups.yaml",
+    "hass/template/light/switches.yaml": "hass/light/switches.yaml"
 }
 
 with open("entity_map.yaml", "r") as yamlfile:
@@ -22,3 +28,27 @@ for entity_type, entity_dict in entity_map["entities"].items():
 
 for entity_name, entity_id in entity_name_map.items():
     print(f"{entity_name}: {entity_id}")
+    
+for template, replacement in template_files.items():
+    if not os.path.isfile(template):
+        print(f"Couldn't find file: {template}")
+        sys.exit(1)
+        
+    with open(template, "r") as templatefile:
+        os.makedirs(os.path.dirname(replacement))
+        with open(replacement, "w") as replacementfile:
+            for line in templatefile.readline():
+                matches = re.findall("em:\S+", line)
+                subbed_line = line
+                for match in matches:
+                    entity_name = match.split(":")[1]
+                    if entity_name not in entity_name_map:
+                        print(f"Unable to find entity_name {entity_name}")
+                        sys.exit(1)
+                    entity_id = entity_name_map[entity_name]
+                    subbed_line = subbed_line.replace(match, entity_id)
+                replacementfile.write(subbed_line)
+                replacementfile.write("\n")
+                    
+    
+        
