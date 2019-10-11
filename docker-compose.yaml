@@ -57,6 +57,7 @@ services:
       - /home/dietpi/HASSConfiguration/appdaemon:/conf
       - /home/dietpi/secrets_appdaemon.yaml:/conf/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
+      - entity_map.yaml:/conf/apps/util/entity_map.yaml
     expose:
       - "5000"
     depends_on:
