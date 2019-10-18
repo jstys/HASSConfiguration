@@ -38,6 +38,7 @@ def on_sleep_state_enabled(event):
     assistant_action.disable_led()
     JoinAction().add_target("jim_cell").send_taker_command("bed_command")
     MediaPlayerAction().add_media_player("master_bedroom_mpd").set_volume(0.8)
+    MediaPlayerAction().add_media_player("living_room_tv").turn_off()
     play_white_noise()
 
 def play_white_noise():
