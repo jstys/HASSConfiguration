@@ -32,7 +32,7 @@ def on_sleep_state_enabled(event):
     state_machine.set_state(state_machine.SLEEP_STATE, True)
     
     DoorLockAction().add_lock("front_entrance_lock").lock()
-    LightAction().add_light("manual_off_lights").turn_off()
+    LightAction().add_lights(["manual_off_lights", "hallway_lights"]).turn_off()
     assistant_action = AssistantAction().add_assistant("master_bedroom")
     assistant_action.disable_hotword()
     assistant_action.disable_led()
