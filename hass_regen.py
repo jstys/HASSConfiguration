@@ -38,7 +38,7 @@ for template, replacement in template_files.items():
         os.makedirs(os.path.dirname(replacement))
         with open(replacement, "w") as replacementfile:
             for line in templatefile.readline():
-                matches = re.findall("em:\S+", line)
+                matches = re.findall(r"em:[a-zA-Z0-9]+", line)
                 subbed_line = line
                 for match in matches:
                     entity_name = match.split(":")[1]
