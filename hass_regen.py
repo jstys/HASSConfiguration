@@ -9,8 +9,7 @@ template_files = {
     "hass/template/climate.yaml": "hass/climate.yaml",
     "hass/template/sensor/battery.yaml": "hass/sensor/battery.yaml",
     "hass/template/media_player/universal.yaml": "hass/media_player/universal.yaml",
-    "hass/template/light/lightgroups.yaml": "hass/light/lightgroups.yaml",
-    "hass/template/light/switches.yaml": "hass/light/switches.yaml"
+    "hass/template/light/lightgroups.yaml": "hass/light/lightgroups.yaml"
 }
 
 with open("entity_map.yaml", "r") as yamlfile:
@@ -35,10 +34,10 @@ for template, replacement in template_files.items():
         sys.exit(1)
         
     with open(template, "r") as templatefile:
-        os.makedirs(os.path.dirname(replacement))
+        os.makedirs(os.path.dirname(replacement), exist_ok=True)
         with open(replacement, "w") as replacementfile:
-            for line in templatefile.readline():
-                matches = re.findall(r"em:[a-zA-Z0-9]+", line)
+            for line in templatefile.readlines():
+                matches = re.findall(r"em:[a-zA-Z0-9_]+", line)
                 subbed_line = line
                 for match in matches:
                     entity_name = match.split(":")[1]
@@ -48,7 +47,6 @@ for template, replacement in template_files.items():
                     entity_id = entity_name_map[entity_name]
                     subbed_line = subbed_line.replace(match, entity_id)
                 replacementfile.write(subbed_line)
-                replacementfile.write("\n")
                     
     
         
