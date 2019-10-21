@@ -1,3 +1,0 @@
-- platform: switch
-  name: Kitchen High Hats
-  entity_id: switch.ge_12722_on_off_relay_switch_switch
