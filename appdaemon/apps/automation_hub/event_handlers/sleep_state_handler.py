@@ -54,5 +54,7 @@ def on_sleep_state_disabled(event):
     assistant_action.enable_hotword()
     assistant_action.enable_led()
     JoinAction().add_target("jim_cell").send_taker_command("awake_command")
-    MediaPlayerAction().add_media_player("master_bedroom_mpd").stop()
     timer_manager.cancel_timer("white_noise_restart")
+    media_action = MediaPlayerAction().add_media_player("master_bedroom_mpd")
+    media_action.stop()
+    media_action.clear_playlist()
