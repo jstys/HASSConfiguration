@@ -1,0 +1,136 @@
+binary_sensor.door_window_sensor_158d0001d3a024:
+  friendly_name: Kitchen Fridge Sensor
+binary_sensor.front_door_sensor:
+  friendly_name: Front Entrance Door Sensor
+binary_sensor.garage_sensor:
+  friendly_name: Garage Door Sensor
+binary_sensor.motion_sensor_158d00016612a5:
+  friendly_name: Hallway Motion Sensor
+binary_sensor.motion_sensor_158d0002b6fe4e:
+  friendly_name: Landing Motion Sensor
+binary_sensor.motion_sensor_158d0002b95de8:
+  friendly_name: Office Motion Sensor
+binary_sensor.switch_158d00016da2c9:
+  friendly_name: Living Room Button
+binary_sensor.switch_158d00016dbf86:
+  friendly_name: Master Bedroom Button
+binary_sensor.water_leak_sensor_158d00023a58df:
+  friendly_name: Utility Room Water Sensor
+climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1:
+  friendly_name: Oil Thermostat
+device_tracker.owntracks_erica:
+  entity_picture: /local/erica.jpg
+device_tracker.owntracks_jim:
+  entity_picture: /local/jim.jpg
+input_boolean.guest_mode:
+  friendly_name: Guest Mode
+input_boolean.sleep_mode:
+  friendly_name: Sleep Mode
+input_select.thermostat_mode:
+  friendly_name: Thermostat Mode
+light.basement_staircase_light:
+  friendly_name: Landing Light
+light.deck_light:
+  friendly_name: Back Deck Light
+light.dining_room_light:
+  friendly_name: Dining Room Light
+light.driveway:
+  friendly_name: Driveway Light
+light.erica_night_lamp:
+  friendly_name: Erica Night Lamp
+light.fourth_bedroom_fixture:
+  friendly_name: Fourth Bedroom Fixture
+light.front_garden:
+  friendly_name: Front Garden Lights
+light.gateway_light_34ce008dcec1:
+  friendly_name: Gateway Light
+light.hallway_lights:
+  friendly_name: Hallway Lights
+light.jim_night_lamp:
+  friendly_name: Jim Night Lamp
+light.kitchen_fixture:
+  friendly_name: Kitchen Fixture
+light.kitchen_high_hats:
+  friendly_name: Kitchen High Hats
+light.kitchen_lights:
+  friendly_name: Kitchen Lights
+light.living_room_lamps:
+  friendly_name: Living Room Lamps
+light.manual_off_lights:
+  friendly_name: Manual Off Lights
+light.master_bedroom_fixture:
+  friendly_name: Master Bedroom Fixture
+light.office_lights:
+  friendly_name: Office Lights
+light.piano_led:
+  friendly_name: Piano Led
+light.piano_plug:
+  friendly_name: Piano Power
+light.porch_light:
+  friendly_name: Front Porch Light
+light.stairs_led:
+  friendly_name: First Floor Staircase Led
+lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
+  friendly_name: Front Entrance Lock
+media_player.backyard_speaker:
+  friendly_name: Backyard Speakers
+media_player.basement_tv:
+  friendly_name: Basement Tv
+media_player.guest_bedroom_tv:
+  friendly_name: Guest Bedroom Tv
+media_player.living_room_tv:
+  friendly_name: Living Room Tv
+media_player.master_bedroom_mpd:
+  friendly_name: Master Bedroom Mpd
+media_player.master_bedroom_tv:
+  friendly_name: Master Bedroom Tv
+person.erica:
+  entity_picture: /local/erica.jpg
+  friendly_name: Erica Presence
+person.jim:
+  entity_picture: /local/jim.jpg
+  friendly_name: Jim Presence
+sensor.front_door_temperature:
+  friendly_name: Front Door Temperature
+sensor.garage_temperature:
+  friendly_name: Garage Temperature
+sensor.temperature_158d0001d6f386:
+  friendly_name: Downstairs Temperature
+sensor.temperature_158d00023cf8f7:
+  friendly_name: Guest Bedroom Temperature
+sensor.temperature_158d00023cf950:
+  friendly_name: Upstairs Temperature
+sensor.temperature_158d000245a6a2:
+  friendly_name: Master Bedroom Temperature
+sensor.temperature_158d000245ae4b:
+  friendly_name: Office Temperature
+sun.sun:
+  friendly_name: Sun
+switch.centralite_outlet_1:
+  friendly_name: Kettle
+switch.centralite_outlet_2:
+  friendly_name: Couch Outlet
+switch.centralite_outlet_3:
+  friendly_name: Hallway Outlet
+switch.fortrezz_mimolite_switch:
+  friendly_name: Garage Door Switch
+switch.hank_hkzw_so03_smart_plug_switch:
+  friendly_name: Living Room Fragrance
+switch.hank_hkzw_so03_smart_plug_switch_2:
+  friendly_name: Rice Cooker
+switch.tradfri_outlet_2:
+  friendly_name: Kitchen Fragrance
+vacuum.xiaomi_vacuum_cleaner:
+  friendly_name: Robot Vacuum
+zwave.fibaro_system_fgkf601_keyfob:
+  friendly_name: Fibaro Keychain
+zwave.linear_wa00z_1_scene_switch:
+  friendly_name: Staircase Bottom Switch
+zwave.linear_wa00z_1_scene_switch_2:
+  friendly_name: Staircase Top Switch
+zwave.linear_wa00z_1_scene_switch_3:
+  friendly_name: Dining Room Switch
+zwave.linear_wa00z_1_scene_switch_4:
+  friendly_name: Master Bedroom Switch
+zwave.linear_wa00z_1_scene_switch_5:
+  friendly_name: Fourth Bedroom Switch

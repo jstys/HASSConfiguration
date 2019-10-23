@@ -3,6 +3,10 @@ import re
 import os
 import sys
 
+def name_to_friendly_name(name):
+    return " ".join([string.capitalize() for string in name.split("_")])
+
+customized = {}
 entity_map = {}
 template_files = {
     "hass/template/ui-lovelace.yaml": "hass/ui-lovelace.yaml",
@@ -15,6 +19,9 @@ template_files = {
 with open("entity_map.yaml", "r") as yamlfile:
     entity_map = yaml.load(yamlfile)
 
+with open("hass/customize.yaml", "r") as customization:
+    customized = yaml.load(customization)
+
 entity_name_map = {}
 for entity_type, entity_dict in entity_map["entities"].items():
     for entity_id, values in entity_dict.items():
@@ -26,7 +33,14 @@ for entity_type, entity_dict in entity_map["entities"].items():
             entity_name_map[name] = entity_id
 
 for entity_name, entity_id in entity_name_map.items():
-    print(f"{entity_name}: {entity_id}")
+    if entity_id in customized:
+        customized[entity_id]["friendly_name"] = name_to_friendly_name(entity_name)
+    elif entity_id not in customized:
+        customized[entity_id] = {}
+        customized[entity_id]["friendly_name"] = name_to_friendly_name(entity_name)
+
+with open("hass/customize.yaml", "w") as customization:
+    yaml.dump(customized, customization, default_flow_style=False)
     
 for template, replacement in template_files.items():
     if not os.path.isfile(template):
