@@ -1,0 +1,13 @@
+include:
+    domains:
+        - lock
+        - person
+        - climate
+    entities:
+        - binary_sensor.motion_sensor_158d00016612a5
+        - binary_sensor.motion_sensor_158d0002b95de8
+        - binary_sensor.motion_sensor_158d0002b6fe4e
+        - binary_sensor.water_leak_sensor_158d00023a58df
+        - binary_sensor.front_door_sensor
+        - binary_sensor.garage_sensor
+        - binary_sensor.door_window_sensor_158d0001d3a024

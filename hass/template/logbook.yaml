@@ -1,0 +1,13 @@
+include:
+    domains:
+        - lock
+        - person
+        - climate
+    entities:
+        - em:hallway_motion_sensor
+        - em:office_motion_sensor
+        - em:landing_motion_sensor
+        - em:utility_room_water_sensor
+        - em:front_entrance_door_sensor
+        - em:garage_door_sensor
+        - em:kitchen_fridge_sensor
