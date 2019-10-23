@@ -1,50 +1,50 @@
 - platform: universal
   name: Living Room TV
   children:
-    - media_player.living_room_speaker
-    - media_player.living_room_tv_2
+    - em:living_room_speaker
+    - em:living_room_shield
   commands:
     turn_on:
       service: media_player.turn_on
       data:
-        entity_id: media_player.vizio_smartcast
+        entity_id: em:living_room_vizio_tv
     turn_off:
       service: media_player.turn_off
       data:
-        entity_id: media_player.vizio_smartcast
+        entity_id: em:living_room_vizio_tv
     volume_up:
       service: media_player.volume_up
       data:
-        entity_id: media_player.vizio_smartcast
+        entity_id: em:living_room_vizio_tv
     volume_down:
       service: media_player.volume_down
       data:
-        entity_id: media_player.vizio_smartcast
+        entity_id: em:living_room_vizio_tv
     volume_mute:
       service: media_player.volume_mute
       data:
-        entity_id: media_player.vizio_smartcast
+        entity_id: em:living_room_vizio_tv
     select_source:
       service: media_player.select_source
       data_template:
-        entity_id: media_player.vizio_smartcast
+        entity_id: em:living_room_vizio_tv
         source: '{{ source }}'
     volume_set:
       service: media_player.volume_set
       data_template:
-        entity_id: media_player.vizio_smartcast
+        entity_id: em:living_room_vizio_tv
         volume_level: '{{ volume_level }}'
   attributes:
-    state: media_player.vizio_smartcast
-    is_volume_muted: media_player.vizio_smartcast|is_volume_muted
-    volume_level: media_player.vizio_smartcast|volume_level
-    source: media_player.vizio_smartcast|source
-    source_list: media_player.vizio_smartcast|source_list
+    state: em:living_room_vizio_tv
+    is_volume_muted: em:living_room_vizio_tv|is_volume_muted
+    volume_level: em:living_room_vizio_tv|volume_level
+    source: em:living_room_vizio_tv|source
+    source_list: em:living_room_vizio_tv|source_list
 
 - platform: universal
   name: Master Bedroom TV
   children:
-    - media_player.master_bedroom_tv_2
+    - em:master_bedroom_mibox
   commands:
     turn_on:
       service: switch.turn_on
@@ -72,7 +72,7 @@
 - platform: universal
   name: Basement TV
   children:
-    - media_player.basement_tv
+    - em:basement_chromecast
   commands:
     turn_on:
       service: switch.turn_on
@@ -100,7 +100,7 @@
 - platform: universal
   name: Guest Bedroom TV
   children:
-    - media_player.guest_bedroom_tv
+    - em:guest_bedroom_mibox
   commands:
     turn_on:
       service: switch.turn_on
