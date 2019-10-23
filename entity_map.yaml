@@ -85,6 +85,24 @@ entities:
         zwave.fibaro_system_fgkf601_keyfob:
             name: fibaro_keychain
             room: living_room
+            
+    chromecast:
+        media_player.living_room_tv_2:
+            room: living_room
+            name: living_room_shield
+        media_player.master_bedroom_tv_2:
+            room: master_bedroom
+            name: master_bedroom_mibox
+        media_player.basement_tv:
+            room: basement
+        media_player.guest_bedroom_tv:
+            room: guest_bedroom
+            name: guest_bedroom_mibox
+            
+    vizio:
+        media_player.vizio_smartcast:
+            room: living_room
+            name: living_room_vizio_tv
     
     tv:
         media_player.living_room_tv:
@@ -105,12 +123,14 @@ entities:
             inputs:
                 tv: null
             
-    speakers:
+    speaker:
         media_player.backyard_speaker:
             room: backyard
         media_player.master_bedroom_mpd:
             room: master_bedroom
             name: master_bedroom_mpd
+        media_player.living_room_speaker:
+            room: living_room
 
     outlet:
         switch.tradfri_outlet_2:
