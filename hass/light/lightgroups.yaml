@@ -14,12 +14,12 @@
   name: Hallway Lights
   entities:
     - light.cree_connected_a_19_60w_equivalent_fe040989_10
-    - light.hallway_wall_light
+    - light.cree_connected_a_19_60w_equivalent_fe0409f4_10
 
 - platform: group
   name: Kitchen Lights
   entities:
-    - switch.third_reality_inc_3rss007z_ffe01b03_1_6
+    - light.kitchen_fixture
     - light.kitchen_high_hats
 
 - platform: group
