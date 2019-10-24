@@ -3,20 +3,26 @@ entities:
         light.master_bedroom_fixture:
             name: master_bedroom_fixture
             room: master_bedroom
+        light.cree_connected_a_19_60w_equivalent_fe040989_10:
+            name: hallway_fixture
+            room: hallway
+        light.cree_connected_a_19_60w_equivalent_fe0409f4_10:
+            name: hallway_wall_light
+            room: hallway
         light.living_room_lamps:
             name: living_room_lamps
             room: living_room
         light.hallway_lights:
             name: hallway_lights
             room: hallway
-        light.porch_light:
+        light.cree_connected_a_19_60w_equivalent_fe041885_10:
             room: front_porch
-        light.basement_staircase_light:
+        light.cree_connected_a_19_60w_equivalent_fe05fbf3_10:
             room: landing
         light.kitchen_lights:
             name: kitchen_lights
             room: kitchen
-        light.kitchen_fixture:
+        switch.third_reality_inc_3rss007z_ffe01b03_1_6:
             name: kitchen_fixture
             room: kitchen
         light.kitchen_high_hats:
@@ -28,17 +34,17 @@ entities:
         light.gateway_light_34ce008dcec1:
             name: gateway_light
             room: living_room
-        light.driveway:
+        light.osram_lightify_par38_on_off_dim_00a5ee30_3:
             room: driveway
-        light.stairs_led:
+        light.ledvance_flex_rgbw_000089d8_1:
             name: first_floor_staircase_led
             room: living_room
-        light.front_garden:
+        light.osram_lightify_gardenspot_rgb_00a72c35_3:
             name: front_garden_lights
             room: frontyard
-        light.deck_light:
+        light.cree_connected_a_19_60w_equivalent_fe06e97f_10:
             room: back_deck
-        light.office_lights:
+        switch.third_reality_inc_3rss007z_ffe01818_1_6:
             name: office_lights
             room: office
         light.jim_night_lamp:
@@ -55,6 +61,12 @@ entities:
             room: fourth_bedroom
         light.manual_off_lights:
             name: manual_off_lights
+        light.sengled_e11_g13_0316b7c9_1:
+            name: fourth_bedroom_fixture_1
+            room: fourth_bedroom
+        light.sengled_e11_g13_03152cef_1:
+            name: fourth_bedroom_fixture_2
+            room: fourth_bedroom
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
@@ -69,9 +81,9 @@ entities:
             room: utility_room
     
     door_sensor:
-        binary_sensor.front_door_sensor:
+        binary_sensor.visonic_mct_340_e_0b121662_1_1280:
             room: front_entrance
-        binary_sensor.garage_sensor:
+        binary_sensor.visonic_mct_340_e_0b121b78_1_1280:
             room: garage
         binary_sensor.door_window_sensor_158d0001d3a024:
             name: kitchen_fridge_sensor
@@ -133,20 +145,24 @@ entities:
             room: living_room
 
     outlet:
-        switch.tradfri_outlet_2:
+        switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1:
             name: kitchen_fragrance
         switch.hank_hkzw_so03_smart_plug_switch_2:
             name: rice_cooker
-        switch.centralite_outlet_1:
+        light.centralite_4257050_rzhac_0ae7df8a_1:
             name: kettle
-        light.piano_plug:
+        switch.ledvance_plug_00051d4d_1:
             name: piano_power
-        switch.centralite_outlet_2:
+        switch.centralite_3210_l_0c3283a0_1:
             name: couch_outlet
-        switch.centralite_outlet_3:
+        switch.centralite_3210_l_0ca6f441_1:
             name: hallway_outlet
+        switch.centralite_3210_l_0c319584_1:
+            room: guest_bedroom
         switch.hank_hkzw_so03_smart_plug_switch:
             name: living_room_fragrance
+        switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
+            name: garage_bathroom_outlet
     
     switch:
         zwave.linear_wa00z_1_scene_switch:
@@ -198,11 +214,11 @@ entities:
             name: oil_thermostat
 
     temperature:
-        sensor.garage_temperature:
+        sensor.visonic_mct_340_e_0b121b78_1_1026:
             name: garage_temperature
         sensor.temperature_158d0001d6f386:
             name: downstairs_temperature
-        sensor.front_door_temperature:
+        sensor.visonic_mct_340_e_0b121662_1_1026:
             name: front_door_temperature
         sensor.temperature_158d000245a6a2:
             name: master_bedroom_temperature

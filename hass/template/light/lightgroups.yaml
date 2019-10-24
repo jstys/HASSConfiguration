@@ -13,33 +13,33 @@
 - platform: group
   name: Hallway Lights
   entities:
-    - light.hallway_fixture
+    - em:hallway_fixture
     - light.hallway_wall_light
 
 - platform: group
   name: Kitchen Lights
   entities:
-    - light.kitchen_fixture
+    - em:kitchen_fixture
     - light.kitchen_high_hats
 
 - platform: group
   name: Fourth Bedroom Fixture
   entities:
-    - light.fourth_bedroom_fixture_1
-    - light.fourth_bedroom_fixture_2
+    - em:fourth_bedroom_fixture_1
+    - em:fourth_bedroom_fixture_2
 
 - platform: group
   name: manual_off_lights
   entities:
     - light.master_bedroom_fixture
     - light.living_room_lamps
-    - light.porch_light
+    - em:front_porch_light
     - light.kitchen_lights
     - light.dining_room_light
     - light.gateway_light_34ce008dcec1
-    - light.driveway
-    - light.deck_light
-    - light.office_lights
+    - em:driveway_light
+    - em:back_deck_light
+    - em:office_lights
     - light.jim_night_lamp
     - light.erica_night_lamp
     - light.piano_led
