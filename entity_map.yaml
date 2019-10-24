@@ -69,11 +69,19 @@ entities:
             room: fourth_bedroom
     
     motion_sensor:
-        binary_sensor.motion_sensor_158d00016612a5:
+        binary_sensor.lumi_lumi_sensor_motion_aq2_016612a5_1_1280:
             room: hallway
-        binary_sensor.motion_sensor_158d0002b95de8:
+        binary_sensor.lumi_lumi_sensor_motion_aq2_02b95de8_1_1280:
             room: office
-        binary_sensor.motion_sensor_158d0002b6fe4e:
+        binary_sensor.lumi_lumi_sensor_motion_aq2_02b6fe4e_1_1280:
+            room: landing
+
+    occupancy_sensor:
+        binary_sensor.lumi_lumi_sensor_motion_aq2_016612a5_1_1030:
+            room: hallway
+        binary_sensor.lumi_lumi_sensor_motion_aq2_02b95de8_1_1030:
+            room: office
+        binary_sensor.lumi_lumi_sensor_motion_aq2_02b6fe4e_1_1030:
             room: landing
     
     water_sensor:
