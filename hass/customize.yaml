@@ -4,6 +4,18 @@ binary_sensor.front_door_sensor:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.garage_sensor:
   friendly_name: Garage Door Sensor
+binary_sensor.lumi_lumi_sensor_motion_aq2_016612a5_1_1030:
+  friendly_name: Hallway Occupancy Sensor
+binary_sensor.lumi_lumi_sensor_motion_aq2_016612a5_1_1280:
+  friendly_name: Hallway Motion Sensor
+binary_sensor.lumi_lumi_sensor_motion_aq2_02b6fe4e_1_1030:
+  friendly_name: Landing Occupancy Sensor
+binary_sensor.lumi_lumi_sensor_motion_aq2_02b6fe4e_1_1280:
+  friendly_name: Landing Motion Sensor
+binary_sensor.lumi_lumi_sensor_motion_aq2_02b95de8_1_1030:
+  friendly_name: Office Occupancy Sensor
+binary_sensor.lumi_lumi_sensor_motion_aq2_02b95de8_1_1280:
+  friendly_name: Office Motion Sensor
 binary_sensor.motion_sensor_158d00016612a5:
   friendly_name: Hallway Motion Sensor
 binary_sensor.motion_sensor_158d0002b6fe4e:
@@ -14,6 +26,10 @@ binary_sensor.switch_158d00016da2c9:
   friendly_name: Living Room Button
 binary_sensor.switch_158d00016dbf86:
   friendly_name: Master Bedroom Button
+binary_sensor.visonic_mct_340_e_0b121662_1_1280:
+  friendly_name: Front Entrance Door Sensor
+binary_sensor.visonic_mct_340_e_0b121b78_1_1280:
+  friendly_name: Garage Door Sensor
 binary_sensor.water_leak_sensor_158d00023a58df:
   friendly_name: Utility Room Water Sensor
 climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1:
@@ -30,6 +46,18 @@ input_select.thermostat_mode:
   friendly_name: Thermostat Mode
 light.basement_staircase_light:
   friendly_name: Landing Light
+light.centralite_4257050_rzhac_0ae7df8a_1:
+  friendly_name: Kettle
+light.cree_connected_a_19_60w_equivalent_fe040989_10:
+  friendly_name: Hallway Fixture
+light.cree_connected_a_19_60w_equivalent_fe0409f4_10:
+  friendly_name: Hallway Wall Light
+light.cree_connected_a_19_60w_equivalent_fe041885_10:
+  friendly_name: Front Porch Light
+light.cree_connected_a_19_60w_equivalent_fe05fbf3_10:
+  friendly_name: Landing Light
+light.cree_connected_a_19_60w_equivalent_fe06e97f_10:
+  friendly_name: Back Deck Light
 light.deck_light:
   friendly_name: Back Deck Light
 light.dining_room_light:
@@ -54,6 +82,8 @@ light.kitchen_high_hats:
   friendly_name: Kitchen High Hats
 light.kitchen_lights:
   friendly_name: Kitchen Lights
+light.ledvance_flex_rgbw_000089d8_1:
+  friendly_name: First Floor Staircase Led
 light.living_room_lamps:
   friendly_name: Living Room Lamps
 light.manual_off_lights:
@@ -62,12 +92,20 @@ light.master_bedroom_fixture:
   friendly_name: Master Bedroom Fixture
 light.office_lights:
   friendly_name: Office Lights
+light.osram_lightify_gardenspot_rgb_00a72c35_3:
+  friendly_name: Front Garden Lights
+light.osram_lightify_par38_on_off_dim_00a5ee30_3:
+  friendly_name: Driveway Light
 light.piano_led:
   friendly_name: Piano Led
 light.piano_plug:
   friendly_name: Piano Power
 light.porch_light:
   friendly_name: Front Porch Light
+light.sengled_e11_g13_03152cef_1:
+  friendly_name: Fourth Bedroom Fixture 2
+light.sengled_e11_g13_0316b7c9_1:
+  friendly_name: Fourth Bedroom Fixture 1
 light.stairs_led:
   friendly_name: First Floor Staircase Led
 lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
@@ -112,8 +150,18 @@ sensor.temperature_158d000245a6a2:
   friendly_name: Master Bedroom Temperature
 sensor.temperature_158d000245ae4b:
   friendly_name: Office Temperature
+sensor.visonic_mct_340_e_0b121662_1_1026:
+  friendly_name: Front Door Temperature
+sensor.visonic_mct_340_e_0b121b78_1_1026:
+  friendly_name: Garage Temperature
 sun.sun:
   friendly_name: Sun
+switch.centralite_3210_l_0c319584_1:
+  friendly_name: Guest Bedroom Outlet
+switch.centralite_3210_l_0c3283a0_1:
+  friendly_name: Couch Outlet
+switch.centralite_3210_l_0ca6f441_1:
+  friendly_name: Hallway Outlet
 switch.centralite_outlet_1:
   friendly_name: Kettle
 switch.centralite_outlet_2:
@@ -126,6 +174,16 @@ switch.hank_hkzw_so03_smart_plug_switch:
   friendly_name: Living Room Fragrance
 switch.hank_hkzw_so03_smart_plug_switch_2:
   friendly_name: Rice Cooker
+switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1:
+  friendly_name: Kitchen Fragrance
+switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
+  friendly_name: Garage Bathroom Outlet
+switch.ledvance_plug_00051d4d_1:
+  friendly_name: Piano Power
+switch.third_reality_inc_3rss007z_ffe01818_1_6:
+  friendly_name: Office Lights
+switch.third_reality_inc_3rss007z_ffe01b03_1_6:
+  friendly_name: Kitchen Fixture
 switch.tradfri_outlet_2:
   friendly_name: Kitchen Fragrance
 vacuum.xiaomi_vacuum_cleaner:

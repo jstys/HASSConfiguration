@@ -13,33 +13,33 @@
 - platform: group
   name: Hallway Lights
   entities:
-    - light.hallway_fixture
+    - light.cree_connected_a_19_60w_equivalent_fe040989_10
     - light.hallway_wall_light
 
 - platform: group
   name: Kitchen Lights
   entities:
-    - light.kitchen_fixture
+    - switch.third_reality_inc_3rss007z_ffe01b03_1_6
     - light.kitchen_high_hats
 
 - platform: group
   name: Fourth Bedroom Fixture
   entities:
-    - light.fourth_bedroom_fixture_1
-    - light.fourth_bedroom_fixture_2
+    - light.sengled_e11_g13_0316b7c9_1
+    - light.sengled_e11_g13_03152cef_1
 
 - platform: group
   name: manual_off_lights
   entities:
     - light.master_bedroom_fixture
     - light.living_room_lamps
-    - light.porch_light
+    - light.cree_connected_a_19_60w_equivalent_fe041885_10
     - light.kitchen_lights
     - light.dining_room_light
     - light.gateway_light_34ce008dcec1
-    - light.driveway
-    - light.deck_light
-    - light.office_lights
+    - light.osram_lightify_par38_on_off_dim_00a5ee30_3
+    - light.cree_connected_a_19_60w_equivalent_fe06e97f_10
+    - switch.third_reality_inc_3rss007z_ffe01818_1_6
     - light.jim_night_lamp
     - light.erica_night_lamp
     - light.piano_led

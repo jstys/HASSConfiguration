@@ -22,7 +22,7 @@ views:
             name: PianoLED
             tap_action:
               action: toggle
-          - entity: light.stairs_led
+          - entity: light.ledvance_flex_rgbw_000089d8_1
             name: Stairs
             tap_action:
               action: toggle
@@ -30,12 +30,12 @@ views:
             name: Dining
             tap_action:
               action: toggle
-          - entity: light.piano_plug
+          - entity: switch.ledvance_plug_00051d4d_1
             icon: mdi:power-socket-us
             name: "Piano"
             tap_action:
               action: toggle
-          - entity: switch.centralite_outlet_2
+          - entity: switch.centralite_3210_l_0c3283a0_1
             icon: mdi:power-socket-us
             name: "Couch"
             tap_action:
@@ -54,7 +54,7 @@ views:
               action: toggle
           - entity: vacuum.xiaomi_vacuum_cleaner
             name: Vacuum
-          - entity: switch.tradfri_outlet_2
+          - entity: switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1
             icon: mdi:power-socket-us
             name: "Scent"
             tap_action:
@@ -64,7 +64,7 @@ views:
             name: "Rice"
             tap_action:
               action: toggle
-          - entity: switch.centralite_outlet_1
+          - entity: light.centralite_4257050_rzhac_0ae7df8a_1
             icon: mdi:power-socket-us
             name: "Kettle"
             tap_action:
@@ -95,7 +95,7 @@ views:
         entities:
           - entity: climate.office_ac
             name: AC
-          - entity: light.office_lights
+          - entity: switch.third_reality_inc_3rss007z_ffe01818_1_6
             name: Lights
             tap_action:
               action: toggle
@@ -120,7 +120,7 @@ views:
             name: TV
             tap_action:
               action: toggle
-          - entity: light.basement_staircase_light
+          - entity: light.cree_connected_a_19_60w_equivalent_fe05fbf3_10
             name: Staircase
             tap_action:
               action: toggle
@@ -133,7 +133,7 @@ views:
             name: Garage Door Switch
             tap_action:
               action: toggle
-          - entity: binary_sensor.garage_sensor
+          - entity: binary_sensor.visonic_mct_340_e_0b121b78_1_1280
             name: Garage Door Sensor
 
   - title: Outside
@@ -146,22 +146,22 @@ views:
         entities:
           - entity: media_player.backyard_speaker
             name: Speakers
-          - entity: light.deck_light
+          - entity: light.cree_connected_a_19_60w_equivalent_fe06e97f_10
             name: Deck
             tap_action:
               action: toggle
       - type: glance
         title: Frontyard
         entities:
-          - entity: light.driveway
+          - entity: light.osram_lightify_par38_on_off_dim_00a5ee30_3
             name: Driveway
             tap_action:
               action: toggle
-          - entity: light.front_garden
+          - entity: light.osram_lightify_gardenspot_rgb_00a72c35_3
             name: Garden
             tap_action:
               action: toggle
-          - entity: light.porch_light
+          - entity: light.cree_connected_a_19_60w_equivalent_fe041885_10
             name: Porch
             tap_action:
               action: toggle
@@ -205,11 +205,11 @@ views:
     - type: glance
       title: Temperature
       entities:
-        - entity: sensor.garage_temperature
+        - entity: sensor.visonic_mct_340_e_0b121b78_1_1026
           name: Garage
         - entity: sensor.temperature_158d0001d6f386
           name: Downstairs
-        - entity: sensor.front_door_temperature
+        - entity: sensor.visonic_mct_340_e_0b121662_1_1026
           name: Front Door
         - entity: sensor.temperature_158d000245a6a2
           name: Master BR
