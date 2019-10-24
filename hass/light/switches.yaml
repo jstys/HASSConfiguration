@@ -4,3 +4,6 @@
 - platform: switch
   name: Kitchen Fixture
   entity_id: switch.third_reality_inc_3rss007z_ffe01b03_1_6
+- platform: switch
+  name: Office Lights
+  entity_id: switch.third_reality_inc_3rss007z_ffe01818_1_6
