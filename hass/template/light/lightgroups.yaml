@@ -39,7 +39,7 @@
     - light.gateway_light_34ce008dcec1
     - em:driveway_light
     - em:back_deck_light
-    - em:office_lights
+    - light.office_lights
     - light.jim_night_lamp
     - light.erica_night_lamp
     - light.piano_led

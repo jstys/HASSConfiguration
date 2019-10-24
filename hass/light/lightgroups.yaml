@@ -39,7 +39,7 @@
     - light.gateway_light_34ce008dcec1
     - light.osram_lightify_par38_on_off_dim_00a5ee30_3
     - light.cree_connected_a_19_60w_equivalent_fe06e97f_10
-    - switch.third_reality_inc_3rss007z_ffe01818_1_6
+    - light.office_lights
     - light.jim_night_lamp
     - light.erica_night_lamp
     - light.piano_led
