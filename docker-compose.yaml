@@ -22,16 +22,6 @@ services:
     ports:
       - "1883:1883"
       - "9001:9001"
-  smartthingsbridge:
-    container_name: smartthings-bridge
-    build: /home/dietpi/smartthings-mqtt-bridge
-    restart: unless-stopped
-    volumes:
-      - /home/dietpi/smartthingsmqttbridge:/config
-    ports:
-      - "8080:8080"
-    depends_on:
-      - "mosquitto"
   homeassistant:
     container_name: home-assistant
     image: homeassistant/tinker-homeassistant:0.100.3
