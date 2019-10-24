@@ -14,12 +14,12 @@
   name: Hallway Lights
   entities:
     - em:hallway_fixture
-    - light.hallway_wall_light
+    - em:hallway_wall_light
 
 - platform: group
   name: Kitchen Lights
   entities:
-    - em:kitchen_fixture
+    - light.kitchen_fixture
     - light.kitchen_high_hats
 
 - platform: group
