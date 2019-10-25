@@ -6,6 +6,7 @@ entity_map = {}
 name_map = {}
 room_map = {}
 assistant_list = []
+button_id_map = {}
 join_targets = []
 
 def create_entity_and_name_maps(file_contents):
@@ -43,6 +44,12 @@ def create_join_targets(file_contents):
     
     if file_contents:
         join_targets = file_contents.get("join_targets")
+
+def create_button_id_map(file_contents):
+    global button_id_map
+
+    if file_contents:
+        button_id_map = file_contents.get("button_ids")
         
 def find_type_entities(entity_type):
     matches = []
@@ -66,3 +73,4 @@ create_entity_and_name_maps(file_contents)
 create_room_map(file_contents)
 create_assistant_list(file_contents)
 create_join_targets(file_contents)
+create_button_id_map(file_contents)

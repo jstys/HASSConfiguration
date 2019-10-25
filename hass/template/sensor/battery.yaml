@@ -20,14 +20,6 @@
       friendly_name: "Fridge"
       value_template: "{{ state_attr('em:kitchen_fridge_sensor', 'battery_level') }}"
       device_class: battery
-    living_button_battery:
-      friendly_name: "Living Room"
-      value_template: "{{ state_attr('em:living_room_button', 'battery_level') }}"
-      device_class: battery
-    master_bedroom_button_battery:
-      friendly_name: "Master BR"
-      value_template: "{{ state_attr('em:master_bedroom_button', 'battery_level') }}"
-      device_class: battery
     hallway_motion_battery:
       friendly_name: "Hallway"
       value_template: "{{ state_attr('em:hallway_motion_sensor', 'battery_level') }}"

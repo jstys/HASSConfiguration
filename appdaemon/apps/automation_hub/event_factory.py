@@ -1,5 +1,6 @@
 from util import logger
 from util.entity_map import entity_map
+from util.entity_map import button_id_map
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 from events.button_click_event import ButtonClickEvent
@@ -43,8 +44,8 @@ def create_from_zha_event(event_name, data, kwargs):
     command = data.get("command")
     if command == "click":
         unique_id = data.get("unique_id")
-        if unique_id in entity_map:
-            friendly_name = entity_map[unique_id]["name"]
+        if unique_id in button_id_map:
+            friendly_name = entity_map[button_id_map]["name"]
             click_type = data.get("args").get("click_type")
             event = ButtonClickEvent()
             event.button_name = friendly_name

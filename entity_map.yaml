@@ -92,10 +92,6 @@ entities:
             room: kitchen
     
     button:
-        00:15:8d:00:01:6d:a2:c9:1:0x0006:
-            room: living_room
-        00:15:8d:00:01:6d:bf:86:1:0x0006:
-            room: master_bedroom
         zwave.fibaro_system_fgkf601_keyfob:
             name: fibaro_keychain
             room: living_room
@@ -248,6 +244,14 @@ assistants:
 join_targets:
     - jim_cell
     - erica_cell
+
+button_ids:
+    00:15:8d:00:01:6d:a2:c9:1:0x0006:
+        name: living_room_button
+        room: living_room
+    00:15:8d:00:01:6d:bf:86:1:0x0006:
+        name: master_bedroom_button
+        room: master_bedroom
 
 areas:
     front_lawn: frontyard
