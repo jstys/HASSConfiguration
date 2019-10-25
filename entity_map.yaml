@@ -63,23 +63,15 @@ entities:
             room: fourth_bedroom
     
     motion_sensor:
-        binary_sensor.lumi_lumi_sensor_motion_aq2_016612a5_1_1280:
+        binary_sensor.motion_sensor_158d00016612a5:
             room: hallway
-        binary_sensor.lumi_lumi_sensor_motion_aq2_02b95de8_1_1280:
+        binary_sensor.motion_sensor_158d0002b95de8:
             room: office
-        binary_sensor.lumi_lumi_sensor_motion_aq2_02b6fe4e_1_1280:
-            room: landing
-
-    occupancy_sensor:
-        binary_sensor.lumi_lumi_sensor_motion_aq2_016612a5_1_1030:
-            room: hallway
-        binary_sensor.lumi_lumi_sensor_motion_aq2_02b95de8_1_1030:
-            room: office
-        binary_sensor.lumi_lumi_sensor_motion_aq2_02b6fe4e_1_1030:
+        binary_sensor.motion_sensor_158d0002b6fe4e:
             room: landing
     
     water_sensor:
-        binary_sensor.lumi_lumi_sensor_wleak_aq1_023a58df_1_1280:
+         binary_sensor.water_leak_sensor_158d00023a58df:
             room: utility_room
     
     door_sensor:
@@ -87,11 +79,15 @@ entities:
             room: front_entrance
         binary_sensor.visonic_mct_340_e_0b121b78_1_1280:
             room: garage
-        binary_sensor.lumi_lumi_sensor_magnet_aq2_01d3a024_1_6:
+        binary_sensor.door_window_sensor_158d0001d3a024:
             name: kitchen_fridge_sensor
             room: kitchen
     
     button:
+        binary_sensor.switch_158d00016da2c9:
+            room: living_room
+        binary_sensor.switch_158d00016dbf86:
+            room: master_bedroom
         zwave.fibaro_system_fgkf601_keyfob:
             name: fibaro_keychain
             room: living_room
@@ -220,17 +216,17 @@ entities:
     temperature:
         sensor.visonic_mct_340_e_0b121b78_1_1026:
             name: garage_temperature
-        sensor.lumi_lumi_weather_01d6f386_1_1026:
+        sensor.temperature_158d0001d6f386:
             name: downstairs_temperature
         sensor.visonic_mct_340_e_0b121662_1_1026:
             name: front_door_temperature
-        sensor.lumi_lumi_weather_0245a6a2_1_1026:
+        sensor.temperature_158d000245a6a2:
             name: master_bedroom_temperature
-        sensor.lumi_lumi_weather_0245ae4b_1_1026:
+        sensor.temperature_158d000245ae4b:
             name: office_temperature
-        sensor.lumi_lumi_weather_023cf8f7_1_1026:
+        sensor.temperature_158d00023cf8f7:
             name: guest_bedroom_temperature
-        sensor.lumi_lumi_weather_023cf950_1_1026:
+        sensor.temperature_158d00023cf950:
             name: upstairs_temperature
 
     miscellaneous:
