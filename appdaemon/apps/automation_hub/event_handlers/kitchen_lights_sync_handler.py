@@ -14,6 +14,6 @@ def register_callbacks():
 def handle_turned_on(event):
     LightAction().add_light("kitchen_high_hats").turn_on()
     
-def handle_turned_off():
+def handle_turned_off(event):
     LightAction().add_light("kitchen_high_hats").turn_off()
     
