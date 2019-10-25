@@ -25,13 +25,13 @@ def on_single_click(event):
 
     if state_machine.get_state(state_machine.SLEEP_STATE):
         MediaPlayerAction().add_media_player("master_bedroom_mpd").toggle_pause()
+    else:
+        MediaPlayerAction().add_media_player("master_bedroom_tv").toggle_power()
 
 def on_double_click(event):
     logger.info("Master Bedroom Button double clicked")
 
-    MediaPlayerAction().add_media_player("master_bedroom_tv").toggle_power()
+    hassutil.toggle(hassutil.Entity(name_map["sleep_mode"]))
 
 def on_long_press(event):
     logger.info("Master Bedroom Button long pressed")
-    
-    hassutil.toggle(hassutil.Entity(name_map["sleep_mode"]))
