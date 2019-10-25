@@ -18,7 +18,6 @@ appdaemon:
         - 'assistant/+/intent'
         - 'snips/intent/+'
         - 'snips/nluIntent'
-        - 'smartthings/#'
 log:
   logsize: 100000
   log_generations: 3
