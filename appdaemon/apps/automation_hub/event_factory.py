@@ -45,7 +45,7 @@ def create_from_zha_event(event_name, data, kwargs):
     if command == "click":
         unique_id = data.get("unique_id")
         if unique_id in button_id_map:
-            friendly_name = entity_map[button_id_map]["name"]
+            friendly_name = button_id_map[unique_id]["name"]
             click_type = data.get("args").get("click_type")
             event = ButtonClickEvent()
             event.button_name = friendly_name
