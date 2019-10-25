@@ -1,7 +1,7 @@
 - platform: generic_thermostat
   name: Fourth Bedroom AC
   heater: switch.fourth_bedroom_ac
-  target_sensor: sensor.temperature_158d00023cf950
+  target_sensor: sensor.lumi_lumi_weather_023cf950_1_1026
   ac_mode: true
   min_temp: 65
   max_temp: 80
@@ -14,7 +14,7 @@
 - platform: generic_thermostat
   name: Master Bedroom AC
   heater: switch.master_bedroom_ac
-  target_sensor: sensor.temperature_158d000245a6a2
+  target_sensor: sensor.lumi_lumi_weather_0245a6a2_1_1026
   ac_mode: true
   min_temp: 65
   max_temp: 80
@@ -29,7 +29,7 @@
 - platform: generic_thermostat
   name: Dining Room AC
   heater: switch.dining_room_ac
-  target_sensor: sensor.temperature_158d0001d6f386
+  target_sensor: sensor.lumi_lumi_weather_01d6f386_1_1026
   ac_mode: true
   min_temp: 65
   max_temp: 80
@@ -42,7 +42,7 @@
 - platform: generic_thermostat
   name: Guest Bedroom AC
   heater: switch.guest_bedroom_ac
-  target_sensor: sensor.temperature_158d00023cf8f7
+  target_sensor: sensor.lumi_lumi_weather_023cf8f7_1_1026
   ac_mode: true
   min_temp: 65
   max_temp: 80
@@ -57,7 +57,7 @@
 - platform: generic_thermostat
   name: Office AC
   heater: switch.office_ac
-  target_sensor: sensor.temperature_158d000245ae4b
+  target_sensor: sensor.lumi_lumi_weather_0245ae4b_1_1026
   ac_mode: true
   min_temp: 65
   max_temp: 80

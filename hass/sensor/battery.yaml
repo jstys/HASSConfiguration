@@ -2,31 +2,31 @@
   sensors:
     downstairs_temperature_battery:
       friendly_name: "Downstairs"
-      value_template: "{{ state_attr('sensor.temperature_158d0001d6f386', 'battery_level') }}"
+      value_template: "{{ state_attr('sensor.lumi_lumi_weather_01d6f386_1_1026', 'battery_level') }}"
       device_class: battery
     master_bedroom_temperature_battery:
       friendly_name: "Master BR"
-      value_template: "{{ state_attr('sensor.temperature_158d000245a6a2', 'battery_level') }}"
+      value_template: "{{ state_attr('sensor.lumi_lumi_weather_0245a6a2_1_1026', 'battery_level') }}"
       device_class: battery
     office_temperature_battery:
       friendly_name: "Office"
-      value_template: "{{ state_attr('sensor.temperature_158d000245ae4b', 'battery_level') }}"
+      value_template: "{{ state_attr('sensor.lumi_lumi_weather_0245ae4b_1_1026', 'battery_level') }}"
       device_class: battery
     guest_bedroom_temperature_battery:
       friendly_name: "Guest BR"
-      value_template: "{{ state_attr('sensor.temperature_158d00023cf8f7', 'battery_level') }}"
+      value_template: "{{ state_attr('sensor.lumi_lumi_weather_023cf8f7_1_1026', 'battery_level') }}"
       device_class: battery
     fridge_door_battery:
       friendly_name: "Fridge"
-      value_template: "{{ state_attr('binary_sensor.door_window_sensor_158d0001d3a024', 'battery_level') }}"
+      value_template: "{{ state_attr('binary_sensor.lumi_lumi_sensor_magnet_aq2_01d3a024_1_6', 'battery_level') }}"
       device_class: battery
     living_button_battery:
       friendly_name: "Living Room"
-      value_template: "{{ state_attr('binary_sensor.switch_158d00016da2c9', 'battery_level') }}"
+      value_template: "{{ state_attr('00:15:8d:00:01:6d:a2:c9:1:0x0006', 'battery_level') }}"
       device_class: battery
     master_bedroom_button_battery:
       friendly_name: "Master BR"
-      value_template: "{{ state_attr('binary_sensor.switch_158d00016dbf86', 'battery_level') }}"
+      value_template: "{{ state_attr('00:15:8d:00:01:6d:bf:86:1:0x0006', 'battery_level') }}"
       device_class: battery
     hallway_motion_battery:
       friendly_name: "Hallway"
@@ -42,5 +42,5 @@
       device_class: battery
     basement_water_battery:
       friendly_name: "Basement"
-      value_template: "{{ state_attr('binary_sensor.water_leak_sensor_158d00023a58df', 'battery_level') }}"
+      value_template: "{{ state_attr('binary_sensor.lumi_lumi_sensor_wleak_aq1_023a58df_1_1280', 'battery_level') }}"
       device_class: battery

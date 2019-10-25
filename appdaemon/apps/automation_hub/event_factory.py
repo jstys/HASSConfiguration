@@ -33,8 +33,24 @@ def create_from_event(event_name, data, kwargs):
         return GenerateMealplanEvent()
     elif event_name == "archive_mealplan":
         return ArchiveMealplanEvent()
+    elif event_name == "zha_event":
+        return create_from_zha_event(event_name, data, kwargs)
 
     logger.warning("Received invalid event type")
+    return None
+
+def create_from_zha_event(event_name, data, kwargs):
+    command = data.get("command")
+    if command == "click":
+        unique_id = data.get("unique_id")
+        if unique_id in entity_map:
+            friendly_name = entity_map[unique_id]["name"]
+            click_type = data.get("args").get("click_type")
+            event = ButtonClickEvent()
+            event.button_name = friendly_name
+            event.click_type = click_type
+            return event
+
     return None
 
 def create_xiaomi_click_event(event_name, data, kwargs):

@@ -69,7 +69,7 @@ views:
             name: "Kettle"
             tap_action:
               action: toggle
-          - entity: binary_sensor.door_window_sensor_158d0001d3a024
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_01d3a024_1_6
             name: Fridge
       - type: glance
         title: Master Bedroom
@@ -124,7 +124,7 @@ views:
             name: Staircase
             tap_action:
               action: toggle
-          - entity: binary_sensor.water_leak_sensor_158d00023a58df
+          - entity: binary_sensor.lumi_lumi_sensor_wleak_aq1_023a58df_1_1280
             name: Water Sensor
       - type: glance
         title: Garage
@@ -207,17 +207,17 @@ views:
       entities:
         - entity: sensor.visonic_mct_340_e_0b121b78_1_1026
           name: Garage
-        - entity: sensor.temperature_158d0001d6f386
+        - entity: sensor.lumi_lumi_weather_01d6f386_1_1026
           name: Downstairs
         - entity: sensor.visonic_mct_340_e_0b121662_1_1026
           name: Front Door
-        - entity: sensor.temperature_158d000245a6a2
+        - entity: sensor.lumi_lumi_weather_0245a6a2_1_1026
           name: Master BR
-        - entity: sensor.temperature_158d000245ae4b
+        - entity: sensor.lumi_lumi_weather_0245ae4b_1_1026
           name: Office
-        - entity: sensor.temperature_158d00023cf8f7
+        - entity: sensor.lumi_lumi_weather_023cf8f7_1_1026
           name: Guest BR
-        - entity: sensor.temperature_158d00023cf950
+        - entity: sensor.lumi_lumi_weather_023cf950_1_1026
           name: Upstairs
 
   - title: Batteries

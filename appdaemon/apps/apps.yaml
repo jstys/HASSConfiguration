@@ -7,7 +7,7 @@ automation_hub:
   module: automation_hub
   class: AutomationHub
   event_list:
-    - xiaomi_aqara.click
+    - zha_event
     - zwave.scene_activated
     - MQTT_MESSAGE
     - state_machine.state_changed

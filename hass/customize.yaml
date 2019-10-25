@@ -1,9 +1,15 @@
+00:15:8d:00:01:6d:a2:c9:1:0x0006:
+  friendly_name: Living Room Button
+00:15:8d:00:01:6d:bf:86:1:0x0006:
+  friendly_name: Master Bedroom Button
 binary_sensor.door_window_sensor_158d0001d3a024:
   friendly_name: Kitchen Fridge Sensor
 binary_sensor.front_door_sensor:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.garage_sensor:
   friendly_name: Garage Door Sensor
+binary_sensor.lumi_lumi_sensor_magnet_aq2_01d3a024_1_6:
+  friendly_name: Kitchen Fridge Sensor
 binary_sensor.lumi_lumi_sensor_motion_aq2_016612a5_1_1030:
   friendly_name: Hallway Occupancy Sensor
 binary_sensor.lumi_lumi_sensor_motion_aq2_016612a5_1_1280:
@@ -16,6 +22,8 @@ binary_sensor.lumi_lumi_sensor_motion_aq2_02b95de8_1_1030:
   friendly_name: Office Occupancy Sensor
 binary_sensor.lumi_lumi_sensor_motion_aq2_02b95de8_1_1280:
   friendly_name: Office Motion Sensor
+binary_sensor.lumi_lumi_sensor_wleak_aq1_023a58df_1_1280:
+  friendly_name: Utility Room Water Sensor
 binary_sensor.motion_sensor_158d00016612a5:
   friendly_name: Hallway Motion Sensor
 binary_sensor.motion_sensor_158d0002b6fe4e:
@@ -140,6 +148,16 @@ sensor.front_door_temperature:
   friendly_name: Front Door Temperature
 sensor.garage_temperature:
   friendly_name: Garage Temperature
+sensor.lumi_lumi_weather_01d6f386_1_1026:
+  friendly_name: Downstairs Temperature
+sensor.lumi_lumi_weather_023cf8f7_1_1026:
+  friendly_name: Guest Bedroom Temperature
+sensor.lumi_lumi_weather_023cf950_1_1026:
+  friendly_name: Upstairs Temperature
+sensor.lumi_lumi_weather_0245a6a2_1_1026:
+  friendly_name: Master Bedroom Temperature
+sensor.lumi_lumi_weather_0245ae4b_1_1026:
+  friendly_name: Office Temperature
 sensor.temperature_158d0001d6f386:
   friendly_name: Downstairs Temperature
 sensor.temperature_158d00023cf8f7:
