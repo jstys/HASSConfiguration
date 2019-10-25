@@ -1,27 +1,17 @@
 from automation_hub import event_dispatcher
-from automation_hub import state_machine
 from util import logger
-from events.mqtt_event import MQTTEvent
+from events.switch_on_event import SwitchOnEvent
+from events.switch_off_event import SwitchOffEvent
 from actions.light_action import LightAction
 
 def event_filter(event):
-    return "smartthings/kitchen_fixture/switch" in event.topic
+    return event.name == "kitchen_fixture"
 
 def register_callbacks():
-    event_dispatcher.register_callback(on_message, MQTTEvent.__name__, event_filter=event_filter)
-    
-def on_message(event):
-    topic = event.topic
-    payload = event.payload
-    
-    logger.info("Received Kitchen Fixture MQTT message with topic: {} and payload: {}".format(topic, payload))
+    event_dispatcher.register_callback(handle_turned_on, SwitchOnEvent.__name__, event_filter=event_filter)
+    event_dispatcher.register_callback(handle_turned_off, SwitchOffEvent.__name__, event_filter=event_filter)
 
-    if payload == "on":
-        handle_turned_on()
-    elif payload == "off":
-        handle_turned_off()
-
-def handle_turned_on():
+def handle_turned_on(event):
     LightAction().add_light("kitchen_high_hats").turn_on()
     
 def handle_turned_off():

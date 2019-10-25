@@ -15,6 +15,8 @@ from events.generate_mealplan_event import GenerateMealplanEvent
 from events.archive_mealplan_event import ArchiveMealplanEvent
 from events.sunrise_event import SunriseEvent
 from events.sunset_event import SunsetEvent
+from events.switch_off_event import SwitchOffEvent
+from events.switch_on_event import SwitchOnEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -104,6 +106,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         return create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type in ["input_boolean", "input_select"]:
         return create_input_change_event(friendly_name, entity, attributes, old, new, kwargs)
+    if entity_type == "switch":
+        return create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if friendly_name == "sun":
         return create_sun_event(old, new)
     
@@ -170,6 +174,20 @@ def create_input_change_event(friendly_name, entity, attributes, old, new, kwarg
         return event
     else:
         logger.warning("Received invalid input transition")
+        return None
+
+def create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs):
+    logger.info("Creating SwitchEvent")
+    if old == "off" and new == "on":
+        event = SwitchOnEvent()
+        event.name = friendly_name
+        return event
+    elif old == "on" and new == "off":
+        event = SwitchOffEvent()
+        event.name = friendly_name
+        return event
+    else:
+        logger.warning("Received invalid switch transition")
         return None
 
 def create_sun_event(old, new):

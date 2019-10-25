@@ -22,9 +22,6 @@ entities:
         light.kitchen_lights:
             name: kitchen_lights
             room: kitchen
-        switch.third_reality_inc_3rss007z_ffe01b03_1_6:
-            name: kitchen_fixture
-            room: kitchen
         light.kitchen_high_hats:
             name: kitchen_high_hats
             room: kitchen
@@ -44,9 +41,6 @@ entities:
             room: frontyard
         light.cree_connected_a_19_60w_equivalent_fe06e97f_10:
             room: back_deck
-        switch.third_reality_inc_3rss007z_ffe01818_1_6:
-            name: office_lights
-            room: office
         light.jim_night_lamp:
             name: jim_night_lamp
             room: master_bedroom
@@ -191,6 +185,12 @@ entities:
         zwave.linear_wa00z_1_scene_switch_5:
             name: fourth_bedroom_switch
             room: fourth_bedroom
+        switch.third_reality_inc_3rss007z_ffe01b03_1_6:
+            name: kitchen_fixture
+            room: kitchen
+        switch.third_reality_inc_3rss007z_ffe01818_1_6:
+            name: office_lights
+            room: office
     
     lock:
         lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
