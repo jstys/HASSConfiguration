@@ -1,7 +1,3 @@
-00:15:8d:00:01:6d:a2:c9:1:0x0006:
-  friendly_name: Living Room Button
-00:15:8d:00:01:6d:bf:86:1:0x0006:
-  friendly_name: Master Bedroom Button
 binary_sensor.door_window_sensor_158d0001d3a024:
   friendly_name: Kitchen Fridge Sensor
 binary_sensor.front_door_sensor:
