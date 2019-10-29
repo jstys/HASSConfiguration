@@ -18,6 +18,7 @@ from events.sunrise_event import SunriseEvent
 from events.sunset_event import SunsetEvent
 from events.switch_off_event import SwitchOffEvent
 from events.switch_on_event import SwitchOnEvent
+from events.xiaomi_motion_triggered_event import XiaomiMotionTriggeredEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -71,7 +72,7 @@ def create_xiaomi_motion_event(event_name, data, kwargs):
     entity = data.get("entity_id")
     if entity in entity_map:
         friendly_name = entity_map[entity]["name"]
-        event = MotionTriggeredEvent()
+        event = XiaomiMotionTriggeredEvent()
         event.name = friendly_name
         return event
     else:
