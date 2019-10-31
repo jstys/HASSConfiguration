@@ -61,6 +61,9 @@ entities:
         light.sengled_e11_g13_03152cef_1:
             name: fourth_bedroom_fixture_2
             room: fourth_bedroom
+        light.ledvance_edge_lit_under_cabinet_tw_0002c70d_1:
+            name: kitchen_cabinet_right_light
+            room: kitchen
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
