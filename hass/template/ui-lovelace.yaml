@@ -52,6 +52,10 @@ views:
             name: Lights
             tap_action:
               action: toggle
+          - entity: em:kitchen_cabinet_lights
+            name: Cabinets
+            tap_action:
+              action: toggle
           - entity: em:robot_vacuum
             name: Vacuum
           - entity: em:kitchen_fragrance

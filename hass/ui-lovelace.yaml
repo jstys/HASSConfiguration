@@ -52,6 +52,10 @@ views:
             name: Lights
             tap_action:
               action: toggle
+          - entity: light.kitchen_cabinet_lights
+            name: Cabinets
+            tap_action:
+              action: toggle
           - entity: vacuum.xiaomi_vacuum_cleaner
             name: Vacuum
           - entity: switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1

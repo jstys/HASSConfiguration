@@ -27,6 +27,13 @@
   entities:
     - em:fourth_bedroom_fixture_1
     - em:fourth_bedroom_fixture_2
+    
+- platform: group
+  name: Kitchen Cabinet Lights
+  entities:
+    - em:kitchen_cabinet_right_light
+    - em:kitchen_cabinet_left_light_1
+    - em:kitchen_cabinet_left_light_2
 
 - platform: group
   name: manual_off_lights

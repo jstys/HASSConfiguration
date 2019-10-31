@@ -80,14 +80,20 @@ light.hallway_lights:
   friendly_name: Hallway Lights
 light.jim_night_lamp:
   friendly_name: Jim Night Lamp
+light.kitchen_cabinet_lights:
+  friendly_name: Kitchen Cabinet Lights
 light.kitchen_fixture:
   friendly_name: Kitchen Fixture
 light.kitchen_high_hats:
   friendly_name: Kitchen High Hats
 light.kitchen_lights:
   friendly_name: Kitchen Lights
+light.ledvance_edge_lit_under_cabinet_tw_0002c5ae_1:
+  friendly_name: Kitchen Cabinet Left Light 2
 light.ledvance_edge_lit_under_cabinet_tw_0002c70d_1:
   friendly_name: Kitchen Cabinet Right Light
+light.ledvance_edge_lit_under_cabinet_tw_0002c7f4_1:
+  friendly_name: Kitchen Cabinet Left Light 1
 light.ledvance_flex_rgbw_000089d8_1:
   friendly_name: First Floor Staircase Led
 light.living_room_lamps:

@@ -64,6 +64,15 @@ entities:
         light.ledvance_edge_lit_under_cabinet_tw_0002c70d_1:
             name: kitchen_cabinet_right_light
             room: kitchen
+        light.ledvance_edge_lit_under_cabinet_tw_0002c7f4_1:
+            name: kitchen_cabinet_left_light_1
+            room: kitchen
+        light.ledvance_edge_lit_under_cabinet_tw_0002c5ae_1:
+            name: kitchen_cabinet_left_light_2
+            room: kitchen
+        light.kitchen_cabinet_lights:
+            name: kitchen_cabinet_lights
+            room: kitchen
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:

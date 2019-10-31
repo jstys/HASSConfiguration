@@ -27,6 +27,13 @@
   entities:
     - light.sengled_e11_g13_0316b7c9_1
     - light.sengled_e11_g13_03152cef_1
+    
+- platform: group
+  name: Kitchen Cabinet Lights
+  entities:
+    - light.ledvance_edge_lit_under_cabinet_tw_0002c70d_1
+    - light.ledvance_edge_lit_under_cabinet_tw_0002c7f4_1
+    - light.ledvance_edge_lit_under_cabinet_tw_0002c5ae_1
 
 - platform: group
   name: manual_off_lights
