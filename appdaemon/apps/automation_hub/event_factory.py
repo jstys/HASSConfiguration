@@ -19,6 +19,11 @@ from events.sunset_event import SunsetEvent
 from events.switch_off_event import SwitchOffEvent
 from events.switch_on_event import SwitchOnEvent
 from events.xiaomi_motion_triggered_event import XiaomiMotionTriggeredEvent
+from events.nhl_goal_event import NHLGoalEvent
+from events.nhl_penalty_event import NHLPenaltyEvent
+from events.nhl_period_start_event import NHLPeriodStartEvent
+from events.nhl_period_end_event import NHLPeriodEndEvent
+from events.nhl_game_end_event import NHLGameEndEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -37,6 +42,16 @@ def create_from_event(event_name, data, kwargs):
         return ArchiveMealplanEvent()
     elif event_name == "zha_event":
         return create_from_zha_event(event_name, data, kwargs)
+    elif event_name == "nhl_scoring":
+        return create_nhl_scoring_event(event_name, data, kwargs)
+    elif event_name == "nhl_penalty":
+        return create_nhl_penalty_event(event_name, data, kwargs)
+    elif event_name == "nhl_period_start":
+        return create_nhl_period_start_event(event_name, data, kwargs)
+    elif event_name == "nhl_period_end":
+        return create_nhl_period_end_event(event_name, data, kwargs)
+    elif event_name == "nhl_game_end":
+        return create_nhl_game_end_event(event_name, data, kwargs)
 
     logger.warning("Received invalid event type")
     return None
@@ -110,6 +125,53 @@ def create_state_machine_state_changed_event(event_name, data, kwargs):
     event.old = old
     event.new = new
     return event
+
+def create_nhl_scoring_event(event_name, data, kwargs):
+    event = NHLGoalEvent()
+    event.team = data.get('team')
+    
+    scorer = data.get('scorer')
+    event.scorer = scorer.get('name')
+    event.scorer_number = scorer.get('number')
+    
+    assists = data.get('assists')
+    if assists:
+        for index, player in enumerate(assists):
+            if index == 0:
+                event.primary_assist = player.get('name')
+                event.primary_number = player.get('number')
+            elif index == 1:
+                event.secondary_assist = player.get('name')
+                event.secondary_number = player.get('number')
+
+    return event
+
+def create_nhl_penalty_event(event_name, data, kwargs):
+    event = NHLPenaltyEvent()
+    event.team = data.get('team')
+
+    player = data.get('player')
+    event.player = player.get('name')
+    event.number = player.get('number')
+
+    event.duration = data.get('duration')
+    event.penalty = data.get('penalty')
+    event.severity = data.get('severity')
+
+    return event
+
+def create_nhl_period_start_event(event_name, data, kwargs):
+    event = NHLPeriodStartEvent()
+    event.period = data.get('period')
+    return event
+
+def create_nhl_period_end_event(event_name, data, kwargs):
+    event = NHLPeriodEndEvent()
+    event.period = data.get('period')
+    return event
+
+def create_nhl_game_end_event(event_name, data, kwargs):
+    return NHLGameEndEvent()
 
 def create_from_state_change(friendly_name, entity_type, entity, attributes, old, new, kwargs):
     if entity_type == "water_sensor":

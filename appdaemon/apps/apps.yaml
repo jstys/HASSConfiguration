@@ -15,6 +15,11 @@ automation_hub:
     - state_machine.state_changed
     - generate_mealplan
     - archive_mealplan
+    - nhl_scoring
+    - nhl_penalty
+    - nhl_period_start
+    - nhl_period_end
+    - nhl_game_end
 # nhl_announcer:
 #   module: nhl_announcer
 #   class: NHLAnnouncer

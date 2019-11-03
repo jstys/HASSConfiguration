@@ -4,6 +4,7 @@ from events.nhl_goal_event import NHLGoalEvent
 from events.nhl_penalty_event import NHLPenaltyEvent
 from events.nhl_period_start_event import NHLPeriodStartEvent
 from events.nhl_period_end_event import NHLPeriodEndEvent
+from events.nhl_game_end_event import NHLGameEndEvent
 from actions.tts_action import TTSAction
 
 def register_callbacks():
@@ -11,12 +12,26 @@ def register_callbacks():
     event_dispatcher.register_callback(on_nhl_penalty, NHLPenaltyEvent.__name__)
     event_dispatcher.register_callback(on_nhl_period_start, NHLPeriodStartEvent.__name__)
     event_dispatcher.register_callback(on_nhl_period_end, NHLPeriodEndEvent.__name__)
+    event_dispatcher.register_callback(on_nhl_game_end, NHLGameEndEvent.__name__)
     
 def on_nhl_goal(event):
-    pass
+    if not state_machine.get_state(state_machine.SLEEP_STATE):
+        speech = f"{event.team} goal scored by number {event.scorer_number}, {event.scorer}."
+        if event.primary_assist:
+            speech = speech + f" Assisted by number {event.primary_number}, {event.primary_assist}"
+        if event.secondary_assist:
+            speech = speech + f" and number {event.secondary_number}, {event.secondary_assist}"
+        TTSAction().add_assistant("living_room").say(speech)
 
 def on_nhl_penalty(event):
-    pass
+    if not state_machine.get_state(state_machine.SLEEP_STATE):
+        speech = f"{event.team} penalty on number {event.number}, {event.player}.  "
+        speech = speech + f"{event.duration} minute {event.severity} for {event.penalty}."
+        TTSAction().add_assistant("living_room").say(speech)
+
+def on_nhl_game_end(event):
+    if not state_machine.get_state(state_machine.SLEEP_STATE):
+        TTSAction().add_assistant("living_room").say("The game has ended")
 
 def on_nhl_period_start(event):
     if not state_machine.get_state(state_machine.SLEEP_STATE):
