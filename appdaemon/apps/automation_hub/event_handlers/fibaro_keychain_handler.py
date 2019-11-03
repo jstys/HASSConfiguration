@@ -3,6 +3,7 @@ from automation_hub import state_machine
 from util import logger
 from events.zwave_scene_event import ZwaveSceneEvent
 from actions.light_action import LightAction
+from actions.media_player_action import MediaPlayerAction
 
 def event_filter(event):
     return event.name in ["fibaro_keychain"]
@@ -26,15 +27,19 @@ def on_scene_activated(event):
     
 def on_square_pressed(event):
     logger.info("Square button pressed")
+    MediaPlayerAction().add_media_player("living_room_tv").turn_off()
 
 def on_circle_pressed(event):
     logger.info("Circle button pressed")
+    MediaPlayerAction().add_media_player("living_room_tv").turn_on()
 
 def on_x_pressed(event):
     logger.info("X button pressed")
+    MediaPlayerAction().add_media_player("living_room_tv").change_input("tv")
 
 def on_triangle_pressed(event):
     logger.info("Triangle button pressed")
+    MediaPlayerAction().add_media_player("living_room_tv").change_input("gaming")
 
 def on_minus_pressed(event):
     logger.info("Minus button pressed")
