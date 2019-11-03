@@ -127,7 +127,9 @@ class NHLBoxScoreSensor(Entity):
     def get_penalty_info(self, event):
         penalty_info = {}
         penalty_info['team'] = event['team']['name']
-        penalty_info['description'] = "{} minute {} for {}".format(event['result']['penaltyMinutes'], event['result']['penaltySeverity'], event['result']['secondaryType'])
+        penalty_info['duration'] = event['result']['penaltyMinutes']
+        penalty_info['penalty'] = event['result']['secondaryType']
+        penalty_info['severity'] = event['result']['penaltySeverity'] 
         players = event['players']
         for player in players:
             player_details = self.get_player_info('ID{}'.format(player['player']['id']))
