@@ -36,3 +36,11 @@
       friendly_name: "Basement"
       value_template: "{{ state_attr('binary_sensor.water_leak_sensor_158d00023a58df', 'battery_level') }}"
       device_class: battery
+    living_room_button_battery:
+      friendly_name: "Office"
+      value_template: "{{ state_attr('binary_sensor.motion_sensor_158d0002b95de8', 'battery_level') }}"
+      device_class: battery
+    master_bedroom_button_battery:
+      friendly_name: "Basement"
+      value_template: "{{ state_attr('binary_sensor.water_leak_sensor_158d00023a58df', 'battery_level') }}"
+      device_class: battery

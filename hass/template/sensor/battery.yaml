@@ -36,3 +36,11 @@
       friendly_name: "Basement"
       value_template: "{{ state_attr('em:utility_room_water_sensor', 'battery_level') }}"
       device_class: battery
+    living_room_button_battery:
+      friendly_name: "Office"
+      value_template: "{{ state_attr('em:office_motion_sensor', 'battery_level') }}"
+      device_class: battery
+    master_bedroom_button_battery:
+      friendly_name: "Basement"
+      value_template: "{{ state_attr('em:utility_room_water_sensor', 'battery_level') }}"
+      device_class: battery
