@@ -148,6 +148,8 @@ person.erica:
 person.jim:
   entity_picture: /local/jim.jpg
   friendly_name: Jim Presence
+sensor.centralite_3210_l_42baa60c_1_2820:
+  friendly_name: Dryer Power Monitor
 sensor.front_door_temperature:
   friendly_name: Front Door Temperature
 sensor.garage_temperature:

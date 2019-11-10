@@ -252,6 +252,10 @@ entities:
             name: guest_bedroom_humidity
         sensor.humidity_158d00023cf950:
             name: upstairs_humidity
+
+    power_monitor:
+        sensor.centralite_3210_l_42baa60c_1_2820:
+            name: dryer_power_monitor
         
 
     miscellaneous:
