@@ -152,6 +152,16 @@ sensor.front_door_temperature:
   friendly_name: Front Door Temperature
 sensor.garage_temperature:
   friendly_name: Garage Temperature
+sensor.humidity_158d0001d6f386:
+  friendly_name: Downstairs Humidity
+sensor.humidity_158d00023cf8f7:
+  friendly_name: Guest Bedroom Humidity
+sensor.humidity_158d00023cf950:
+  friendly_name: Upstairs Humidity
+sensor.humidity_158d000245a6a2:
+  friendly_name: Master Bedroom Humidity
+sensor.humidity_158d000245ae4b:
+  friendly_name: Office Humidity
 sensor.lumi_lumi_weather_01d6f386_1_1026:
   friendly_name: Downstairs Temperature
 sensor.lumi_lumi_weather_023cf8f7_1_1026:

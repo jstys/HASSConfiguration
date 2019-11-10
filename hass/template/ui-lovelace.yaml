@@ -224,6 +224,20 @@ views:
         - entity: em:upstairs_temperature
           name: Upstairs
 
+    - type: glance
+      title: Humidity
+      entities:
+        - entity: em:downstairs_humidity
+          name: Downstairs
+        - entity: em:master_bedroom_humidity
+          name: Master BR
+        - entity: em:office_humidity
+          name: Office
+        - entity: em:guest_bedroom_humidity
+          name: Guest BR
+        - entity: em:upstairs_humidity
+          name: Upstairs
+
   - title: Batteries
     icon: mdi:battery-charging
     cards:

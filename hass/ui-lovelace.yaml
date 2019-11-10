@@ -224,6 +224,20 @@ views:
         - entity: sensor.temperature_158d00023cf950
           name: Upstairs
 
+    - type: glance
+      title: Humidity
+      entities:
+        - entity: sensor.humidity_158d0001d6f386
+          name: Downstairs
+        - entity: sensor.humidity_158d000245a6a2
+          name: Master BR
+        - entity: sensor.humidity_158d000245ae4b
+          name: Office
+        - entity: sensor.humidity_158d00023cf8f7
+          name: Guest BR
+        - entity: sensor.humidity_158d00023cf950
+          name: Upstairs
+
   - title: Batteries
     icon: mdi:battery-charging
     cards:

@@ -241,6 +241,19 @@ entities:
         sensor.temperature_158d00023cf950:
             name: upstairs_temperature
 
+    humidity:
+        sensor.humidity_158d0001d6f386:
+            name: downstairs_humidity
+        sensor.humidity_158d000245a6a2:
+            name: master_bedroom_humidity
+        sensor.humidity_158d000245ae4b:
+            name: office_humidity
+        sensor.humidity_158d00023cf8f7:
+            name: guest_bedroom_humidity
+        sensor.humidity_158d00023cf950:
+            name: upstairs_humidity
+        
+
     miscellaneous:
         sun.sun:
             name: sun
