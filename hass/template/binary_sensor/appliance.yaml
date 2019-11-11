@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    dryer_running::
+      friendly_name: "Dryer Running"
+      device_class: power
+      value_template: "{{ states('em:dryer_power_monitor')|float > 100.0 }}"
