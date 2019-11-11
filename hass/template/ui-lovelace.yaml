@@ -130,6 +130,8 @@ views:
               action: toggle
           - entity: em:utility_room_water_sensor
             name: Water Sensor
+          - entity: binary_sensor.dryer_running
+            name: Dryer
       - type: glance
         title: Garage
         entities:
