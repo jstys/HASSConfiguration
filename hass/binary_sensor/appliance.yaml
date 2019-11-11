@@ -1,6 +1,6 @@
 - platform: template
   sensors:
-    dryer_running::
+    dryer_running:
       friendly_name: "Dryer Running"
       device_class: power
       value_template: "{{ states('sensor.centralite_3210_l_42baa60c_1_2820')|float > 100.0 }}"
