@@ -193,7 +193,7 @@ sun.sun:
 switch.centralite_3210_l_0c319584_1:
   friendly_name: Guest Bedroom Outlet
 switch.centralite_3210_l_0c3283a0_1:
-  friendly_name: Couch Outlet
+  friendly_name: Piano Power
 switch.centralite_3210_l_0ca6f441_1:
   friendly_name: Hallway Outlet
 switch.centralite_outlet_1:
@@ -205,7 +205,7 @@ switch.centralite_outlet_3:
 switch.fortrezz_mimolite_switch:
   friendly_name: Garage Door Switch
 switch.hank_hkzw_so03_smart_plug_switch:
-  friendly_name: Living Room Fragrance
+  friendly_name: Couch Outlet
 switch.hank_hkzw_so03_smart_plug_switch_2:
   friendly_name: Rice Cooker
 switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1:
@@ -213,7 +213,7 @@ switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1:
 switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
   friendly_name: Garage Bathroom Outlet
 switch.ledvance_plug_00051d4d_1:
-  friendly_name: Piano Power
+  friendly_name: Living Room Fragrance
 switch.third_reality_inc_3rss007z_ffe01818_1_6:
   friendly_name: Office Lights
 switch.third_reality_inc_3rss007z_ffe01b03_1_6:

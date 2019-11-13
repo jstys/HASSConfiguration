@@ -158,15 +158,15 @@ entities:
         light.centralite_4257050_rzhac_0ae7df8a_1:
             name: kettle
         switch.ledvance_plug_00051d4d_1:
-            name: piano_power
+            name: living_room_fragrance
         switch.centralite_3210_l_0c3283a0_1:
-            name: couch_outlet
+            name: piano_power
         switch.centralite_3210_l_0ca6f441_1:
             name: hallway_outlet
         switch.centralite_3210_l_0c319584_1:
             room: guest_bedroom
         switch.hank_hkzw_so03_smart_plug_switch:
-            name: living_room_fragrance
+            name: couch_outlet
         switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
             name: garage_bathroom_outlet
     

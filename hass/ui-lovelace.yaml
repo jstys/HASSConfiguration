@@ -30,17 +30,17 @@ views:
             name: Dining
             tap_action:
               action: toggle
-          - entity: switch.ledvance_plug_00051d4d_1
+          - entity: switch.centralite_3210_l_0c3283a0_1
             icon: mdi:power-socket-us
             name: "Piano"
             tap_action:
               action: toggle
-          - entity: switch.centralite_3210_l_0c3283a0_1
+          - entity: switch.hank_hkzw_so03_smart_plug_switch
             icon: mdi:power-socket-us
             name: "Couch"
             tap_action:
               action: toggle
-          - entity: switch.hank_hkzw_so03_smart_plug_switch
+          - entity: switch.ledvance_plug_00051d4d_1
             icon: mdi:power-socket-us
             name: "Scent"
             tap_action:
