@@ -24,6 +24,8 @@ from events.nhl_penalty_event import NHLPenaltyEvent
 from events.nhl_period_start_event import NHLPeriodStartEvent
 from events.nhl_period_end_event import NHLPeriodEndEvent
 from events.nhl_game_end_event import NHLGameEndEvent
+from events.power_sensor_off_event import PowerSensorOffEvent
+from events.power_sensor_on_event import PowerSensorOnEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -190,6 +192,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         return create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if friendly_name == "sun":
         return create_sun_event(old, new)
+    if entity_type == "binary_power_sensor":
+        return create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
     
     logger.warning("Received invalid state change entity")
     return None
@@ -276,3 +280,17 @@ def create_sun_event(old, new):
         return SunriseEvent()
     elif new != old and new == "below_horizon":
         return SunsetEvent()
+        
+def create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs):
+    logger.info("Creating Power Sensor Change Event")
+    if old == "off" and new == "on":
+        event = PowerSensorOnEvent()
+        event.name = friendly_name
+        return event
+    elif old == "on" and new == "off":
+        event = PowerSensorOffEvent()
+        event.name = friendly_name
+        return event
+    else:
+        logger.warning("Received invalid power sensor transition")
+        return None

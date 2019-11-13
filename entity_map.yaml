@@ -260,6 +260,12 @@ entities:
             name: dryer_power_monitor
         sensor.hank_electronics_ltd_hkzw_so03_smart_plug_power:
             name: washer_power_monitor
+            
+    binary_power_sensor:
+        binary_sensor.dryer_running:
+            name: dryer_running
+        binary_sensor.washer_running:
+            name: washer_running
         
 
     miscellaneous:
