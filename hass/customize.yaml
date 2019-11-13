@@ -1,5 +1,7 @@
 binary_sensor.door_window_sensor_158d0001d3a024:
   friendly_name: Kitchen Fridge Sensor
+binary_sensor.dryer_running:
+  friendly_name: Dryer Running
 binary_sensor.front_door_sensor:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.garage_sensor:
@@ -34,6 +36,8 @@ binary_sensor.visonic_mct_340_e_0b121662_1_1280:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.visonic_mct_340_e_0b121b78_1_1280:
   friendly_name: Garage Door Sensor
+binary_sensor.washer_running:
+  friendly_name: Washer Running
 binary_sensor.water_leak_sensor_158d00023a58df:
   friendly_name: Utility Room Water Sensor
 climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1:
