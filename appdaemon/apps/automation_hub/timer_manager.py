@@ -2,11 +2,28 @@ from util import logger
 import datetime
 
 API_HANDLE = None
+INFINITE_REPEATS = -1
 timer_map = {}
 
 def set_api_handle(handle):
     global API_HANDLE
     API_HANDLE = handle
+    
+def start_repeat_timer(name, callback, repeat_seconds, start=datetime.datetime.now(), num_repeats=INFINITE_REPEATS):
+    global timer_map
+    
+    if API_HANDLE:
+        if name not in timer_map:
+            logger.info("Scheduling callback in {} seconds".format(repeat_seconds))
+            timer = API_HANDLE.run_every(API_HANDLE.timer_callback, start, repeat_seconds, title=name, partial=callback)
+            timer_map[name] = timer
+            return True
+        else:
+            logger.warning("Timer {} is already in map, not starting".format(name))
+    else:
+        logger.error("API Handle is None")
+        
+    return False
 
 def start_timer(name, callback, seconds=0, minutes=0, hours=0, days=0):
     global timer_map
