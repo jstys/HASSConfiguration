@@ -4,3 +4,7 @@
       friendly_name: "Dryer Running"
       device_class: power
       value_template: "{{ states('em:dryer_power_monitor')|float > 100.0 }}"
+    washer_running:
+      friendly_name: "Washer Running"
+      device_class: power
+      value_template: "{{ states('em:washer_power_monitor')|float > 100.0 }}"

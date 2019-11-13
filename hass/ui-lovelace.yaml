@@ -130,6 +130,8 @@ views:
               action: toggle
           - entity: binary_sensor.water_leak_sensor_158d00023a58df
             name: Water Sensor
+          - entity: binary_sensor.washer_running
+            name: Washer
           - entity: binary_sensor.dryer_running
             name: Dryer
       - type: glance
