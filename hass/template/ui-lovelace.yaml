@@ -68,9 +68,9 @@ views:
             name: "Rice"
             tap_action:
               action: toggle
-          - entity: em:kettle
+          - entity: em:espresso_machine
             icon: mdi:power-socket-us
-            name: "Kettle"
+            name: "Espresso"
             tap_action:
               action: toggle
           - entity: em:kitchen_fridge_sensor

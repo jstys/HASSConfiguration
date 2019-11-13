@@ -70,7 +70,7 @@ views:
               action: toggle
           - entity: light.centralite_4257050_rzhac_0ae7df8a_1
             icon: mdi:power-socket-us
-            name: "Kettle"
+            name: "Espresso"
             tap_action:
               action: toggle
           - entity: binary_sensor.door_window_sensor_158d0001d3a024

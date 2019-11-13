@@ -156,7 +156,7 @@ entities:
         switch.hank_hkzw_so03_smart_plug_switch_2:
             name: rice_cooker
         light.centralite_4257050_rzhac_0ae7df8a_1:
-            name: kettle
+            name: espresso_machine
         switch.ledvance_plug_00051d4d_1:
             name: living_room_fragrance
         switch.centralite_3210_l_0c3283a0_1:

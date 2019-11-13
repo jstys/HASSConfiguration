@@ -51,7 +51,7 @@ input_select.thermostat_mode:
 light.basement_staircase_light:
   friendly_name: Landing Light
 light.centralite_4257050_rzhac_0ae7df8a_1:
-  friendly_name: Kettle
+  friendly_name: Espresso Machine
 light.cree_connected_a_19_60w_equivalent_fe040989_10:
   friendly_name: Hallway Fixture
 light.cree_connected_a_19_60w_equivalent_fe0409f4_10:
