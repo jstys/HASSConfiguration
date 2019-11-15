@@ -143,6 +143,8 @@ views:
               action: toggle
           - entity: em:garage_door_sensor
             name: Garage Door Sensor
+          - entity: em:front_garage_light
+            name: Front Light
 
   - title: Outside
     icon: mdi:weather-sunny

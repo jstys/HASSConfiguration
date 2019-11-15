@@ -7,3 +7,6 @@
 - platform: switch
   name: Office Lights
   entity_id: switch.third_reality_inc_3rss007z_ffe01818_1_6
+- platform: switch
+  name: Front Garage Light
+  entity_id: switch.centralite_3210_l_c9488805_1

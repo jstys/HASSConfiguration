@@ -73,6 +73,9 @@ entities:
         light.kitchen_cabinet_lights:
             name: kitchen_cabinet_lights
             room: kitchen
+        light.front_garage_light:
+            name: front_garage_light
+            room: garage
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:

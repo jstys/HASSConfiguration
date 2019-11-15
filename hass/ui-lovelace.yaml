@@ -143,6 +143,8 @@ views:
               action: toggle
           - entity: binary_sensor.visonic_mct_340_e_0b121b78_1_1280
             name: Garage Door Sensor
+          - entity: light.front_garage_light
+            name: Front Light
 
   - title: Outside
     icon: mdi:weather-sunny
