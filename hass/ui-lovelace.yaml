@@ -145,6 +145,8 @@ views:
             name: Garage Door Sensor
           - entity: light.front_garage_light
             name: Front Light
+            tap_action:
+              action: toggle
 
   - title: Outside
     icon: mdi:weather-sunny
