@@ -29,7 +29,7 @@ binary_sensor.motion_sensor_158d0002b6fe4e:
 binary_sensor.motion_sensor_158d0002b95de8:
   friendly_name: Office Motion Sensor
 binary_sensor.switch_158d00016da2c9:
-  friendly_name: Living Room Button
+  friendly_name: Master Bedroom Closet Button
 binary_sensor.switch_158d00016dbf86:
   friendly_name: Master Bedroom Button
 binary_sensor.visonic_mct_340_e_0b121662_1_1280:

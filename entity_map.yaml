@@ -109,7 +109,7 @@ entities:
     
     button:
         binary_sensor.switch_158d00016da2c9:
-            room: living_room
+            name: master_bedroom_closet_button
         binary_sensor.switch_158d00016dbf86:
             room: master_bedroom
         zwave.fibaro_system_fgkf601_keyfob:
