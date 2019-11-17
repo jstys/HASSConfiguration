@@ -22,9 +22,13 @@ def register_callbacks():
     
 def on_washer_on_event(event):
     logger.info("Washer turned on")
+    timer_manager.cancel_timer("laundry_washer_timer")
 
 def on_washer_off_event(event):
     logger.info("Washer turned off")
+    timer_manager.start_timer("laundry_washer_timer", on_washer_finished, minutes=6)
+
+def on_washer_finished():
     if not state_machine.get_state(state_machine.SLEEP_STATE):
         TTSAction().broadcast("Washing machine has finished")
 
