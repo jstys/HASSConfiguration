@@ -106,6 +106,8 @@ light.living_room_lamps:
   friendly_name: Living Room Lamps
 light.manual_off_lights:
   friendly_name: Manual Off Lights
+light.master_bedroom_closet_lights:
+  friendly_name: Master Bedroom Closet Lights
 light.master_bedroom_fixture:
   friendly_name: Master Bedroom Fixture
 light.office_lights:
@@ -124,6 +126,10 @@ light.sengled_e11_g13_03152cef_1:
   friendly_name: Fourth Bedroom Fixture 2
 light.sengled_e11_g13_0316b7c9_1:
   friendly_name: Fourth Bedroom Fixture 1
+light.sengled_e11_g13_b02c1503_1:
+  friendly_name: Master Bedroom Closet Light 1
+light.sengled_e11_g13_befa1603_1:
+  friendly_name: Master Bedroom Closet Light 2
 light.stairs_led:
   friendly_name: First Floor Staircase Led
 lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:

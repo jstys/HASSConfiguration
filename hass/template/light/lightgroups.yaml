@@ -51,3 +51,11 @@
     - light.erica_night_lamp
     - light.piano_led
     - light.fourth_bedroom_fixture
+    - light.master_bedroom_closet_lights
+    - em:front_garage_light
+
+- platform: group
+  name: master_bedroom_closet_lights
+    entities: 
+      - em:master_bedroom_closet_light_1
+      - em:master_bedroom_closet_light_2
