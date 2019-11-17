@@ -56,6 +56,6 @@
 
 - platform: group
   name: master_bedroom_closet_lights
-    entities: 
-      - em:master_bedroom_closet_light_1
-      - em:master_bedroom_closet_light_2
+  entities: 
+    - em:master_bedroom_closet_light_1
+    - em:master_bedroom_closet_light_2
