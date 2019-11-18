@@ -338,5 +338,10 @@ views:
         title: Zigbee Setup
         show_header_toggle: false
         entities:
+          - type: call-service
+            name: Add Xiaomi Device
+            service: xiaomi_aqara.add_device
+            service_data:
+              gw_mac: !secret xiaomi1_mac
           - entity: switch.zigbee_debug
             name: Zigbee Debug Logging
