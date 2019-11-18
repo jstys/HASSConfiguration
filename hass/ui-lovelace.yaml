@@ -94,6 +94,10 @@ views:
             name: "Erica"
             tap_action:
               action: toggle
+          - entity: light.master_bedroom_closet_lights
+            name: Closet
+            tap_action:
+              action: toggle
       - type: glance
         title: Office
         entities:
