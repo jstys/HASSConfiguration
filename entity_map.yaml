@@ -93,6 +93,8 @@ entities:
             room: office
         binary_sensor.motion_sensor_158d0002b6fe4e:
             room: landing
+        binary_sensor.motion_sensor_158d0002c63719:
+            room: garage
     
     water_sensor:
          binary_sensor.water_leak_sensor_158d00023a58df:
