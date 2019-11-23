@@ -1,3 +1,4 @@
+devenv/*
 secrets.yaml
 private/
 .vscode/*
