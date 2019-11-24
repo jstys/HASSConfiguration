@@ -53,6 +53,7 @@
     - light.fourth_bedroom_fixture
     - light.master_bedroom_closet_lights
     - light.front_garage_light
+    - light.master_bedroom_mirror_led
 
 - platform: group
   name: master_bedroom_closet_lights
