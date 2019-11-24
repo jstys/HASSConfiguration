@@ -85,6 +85,9 @@ entities:
         light.master_bedroom_closet_lights:
             name: master_bedroom_closet_lights
             room: master_bedroom
+        light.master_bedroom_mirror_led:
+            name: master_bedroom_mirror_led
+            room: master_bedroom
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:

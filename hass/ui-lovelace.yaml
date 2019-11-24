@@ -98,6 +98,10 @@ views:
             name: Closet
             tap_action:
               action: toggle
+          - entity: light.master_bedroom_mirror_led
+            name: Mirror
+            tap_action:
+              action: toggle
       - type: glance
         title: Office
         entities:
