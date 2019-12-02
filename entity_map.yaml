@@ -188,6 +188,8 @@ entities:
             name: garage_bathroom_outlet
         switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch:
             name: laundry_outlet
+        switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
+            name: frontyard_outlet
     
     switch:
         zwave.linear_wa00z_1_scene_switch:

@@ -185,6 +185,10 @@ views:
             name: Porch
             tap_action:
               action: toggle
+          - entity: em:frontyard_outlet
+            name: Outlet
+            tap_action:
+              action: toggle
           
   - title: Climate
     icon: mdi:thermometer-lines

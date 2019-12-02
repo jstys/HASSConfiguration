@@ -232,6 +232,8 @@ switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1:
   friendly_name: Kitchen Fragrance
 switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
   friendly_name: Garage Bathroom Outlet
+switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
+  friendly_name: Frontyard Outlet
 switch.ledvance_plug_00051d4d_1:
   friendly_name: Living Room Fragrance
 switch.third_reality_inc_3rss007z_ffe01818_1_6:
