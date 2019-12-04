@@ -304,19 +304,21 @@ views:
   - title: Advanced
     icon: mdi:android-debug-bridge
     cards:
-      - type: horizontal-stack
-        cards:
-          - type: entity-button
-            entity: script.generate_grocery_list
+      - type: entities
+        title: Meal Plan
+        entities:
+          - entity: script.generate_grocery_list
             name: Generate Mealplan
-            tap_action: call_service
-            service: script.turn_on
-          
-          - type: entity-button
-            entity: script.archive_mealplan
+          - entity: script.archive_mealplan
             name: Archive Mealplan
-            tap_action: call_service
-            service: script.turn_on
+
+      - type: entities
+        title: Phone Finder
+        entities:
+          - entity: script.find_jim_phone
+            name: Jim's Phone
+          - entity: script.find_erica_phone
+            name: Erica's Phone
 
       - type: entity-filter
         entities:
