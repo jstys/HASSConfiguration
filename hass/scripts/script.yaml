@@ -85,3 +85,11 @@ archive_mealplan:
   alias: Archive Last Week
   sequence:
     - event: archive_mealplan
+
+find_jim_phone:
+  sequence:
+    - service: joaoapps_join.jim_cell_ring
+
+find_erica_phone:
+  sequence:
+    - service: joaoapps_join.erica_cell_ring
