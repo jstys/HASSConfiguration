@@ -303,10 +303,10 @@ views:
         
   - title: Advanced
     icon: mdi:android-debug-bridge
-    show_header_toggle: false
     cards:
       - type: entities
         title: Meal Plan
+        show_header_toggle: false
         entities:
           - entity: script.generate_grocery_list
             name: Generate Mealplan
