@@ -303,6 +303,7 @@ views:
         
   - title: Advanced
     icon: mdi:android-debug-bridge
+    show_header_toggle: false
     cards:
       - type: entities
         title: Meal Plan
@@ -314,6 +315,7 @@ views:
 
       - type: entities
         title: Phone Finder
+        show_header_toggle: false
         entities:
           - entity: script.find_jim_phone
             name: Jim's Phone
