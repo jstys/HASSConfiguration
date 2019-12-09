@@ -6,7 +6,7 @@ from automation_hub import timer_manager
 from util import logger
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
-from actions.tts_action import TTSAction
+from actions.push_notify_action import PushNotifyAction
 
 def washer_filter(event):
     return event.name == "washer_running"
@@ -29,13 +29,11 @@ def on_washer_off_event(event):
     timer_manager.start_timer("laundry_washer_timer", on_washer_finished, minutes=6)
 
 def on_washer_finished():
-    if not state_machine.get_state(state_machine.SLEEP_STATE):
-        TTSAction().broadcast("Washing machine has finished")
+    PushNotifyAction().add_targets(["jim_cell", "erica_cell"]).set_message("Washing Machine has finished").notify()
 
 def on_dryer_on_event(event):
     logger.info("Dryer turned on")
 
 def on_dryer_off_event(event):
     logger.info("Dryer turned off")
-    if not state_machine.get_state(state_machine.SLEEP_STATE):
-        TTSAction().broadcast("Dryer has finished")
+    PushNotifyAction().add_targets(["jim_cell", "erica_cell"]).set_message("Dryer has finished").notify()
