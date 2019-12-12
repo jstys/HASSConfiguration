@@ -10,6 +10,7 @@ JIM_HOME_STATE = "jim_home"
 ERICA_HOME_STATE = "erica_home"
 NOBODY_HOME_STATE = "nobody_home"
 THERMOSTAT_STATE = "thermostat_state"
+CHRISTMAS_STATE = "christmas_state"
 
 def set_state(state, new_value):
     global state_map

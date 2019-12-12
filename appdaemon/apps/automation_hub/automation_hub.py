@@ -55,6 +55,7 @@ class AutomationHub(hass.Hass):
         thermostat_mode = self.get_state(entity="input_select.thermostat_mode", namespace="hass")
         guest_state = self.get_state(entity="input_boolean.guest_mode", namespace="hass")
         sunup_state = self.get_state(entity="sun.sun", namespace="hass") == "above_horizon"
+        christmas_state = self.get_state(entity="input_boolean.christmas_lights", namespace="hass")
         
         # Add try/except around appdaemon methods which may fail
         try:
@@ -67,6 +68,7 @@ class AutomationHub(hass.Hass):
         state_machine.set_state(state_machine.THERMOSTAT_STATE, thermostat_mode)
         state_machine.set_state(state_machine.NOBODY_HOME_STATE, nobody_home)
         state_machine.set_state(state_machine.GUEST_STATE, guest_state)
+        state_machine.set_state(state_machine.CHRISTMAS_STATE, christmas_state)
     
     def setup_logger(self):
         log = self.get_main_log()
