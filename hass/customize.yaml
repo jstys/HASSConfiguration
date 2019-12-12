@@ -48,6 +48,8 @@ device_tracker.owntracks_erica:
   entity_picture: /local/erica.jpg
 device_tracker.owntracks_jim:
   entity_picture: /local/jim.jpg
+input_boolean.christmas_lights:
+  friendly_name: Christmas Lights
 input_boolean.guest_mode:
   friendly_name: Guest Mode
 input_boolean.sleep_mode:
@@ -234,6 +236,8 @@ switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
   friendly_name: Garage Bathroom Outlet
 switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
   friendly_name: Frontyard Outlet
+switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_2:
+  friendly_name: Backyard Outlet
 switch.ledvance_plug_00051d4d_1:
   friendly_name: Living Room Fragrance
 switch.third_reality_inc_3rss007z_ffe01818_1_6:

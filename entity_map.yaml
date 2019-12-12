@@ -190,6 +190,8 @@ entities:
             name: laundry_outlet
         switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
             name: frontyard_outlet
+        switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_2:
+            name: backyard_outlet
     
     switch:
         zwave.linear_wa00z_1_scene_switch:
@@ -236,6 +238,8 @@ entities:
             name: sleep_mode
         input_boolean.guest_mode:
             name: guest_mode
+        input_boolean.christmas_lights:
+            name: christmas_lights
             
     vacuum:
         vacuum.xiaomi_vacuum_cleaner:

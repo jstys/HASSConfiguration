@@ -170,6 +170,10 @@ views:
             name: Deck
             tap_action:
               action: toggle
+          - entity: em:backyard_outlet
+            name: Outlet
+            tap_action:
+              action: toggle
       - type: glance
         title: Frontyard
         entities:
@@ -300,6 +304,8 @@ views:
           icon: mdi:sleep
         - entity: input_boolean.guest_mode
           name: Guest Mode
+        - entity: input_boolean.christmas_lights
+          icon: mdi:pine-tree
         
   - title: Advanced
     icon: mdi:android-debug-bridge
