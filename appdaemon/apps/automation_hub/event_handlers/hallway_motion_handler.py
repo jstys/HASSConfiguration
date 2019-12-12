@@ -25,4 +25,7 @@ def on_motion_triggered(event):
         LightAction().add_lights(["first_floor_staircase_led"]).turn_on()
 
 def lights_off():
-    LightAction().add_lights(["hallway_lights", "first_floor_staircase_led"]).turn_off()
+    if not state_machine.get_state(state_machine.SLEEP_STATE):
+        LightAction().add_lights(["hallway_lights"]).turn_off()
+    else:
+        LightAction().add_lights(["first_floor_staircase_led"]).turn_off()
