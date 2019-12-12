@@ -304,6 +304,7 @@ views:
           icon: mdi:sleep
         - entity: input_boolean.guest_mode
           name: Guest Mode
+          icon: mdi:home-account
         - entity: input_boolean.christmas_lights
           icon: mdi:pine-tree
         
@@ -316,8 +317,10 @@ views:
         entities:
           - entity: script.generate_grocery_list
             name: Generate Mealplan
+            icon: mdi:pasta
           - entity: script.archive_mealplan
             name: Archive Mealplan
+            icon: mdi:pasta
 
       - type: entities
         title: Phone Finder
@@ -325,8 +328,10 @@ views:
         entities:
           - entity: script.find_jim_phone
             name: Jim's Phone
+            icon: mdi:cellphone
           - entity: script.find_erica_phone
             name: Erica's Phone
+            icon: mdi:cellphone
 
       - type: entity-filter
         entities:
