@@ -347,10 +347,34 @@ views:
         entities:
           - type: call-service
             name: Living Room Learn
-            service: switch.broadlink_learn_command_10_0_0_11
+            icon: mdi:remote
+            service: broadlink.learn
+            service_data:
+              host: 10.0.0.11
           - type: call-service
             name: Master BR Learn
-            service: switch.broadlink_learn_command_10_0_0_4
+            icon: mdi:remote
+            service: broadlink.learn
+            service_data:
+              host: 10.0.0.4
+          - type: call-service
+            name: Guest BR Learn
+            icon: mdi:remote
+            service: broadlink.learn
+            service_data:
+              host: 10.0.0.31
+          - type: call-service
+            name: Office Learn
+            service: broadlink.learn
+            icon: mdi:remote
+            service_data:
+              host: 10.0.0.30
+          - type: call-service
+            name: Fourth BR Learn
+            service: broadlink.learn
+            icon: mdi:remote
+            service_data:
+              host: 10.0.0.40
             
       - type: entities
         title: Zigbee Setup
