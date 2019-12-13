@@ -19,9 +19,9 @@ def register_callbacks():
     event_dispatcher.register_callback(on_state_changed, InputEvent.__name__, event_filter=event_filter)
     
 def on_state_changed(event):
-    if event.old == "on" and event.new == "off":
+    if event.new == "off":
         on_sleep_state_disabled(event)
-    elif event.old == "off" and event.new == "on":
+    elif event.new == "on":
         on_sleep_state_enabled(event)
     else:
         logger.warning("Invalid state transition for sleep state")

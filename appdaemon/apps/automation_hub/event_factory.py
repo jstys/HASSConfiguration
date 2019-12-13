@@ -199,12 +199,12 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
     return None
 
 def create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    if old == "on" and new == "off":
+    if old != new and new == "off":
         logger.info("Creating MotionClearedEvent")
         event = MotionClearedEvent()
         event.name = friendly_name
         return event
-    elif old == "off" and new == "on":
+    elif old != new and new == "on":
         logger.info("Creating MotionTriggeredEvent")
         event = MotionTriggeredEvent()
         event.name = friendly_name
@@ -214,12 +214,12 @@ def create_motion_sensor_state_change_event(friendly_name, entity, attributes, o
         return None
 
 def create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    if old == "off" and new == "on":
+    if old != new and new == "on":
         logger.info("Creating DoorOpenEvent")
         event = DoorOpenEvent()
         event.name = friendly_name
         return event
-    elif old == "on" and new == "off":
+    elif old != new and new == "off":
         logger.info("Creating DoorClosedEvent")
         event = DoorClosedEvent()
         event.name = friendly_name
@@ -231,10 +231,13 @@ def create_door_sensor_state_change_event(friendly_name, entity, attributes, old
 def create_presence_change_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.info("Creating PresenceEvent")
     event = PresenceEvent()
-    event.name = friendly_name
-    event.old = old
-    event.new = new
-    return event
+    if old != new:
+        event.name = friendly_name
+        event.old = old
+        event.new = new
+        return event
+    else:
+        return None
 
 def create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.info("Creating LockEvent")
@@ -262,11 +265,11 @@ def create_input_change_event(friendly_name, entity, attributes, old, new, kwarg
 
 def create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.info("Creating SwitchEvent")
-    if old == "off" and new == "on":
+    if old != new and new == "on":
         event = SwitchOnEvent()
         event.name = friendly_name
         return event
-    elif old == "on" and new == "off":
+    elif old != new and new == "off":
         event = SwitchOffEvent()
         event.name = friendly_name
         return event
@@ -283,11 +286,11 @@ def create_sun_event(old, new):
         
 def create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.info("Creating Power Sensor Change Event")
-    if old == "off" and new == "on":
+    if old != new and new == "on":
         event = PowerSensorOnEvent()
         event.name = friendly_name
         return event
-    elif old == "on" and new == "off":
+    elif old != new and new == "off":
         event = PowerSensorOffEvent()
         event.name = friendly_name
         return event

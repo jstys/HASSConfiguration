@@ -13,9 +13,9 @@ def register_callbacks():
     event_dispatcher.register_callback(on_presence_changed, PresenceEvent.__name__)
     
 def on_presence_changed(event):
-    if event.old == "home" and event.new == "not_home":
+    if event.new == "not_home":
         on_person_away(event.name)
-    elif event.old == "not_home" and event.new == "home":
+    elif event.new == "home":
         on_person_home(event.name)
 
 def on_person_away(name):
