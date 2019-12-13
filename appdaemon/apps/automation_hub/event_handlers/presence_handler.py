@@ -31,10 +31,9 @@ def on_person_away(name):
 def on_person_home(name):
     logger.info("{} has arrived home".format(name))
     
-    if state_machine.get_state(state_machine.NOBODY_HOME_STATE):
-        handle_somebody_home()
+    handle_somebody_home()
 
-    if not state_machine.get_state(state_machine.SUN_UP_STATE):
+    if not state_machine.is_sun_up():
         LightAction().add_light("driveway_light").turn_on()
     
     if name == "jim_presence":
@@ -44,9 +43,7 @@ def on_person_home(name):
 def handle_nobody_home():
     logger.info("Nobody home...")
 
-    state_machine.set_state(state_machine.NOBODY_HOME_STATE, True)
-
-    if not state_machine.get_state(state_machine.GUEST_STATE):
+    if not state_machine.is_guest_state_enabled():
         all_tvs = entity_map.find_type_entities("tv")
         
         LightAction().add_light("manual_off_lights").turn_off()
@@ -60,7 +57,6 @@ def handle_nobody_home():
     
 def handle_somebody_home():
     logger.info("Someone is home now...")
-    state_machine.set_state(state_machine.NOBODY_HOME_STATE, False)
     
     LightAction().add_lights(["kitchen_lights", "dining_room_light", "living_room_lamps"]).turn_on()
     

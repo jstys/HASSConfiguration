@@ -8,7 +8,6 @@ from events.door_closed_event import DoorClosedEvent
 from events.door_open_event import DoorOpenEvent
 from events.zwave_scene_event import ZwaveSceneEvent
 from events.mqtt_event import MQTTEvent
-from events.state_machine_event import StateMachineEvent
 from events.presence_event import PresenceEvent
 from events.lock_event import LockEvent
 from events.input_event import InputEvent
@@ -36,8 +35,6 @@ def create_from_event(event_name, data, kwargs):
         return create_mqtt_event(event_name, data, kwargs)
     elif event_name == "zwave.scene_activated":
         return create_zwave_scene_event(event_name, data, kwargs)
-    elif event_name == "state_machine.state_changed":
-        return create_state_machine_state_changed_event(event_name, data, kwargs)
     elif event_name == "generate_mealplan":
         return GenerateMealplanEvent()
     elif event_name == "archive_mealplan":
@@ -117,16 +114,6 @@ def create_zwave_scene_event(event_name, data, kwargs):
     else:
         logger.warning("Received invalid zwave entity")
         return None
-
-def create_state_machine_state_changed_event(event_name, data, kwargs):
-    state = data.get("state")
-    old = data.get("old")
-    new = data.get("new")
-    event = StateMachineEvent()
-    event.state = state
-    event.old = old
-    event.new = new
-    return event
 
 def create_nhl_scoring_event(event_name, data, kwargs):
     event = NHLGoalEvent()

@@ -1,5 +1,4 @@
 from automation_hub import event_dispatcher
-from automation_hub import state_machine
 from automation_hub import timer_manager
 from util import entity_map
 from util import logger
@@ -28,8 +27,6 @@ def on_state_changed(event):
 
 def on_sleep_state_enabled(event):
     logger.info("Sleep state enabled")
-
-    state_machine.set_state(state_machine.SLEEP_STATE, True)
     
     DoorLockAction().add_lock("front_entrance_lock").lock()
     LightAction().add_lights(["manual_off_lights", "hallway_lights"]).turn_off()
@@ -47,8 +44,6 @@ def play_white_noise():
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
-    
-    state_machine.set_state(state_machine.SLEEP_STATE, False)
 
     assistant_action = AssistantAction().add_assistant("master_bedroom")
     assistant_action.enable_hotword()

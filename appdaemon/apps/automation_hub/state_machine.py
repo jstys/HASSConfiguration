@@ -1,29 +1,31 @@
-from actions.event_action import EventAction
-from util import logger
+from util.entity_map import name_map
 
-state_map = {}
+API_HANDLE = None
 
-SLEEP_STATE = "sleep"
-GUEST_STATE = "guest"
-SUN_UP_STATE = "sun"
-JIM_HOME_STATE = "jim_home"
-ERICA_HOME_STATE = "erica_home"
-NOBODY_HOME_STATE = "nobody_home"
-THERMOSTAT_STATE = "thermostat_state"
-CHRISTMAS_STATE = "christmas_state"
+def set_api_handle(handle):
+    global API_HANDLE
+    API_HANDLE = handle
 
-def set_state(state, new_value):
-    global state_map
+def is_sleep_state_enabled():
+    return API_HANDLE.get_state(name_map["sleep_mode"]) == "on"
 
-    old_value = state_map.get(state)
+def is_guest_state_enabled():
+    return API_HANDLE.get_state(name_map["guest_mode"]) == "on"
 
-    logger.info("Setting {} from old:{} to new:{}".format(state, old_value, new_value))
+def is_sun_up():
+    return API_HANDLE.get_state(name_map["sun"]) == "above_horizon"
 
-    state_map[state] = new_value
+def is_jim_home():
+    return API_HANDLE.get_state(name_map["jim_presence"]) == "home"
 
-    if old_value != new_value:
-        EventAction().fire("state_machine.state_changed", state=state, old=old_value, new=new_value)
+def is_erica_home():
+    return API_HANDLE.get_state(name_map["erica_presence"]) == "home"
 
-def get_state(state):
-    return state_map.get(state)
+def is_nobody_home():
+    return API_HANDLE.noone_home()
 
+def get_thermostat_mode():
+    return API_HANDLE.get_state(name_map["thermostat_mode"])
+
+def is_christmas_lights_enabled():
+    return API_HANDLE.get_state(name_map["christmas_lights_mode"]) == "on"

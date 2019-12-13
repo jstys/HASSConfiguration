@@ -1,7 +1,6 @@
 import functools
 
 from automation_hub import event_dispatcher
-from automation_hub import state_machine
 from automation_hub import timer_manager
 from util import logger
 from events.xiaomi_motion_triggered_event import XiaomiMotionTriggeredEvent

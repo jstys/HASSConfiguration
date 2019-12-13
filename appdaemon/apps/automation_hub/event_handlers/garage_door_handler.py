@@ -20,6 +20,6 @@ def on_door_closed(event):
 def on_door_opened(event):
     logger.info("Garage door opened")
     
-    if not state_machine.get_state(state_machine.SUN_UP_STATE):
+    if not state_machine.is_sun_up():
         LightAction().add_light("driveway_light").turn_on()
     

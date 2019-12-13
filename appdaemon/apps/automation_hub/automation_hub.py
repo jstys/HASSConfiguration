@@ -20,6 +20,7 @@ class AutomationHub(hass.Hass):
     def initialize(self):
         hassutil.set_api_handle(self)
         timer_manager.set_api_handle(self)
+        state_machine.set_api_handle(self)
         self.event_list = self.args["event_list"]
         self.setup_logger()
         self.subscribe_events()
@@ -27,7 +28,6 @@ class AutomationHub(hass.Hass):
         if not hasattr(self, "event_handler_map"):
             self.event_handler_map = {}
         self._load_handlers()
-        self._initialize_states()
         
     def _load_handlers(self):
         cwd = os.path.dirname(os.path.realpath(__file__))
@@ -45,16 +45,6 @@ class AutomationHub(hass.Hass):
             module.register_callbacks()
             self.event_handler_map[module_name] = module
         
-    def _initialize_callbacks(self):
-        self.run_at_sunrise(self.on_sunrise)
-        self.run_at_sunset(self.on_sunset)
-        
-    def _initialize_states(self):
-        # Get HASS States
-        states = self.get_state(attribute="all", namespace="hass")
-        for entity, stateattr in states.items():
-            self.on_state_changed(entity, stateattr, None, stateattr, None)
-    
     def setup_logger(self):
         log = self.get_main_log()
         logger.set_logger(log)
