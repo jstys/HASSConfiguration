@@ -25,6 +25,7 @@ from events.nhl_period_end_event import NHLPeriodEndEvent
 from events.nhl_game_end_event import NHLGameEndEvent
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
+from events.automation_hub_started_event import AutomationHubStartedEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -161,6 +162,9 @@ def create_nhl_period_end_event(event_name, data, kwargs):
 
 def create_nhl_game_end_event(event_name, data, kwargs):
     return NHLGameEndEvent()
+    
+def create_automation_hub_started_event():
+    return AutomationHubStartedEvent()
 
 def create_from_state_change(friendly_name, entity_type, entity, attributes, old, new, kwargs):
     if entity_type == "water_sensor":

@@ -28,6 +28,7 @@ class AutomationHub(hass.Hass):
         if not hasattr(self, "event_handler_map"):
             self.event_handler_map = {}
         self._load_handlers()
+        self._notify_started()
         
     def _load_handlers(self):
         cwd = os.path.dirname(os.path.realpath(__file__))
@@ -44,6 +45,10 @@ class AutomationHub(hass.Hass):
                 module = importlib.import_module(".".join(["event_handlers", module_name]))
             module.register_callbacks()
             self.event_handler_map[module_name] = module
+            
+    def _notify_started(self):
+        event = event_factory.create_automation_hub_started_event()
+        event_dispatcher.dispatch(event)
         
     def setup_logger(self):
         log = self.get_main_log()
