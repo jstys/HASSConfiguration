@@ -49,7 +49,7 @@ device_tracker.owntracks_erica:
 device_tracker.owntracks_jim:
   entity_picture: /local/jim.jpg
 input_boolean.christmas_lights:
-  friendly_name: Christmas Lights
+  friendly_name: Christmas Lights Mode
 input_boolean.guest_mode:
   friendly_name: Guest Mode
 input_boolean.sleep_mode:

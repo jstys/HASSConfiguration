@@ -239,7 +239,7 @@ entities:
         input_boolean.guest_mode:
             name: guest_mode
         input_boolean.christmas_lights:
-            name: christmas_lights
+            name: christmas_lights_mode
             
     vacuum:
         vacuum.xiaomi_vacuum_cleaner:
