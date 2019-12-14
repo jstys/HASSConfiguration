@@ -189,6 +189,10 @@ views:
             name: Porch
             tap_action:
               action: toggle
+          - entity: switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1
+            name: Poutlet
+            tap_action:
+              action: toggle
           - entity: switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch
             name: Outlet
             tap_action:
