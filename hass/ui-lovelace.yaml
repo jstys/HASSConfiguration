@@ -284,7 +284,6 @@ views:
         - entity: sensor.fridge_door_battery
         - type: section
           label: Button
-        - entity: sensor.living_button_battery
         - entity: sensor.master_bedroom_button_battery
         - type: section
           label: Motion
