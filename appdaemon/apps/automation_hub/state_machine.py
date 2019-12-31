@@ -9,8 +9,20 @@ def set_api_handle(handle):
 def is_sleep_state_enabled():
     return API_HANDLE.get_state(name_map["sleep_mode"], namespace="hass") == "on"
 
+def disable_sleep_state():
+    return API_HANDLE.set_state(name_map["sleep_mode"], state="off", namespace="hass")
+
+def enable_sleep_state():
+    return API_HANDLE.set_state(name_map["sleep_mode"], state="on", namespace="hass")
+
 def is_guest_state_enabled():
     return API_HANDLE.get_state(name_map["guest_mode"], namespace="hass") == "on"
+
+def disable_guest_state():
+    return API_HANDLE.set_state(name_map["guest_mode"], state="off", namespace="hass")
+
+def enable_guest_state():
+    return API_HANDLE.set_state(name_map["guest_mode"], state="on", namespace="hass")
 
 def is_sun_up():
     return API_HANDLE.get_state(name_map["sun"], namespace="hass") == "above_horizon"
