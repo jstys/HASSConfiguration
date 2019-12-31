@@ -1,6 +1,7 @@
-from util import logger
+from util import logutil
 
 callbacks = {}
+logger = logutil.get_logger("automation_hub")
 
 def dispatch(event):
     event_name = event.__class__.__name__

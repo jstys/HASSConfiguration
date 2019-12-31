@@ -4,7 +4,7 @@ import functools
 from automation_hub import event_dispatcher
 from automation_hub import state_machine
 from automation_hub import timer_manager
-from util import logger
+from util import logutil
 from util import hassutil
 from util.entity_map import room_map
 from util.entity_map import find_room_entities
@@ -15,6 +15,8 @@ from actions.assistant_action import AssistantAction
 from actions.vacuum_action import VacuumAction
 from actions.join_action import JoinAction
 from events.mqtt_event import MQTTEvent
+
+logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return "snips/intent/" in event.topic or event.topic == "snips/nluIntent"

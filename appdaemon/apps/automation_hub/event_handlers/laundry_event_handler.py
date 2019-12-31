@@ -2,10 +2,12 @@ import functools
 
 from automation_hub import event_dispatcher
 from automation_hub import timer_manager
-from util import logger
+from util import logutil
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
 from actions.push_notify_action import PushNotifyAction
+
+logger = logutil.get_logger("automation_hub")
 
 def washer_filter(event):
     return event.name == "washer_running"

@@ -1,6 +1,8 @@
 from util.entity_map import assistant_list
 from util import hassutil
-from util import logger
+from util import logutil
+
+logger = logutil.get_logger("automation_hub")
 
 class TTSAction():
     def __init__(self):

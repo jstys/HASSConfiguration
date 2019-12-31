@@ -1,4 +1,4 @@
-from util import logger
+from util import logutil
 from util.entity_map import entity_map
 from util.entity_map import button_id_map
 from events.motion_triggered_event import MotionTriggeredEvent
@@ -26,6 +26,8 @@ from events.nhl_game_end_event import NHLGameEndEvent
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
 from events.automation_hub_started_event import AutomationHubStartedEvent
+
+logger = logutil.get_logger("automation_hub")
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":

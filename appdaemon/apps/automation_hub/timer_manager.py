@@ -1,9 +1,10 @@
-from util import logger
+from util import logutil
 import datetime
 
 API_HANDLE = None
 INFINITE_REPEATS = -1
 timer_map = {}
+logger = logutil.get_logger("automation_hub")
 
 def set_api_handle(handle):
     global API_HANDLE

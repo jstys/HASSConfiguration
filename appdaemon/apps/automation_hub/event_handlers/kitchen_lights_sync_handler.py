@@ -1,8 +1,10 @@
 from automation_hub import event_dispatcher
-from util import logger
+from util import logutil
 from events.switch_on_event import SwitchOnEvent
 from events.switch_off_event import SwitchOffEvent
 from actions.light_action import LightAction
+
+logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "kitchen_fixture"

@@ -1,6 +1,8 @@
 from util.entity_map import name_map
 from util import hassutil
-from util import logger
+from util import logutil
+
+logger = logutil.get_logger("automation_hub")
 
 class LightAction():
     def __init__(self):

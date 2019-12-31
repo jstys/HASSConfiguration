@@ -7,7 +7,7 @@ import sys
 from util import hassutil
 from util import entity_map
 from util.entity_map import entity_map
-from util import logger
+from util import logutil
 from events.sunrise_event import SunriseEvent
 from events.sunset_event import SunsetEvent
 import appdaemon.plugins.hass.hassapi as hass
@@ -16,13 +16,14 @@ import event_dispatcher
 import state_machine
 import timer_manager
 
+logger = logutil.get_logger("automation_hub")
+
 class AutomationHub(hass.Hass):
     def initialize(self):
         hassutil.set_api_handle(self)
         timer_manager.set_api_handle(self)
         state_machine.set_api_handle(self)
         self.event_list = self.args["event_list"]
-        self.setup_logger()
         self.subscribe_events()
         self.subscribe_states()
         if not hasattr(self, "event_handler_map"):
@@ -50,10 +51,6 @@ class AutomationHub(hass.Hass):
         event = event_factory.create_automation_hub_started_event()
         event_dispatcher.dispatch(event)
         
-    def setup_logger(self):
-        log = self.get_main_log()
-        logger.set_logger(log)
-    
     def subscribe_events(self):
         self.listen_event(self.on_event, namespace="global")
         

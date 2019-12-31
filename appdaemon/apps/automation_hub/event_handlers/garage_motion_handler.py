@@ -2,9 +2,11 @@ import functools
 
 from automation_hub import event_dispatcher
 from automation_hub import timer_manager
-from util import logger
+from util import logutil
 from events.xiaomi_motion_triggered_event import XiaomiMotionTriggeredEvent
 from actions.light_action import LightAction
+
+logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "garage_motion_sensor"

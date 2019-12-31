@@ -2,12 +2,14 @@ import yaml
 import os
 import json
 
-import logger
+import logutil
 
 APPD_DIR = "/conf"
 SECRETS = os.path.join(APPD_DIR, "secrets.yaml")
 ENTITY_MAP = os.path.join(APPD_DIR, "apps", "util", "entity_map.yaml")
 API_HANDLE = None
+
+logger = logutil.get_logger("automation_hub")
 
 class Entity(object):
     def __init__(self, fully_qualified_name):

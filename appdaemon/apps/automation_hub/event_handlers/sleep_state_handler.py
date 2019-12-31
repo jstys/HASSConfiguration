@@ -1,7 +1,7 @@
 from automation_hub import event_dispatcher
 from automation_hub import timer_manager
 from util import entity_map
-from util import logger
+from util import logutil
 from util import hassutil
 from events.input_event import InputEvent
 from actions.door_lock_action import DoorLockAction
@@ -10,6 +10,8 @@ from actions.light_action import LightAction
 from actions.assistant_action import AssistantAction
 from actions.join_action import JoinAction
 from actions.media_player_action import MediaPlayerAction
+
+logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "sleep_mode"
