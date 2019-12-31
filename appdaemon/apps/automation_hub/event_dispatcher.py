@@ -18,7 +18,7 @@ def register_callback(callback, event_name, event_filter=None):
         callbacks[event_name] = []
         
     callbacks[event_name].append((callback, event_filter))
-    logger.info("Registered callback for {}".format(event_name))
+    logger.debug("Registered callback for {}".format(event_name))
     
 def clear_callbacks():
     global callbacks

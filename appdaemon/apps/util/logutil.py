@@ -28,38 +28,38 @@ class LogWrapper(object):
         if self.logger:
             filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
-            self.logger.debug(f"{timestamp} - [{filename} - {funcName}] {message}")
+            self.logger.debug(f"DEBUG {timestamp} - [{filename} - {funcName}] {message}")
         
     def info(self, message):
         if self.logger:
             filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
-            self.logger.info(f"{timestamp} - [{filename} - {funcName}] {message}")
+            self.logger.info(f"INFO {timestamp} - [{filename} - {funcName}] {message}")
         
             
     def warning(self, message):
         if self.logger:
             filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
-            self.logger.warning(f"{timestamp} - [{filename} - {funcName}] {message}")
+            self.logger.warning(f"WARN {timestamp} - [{filename} - {funcName}] {message}")
         
     
     def error(self, message):
         if self.logger:
             filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
-            self.logger.error(f"{timestamp} - [{filename} - {funcName}] {message}")
+            self.logger.error(f"ERROR {timestamp} - [{filename} - {funcName}] {message}")
         
     
     def critical(self, message):
         if self.logger:
             filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
-            self.logger.critical(f"{timestamp} - [{filename} - {funcName}] {message}")
+            self.logger.critical(f"CRIT {timestamp} - [{filename} - {funcName}] {message}")
         
             
     def set_level(self, level):
         if self.logger and level.lower() == "debug":
             self.logger.setLevel("DEBUG")
         if self.logger and level.lower() == "normal":
-            self.logger.setLevel("WARNING")
+            self.logger.setLevel("INFO")
