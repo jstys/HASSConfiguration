@@ -26,34 +26,34 @@ class LogWrapper(object):
     
     def debug(self, message):
         if self.logger:
-            filename, funcName, lineNumber, stackInfo = self.logger.findCaller()
+            filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
             self.logger.debug(f"{timestamp} - [{filename} - {funcName}] {message}")
         
     def info(self, message):
         if self.logger:
-            filename, funcName, lineNumber, stackInfo = self.logger.findCaller()
+            filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
             self.logger.info(f"{timestamp} - [{filename} - {funcName}] {message}")
         
             
     def warning(self, message):
         if self.logger:
-            filename, funcName, lineNumber, stackInfo = self.logger.findCaller()
+            filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
             self.logger.warning(f"{timestamp} - [{filename} - {funcName}] {message}")
         
     
     def error(self, message):
         if self.logger:
-            filename, funcName, lineNumber, stackInfo = self.logger.findCaller()
+            filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
             self.logger.error(f"{timestamp} - [{filename} - {funcName}] {message}")
         
     
     def critical(self, message):
         if self.logger:
-            filename, funcName, lineNumber, stackInfo = self.logger.findCaller()
+            filename, lineNumber, funcName, stackInfo = self.logger.findCaller()
             timestamp = datetime.datetime.now()
             self.logger.critical(f"{timestamp} - [{filename} - {funcName}] {message}")
         
