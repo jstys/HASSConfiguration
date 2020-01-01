@@ -207,7 +207,7 @@ views:
           state: "Heating"
       card:
         type: thermostat
-        entity: climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1
+        entity: climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_mode
         name: Oil Heater
 
     - type: conditional

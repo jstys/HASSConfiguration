@@ -44,6 +44,8 @@ binary_sensor.water_leak_sensor_158d00023a58df:
   friendly_name: Utility Room Water Sensor
 climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1:
   friendly_name: Oil Thermostat
+climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_mode:
+  friendly_name: Oil Thermostat
 device_tracker.owntracks_erica:
   entity_picture: /local/erica.jpg
 device_tracker.owntracks_jim:

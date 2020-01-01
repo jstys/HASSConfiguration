@@ -247,7 +247,7 @@ entities:
             room: kitchen
 
     thermostat:
-        climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1:
+        climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_mode:
             name: oil_thermostat
 
     temperature:
