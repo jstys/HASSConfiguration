@@ -55,7 +55,7 @@ def create_from_event(event_name, data, kwargs):
     elif event_name == "nhl_game_end":
         return create_nhl_game_end_event(event_name, data, kwargs)
 
-    logger.warning(f"Received invalid event type: {event_name}")
+    logger.debug(f"Received invalid event type: {event_name}")
     return None
 
 def create_from_zha_event(event_name, data, kwargs):
@@ -188,7 +188,7 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
     if entity_type == "binary_power_sensor":
         return create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
     
-    logger.warning(f"Received invalid state change entity - type: {entity_type} entity: {friendly_name}")
+    logger.debug(f"Received invalid state change entity - type: {entity_type} entity: {friendly_name}")
     return None
 
 def create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
