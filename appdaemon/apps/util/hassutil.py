@@ -145,3 +145,10 @@ def is_someone_home():
         return API_HANDLE.anyone_home(namespace="hass")
     else:
         logger.error("API Handle is None")
+
+def get_current_datetime():
+    if API_HANDLE:
+        return API_HANDLE.datetime()
+    else:
+        logger.error("API Handle is None")
+        return None

@@ -3,11 +3,13 @@ import functools
 from automation_hub import event_dispatcher
 from automation_hub import timer_manager
 from util import logutil
+from util import hassutil
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
 from actions.push_notify_action import PushNotifyAction
 
 logger = logutil.get_logger("automation_hub")
+dryer_start = None
 
 def washer_filter(event):
     return event.name == "washer_running"
@@ -33,8 +35,27 @@ def on_washer_finished():
     PushNotifyAction().add_targets(["jim_cell", "erica_cell"]).set_message("Washing Machine has finished").notify()
 
 def on_dryer_on_event(event):
+    global dryer_start
+
     logger.info("Dryer turned on")
+    dryer_start = hassutil.get_current_datetime()
 
 def on_dryer_off_event(event):
     logger.info("Dryer turned off")
+    curtime = hassutil.get_current_datetime()
+    if dryer_start is None:
+        _notify_dryer_finish()
+    else:
+        runtime = curtime - dryer_start
+        runtime_minutes = int(runtime.total_seconds() / 60)
+        if runtime_minutes > 5:
+            logger.info("Dryer has run for at least 5 minutes")
+            _notify_dryer_finish()
+        else:
+            logger.info("False alarm, dryer ran less than 5 minutes")
+
+def _notify_dryer_finish():
+    global dryer_start
+
     PushNotifyAction().add_targets(["jim_cell", "erica_cell"]).set_message("Dryer has finished").notify()
+    dryer_start = None
