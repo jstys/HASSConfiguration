@@ -2,11 +2,13 @@ import functools
 
 from automation_hub import event_dispatcher
 from automation_hub import timer_manager
+from automation_hub import state_machine
 from util import logutil
 from util import hassutil
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
 from actions.push_notify_action import PushNotifyAction
+from actions.tts_action import TTSAction
 
 logger = logutil.get_logger("automation_hub")
 dryer_start = None
@@ -57,5 +59,8 @@ def on_dryer_off_event(event):
 def _notify_dryer_finish():
     global dryer_start
 
+    if not state_machine.is_sleep_state_enabled():
+        TTSAction().add_assistants(["living_room_mpd", "master_bedroom_mpd"]).say("Dryer has finished")
+        
     PushNotifyAction().add_targets(["jim_cell", "erica_cell"]).set_message("Dryer has finished").notify()
     dryer_start = None
