@@ -1,4 +1,4 @@
-from util.entity_map import assistant_list
+from util.entity_map import name_map
 from util import hassutil
 from util import logutil
 
@@ -15,8 +15,8 @@ class TTSAction():
         return self
 
     def add_assistant(self, assistant):
-        if assistant in assistant_list:
-            self._assistants.append(assistant)
+        if assistant in name_map:
+            self._assistants.append(hassutil.Entity(name_map[assistant]))
         else:
             logger.error("Unable to add unknown assistant to TTSAction: {}".format(assistant))
 
@@ -24,8 +24,4 @@ class TTSAction():
 
     def say(self, message):
         for assistant in self._assistants:
-            hassutil.tts_say(message, assistant)
-            
-    def broadcast(self, message):
-        for assistant in assistant_list:
             hassutil.tts_say(message, assistant)

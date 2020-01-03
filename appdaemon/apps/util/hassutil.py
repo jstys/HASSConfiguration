@@ -49,8 +49,8 @@ def join_ring_device(target):
 def join_send_tasker(target, command):
     call_service("joaoapps_join", "{}_send_tasker".format(target), command=command)
 
-def tts_say(message, tts_room):
-    call_service("mqtt", "publish", topic="snips/{}/dialogueManager/startSession".format(tts_room), payload=json.dumps({"siteId": tts_room, "init": {"type": "notification", "text": message}}))
+def tts_say(message, media_player):
+    call_service("tts", "google_say", data={"entity_id": media_player, "message": message})
 
 def tts_broadcast(message, source="HASS"):
     call_service("script", "assistant_broadcast", message=message, source=source)
