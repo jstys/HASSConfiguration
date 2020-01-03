@@ -36,6 +36,9 @@ def on_washer_off_event(event):
 def on_washer_finished():
     PushNotifyAction().add_targets(["jim_cell", "erica_cell"]).set_message("Washing Machine has finished").notify()
 
+    if not state_machine.is_sleep_state_enabled():
+        TTSAction().add_assistants(["living_room_mpd", "master_bedroom_mpd"]).say("Washer has finished")
+
 def on_dryer_on_event(event):
     global dryer_start
 
