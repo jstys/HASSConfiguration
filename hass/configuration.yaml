@@ -45,6 +45,14 @@ google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
 
+tts:
+  - platform: google_translate
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+    base_url: http://10.0.0.6:8123
+    service_name: google_say
+
 sun:
 
 vacuum:
