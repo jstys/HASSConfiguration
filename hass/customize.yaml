@@ -150,12 +150,16 @@ media_player.guest_bedroom_tv:
   friendly_name: Guest Bedroom Tv
 media_player.living_room_mpd:
   friendly_name: Living Room Mpd
+media_player.living_room_shield:
+  friendly_name: Living Room Shield
 media_player.living_room_speaker:
   friendly_name: Living Room Speaker
 media_player.living_room_tv:
   friendly_name: Living Room Tv
 media_player.living_room_tv_2:
   friendly_name: Living Room Shield
+media_player.master_bedroom_mibox:
+  friendly_name: Master Bedroom Mibox
 media_player.master_bedroom_mpd:
   friendly_name: Master Bedroom Mpd
 media_player.master_bedroom_tv:

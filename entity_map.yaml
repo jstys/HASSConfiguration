@@ -122,10 +122,10 @@ entities:
             room: living_room
             
     chromecast:
-        media_player.living_room_tv_2:
+        media_player.living_room_shield:
             room: living_room
             name: living_room_shield
-        media_player.master_bedroom_tv_2:
+        media_player.master_bedroom_mibox:
             room: master_bedroom
             name: master_bedroom_mibox
         media_player.basement_tv:
