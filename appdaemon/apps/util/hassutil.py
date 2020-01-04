@@ -51,28 +51,6 @@ def join_send_tasker(target, command):
 
 def tts_say(message, media_player):
     call_service("tts", "google_say", entity_id=media_player.entity_id, message=message)
-
-def tts_broadcast(message, source="HASS"):
-    call_service("script", "assistant_broadcast", message=message, source=source)
-    
-def disable_snips_hotword(room):
-    call_service("mqtt", "publish", topic="snips/{}/hotword/toggleOff".format(room), payload=json.dumps({"siteId": room}))
-    
-def enable_snips_hotword(room):
-    call_service("mqtt", "publish", topic="snips/{}/hotword/toggleOn".format(room), payload=json.dumps({"siteId": room}))
-    
-def disable_snips_led(room):
-    call_service("mqtt", "publish", topic="snips/{}/leds/toggleOff".format(room), payload=json.dumps({"siteId": room}))
-    
-def enable_snips_led(room):
-    call_service("mqtt", "publish", topic="snips/{}/leds/toggleOn".format(room), payload=json.dumps({"siteId": room}))
-
-def snips_play_audio_file(room, file):
-    try:
-        contents = read_binary_file(file)
-        call_service("mqtt", "publish", topic="snips/audioServer/{}/playBytes/1234".format(room), payload=contents)
-    except:
-        return
     
 def lock(lock_entity):
     call_service("lock", "lock", entity_id=lock_entity.entity_id)
