@@ -50,7 +50,7 @@ def join_send_tasker(target, command):
     call_service("joaoapps_join", "{}_send_tasker".format(target), command=command)
 
 def tts_say(message, media_player):
-    call_service("tts", "google_say", data={"entity_id": media_player.entity_id, "message": message})
+    call_service("tts", "google_say", entity_id=media_player.entity_id, message=message)
 
 def tts_broadcast(message, source="HASS"):
     call_service("script", "assistant_broadcast", message=message, source=source)
