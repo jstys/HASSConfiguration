@@ -6,7 +6,7 @@ from actions.light_action import LightAction
 logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
-    return event.name in ["fourth_bedroom_switch"]
+    return event.name in ["master_mirror_switch"]
 
 def register_callbacks():
     event_dispatcher.register_callback(on_scene_activated, ZwaveSceneEvent.__name__, event_filter=event_filter)
@@ -18,10 +18,10 @@ def on_scene_activated(event):
         on_bottom_button(event)
     
 def on_top_button(event):
-    logger.info("Turning on fourth bedroom light")
-    LightAction().add_light("fourth_bedroom_fixture").turn_on()
+    logger.info("Turning on master bedroom mirror light")
+    LightAction().add_light("master_bedroom_mirror_led").turn_on()
 
 def on_bottom_button(event):
-    logger.info("Turning off fourth bedroom light")
-    LightAction().add_light("fourth_bedroom_fixture").turn_off()
+    logger.info("Turning off master bedroom mirror light")
+    LightAction().add_light("master_bedroom_mirror_led").turn_off()
     

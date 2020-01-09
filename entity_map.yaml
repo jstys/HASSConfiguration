@@ -213,8 +213,8 @@ entities:
             name: master_bedroom_switch
             room: master_bedroom
         zwave.linear_wa00z_1_scene_switch_5:
-            name: fourth_bedroom_switch
-            room: fourth_bedroom
+            name: master_mirror_switch
+            room: master_bedroom
         switch.third_reality_inc_3rss007z_ffe01b03_1_6:
             name: kitchen_fixture
             room: kitchen
