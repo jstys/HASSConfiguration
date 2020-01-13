@@ -266,6 +266,16 @@ views:
         - entity: sensor.humidity_158d00023cf950
           name: Upstairs
 
+  - title: Cameras
+    icon: mdi:camcorder
+    cards:
+      - type: picture-glance
+        title: Front Door
+        camera_image: camera.front_door_camera
+        entities:
+          - binary_sensor.front_door_camera_motion_detected
+          - binary_sensor.front_door_camera_online
+
   - title: Batteries
     icon: mdi:battery-charging
     cards:
