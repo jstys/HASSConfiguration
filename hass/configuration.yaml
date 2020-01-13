@@ -108,6 +108,7 @@ yeelight: !include_dir_merge_named yeelight/
 climate: !include climate.yaml
 person: !include device_tracker/persons.yaml
 binary_sensor: !include_dir_merge_list binary_sensor/
+amcrest: !include amcrest.yaml
 
 ##############################################################
 #                       ENABLED                              #
