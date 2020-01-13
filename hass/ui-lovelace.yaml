@@ -272,6 +272,7 @@ views:
       - type: picture-glance
         title: Front Door
         camera_image: camera.front_door_camera
+        camera_view: live
         entities:
           - binary_sensor.front_door_camera_motion_detected
           - binary_sensor.front_door_camera_online
