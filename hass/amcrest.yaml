@@ -6,5 +6,3 @@
   binary_sensors:
     - motion_detected
     - online
-  switches:
-    - motion_recording
