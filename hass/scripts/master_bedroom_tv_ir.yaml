@@ -7,24 +7,6 @@ master_bedroom_tv_mute:
         packet:
           - !secret master_bedroom_soundbar_mute
 
-master_bedroom_tv_volume_up:
-  alias: Volume +
-  sequence:
-    - service: broadlink.send
-      data:
-        host: "10.0.0.4"
-        packet:
-          - !secret master_bedroom_soundbar_volume_up
-
-master_bedroom_tv_volume_down:
-  alias: Volume -
-  sequence:
-    - service: broadlink.send
-      data:
-        host: "10.0.0.4"
-        packet:
-          - !secret master_bedroom_soundbar_volume_down
-
 master_bedroom_tv_on:
   sequence:
     - condition: state

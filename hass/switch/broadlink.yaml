@@ -3,8 +3,8 @@
   mac: !secret broadlink1_mac # Location: Master BR
   switches:
     master_bedroom_ac:
-      command_on: !secret master_bedroom_ac_on
-      command_off: !secret master_bedroom_ac_off
+      command_on: !secret pioneer_inverter_ac_on
+      command_off: !secret pioneer_inverter_off
 - platform: broadlink
   host: 10.0.0.11
   mac: !secret broadlink2_mac # Location: Downstairs
@@ -17,8 +17,8 @@
   mac: !secret broadlink3_mac # Location: Office
   switches:
     office_ac:
-      command_on: !secret office_ac_on
-      command_off: !secret office_ac_off
+      command_on: !secret pioneer_inverter_ac_on
+      command_off: !secret pioneer_inverter_off
 - platform: broadlink
   host: 10.0.0.31
   mac: !secret broadlink4_mac # Location:Guest Bedroom
