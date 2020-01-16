@@ -29,3 +29,6 @@
     fourth_bedroom_ac:
       command_on: !secret fourth_bedroom_ac_power
       command_off: !secret fourth_bedroom_ac_power
+- platform: broadlink
+  host: 10.0.0.53
+  mac: !secret broadlink6_mac # Location: Basement
