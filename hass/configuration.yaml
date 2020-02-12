@@ -10,6 +10,8 @@ homeassistant:
 lovelace:
   mode: yaml
 
+mobile_app:
+
 mqtt:
   broker: !secret mqtt_host
   port: !secret mqtt_port
