@@ -9,6 +9,14 @@ homeassistant:
 
 lovelace:
   mode: yaml
+  dashboards:
+    lovelace-generated:
+      mode: yaml
+      filename: notexist.yaml
+      title: Generated
+      icon: mdi:tools
+      show_in_sidebar: true
+      require_admin: true
 
 mobile_app:
 
