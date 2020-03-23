@@ -88,6 +88,9 @@ entities:
         light.master_bedroom_mirror_led:
             name: master_bedroom_mirror_led
             room: master_bedroom
+        light.centralite_3210_l_06b1dd0a_on_off:
+            name: basement_fan
+            room: basement
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
