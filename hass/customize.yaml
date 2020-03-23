@@ -60,6 +60,8 @@ input_select.thermostat_mode:
   friendly_name: Thermostat Mode
 light.basement_staircase_light:
   friendly_name: Landing Light
+light.centralite_3210_l_06b1dd0a_on_off:
+  friendly_name: Basement Fan
 light.centralite_4257050_rzhac_0ae7df8a_1:
   friendly_name: Espresso Machine
 light.cree_connected_a_19_60w_equivalent_fe040989_10:
