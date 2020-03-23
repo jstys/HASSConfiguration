@@ -1,0 +1,14 @@
+- platform: template
+  covers:
+    garage_door:
+      friendly_name: "Garage Door"
+      value_template: "{{ states('em:garage_door_sensor') }}"
+      availability_template: "{{ states('em:garage_door_sensor') }}"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: em:garage_door_switch
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: em:garage_door_switch
