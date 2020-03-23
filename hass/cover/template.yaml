@@ -3,7 +3,7 @@
     garage_door:
       friendly_name: "Garage Door"
       value_template: "{{ states('binary_sensor.visonic_mct_340_e_0b121b78_1_1280') }}"
-      availability_template: "{{ states('binary_sensor.visonic_mct_340_e_0b121b78_1_1280') }}"
+      availability_template: "{{ states('binary_sensor.visonic_mct_340_e_0b121b78_1_1280') != 'unavailable' }}"
       open_cover:
         service: switch.turn_on
         data:
