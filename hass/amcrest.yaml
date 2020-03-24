@@ -2,6 +2,7 @@
   username: !secret amcrest_user
   password: !secret amcrest_pass
   stream_source: rtsp
+  resolution: low
   name: Front Door Camera
   binary_sensors:
     - motion_detected
