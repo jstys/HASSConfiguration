@@ -3,7 +3,7 @@ basement_tv_mute:
   sequence:
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.53"
         packet:
           - !secret basement_soundbar_mute
 
@@ -12,7 +12,7 @@ basement_tv_volume_up:
   sequence:
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.53"
         packet:
           - !secret basement_soundbar_volume_up
 
@@ -21,7 +21,7 @@ basement_tv_volume_down:
   sequence:
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.53"
         packet:
           - !secret basement_soundbar_volume_down
 
@@ -32,7 +32,7 @@ basement_tv_on:
       state: 'off'
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.53"
         packet:
           - !secret basement_tv_on
           - !secret basement_tv_on
@@ -51,7 +51,7 @@ basement_tv_off:
       state: 'on'
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.53"
         packet:
           - !secret basement_tv_off
           - !secret basement_tv_off
