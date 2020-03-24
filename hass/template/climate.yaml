@@ -27,6 +27,21 @@
   initial_hvac_mode: "off"
   precision: 0.1
 - platform: generic_thermostat
+  name: Master Bedroom Heat
+  heater: switch.master_bedroom_heat
+  target_sensor: em:master_bedroom_temperature
+  ac_mode: false
+  min_temp: 65
+  max_temp: 80
+  cold_tolerance: 1.0
+  hot_tolerance: 1.0
+  min_cycle_duration:
+    seconds: 30
+  keep_alive:
+    minutes: 2
+  initial_hvac_mode: "off"
+  precision: 0.1
+- platform: generic_thermostat
   name: Dining Room AC
   heater: switch.dining_room_ac
   target_sensor: em:downstairs_temperature
@@ -55,10 +70,40 @@
   initial_hvac_mode: "off"
   precision: 0.1
 - platform: generic_thermostat
+  name: Guest Bedroom Heat
+  heater: switch.guest_bedroom_heat
+  target_sensor: em:guest_bedroom_temperature
+  ac_mode: false
+  min_temp: 65
+  max_temp: 80
+  cold_tolerance: 1.0
+  hot_tolerance: 1.0
+  min_cycle_duration:
+    seconds: 30
+  keep_alive:
+    minutes: 2
+  initial_hvac_mode: "off"
+  precision: 0.1
+- platform: generic_thermostat
   name: Office AC
   heater: switch.office_ac
   target_sensor: em:office_temperature
   ac_mode: true
+  min_temp: 65
+  max_temp: 80
+  cold_tolerance: 1.0
+  hot_tolerance: 1.0
+  min_cycle_duration:
+    seconds: 30
+  keep_alive:
+    minutes: 2
+  initial_hvac_mode: "off"
+  precision: 0.1
+- platform: generic_thermostat
+  name: Office Heat
+  heater: switch.office_heat
+  target_sensor: em:office_temperature
+  ac_mode: false
   min_temp: 65
   max_temp: 80
   cold_tolerance: 1.0
