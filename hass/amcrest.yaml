@@ -1,7 +1,7 @@
 - host: 10.0.0.51
   username: !secret amcrest_user
   password: !secret amcrest_pass
-  stream_source: rtsp
+  stream_source: snapshot
   resolution: low
   name: Front Door Camera
   binary_sensors:
