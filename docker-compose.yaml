@@ -54,13 +54,20 @@ services:
       - "homeassistant"
   syncthing:
     container_name: syncthing
-    image: syncthing/syncthing
-    restart: unless-stopped
-    volumes: 
-      - /home/dietpi/syncthing:/var/syncthing
+    image: linuxserver/syncthing:arm32v7-latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - UMASK_SET=022
+    volumes:
+      - /home/dietpi/syncthing/config:/config
+      - /home/dietpi/syncthing/data:/data
     ports:
-      - "8384:8384"
-      - "22000:22000"
+      - 8384:8384
+      - 22000:22000
+      - 21027:21027/udp
+    restart: unless-stopped
   # grafana:
   #   container_name: grafana
   #   image: grafana/grafana:master
