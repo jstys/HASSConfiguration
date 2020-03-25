@@ -52,6 +52,15 @@ services:
       - "5000"
     depends_on:
       - "homeassistant"
+  syncthing:
+    container_name: syncthing
+    image: syncthing/syncthing
+    restart: unless-stopped
+    volumes: 
+      - /home/dietpi/syncthing:/var/syncthing
+    ports:
+      - "8384:8384"
+      - "22000:22000"
   # grafana:
   #   container_name: grafana
   #   image: grafana/grafana:master
