@@ -3,7 +3,7 @@ guest_bedroom_tv_mute:
   sequence:
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.31"
         packet: 
           - !secret guest_bedroom_tv_mute
 
@@ -12,7 +12,7 @@ guest_bedroom_tv_volume_up:
   sequence:
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.31"
         packet: 
           - !secret guest_bedroom_tv_volume_up
 
@@ -21,7 +21,7 @@ guest_bedroom_tv_volume_down:
   sequence:
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.31"
         packet: 
           - !secret guest_bedroom_tv_volume_down
 
@@ -32,7 +32,7 @@ guest_bedroom_tv_on:
       state: 'off'
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.31"
         packet:
           - !secret guest_bedroom_tv_on
           - !secret guest_bedroom_tv_on
@@ -48,7 +48,7 @@ guest_bedroom_tv_off:
       state: 'on'
     - service: broadlink.send
       data:
-        host: "10.0.0.4"
+        host: "10.0.0.31"
         packet:
           - !secret guest_bedroom_tv_off
           - !secret guest_bedroom_tv_off
