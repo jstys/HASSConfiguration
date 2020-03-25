@@ -50,6 +50,7 @@ cast:
     - host: 10.0.0.27 # backyard speaker
     - host: 10.0.0.28 # master bedroom tv
     - host: 10.0.0.29 # basement tv
+    - host: 10.0.0.54 # guest bedroom tv
 
 google:
   client_id: !secret google_client_id
