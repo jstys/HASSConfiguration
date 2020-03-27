@@ -82,7 +82,7 @@ def create_xiaomi_click_event(event_name, data, kwargs):
         event.click_type = click_type
         return event
     else:
-        logger.warning("Received invalid click entity")
+        logger.warning(f"Received invalid click entity: {entity}")
         return None
         
 def create_xiaomi_motion_event(event_name, data, kwargs):
@@ -93,7 +93,7 @@ def create_xiaomi_motion_event(event_name, data, kwargs):
         event.name = friendly_name
         return event
     else:
-        logger.warning("Received invalid motion entity")
+        logger.warning(f"Received invalid motion entity: {entity}")
         return None
         
 def create_mqtt_event(event_name, data, kwargs):
@@ -115,7 +115,7 @@ def create_zwave_scene_event(event_name, data, kwargs):
         event.scene_data = scene_data
         return event
     else:
-        logger.warning("Received invalid zwave entity")
+        logger.warning(f"Received invalid zwave entity: {entity}")
         return None
 
 def create_nhl_scoring_event(event_name, data, kwargs):
