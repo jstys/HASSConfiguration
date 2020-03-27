@@ -123,6 +123,9 @@ entities:
         zwave.fibaro_system_fgkf601_keyfob:
             name: fibaro_keychain
             room: living_room
+        binary_sensor.switch_158d00026ad875:
+            name: basement_button
+            room: basement
             
     chromecast:
         media_player.living_room_shield:
