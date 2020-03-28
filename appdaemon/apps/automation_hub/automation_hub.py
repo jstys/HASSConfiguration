@@ -63,7 +63,7 @@ class AutomationHub(hass.Hass):
             if adevent:
                 event_dispatcher.dispatch(adevent)
         else:
-            logger.warning(f"Received untracked event: {event_name}")
+            logger.debug(f"Received untracked event: {event_name}")
         
     def subscribe_states(self):
         self.listen_state(self.on_state_changed, attribute="all", namespace="global")
@@ -84,7 +84,7 @@ class AutomationHub(hass.Hass):
             if adevent:
                 event_dispatcher.dispatch(adevent)
         else:
-            logger.warning(f"Received untracked state change from entity: {entity}")
+            logger.debug(f"Received untracked state change from entity: {entity}")
                 
     def timer_callback(self, kwargs):
         partial = kwargs.get("partial")
