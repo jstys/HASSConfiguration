@@ -91,6 +91,12 @@ entities:
         light.centralite_3210_l_06b1dd0a_on_off:
             name: basement_fan
             room: basement
+        light.cree_connected_a_19_60w_equivalent_b0cf09fe_level_on_off:
+            name: attic_front_light
+            room: attic
+        light.cree_connected_a_19_60w_equivalent_83cc09fe_level_on_off:
+            name: attic_back_light
+            room: attic
     
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:

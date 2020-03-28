@@ -34,6 +34,8 @@ binary_sensor.switch_158d00016da2c9:
   friendly_name: Master Bedroom Closet Button
 binary_sensor.switch_158d00016dbf86:
   friendly_name: Master Bedroom Button
+binary_sensor.switch_158d00026ad875:
+  friendly_name: Basement Button
 binary_sensor.visonic_mct_340_e_0b121662_1_1280:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.visonic_mct_340_e_0b121b78_1_1280:
@@ -64,6 +66,10 @@ light.centralite_3210_l_06b1dd0a_on_off:
   friendly_name: Basement Fan
 light.centralite_4257050_rzhac_0ae7df8a_1:
   friendly_name: Espresso Machine
+light.cree_connected_a_19_60w_equivalent_83cc09fe_level_on_off:
+  friendly_name: Attic Back Light
+light.cree_connected_a_19_60w_equivalent_b0cf09fe_level_on_off:
+  friendly_name: Attic Front Light
 light.cree_connected_a_19_60w_equivalent_fe040989_10:
   friendly_name: Hallway Fixture
 light.cree_connected_a_19_60w_equivalent_fe0409f4_10:
