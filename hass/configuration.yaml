@@ -97,11 +97,20 @@ weather:
     api_key: !secret dark_sky_key
     mode: daily
   
+##############################################################
+#                       CUSTOM PANELS                        #
+##############################################################
+  
 panel_custom:
   - name: zwavegraph2
     sidebar_title: Z-Wave Graph
     sidebar_icon: mdi:access-point-network
     url_path: zwave
+    
+##############################################################
+#                       CUSTOM COMPONENTS                    #
+##############################################################
+zha_map:
 
 ##############################################################
 #                       INCLUDES                             #
