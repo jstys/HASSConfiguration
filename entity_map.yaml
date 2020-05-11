@@ -103,6 +103,9 @@ entities:
         light.cree_connected_a_19_60w_equivalent_d4cc09fe_level_on_off:
             name: grill_light_2
             room: backyard
+        light.grill_light_fixture:
+            name: grill_light_fixture
+            room: backyard
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
             room: hallway
