@@ -60,3 +60,9 @@
   entities: 
     - light.sengled_e11_g13_b02c1503_1
     - light.sengled_e11_g13_befa1603_1
+
+- platform: group
+  name: grill_light_fixture
+  entities:
+    - light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off
+    - light.cree_connected_a_19_60w_equivalent_d4cc09fe_level_on_off

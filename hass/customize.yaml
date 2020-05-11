@@ -66,10 +66,14 @@ light.centralite_3210_l_06b1dd0a_on_off:
   friendly_name: Basement Fan
 light.centralite_4257050_rzhac_0ae7df8a_1:
   friendly_name: Espresso Machine
+light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
+  friendly_name: Grill Light 1
 light.cree_connected_a_19_60w_equivalent_83cc09fe_level_on_off:
   friendly_name: Attic Back Light
 light.cree_connected_a_19_60w_equivalent_b0cf09fe_level_on_off:
   friendly_name: Attic Front Light
+light.cree_connected_a_19_60w_equivalent_d4cc09fe_level_on_off:
+  friendly_name: Grill Light 2
 light.cree_connected_a_19_60w_equivalent_fe040989_10:
   friendly_name: Hallway Fixture
 light.cree_connected_a_19_60w_equivalent_fe0409f4_10:

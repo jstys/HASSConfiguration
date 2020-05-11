@@ -60,3 +60,9 @@
   entities: 
     - em:master_bedroom_closet_light_1
     - em:master_bedroom_closet_light_2
+
+- platform: group
+  name: grill_light_fixture
+  entities:
+    - em:grill_light_1
+    - em:grill_light_2
