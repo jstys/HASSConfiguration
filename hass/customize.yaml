@@ -134,6 +134,8 @@ light.master_bedroom_mirror_led:
   friendly_name: Master Bedroom Mirror Led
 light.office_lights:
   friendly_name: Office Lights
+light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off:
+  friendly_name: Front Porch Light
 light.osram_lightify_gardenspot_rgb_00a72c35_3:
   friendly_name: Front Garden Lights
 light.osram_lightify_par38_on_off_dim_00a5ee30_3:

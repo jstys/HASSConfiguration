@@ -185,7 +185,7 @@ views:
             name: Garden
             tap_action:
               action: toggle
-          - entity: light.cree_connected_a_19_60w_equivalent_fe041885_10
+          - entity: light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off
             name: Porch
             tap_action:
               action: toggle

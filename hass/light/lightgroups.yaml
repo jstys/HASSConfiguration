@@ -40,7 +40,7 @@
   entities:
     - light.master_bedroom_fixture
     - light.living_room_lamps
-    - light.cree_connected_a_19_60w_equivalent_fe041885_10
+    - light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off
     - light.kitchen_lights
     - light.dining_room_light
     - light.gateway_light_34ce008dcec1
