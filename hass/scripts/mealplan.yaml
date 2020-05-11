@@ -1,0 +1,9 @@
+generate_grocery_list:
+  alias: Create Grocery List
+  sequence:
+    - event: generate_mealplan
+
+archive_mealplan:
+  alias: Archive Last Week
+  sequence:
+    - event: archive_mealplan

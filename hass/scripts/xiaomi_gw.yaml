@@ -1,0 +1,5 @@
+add_xiaomi_device:
+  sequence:
+    - service: xiaomi_aqara.add_device
+      data:
+        gw_mac: !secret xiaomi1_mac
