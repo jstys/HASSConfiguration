@@ -115,6 +115,9 @@ entities:
             room: landing
         binary_sensor.motion_sensor_158d0002c63719:
             room: garage
+        binary_sensor.motion_sensor_158d0002b76374:
+            name: grill_area_motion_sensor
+            room: backyard
     
     water_sensor:
          binary_sensor.water_leak_sensor_158d00023a58df:
