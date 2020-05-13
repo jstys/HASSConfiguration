@@ -1,0 +1,5 @@
+cloudmqtt_restart:
+  url: https://api.cloudmqtt.com/api/instance/restart
+  method: post
+  headers:
+    authorization: !secret cloudmqtt_auth

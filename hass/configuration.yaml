@@ -135,6 +135,7 @@ person: !include device_tracker/persons.yaml
 binary_sensor: !include_dir_merge_list binary_sensor/
 amcrest: !include amcrest.yaml
 cover: !include_dir_merge_list cover/
+rest_command: !include rest_command.yaml
 
 ##############################################################
 #                       ENABLED                              #
