@@ -114,10 +114,20 @@ entities:
         binary_sensor.motion_sensor_158d0002b6fe4e:
             room: landing
         binary_sensor.motion_sensor_158d0002c63719:
+            name: garage_front_motion
             room: garage
-        binary_sensor.motion_sensor_158d0002b76374:
-            name: grill_area_motion_sensor
+        binary_sensor.centralite_3325_s_2c96cc0b_ias_zone:
+            name: garage_back_motion
+            room: garage
+        binary_sensor.smartthings_motionv4_96960301_ias_zone:
+            name: fourth_bedroom_motion
+            room: fourth_bedroom
+        binary_sensor.smartthings_motionv4_5f5a0001_ias_zone:
+            name: grill_area_motion
             room: backyard
+        binary_sensor.motion_sensor_158d0002b76374:
+            name: kitchen_front_motion
+            room: kitchen
     
     water_sensor:
          binary_sensor.water_leak_sensor_158d00023a58df:
