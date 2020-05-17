@@ -19,7 +19,7 @@ def on_scene_activated(event):
 
 def on_top_button(event):
     logger.info("Turning on dining room light")
-    LightAction().add_light("dining_room_light").turn_on()
+    LightAction().add_light("dining_room_light").turn_on(color_temp=255)
 
 def on_bottom_button(event):
     logger.info("Turning off dining room light")

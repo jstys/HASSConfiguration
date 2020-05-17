@@ -19,7 +19,7 @@ def on_scene_activated(event):
     
 def on_top_button(event):
     logger.info("Turning on master bedroom light")
-    LightAction().add_light("master_bedroom_fixture").turn_on()
+    LightAction().add_light("master_bedroom_fixture").turn_on(color_temp=255)
 
 def on_bottom_button(event):
     logger.info("Turning off master bedroom light")

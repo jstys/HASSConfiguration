@@ -59,7 +59,8 @@ def handle_nobody_home():
 def handle_somebody_home():
     logger.info("Someone is home now...")
     
-    LightAction().add_lights(["kitchen_lights", "dining_room_light", "living_room_lamps"]).turn_on()
+    LightAction().add_light("kitchen_lights").turn_on()
+    LightAction().add_lights(["dining_room_light", "living_room_lamps"]).turn_on(color_temp=255)
     
     #TODO: cancel timer for simulating someone being home
     #TODO: set lights / thermostats / tvs
