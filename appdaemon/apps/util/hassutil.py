@@ -58,12 +58,9 @@ def lock(lock_entity):
 def unlock(lock_entity):
     call_service("lock", "unlock", entity_id=lock_entity.entity_id)
 
-def turn_on(entity, brightness_pct=100, color_temp=255):
+def turn_on(entity, **kwargs):
     if API_HANDLE is not None:
-        if entity.domain == "light":
-            API_HANDLE.turn_on(entity.entity_id, brightness_pct=float(brightness_pct), color_temp=color_temp, namespace="hass")
-        else:
-            API_HANDLE.turn_on(entity.entity_id, namespace="hass")
+        API_HANDLE.turn_on(entity.entity_id, namespace="hass", **kwargs)
     else:
         logger.error("API Handle is None")
 
@@ -73,36 +70,9 @@ def toggle(entity):
     else:
         logger.error("API Handle is None")
 
-def set_light_effect(entity, effect=None):
-    if API_HANDLE is not None:
-        if effect:
-            API_HANDLE.turn_on(entity.entity_id, effect=effect, namespace="hass")
-        else:
-            logger.error("Missing effect")
-    else:
-        logger.error("API Handle is None")
-
-def set_light_color(entity, color=None):
-    if API_HANDLE:
-        if color:
-            API_HANDLE.turn_on(entity.entity_id, color_name=color, namespace="hass")
-        else:
-            logger.error("Missing color")
-    else:
-        logger.error("API Handle is None")
-
 def turn_off(entity):
     if API_HANDLE:
         API_HANDLE.turn_off(entity.entity_id, namespace="hass")
-    else:
-        logger.error("API Handle is None")
-        
-def set_level(entity, brightness_pct):
-    if API_HANDLE:
-        if entity.domain == "light":
-            API_HANDLE.turn_on(entity.entity_id, brightness_pct=float(brightness_pct), namespace="hass")
-        else:
-            logger.error("Can't set level on non-light entity")
     else:
         logger.error("API Handle is None")
 
