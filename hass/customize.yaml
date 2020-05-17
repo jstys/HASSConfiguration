@@ -1,3 +1,5 @@
+binary_sensor.centralite_3325_s_2c96cc0b_ias_zone:
+  friendly_name: Garage Back Motion
 binary_sensor.door_window_sensor_158d0001d3a024:
   friendly_name: Kitchen Fridge Sensor
 binary_sensor.dryer_running:
@@ -27,11 +29,15 @@ binary_sensor.motion_sensor_158d00016612a5:
 binary_sensor.motion_sensor_158d0002b6fe4e:
   friendly_name: Landing Motion Sensor
 binary_sensor.motion_sensor_158d0002b76374:
-  friendly_name: Grill Area Motion Sensor
+  friendly_name: Kitchen Front Motion
 binary_sensor.motion_sensor_158d0002b95de8:
   friendly_name: Office Motion Sensor
 binary_sensor.motion_sensor_158d0002c63719:
-  friendly_name: Garage Motion Sensor
+  friendly_name: Garage Front Motion
+binary_sensor.smartthings_motionv4_5f5a0001_ias_zone:
+  friendly_name: Grill Area Motion
+binary_sensor.smartthings_motionv4_96960301_ias_zone:
+  friendly_name: Fourth Bedroom Motion
 binary_sensor.switch_158d00016da2c9:
   friendly_name: Master Bedroom Closet Button
 binary_sensor.switch_158d00016dbf86:
