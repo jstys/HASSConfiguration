@@ -21,7 +21,7 @@ def on_motion_triggered(event):
     timer_manager.cancel_timer("kitchen_motion_timer")
     timer_manager.start_timer("kitchen_motion_timer", lights_off, minutes=30)
     
-    LightAction().add_light("kitchen_cabinet_lights").turn_on(color_temp=300)
+    LightAction().add_light("kitchen_cabinet_lights").turn_on(color_temp=400)
 
     if not state_machine.is_sleep_state_enabled() and not state_machine.is_sun_up():
         LightAction().add_light("kitchen_lights").turn_on()
