@@ -12,7 +12,7 @@ entities:
         light.living_room_lamps:
             name: living_room_lamps
             room: living_room
-        light.hallway_lights:
+        light.hallway_lights_zha_group_0x0001:
             name: hallway_lights
             room: hallway
         light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off:
@@ -50,7 +50,7 @@ entities:
         light.piano_led:
             name: piano_led
             room: living_room
-        light.fourth_bedroom_fixture:
+        light.fourth_bedroom_fixture_zha_group_0x0003:
             name: fourth_bedroom_fixture
             room: fourth_bedroom
         light.manual_off_lights:
@@ -70,7 +70,7 @@ entities:
         light.ledvance_edge_lit_under_cabinet_tw_0002c5ae_1:
             name: kitchen_cabinet_left_light_2
             room: kitchen
-        light.kitchen_cabinet_lights:
+        light.kitchen_cabinets_zha_group_0x0005:
             name: kitchen_cabinet_lights
             room: kitchen
         light.front_garage_light:
@@ -82,7 +82,7 @@ entities:
         light.sengled_e11_g13_befa1603_1:
             name: master_bedroom_closet_light_2
             room: master_bedroom
-        light.master_bedroom_closet_lights:
+        light.master_bedroom_closet_zha_group_0x0004:
             name: master_bedroom_closet_lights
             room: master_bedroom
         light.master_bedroom_mirror_led:
@@ -103,7 +103,7 @@ entities:
         light.cree_connected_a_19_60w_equivalent_d4cc09fe_level_on_off:
             name: grill_light_2
             room: backyard
-        light.grill_light_fixture:
+        light.grill_light_zha_group_0x0002:
             name: grill_light_fixture
             room: backyard
     motion_sensor:

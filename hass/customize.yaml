@@ -102,6 +102,8 @@ light.erica_night_lamp:
   friendly_name: Erica Night Lamp
 light.fourth_bedroom_fixture:
   friendly_name: Fourth Bedroom Fixture
+light.fourth_bedroom_fixture_zha_group_0x0003:
+  friendly_name: Fourth Bedroom Fixture
 light.front_garage_light:
   friendly_name: Front Garage Light
 light.front_garden:
@@ -110,11 +112,17 @@ light.gateway_light_34ce008dcec1:
   friendly_name: Gateway Light
 light.grill_light_fixture:
   friendly_name: Grill Light Fixture
+light.grill_light_zha_group_0x0002:
+  friendly_name: Grill Light Fixture
 light.hallway_lights:
+  friendly_name: Hallway Lights
+light.hallway_lights_zha_group_0x0001:
   friendly_name: Hallway Lights
 light.jim_night_lamp:
   friendly_name: Jim Night Lamp
 light.kitchen_cabinet_lights:
+  friendly_name: Kitchen Cabinet Lights
+light.kitchen_cabinets_zha_group_0x0005:
   friendly_name: Kitchen Cabinet Lights
 light.kitchen_fixture:
   friendly_name: Kitchen Fixture
@@ -135,6 +143,8 @@ light.living_room_lamps:
 light.manual_off_lights:
   friendly_name: Manual Off Lights
 light.master_bedroom_closet_lights:
+  friendly_name: Master Bedroom Closet Lights
+light.master_bedroom_closet_zha_group_0x0004:
   friendly_name: Master Bedroom Closet Lights
 light.master_bedroom_fixture:
   friendly_name: Master Bedroom Fixture

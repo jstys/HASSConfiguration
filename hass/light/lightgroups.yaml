@@ -11,30 +11,11 @@
     - light.living_room_lamp_2
 
 - platform: group
-  name: Hallway Lights
-  entities:
-    - light.cree_connected_a_19_60w_equivalent_fe040989_10
-    - light.cree_connected_a_19_60w_equivalent_fe0409f4_10
-
-- platform: group
   name: Kitchen Lights
   entities:
     - light.kitchen_fixture
     - light.kitchen_high_hats
-
-- platform: group
-  name: Fourth Bedroom Fixture
-  entities:
-    - light.sengled_e11_g13_0316b7c9_1
-    - light.sengled_e11_g13_03152cef_1
     
-- platform: group
-  name: Kitchen Cabinet Lights
-  entities:
-    - light.ledvance_edge_lit_under_cabinet_tw_0002c70d_1
-    - light.ledvance_edge_lit_under_cabinet_tw_0002c7f4_1
-    - light.ledvance_edge_lit_under_cabinet_tw_0002c5ae_1
-
 - platform: group
   name: manual_off_lights
   entities:
@@ -54,15 +35,3 @@
     - light.master_bedroom_closet_lights
     - light.front_garage_light
     - light.master_bedroom_mirror_led
-
-- platform: group
-  name: master_bedroom_closet_lights
-  entities: 
-    - light.sengled_e11_g13_b02c1503_1
-    - light.sengled_e11_g13_befa1603_1
-
-- platform: group
-  name: grill_light_fixture
-  entities:
-    - light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off
-    - light.cree_connected_a_19_60w_equivalent_d4cc09fe_level_on_off

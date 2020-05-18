@@ -11,30 +11,11 @@
     - light.living_room_lamp_2
 
 - platform: group
-  name: Hallway Lights
-  entities:
-    - em:hallway_fixture
-    - em:hallway_wall_light
-
-- platform: group
   name: Kitchen Lights
   entities:
     - light.kitchen_fixture
     - light.kitchen_high_hats
-
-- platform: group
-  name: Fourth Bedroom Fixture
-  entities:
-    - em:fourth_bedroom_fixture_1
-    - em:fourth_bedroom_fixture_2
     
-- platform: group
-  name: Kitchen Cabinet Lights
-  entities:
-    - em:kitchen_cabinet_right_light
-    - em:kitchen_cabinet_left_light_1
-    - em:kitchen_cabinet_left_light_2
-
 - platform: group
   name: manual_off_lights
   entities:
@@ -54,15 +35,3 @@
     - light.master_bedroom_closet_lights
     - em:front_garage_light
     - em:master_bedroom_mirror_led
-
-- platform: group
-  name: master_bedroom_closet_lights
-  entities: 
-    - em:master_bedroom_closet_light_1
-    - em:master_bedroom_closet_light_2
-
-- platform: group
-  name: grill_light_fixture
-  entities:
-    - em:grill_light_1
-    - em:grill_light_2

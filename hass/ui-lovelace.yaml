@@ -52,7 +52,7 @@ views:
             name: Lights
             tap_action:
               action: toggle
-          - entity: light.kitchen_cabinet_lights
+          - entity: light.kitchen_cabinets_zha_group_0x0005
             name: Cabinets
             tap_action:
               action: toggle
@@ -94,7 +94,7 @@ views:
             name: "Erica"
             tap_action:
               action: toggle
-          - entity: light.master_bedroom_closet_lights
+          - entity: light.master_bedroom_closet_zha_group_0x0004
             name: Closet
             tap_action:
               action: toggle
@@ -121,7 +121,7 @@ views:
       - type: glance
         title: Fourth Bedroom
         entities:
-          - entity: light.fourth_bedroom_fixture
+          - entity: light.fourth_bedroom_fixture_zha_group_0x0003
             name: Light
             tap_action:
               action: toggle
