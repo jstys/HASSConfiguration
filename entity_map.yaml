@@ -3,7 +3,7 @@ entities:
         light.master_bedroom_fixture:
             name: master_bedroom_fixture
             room: master_bedroom
-        light.cree_connected_a_19_60w_equivalent_fe040989_10:
+        light.cree_connected_a_19_60w_equivalent_851804fe_level_on_off:
             name: hallway_fixture
             room: hallway
         light.cree_connected_a_19_60w_equivalent_fe0409f4_10:
