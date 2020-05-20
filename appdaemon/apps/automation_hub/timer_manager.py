@@ -11,8 +11,6 @@ def set_api_handle(handle):
     API_HANDLE = handle
     
 def start_repeat_timer(name, callback, repeat_seconds, start=datetime.datetime.now(), num_repeats=INFINITE_REPEATS):
-    global timer_map
-    
     if API_HANDLE:
         if name not in timer_map:
             logger.info("Scheduling callback in {} seconds".format(repeat_seconds))
@@ -27,8 +25,6 @@ def start_repeat_timer(name, callback, repeat_seconds, start=datetime.datetime.n
     return False
 
 def start_timer(name, callback, seconds=0, minutes=0, hours=0, days=0):
-    global timer_map
-    
     delta = datetime.timedelta(seconds=seconds, minutes=minutes, hours=hours, days=days)
     if API_HANDLE:
         if name not in timer_map:
