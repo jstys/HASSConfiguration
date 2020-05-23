@@ -285,6 +285,14 @@ entities:
     thermostat:
         climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_mode:
             name: oil_thermostat
+        climate.dining_room_ac:
+            name: dining_room_ac
+        climate.fourth_bedroom_ac:
+            name: fourth_bedroom_ac
+        climate.guest_bedroom_ac:
+            name: guest_bedroom_ac
+        climate.master_bedroom_ac:
+            name: master_bedroom_ac
 
     temperature:
         sensor.visonic_mct_340_e_0b121b78_1_1026:

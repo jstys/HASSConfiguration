@@ -10,6 +10,7 @@ from actions.light_action import LightAction
 from actions.assistant_action import AssistantAction
 from actions.join_action import JoinAction
 from actions.media_player_action import MediaPlayerAction
+from actions.thermostat_action import ThermostatAction
 
 logger = logutil.get_logger("automation_hub")
 
@@ -51,4 +52,5 @@ def on_sleep_state_disabled(event):
     media_action.clear_playlist()
     JoinAction().add_target("jim_cell").send_taker_command("awake_command")
     LightAction().add_lights(["first_floor_staircase_led"]).turn_off()
+    ThermostatAction().add_thermostat("master_bedroom_ac").turn_off()
     
