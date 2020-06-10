@@ -86,7 +86,6 @@ zwave:
   network_key: !secret zwave_key
 
 zha:
-  usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
 
 owntracks:
@@ -160,7 +159,6 @@ map:
 
 recorder:
   db_url: !secret mariadb_url
-  purge_interval: 1
   purge_keep_days: 10
   exclude:
     domains:
