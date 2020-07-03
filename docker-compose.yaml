@@ -63,6 +63,7 @@ services:
     volumes:
       - /home/dietpi/syncthing/config:/config
       - /home/dietpi/syncthing/data:/data
+      - /home/dietpi/HASSConfiguration/hass:/hass
     ports:
       - 8384:8384
       - 22000:22000
