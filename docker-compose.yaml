@@ -62,8 +62,8 @@ services:
       - UMASK_SET=022
     volumes:
       - /home/dietpi/syncthing/config:/config
-      - /home/dietpi/syncthing/data:/data
-      - /home/dietpi/HASSConfiguration/hass:/hass
+      - /home/dietpi/syncthing/data:/data/default
+      - /home/dietpi/HASSConfiguration/hass:/data/hass
     ports:
       - 8384:8384
       - 22000:22000
