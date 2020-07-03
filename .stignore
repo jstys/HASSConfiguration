@@ -8,3 +8,4 @@ hass/core
 devenv/
 docs/
 util_scripts/
+.git/
