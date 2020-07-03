@@ -1,4 +1,4 @@
-- platform: nhl_box_score
-  team: 'New Jersey Devils'
-  calendar: 'calendar.new_jersey_devils'
-  scan_interval: 5
+# - platform: nhl_box_score
+#   team: 'New Jersey Devils'
+#   calendar: 'calendar.new_jersey_devils'
+#   scan_interval: 5
