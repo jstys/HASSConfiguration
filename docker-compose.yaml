@@ -15,7 +15,7 @@ services:
     image: eclipse-mosquitto
     restart: unless-stopped
     volumes:
-      - /home/dietpi/mosquitto/config:/mosquitto/config
+      - /home/dietpi/syncthing/data/mosquitto_config:/mosquitto/config
       - /home/dietpi/mosquitto/data:/mosquitto/data
       - /home/dietpi/mosquitto/log:/mosquitto/log
       - /etc/localtime:/etc/localtime:ro
@@ -28,9 +28,8 @@ services:
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
-      - /home/dietpi/secrets_hass.yaml:/config/secrets.yaml
-      - /home/dietpi/jim.jpg:/config/www/jim.jpg
-      - /home/dietpi/erica.jpg:/config/www/erica.jpg
+      - /home/dietpi/syncthing/data/hass_secrets/secrets_hass.yaml:/config/secrets.yaml
+      - /home/dietpi/syncthing/data/hass_www/:/config/www/
       - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
@@ -45,9 +44,9 @@ services:
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/appdaemon:/conf
-      - /home/dietpi/secrets_appdaemon.yaml:/conf/secrets.yaml
+      - /home/dietpi/syncthing/data/hass_secrets/secrets_appdaemon.yaml:/conf/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
-      - ./entity_map.yaml:/conf/apps/util/entity_map.yaml
+      - /home/dietpi/HASSConfiguration/entity_map.yaml:/conf/apps/util/entity_map.yaml
     expose:
       - "5000"
     depends_on:
