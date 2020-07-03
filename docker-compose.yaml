@@ -56,14 +56,12 @@ services:
     container_name: syncthing
     image: linuxserver/syncthing:arm32v7-latest
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=America/New_York
       - UMASK_SET=022
     volumes:
       - /home/dietpi/syncthing/config:/config
-      - /home/dietpi/syncthing/data:/data/default
-      - /home/dietpi/HASSConfiguration/hass:/data/hass
+      - /home/dietpi/syncthing/data:/data
+      - /home/dietpi/HASSConfiguration/hass:/hass
     ports:
       - 8384:8384
       - 22000:22000
