@@ -29,7 +29,7 @@ services:
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
       - /home/dietpi/syncthing/data/hass_secrets/secrets_hass.yaml:/config/secrets.yaml
-      - /home/dietpi/syncthing/data/hass_www/:/config/www/
+      - /home/dietpi/syncthing/data/hass_www:/config/www
       - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
