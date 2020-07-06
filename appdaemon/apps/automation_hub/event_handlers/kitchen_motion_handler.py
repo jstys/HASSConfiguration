@@ -23,7 +23,7 @@ def on_motion_triggered(event):
     
     LightAction().add_light("kitchen_cabinet_lights").turn_on(color_temp=400)
 
-    if not state_machine.is_sleep_state_enabled() and not state_machine.is_sun_up():
+    if not state_machine.is_sleep_state_enabled():
         LightAction().add_light("kitchen_lights").turn_on()
     
 def lights_off():
