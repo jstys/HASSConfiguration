@@ -26,6 +26,8 @@ from events.nhl_game_end_event import NHLGameEndEvent
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
 from events.automation_hub_started_event import AutomationHubStartedEvent
+from events.water_sensor_dry_event import WaterSensorDryEvent
+from events.water_sensor_wet_event import WaterSensorWetEvent
 
 logger = logutil.get_logger("automation_hub")
 
@@ -170,7 +172,7 @@ def create_automation_hub_started_event():
 
 def create_from_state_change(friendly_name, entity_type, entity, attributes, old, new, kwargs):
     if entity_type == "water_sensor":
-        pass
+        return create_water_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "motion_sensor":
         return create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "door_sensor":
@@ -289,4 +291,18 @@ def create_power_sensor_change_event(friendly_name, entity, attributes, old, new
         return event
     else:
         logger.warning("Received invalid power sensor transition")
+        return None
+
+def create_water_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs):
+    logger.info("Creating WaterSensorEvent")
+    if old != new and new == "on":
+        event = WaterSensorWetEvent()
+        event.name = friendly_name
+        return event
+    elif old != new and new == "off":
+        event = WaterSensorDryEvent()
+        event.name = friendly_name
+        return event
+    else:
+        logger.warning("Received invalid water sensor transition")
         return None
