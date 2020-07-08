@@ -106,6 +106,10 @@ entities:
         light.grill_light_zha_group_0x0002:
             name: grill_light_fixture
             room: backyard
+        light.office_lights:
+            name: office_lights
+            room: office
+
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
             room: hallway
@@ -252,7 +256,7 @@ entities:
             name: kitchen_fixture
             room: kitchen
         switch.third_reality_inc_3rss007z_ffe01818_1_6:
-            name: office_lights
+            name: office_light_switch
             room: office
     
     lock:

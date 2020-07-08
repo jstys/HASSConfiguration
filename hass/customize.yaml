@@ -52,10 +52,18 @@ binary_sensor.washer_running:
   friendly_name: Washer Running
 binary_sensor.water_leak_sensor_158d00023a58df:
   friendly_name: Utility Room Water Sensor
+climate.dining_room_ac:
+  friendly_name: Dining Room Ac
+climate.fourth_bedroom_ac:
+  friendly_name: Fourth Bedroom Ac
+climate.guest_bedroom_ac:
+  friendly_name: Guest Bedroom Ac
 climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_heating_1:
   friendly_name: Oil Thermostat
 climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_mode:
   friendly_name: Oil Thermostat
+climate.master_bedroom_ac:
+  friendly_name: Master Bedroom Ac
 device_tracker.owntracks_erica:
   entity_picture: /local/erica.jpg
 device_tracker.owntracks_jim:
@@ -285,7 +293,7 @@ switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_2:
 switch.ledvance_plug_00051d4d_1:
   friendly_name: Living Room Fragrance
 switch.third_reality_inc_3rss007z_ffe01818_1_6:
-  friendly_name: Office Lights
+  friendly_name: Office Light Switch
 switch.third_reality_inc_3rss007z_ffe01b03_1_6:
   friendly_name: Kitchen Fixture
 switch.tradfri_outlet_2:
