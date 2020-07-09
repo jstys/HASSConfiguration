@@ -1,11 +1,16 @@
 global_modules:
   - hassutil
   - trello_util
-  - logger
+  - logutil
   - entity_map
 automation_hub:
   module: automation_hub
   class: AutomationHub
+  global_dependencies:
+    - hassutil
+    - trello_util
+    - logutil
+    - entity_map
   event_list:
     - zha_event
     - xiaomi_aqara.click
