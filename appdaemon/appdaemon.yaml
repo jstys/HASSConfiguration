@@ -1,6 +1,8 @@
 appdaemon:
-  threads: 10
-  api_port: 5000
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  time_zone: !secret home_timezone
   plugins:
     HASS:
       type: hass
@@ -18,6 +20,3 @@ appdaemon:
         - 'assistant/+/intent'
         - 'snips/intent/+'
         - 'snips/nluIntent'
-log:
-  logsize: 100000
-  log_generations: 3
