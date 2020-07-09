@@ -40,7 +40,7 @@ services:
       - "mariadb"
   appdaemon:
     container_name: appdaemon
-    build: /home/dietpi/appdaemon
+    build: ./appdaemon/
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/appdaemon:/conf
