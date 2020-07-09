@@ -37,8 +37,11 @@ def read_binary_file(filename):
     with open(filename, "rb") as binary_file:
         return binary_file.read()
 
-def gui_notify(title, message):
-    call_service("persistent_notification", "create", title=title, message=message)
+def gui_notify(title, message, notification_id=None):
+    if notification_id:
+        call_service("persistent_notification", "create", title=title, message=message, notification_id=notification_id)
+    else:
+        call_service("persistent_notification", "create", title=title, message=message)
 
 def join_notify(target, message, title="Home Assistant"):
     call_service("notify", target, message=message, title=title)
