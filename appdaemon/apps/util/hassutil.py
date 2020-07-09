@@ -29,7 +29,7 @@ def set_api_handle(handle):
 def read_config_file(filename):
     try:
         with open(filename) as yamlfile:
-            return yaml.load(yamlfile)
+            return yaml.safe_load(yamlfile)
     except:
         return {}
 
