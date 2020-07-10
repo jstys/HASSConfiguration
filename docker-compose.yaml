@@ -24,7 +24,7 @@ services:
       - "9001:9001"
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:0.112.2
+    image: homeassistant/tinker-homeassistant:0.112.4
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
@@ -68,6 +68,15 @@ services:
       - 22000:22000
       - 21027:21027/udp
     restart: unless-stopped
+  dockermon:
+    container_name: dockermon
+    image: philhawthorne/ha-dockermon:arm
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      # - /home/dietpi/HASSConfiguration/dockermon:/config
+    ports:
+      - 8126:8126
   # grafana:
   #   container_name: grafana
   #   image: grafana/grafana:master
