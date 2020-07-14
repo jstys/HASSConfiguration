@@ -1,6 +1,8 @@
-import requests
 import re
 import time
+import json
+
+import requests
 from requests_oauthlib import OAuth1
 
 API_BASE = "https://api.trello.com/1"
@@ -8,21 +10,14 @@ CHECKED_STATE = "complete"
 UNCHECKED_STATE = "incomplete"
 
 _AUTH = None
-_DAY_LIST_MAP = {
-    "Sunday": "55e52c3cb60dbb6c3f272344",
-    "Monday": "55e52c292ccf879bc4a55b95",
-    "Tuesday": "55e52c31d5031bdd77a749eb",
-    "Wednesday": "55e52c35f92f640d27dacd19",
-    "Thursday": "55fdfbdc374a4850b88dd741",
-    "Friday": "55fdfbeda2454c5f70e8bd88",
-    "Saturday": "562af24f75a935532aed4546"
-}
 _GROCERY_LIST_ID = "1iKTzp7F"
+_MEALPLAN_BOARD_ID = "BYUf1NJ0"
 _RECENT_RECIPES_ID = "57b1272100998a82de83e0e7"
 
-def sort_grocery_list():
+def create_grocery_cache():
+    grocery_cache = {}
     grocery_json = _get_grocery_list()
-    
+
     for category in grocery_json:
         category_items = category.get("checkItems")
         sorted_items = sorted(category_items, key=lambda it: it["name"])
@@ -30,79 +25,70 @@ def sort_grocery_list():
             new_item = item.copy()
             new_item["name"] = sorted_items[i]["name"]
             new_item["state"] = sorted_items[i]["state"]
-            _save_item(new_item)
+            grocery_cache[_get_grocery_item_name(new_item)] = new_item
 
-    return None
+    return grocery_cache
 
 def archive_last_week():
-    for day, _ in _DAY_LIST_MAP.items():
-        trello_id = _DAY_LIST_MAP[day]
-        day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
-        for day_recipe in day_recipes:
-            requests.put("{}/cards/{}/idList?value={}".format(API_BASE, day_recipe['id'], _RECENT_RECIPES_ID), auth=_get_auth())
+    pass
+    # for day, _ in _DAY_LIST_MAP.items():
+    #     trello_id = _DAY_LIST_MAP[day]
+    #     day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
+    #     for day_recipe in day_recipes:
+    #         requests.put("{}/cards/{}/idList?value={}".format(API_BASE, day_recipe['id'], _RECENT_RECIPES_ID), auth=_get_auth())
 
 
 def generate_grocery_list_from_meal_plan():
     failed_to_add = []
-    
-    reset_all_item_amounts()
-    sort_grocery_list()
 
-    for day, _ in _DAY_LIST_MAP.items():
-        for item in _get_grocery_items_for_day(day):
+    cache = create_grocery_cache()
+    reset_all_item_amounts(cache)
+
+    day_list_map = _get_day_lists()
+
+    for day, _ in day_list_map.items():
+        for item in _get_grocery_items_for_day(day, day_list_map):
             name = _get_grocery_item_name(item)
             amount = _get_grocery_item_amount(item)
-            result, _ = add_to_grocery_list(name, amount)
+            result, _ = add_to_grocery_list(name, cache, amount=amount)
             if not result:
                 failed_to_add.append("{} ({}) - {}".format(name, amount, day))
+
+    for name, item in cache.items():
+        item["pos"] = "bottom"
+        _save_item(item)
 
     if failed_to_add:
         return False, failed_to_add
     else:
         return True, []
 
-def add_to_grocery_list(item_name, amount=""):
-    item = _get_item_reference_from_grocery_list(item_name, _get_grocery_list())
+def add_to_grocery_list(item_name, cache, amount=""):
+    item = _get_item_reference_from_grocery_list(item_name, cache)
     if item:
         _update_item_amount(item, amount)
         item["state"] = UNCHECKED_STATE
-        _save_item(item)
         return True, " ".join([item_name, "added to the grocery list"])
     else:
         return False, " ".join([item_name, "is not on the grocery list"])
 
-def remove_from_grocery_list(item_name):
-    item = _get_item_reference_from_grocery_list(item_name, _get_grocery_list())
-    if item:
-        _update_item_amount(item, "")
-        item["state"] = CHECKED_STATE
-        _save_item(item)
-        return True, " ".join([item_name, "removed from the grocery list"])
-    else:
-        return False, " ".join([item_name, "is not on the grocery list"])
-
-def reset_all_item_amounts():
-    grocery_json = _get_grocery_list()
-    for category in grocery_json:
-        for grocery_item in category.get("checkItems"):
-            if grocery_item.get("state") == CHECKED_STATE:
-                _update_item_amount(grocery_item, "")
-                _save_item(grocery_item)
+def reset_all_item_amounts(cache):
+    for _, grocery_item in cache.items():
+        if grocery_item.get("state") == CHECKED_STATE:
+            _update_item_amount(grocery_item, "")
     
 def set_auth(key, secret, oauth):
     global _AUTH
     
     _AUTH = OAuth1(key, secret, oauth)
 
-def _get_day_list(day):
-    if _DAY_LIST_MAP.get(day.title) is not None:
+def _get_day_list(day, daymap):
+    if daymap.get(day.title) is not None:
         return requests.get()
 
-def _get_item_reference_from_grocery_list(item, grocery_json):
-    for category in grocery_json:
-        for grocery_item in category.get("checkItems"):
-            if item.lower() == _get_grocery_item_name(grocery_item):
-                return grocery_item
+def _get_item_reference_from_grocery_list(item, grocery_cache):
+    if item.lower() in grocery_cache:
+        return grocery_cache[item.lower()]
 
     return None
 
@@ -133,9 +119,9 @@ def _get_grocery_list():
     except:
         return {}
 
-def _get_grocery_items_for_day(day):
+def _get_grocery_items_for_day(day, daymap):
     ingredients = []
-    trello_id = _DAY_LIST_MAP[day]
+    trello_id = daymap[day]
     day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
     for day_recipe in day_recipes:
         for ingredient_list_ids in day_recipe['idChecklists']:
@@ -151,6 +137,8 @@ def _save_item(item):
     params["name"] = item["name"]
     params["state"] = item["state"]
     params["idChecklist"] = item["idChecklist"]
+    if "pos" in item:
+        params["pos"] = item["pos"]
     res = requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
     
 def _delete_item(item):
@@ -162,3 +150,18 @@ def _add_item(checklist, item):
     params["pos"] = "bottom"
     params["checked"] = "true" if (item.get("state", "complete") == CHECKED_STATE) else "false"
     res = requests.post("{}/checklists/{}/checkItems".format(API_BASE, checklist.get("id"), params=params, auth=_get_auth()))
+
+def _get_lists():
+    try:
+        return requests.get("{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
+    except:
+        return []
+
+def _get_day_lists():
+    daymap = {}
+    for trellolist in _get_lists():
+        name = trellolist.get("name")
+        listid = trellolist.get("id")
+        if name.lower() in ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]:
+            daymap[name] = listid
+    return daymap
