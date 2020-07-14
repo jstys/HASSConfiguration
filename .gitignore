@@ -5,3 +5,4 @@ private/
 www/*
 hassenv/*
 *.pyc
+appdaemon/appdaemon_venv/*
