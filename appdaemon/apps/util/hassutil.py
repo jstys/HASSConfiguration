@@ -1,7 +1,6 @@
-import yaml
 import os
-import json
 
+import yaml
 import logutil
 
 APPD_DIR = "/conf"
@@ -62,44 +61,33 @@ def unlock(lock_entity):
     call_service("lock", "unlock", entity_id=lock_entity.entity_id)
 
 def turn_on(entity, **kwargs):
-    if API_HANDLE is not None:
-        API_HANDLE.turn_on(entity.entity_id, namespace="hass", **kwargs)
-    else:
-        logger.error("API Handle is None")
+    return try_api_call(API_HANDLE.turn_on, entity.entity_id, namespace="hass", **kwargs)
 
 def toggle(entity):
-    if API_HANDLE is not None:
-        API_HANDLE.toggle(entity.entity_id, namespace="hass")
-    else:
-        logger.error("API Handle is None")
+    return try_api_call(API_HANDLE.toggle, entity.entity_id, namespace="hass")
 
 def turn_off(entity):
-    if API_HANDLE:
-        API_HANDLE.turn_off(entity.entity_id, namespace="hass")
-    else:
-        logger.error("API Handle is None")
+    return try_api_call(API_HANDLE.turn_off, entity.entity_id, namespace="hass")
 
 def call_service(domain, action, **kwargs):
-    if API_HANDLE:
-        API_HANDLE.call_service("/".join([domain, action]), namespace="hass", **kwargs)
-    else:
-        logger.error("API Handle is None")
+    return try_api_call(API_HANDLE.call_service, "/".join([domain, action]), namespace="hass", **kwargs)
 
 def fire_event(event, **kwargs):
-    if API_HANDLE:
-        API_HANDLE.fire_event(event, namespace="hass", **kwargs)
-    else:
-        logger.error("API Handle is None")
+    return try_api_call(API_HANDLE.fire_event, event, namespace="hass", **kwargs)
 
 def is_someone_home():
-    if API_HANDLE:
-        return API_HANDLE.anyone_home(namespace="hass")
-    else:
-        logger.error("API Handle is None")
+    return try_api_call(API_HANDLE.anyone_home, namespace="hass")
 
 def get_current_datetime():
-    if API_HANDLE:
-        return API_HANDLE.datetime()
-    else:
-        logger.error("API Handle is None")
-        return None
+    return try_api_call(API_HANDLE.datetime)
+
+def try_api_call(func, *args, **kwargs):
+    try:
+        logger.info(f"Trying to run {func}")
+        return func(*args, **kwargs)
+    except AttributeError as attrib_err:
+        logger.error(f"Attribute Error: {attrib_err}")
+    except TimeoutError as timeout_err:
+        logger.error(f"Timeout Error: {timeout_err}")
+    except Exception as other_err:
+        logger.error(f"Other Error: {other_err}")
