@@ -24,7 +24,7 @@ services:
       - "9001:9001"
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:0.113.1
+    image: homeassistant/tinker-homeassistant:0.113.2
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
