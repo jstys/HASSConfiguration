@@ -44,7 +44,9 @@ def on_triangle_pressed(event):
 
 def on_minus_pressed(event):
     logger.info("Minus button pressed")
+    MediaPlayerAction().add_media_player("living_room_tv").volume_down()
 
 def on_plus_pressed(event):
     logger.info("Plus button pressed")
+    MediaPlayerAction().add_media_player("living_room_tv").volume_up()
     
