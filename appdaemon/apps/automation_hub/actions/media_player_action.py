@@ -76,6 +76,14 @@ class MediaPlayerAction():
         for media_player in self._media_players:
             hassutil.call_service("media_player", "volume_set", entity_id=media_player.entity_id, volume_level=volume)
 
+    def volume_up(self):
+        for media_player in self._media_players:
+            hassutil.call_service("media_player", "volume_up", entity_id=media_player.entity_id)
+
+    def volume_down(self):
+        for media_player in self._media_players:
+            hassutil.call_service("media_player", "volume_down", entity_id=media_player.entity_id)
+
     def clear_playlist(self):
         for media_player in self._media_players:
             hassutil.call_service("media_player", "clear_playlist", entity_id=media_player.entity_id)
