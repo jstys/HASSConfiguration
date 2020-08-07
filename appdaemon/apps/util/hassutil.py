@@ -61,30 +61,31 @@ def unlock(lock_entity):
     call_service("lock", "unlock", entity_id=lock_entity.entity_id)
 
 def turn_on(entity, **kwargs):
-    return try_api_call(API_HANDLE.turn_on, entity.entity_id, namespace="hass", **kwargs)
+    return try_api_call(API_HANDLE, "turn_on", entity.entity_id, namespace="hass", **kwargs)
 
 def toggle(entity):
-    return try_api_call(API_HANDLE.toggle, entity.entity_id, namespace="hass")
+    return try_api_call(API_HANDLE, "toggle", entity.entity_id, namespace="hass")
 
 def turn_off(entity):
-    return try_api_call(API_HANDLE.turn_off, entity.entity_id, namespace="hass")
+    return try_api_call(API_HANDLE, "turn_off", entity.entity_id, namespace="hass")
 
 def call_service(domain, action, **kwargs):
-    return try_api_call(API_HANDLE.call_service, "/".join([domain, action]), namespace="hass", **kwargs)
+    return try_api_call(API_HANDLE, "call_service", "/".join([domain, action]), namespace="hass", **kwargs)
 
 def fire_event(event, **kwargs):
-    return try_api_call(API_HANDLE.fire_event, event, namespace="hass", **kwargs)
+    return try_api_call(API_HANDLE, "fire_event", event, namespace="hass", **kwargs)
 
 def is_someone_home():
-    return try_api_call(API_HANDLE.anyone_home, namespace="hass")
+    return try_api_call(API_HANDLE, "anyone_home", namespace="hass")
 
 def get_current_datetime():
-    return try_api_call(API_HANDLE.datetime)
+    return try_api_call(API_HANDLE, "datetime")
 
-def try_api_call(func, *args, **kwargs):
+def try_api_call(handle, func_name, *args, **kwargs):
     try:
-        logger.info(f"Trying to run {func}")
-        return func(*args, **kwargs)
+        logger.info(f"Trying to run {func_name}")
+        func = getattr(handle, func_name)
+        func(*args, **kwargs)
     except AttributeError as attrib_err:
         logger.error(f"Attribute Error: {attrib_err}")
     except TimeoutError as timeout_err:
