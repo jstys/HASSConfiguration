@@ -111,7 +111,7 @@ entities:
             room: office
 
     motion_sensor:
-        binary_sensor.motion_sensor_158d00016612a5:
+        binary_sensor.unk_manufacturer_lumi_sensor_motion_aq2_a5126601_occupancy:
             room: hallway
         binary_sensor.motion_sensor_158d0002b95de8:
             room: office

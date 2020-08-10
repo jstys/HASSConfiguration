@@ -44,6 +44,8 @@ binary_sensor.switch_158d00016dbf86:
   friendly_name: Master Bedroom Button
 binary_sensor.switch_158d00026ad875:
   friendly_name: Basement Button
+binary_sensor.unk_manufacturer_lumi_sensor_motion_aq2_a5126601_occupancy:
+  friendly_name: Hallway Motion Sensor
 binary_sensor.visonic_mct_340_e_0b121662_1_1280:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.visonic_mct_340_e_0b121b78_1_1280:
