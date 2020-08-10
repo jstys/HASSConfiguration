@@ -9,7 +9,6 @@ def name_to_friendly_name(name):
 customized = {}
 entity_map = {}
 template_files = {
-    "hass/template/ui-lovelace.yaml": "hass/ui-lovelace.yaml",
     "hass/template/climate.yaml": "hass/climate.yaml",
     "hass/template/sensor/battery.yaml": "hass/sensor/battery.yaml",
     "hass/template/media_player/universal.yaml": "hass/media_player/universal.yaml",

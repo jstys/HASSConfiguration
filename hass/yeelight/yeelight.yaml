@@ -9,9 +9,5 @@ devices:
     name: Erica Night Lamp
   10.0.0.25:
     name: Piano LED
-  10.0.0.21:
-    name: Master Bedroom Fixture 1
-  10.0.0.32:
-    name: Master Bedroom Fixture 2
   10.0.0.34:
     name: Dining Room Light

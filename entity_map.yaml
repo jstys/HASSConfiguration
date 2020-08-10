@@ -1,6 +1,6 @@
 entities:
     light:
-        light.master_bedroom_fixture:
+        light.master_bedroom_fixture_zha_group_0x0002:
             name: master_bedroom_fixture
             room: master_bedroom
         light.cree_connected_a_19_60w_equivalent_851804fe_level_on_off:

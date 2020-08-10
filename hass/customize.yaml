@@ -158,6 +158,8 @@ light.master_bedroom_closet_zha_group_0x0004:
   friendly_name: Master Bedroom Closet Lights
 light.master_bedroom_fixture:
   friendly_name: Master Bedroom Fixture
+light.master_bedroom_fixture_zha_group_0x0002:
+  friendly_name: Master Bedroom Fixture
 light.master_bedroom_mirror_led:
   friendly_name: Master Bedroom Mirror Led
 light.office_lights:

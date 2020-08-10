@@ -1,10 +1,4 @@
 - platform: group
-  name: Master Bedroom Fixture
-  entities:
-    - light.master_bedroom_fixture_1
-    - light.master_bedroom_fixture_2
-
-- platform: group
   name: Living Room Lamps
   entities:
     - light.living_room_lamp_1
