@@ -76,6 +76,8 @@ input_boolean.guest_mode:
   friendly_name: Guest Mode
 input_boolean.sleep_mode:
   friendly_name: Sleep Mode
+input_select.appdaemon_log_mode:
+  friendly_name: Appdaemon Log Mode
 input_select.thermostat_mode:
   friendly_name: Thermostat Mode
 light.basement_staircase_light:

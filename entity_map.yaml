@@ -272,6 +272,8 @@ entities:
     input_select:
         input_select.thermostat_mode:
             name: thermostat_mode
+        input_select.appdaemon_log_mode:
+            name: appdaemon_log_mode
     
     input_boolean:
         input_boolean.sleep_mode:

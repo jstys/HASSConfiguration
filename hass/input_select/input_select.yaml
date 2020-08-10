@@ -4,3 +4,10 @@ thermostat_mode:
     - Heating
     - Cooling
   icon: mdi:oil-temperature
+
+appdaemon_log_mode:
+  name: Appdaemon Log Mode
+  options:
+    - normal
+    - debug
+  icon: mdi:file
