@@ -59,6 +59,7 @@ class LogWrapper(object):
         
             
     def set_level(self, level):
+        self.logger.warning(f"Setting level to {level}")
         if self.logger and level.lower() == "debug":
             self.logger.setLevel("DEBUG")
         if self.logger and level.lower() == "normal":

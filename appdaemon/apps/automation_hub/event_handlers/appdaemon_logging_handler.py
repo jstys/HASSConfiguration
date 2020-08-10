@@ -13,6 +13,6 @@ def register_callbacks():
 def on_change_event(event):
     if event.new == "normal":
         logger.set_level("normal")
-    elif event.old == "debug":
+    elif event.new == "debug":
         logger.set_level("debug")
 

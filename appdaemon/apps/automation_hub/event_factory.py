@@ -17,7 +17,6 @@ from events.sunrise_event import SunriseEvent
 from events.sunset_event import SunsetEvent
 from events.switch_off_event import SwitchOffEvent
 from events.switch_on_event import SwitchOnEvent
-from events.xiaomi_motion_triggered_event import XiaomiMotionTriggeredEvent
 from events.nhl_goal_event import NHLGoalEvent
 from events.nhl_penalty_event import NHLPenaltyEvent
 from events.nhl_period_start_event import NHLPeriodStartEvent
@@ -91,7 +90,7 @@ def create_xiaomi_motion_event(event_name, data, kwargs):
     entity = data.get("entity_id")
     if entity in entity_map:
         friendly_name = entity_map[entity]["name"]
-        event = XiaomiMotionTriggeredEvent()
+        event = MotionTriggeredEvent()
         event.name = friendly_name
         return event
     else:
