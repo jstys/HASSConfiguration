@@ -82,6 +82,10 @@ zwave:
 
 zha:
   database_path: /config/zigbee.db
+  zigpy_config:
+    ota:
+      ikea_provider: true                        # Auto update Trådfri devices
+      ledvance_provider: true                    # Auto update LEDVANCE devices
 
 owntracks:
   secret: !secret owntracks_encryption
