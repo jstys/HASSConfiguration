@@ -22,7 +22,7 @@
       device_class: battery
     hallway_motion_battery:
       friendly_name: "Hallway"
-      value_template: "{{ state_attr('binary_sensor.lumi_lumi_sensor_motion_aq2_a5126601_ias_zone', 'battery_level') }}"
+      value_template: "{{ state_attr('binary_sensor.motion_sensor_158d00016612a5', 'battery_level') }}"
       device_class: battery
     landing_motion_battery:
       friendly_name: "Landing"
