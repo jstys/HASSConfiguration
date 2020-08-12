@@ -8,11 +8,8 @@ from actions.light_action import LightAction
 
 logger = logutil.get_logger("automation_hub")
 
-def xiaomi_event_filter(event):
-    return event.name in ["garage_front_motion"]
-
 def motion_event_filter(event):
-    return event.name in ["garage_back_motion"]
+    return event.name in ["garage_back_motion", "garage_front_motion"]
 
 def register_callbacks():
     event_dispatcher.register_callback(on_motion_triggered, MotionTriggeredEvent.__name__, event_filter=motion_event_filter)
