@@ -1,0 +1,11 @@
+fourth_bedroom_ac_power:
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.fourth_bedroom_broadlink
+        device: fourth_bedroom_ac
+        command: 
+          - power
+    - service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.fourth_bedroom_ac

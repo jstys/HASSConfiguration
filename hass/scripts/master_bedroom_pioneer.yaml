@@ -1,0 +1,25 @@
+master_bedroom_ac_on:
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.master_bedroom_broadlink
+        device: master_bedroom_ac
+        command: 
+          - "on"
+          - led
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.master_bedroom_ac
+
+master_bedroom_ac_off:
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.master_bedroom_broadlink
+        device: master_bedroom_ac
+        command: 
+          - "off"
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.master_bedroom_ac
+    

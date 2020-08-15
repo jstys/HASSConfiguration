@@ -1,0 +1,25 @@
+dining_room_ac_on:
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.downstairs_broadlink
+        device: dining_room_ac
+        command: 
+          - power
+          - cool
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.dining_room_ac
+
+dining_room_ac_off:
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.downstairs_broadlink
+        device: dining_room_ac
+        command: 
+          - power
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.dining_room_ac
+    

@@ -1,0 +1,26 @@
+office_ac_on:
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.office_broadlink
+        device: office_ac
+        command: 
+          - "on"
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.office_ac
+
+
+office_ac_off:
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.office_broadlink
+        device: office_ac
+        command: 
+          - "off"
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.office_ac
+
+    
