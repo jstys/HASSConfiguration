@@ -10,6 +10,7 @@ hass/.HA_VERSION
 hass/OZW_Log.txt
 hass/deps
 hass/home-assistant.log
+hass/zwcfg_*.xml
 .vscode
 devenv
 docs
