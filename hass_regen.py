@@ -51,7 +51,7 @@ for template, replacement in template_files.items():
         
     with open(template, "r") as templatefile:
         os.makedirs(os.path.dirname(replacement), exist_ok=True)
-        with open(replacement, "w") as replacementfile:
+        with open(replacement, "w", newline="\n") as replacementfile:
             for line in templatefile.readlines():
                 matches = re.findall(r"em:[a-zA-Z0-9_]+", line)
                 subbed_line = line
