@@ -298,6 +298,8 @@ switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
   friendly_name: Frontyard Outlet
 switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_2:
   friendly_name: Backyard Outlet
+switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_3:
+  friendly_name: Backyard Outlet
 switch.ledvance_plug_00051d4d_1:
   friendly_name: Living Room Fragrance
 switch.third_reality_inc_3rss007z_ffe01818_1_6:

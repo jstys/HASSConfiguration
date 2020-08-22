@@ -230,7 +230,7 @@ entities:
             name: laundry_outlet
         switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
             name: frontyard_outlet
-        switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_2:
+        switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_3:
             name: backyard_outlet
     
     switch:
