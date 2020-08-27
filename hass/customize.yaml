@@ -234,6 +234,8 @@ sensor.garage_temperature:
   friendly_name: Garage Temperature
 sensor.hank_electronics_ltd_hkzw_so03_smart_plug_power:
   friendly_name: Washer Power Monitor
+sensor.hank_electronics_ltd_hkzw_so03_smart_plug_power_2:
+  friendly_name: Washer Power Monitor
 sensor.humidity_158d0001d6f386:
   friendly_name: Downstairs Humidity
 sensor.humidity_158d00023cf8f7:
@@ -286,6 +288,8 @@ switch.fortrezz_mimolite_switch:
   friendly_name: Garage Door Switch
 switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch:
   friendly_name: Laundry Outlet
+switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch_2:
+  friendly_name: Washer Power Monitor
 switch.hank_hkzw_so03_smart_plug_switch:
   friendly_name: Couch Outlet
 switch.hank_hkzw_so03_smart_plug_switch_2:
