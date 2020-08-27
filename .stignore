@@ -11,6 +11,7 @@ hass/OZW_Log.txt
 hass/deps
 hass/home-assistant.log
 hass/zwcfg_*.xml
+hass/known_devices.yaml
 .vscode
 devenv
 docs
