@@ -2,7 +2,6 @@
 import os
 import importlib
 import re
-import json
 
 from util import hassutil
 from util.entity_map import entity_map
@@ -27,35 +26,6 @@ class AutomationHub(hass.Hass):
             self.event_handler_map = {}
         self._load_handlers()
         self._notify_started()
-        self._schedule_state_monitor()
-
-    def _schedule_state_monitor(self):
-        self.run_every(self._dump_state, self.get_now(), 300)
-
-    def _get_unavailable_state(self, unavailable_threshold_mins=60):
-        filtered = {}
-        for entity_id, state in self.get_state(namespace="hass").items():
-            if state['state'] == 'unavailable':
-                last_changed = self.convert_utc(state['last_changed'])
-                now = self.get_now()
-                seconds_diff = now - last_changed
-                if (seconds_diff.seconds / 60) > unavailable_threshold_mins:
-                    if entity_id in entity_map:
-                        filtered[entity_map[entity_id]['name']] = state['last_changed']
-                    else:
-                        filtered[entity_id] = state['last_changed']
-        return filtered
-
-
-    def _dump_state(self, kwargs):
-        logger.info("Dumping state")
-        unavailable = self._get_unavailable_state()
-        with open("/conf/state.json", 'w') as jsonout:
-            json.dump(unavailable, jsonout, indent=4)
-        message = []
-        for key in unavailable.keys():
-            message.append(key)
-        hassutil.gui_notify("Unavailable Devices", "\n".join(message), notification_id="unavailable_device_notif_id")
         
     def _load_handlers(self):
         cwd = os.path.dirname(os.path.realpath(__file__))
