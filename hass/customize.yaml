@@ -289,7 +289,7 @@ switch.fortrezz_mimolite_switch:
 switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch:
   friendly_name: Laundry Outlet
 switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch_2:
-  friendly_name: Washer Power Monitor
+  friendly_name: Laundry Outlet
 switch.hank_hkzw_so03_smart_plug_switch:
   friendly_name: Couch Outlet
 switch.hank_hkzw_so03_smart_plug_switch_2:

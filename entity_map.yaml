@@ -226,7 +226,7 @@ entities:
             name: couch_outlet
         switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
             name: porch_outlet
-        switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch:
+        switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch_2:
             name: laundry_outlet
         switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
             name: frontyard_outlet
