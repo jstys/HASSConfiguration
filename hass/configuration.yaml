@@ -133,6 +133,7 @@ binary_sensor: !include_dir_merge_list binary_sensor/
 cover: !include_dir_merge_list cover/
 rest_command: !include rest_command.yaml
 remote: !include_dir_merge_list remotes/
+scene: !include scenes.yaml
 
 ##############################################################
 #                       ENABLED                              #
