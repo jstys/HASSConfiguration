@@ -120,7 +120,6 @@ automation: !include_dir_merge_list automations/
 zone: !include zones.yaml
 input_boolean: !include input_boolean.yaml
 light: !include_dir_merge_list light/
-shell_command: !include_dir_merge_named shell_commands/
 panel_iframe: !include_dir_merge_named panel_iframes/
 sensor: !include_dir_merge_list sensor/
 switch: !include_dir_merge_list switch/
