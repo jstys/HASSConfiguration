@@ -71,11 +71,6 @@ vacuum:
     host: 10.0.0.19
     token: !secret xiaomi_vacuum_key
 
-vizio:
-  host: 10.0.0.5
-  access_token: !secret living_room_vizio_token
-  device_class: tv
-
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
