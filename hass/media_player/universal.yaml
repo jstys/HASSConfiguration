@@ -22,8 +22,9 @@
         entity_id: media_player.vizio_smartcast
     volume_mute:
       service: media_player.volume_mute
-      data:
+      data_template:
         entity_id: media_player.vizio_smartcast
+        is_volume_muted: '{{ is_volume_muted }}'
     select_source:
       service: media_player.select_source
       data_template:

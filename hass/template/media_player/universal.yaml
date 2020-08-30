@@ -22,8 +22,9 @@
         entity_id: em:living_room_vizio_tv
     volume_mute:
       service: media_player.volume_mute
-      data:
+      data_template:
         entity_id: em:living_room_vizio_tv
+        is_volume_muted: '{{ is_volume_muted }}'
     select_source:
       service: media_player.select_source
       data_template:
