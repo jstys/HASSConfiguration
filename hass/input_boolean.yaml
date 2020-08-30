@@ -13,3 +13,6 @@
   sleep_mode:
   guest_mode:
   christmas_lights:
+  indoor_movie_mode:
+  outdoor_movie_mode:
+  privacy_mode:

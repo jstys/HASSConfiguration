@@ -9,6 +9,12 @@ entities:
         light.cree_connected_a_19_60w_equivalent_fe0409f4_10:
             name: hallway_wall_light
             room: hallway
+        light.living_room_lamp_1:
+            name: living_room_lamp_1
+            room: living_room
+        light.living_room_lamp_2:
+            name: living_room_lamp_2
+            room: living_room
         light.living_room_lamps:
             name: living_room_lamps
             room: living_room
@@ -97,6 +103,9 @@ entities:
         light.cree_connected_a_19_60w_equivalent_83cc09fe_level_on_off:
             name: attic_back_light
             room: attic
+        light.attic_lights_zha_group_0x0007:
+            name: attic_lights
+            room: attic
         light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
             name: grill_light_1
             room: backyard
@@ -106,9 +115,24 @@ entities:
         light.grill_light_zha_group_0x0002:
             name: grill_light_fixture
             room: backyard
+        light.backyard_fence_lights:
+            name: backyard_fence_lights
+            room: backyard
         light.office_lights:
             name: office_lights
             room: office
+        light.ledvance_par38_w_10_year_05220000_level_light_color_on_off:
+            name: backyard_flood_light_1
+            room: backyard
+        light.ledvance_par38_w_10_year_13430000_level_light_color_on_off:
+            name: backyard_flood_light_2
+            room: backyard
+        light.backyard_flood_lights_zha_group_0x0006:
+            name: backyard_flood_lights
+            room: backyard
+        light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off:
+            name: backyard_bar_lights
+            room: backyard
 
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
@@ -282,6 +306,12 @@ entities:
             name: guest_mode
         input_boolean.christmas_lights:
             name: christmas_lights_mode
+        input_boolean.indoor_movie_mode:
+            name: indoor_movie_mode
+        input_boolean.outdoor_movie_mode:
+            name: outdoor_movie_mode
+        input_boolean.privacy_mode:
+            name: privacy_mode
             
     vacuum:
         vacuum.xiaomi_vacuum_cleaner:

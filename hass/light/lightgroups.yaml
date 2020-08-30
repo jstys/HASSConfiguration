@@ -7,25 +7,34 @@
 - platform: group
   name: Kitchen Lights
   entities:
-    - light.kitchen_fixture
+    - switch.third_reality_inc_3rss007z_ffe01b03_1_6
     - light.kitchen_high_hats
-    
+
+- platform: group
+  name: Backyard Lights
+  entities:
+    - light.backyard_flood_lights_zha_group_0x0006
+    - light.backyard_fence_lights
+    - light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off
+
 - platform: group
   name: manual_off_lights
   entities:
-    - light.master_bedroom_fixture
-    - light.living_room_lamps
-    - light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off
-    - light.kitchen_lights
-    - light.dining_room_light
-    - light.gateway_light_34ce008dcec1
-    - light.osram_lightify_par38_on_off_dim_00a5ee30_3
-    - light.cree_connected_a_19_60w_equivalent_fe06e97f_10
-    - light.office_lights
+    - light.master_bedroom_fixture_zha_group_0x0002
+    - light.master_bedroom_mirror_led
+    - light.master_bedroom_closet_zha_group_0x0004
     - light.jim_night_lamp
     - light.erica_night_lamp
+    - light.living_room_lamps
     - light.piano_led
-    - light.fourth_bedroom_fixture
-    - light.master_bedroom_closet_lights
+    - light.kitchen_lights
+    - light.dining_room_light
+    - light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off
+    - light.osram_lightify_par38_on_off_dim_00a5ee30_3
+    - light.backyard_flood_lights_zha_group_0x0006
+    - light.backyard_fence_lights
+    - light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off
+    - light.office_lights
     - light.front_garage_light
-    - light.master_bedroom_mirror_led
+    - light.fourth_bedroom_fixture_zha_group_0x0003
+    - light.attic_lights_zha_group_0x0007
