@@ -7,7 +7,7 @@
 - platform: group
   name: Kitchen Lights
   entities:
-    - switch.third_reality_inc_3rss007z_ffe01b03_1_6
+    - light.kitchen_fixture
     - light.kitchen_high_hats
 
 - platform: group

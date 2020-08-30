@@ -331,7 +331,7 @@ switch.ledvance_plug_00051d4d_1:
 switch.third_reality_inc_3rss007z_ffe01818_1_6:
   friendly_name: Office Light Switch
 switch.third_reality_inc_3rss007z_ffe01b03_1_6:
-  friendly_name: Kitchen Fixture
+  friendly_name: Kitchen Fixture Switch
 switch.tradfri_outlet_2:
   friendly_name: Kitchen Fragrance
 vacuum.xiaomi_vacuum_cleaner:
