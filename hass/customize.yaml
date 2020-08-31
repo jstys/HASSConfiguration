@@ -94,6 +94,8 @@ light.backyard_fence_lights:
   friendly_name: Backyard Fence Lights
 light.backyard_flood_lights_zha_group_0x0006:
   friendly_name: Backyard Flood Lights
+light.basement_lights_zha_group_0x0008:
+  friendly_name: Basement Lights
 light.basement_staircase_light:
   friendly_name: Landing Light
 light.centralite_3210_l_06b1dd0a_on_off:

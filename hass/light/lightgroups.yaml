@@ -38,3 +38,4 @@
     - light.front_garage_light
     - light.fourth_bedroom_fixture_zha_group_0x0003
     - light.attic_lights_zha_group_0x0007
+    - light.basement_lights_zha_group_0x0008
