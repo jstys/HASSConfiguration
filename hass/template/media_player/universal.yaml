@@ -73,7 +73,7 @@
 - platform: universal
   name: Basement TV
   children:
-    - em:basement_chromecast
+    - em:basement_mibox
   commands:
     turn_on:
       service: switch.turn_on

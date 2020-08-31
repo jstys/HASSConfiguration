@@ -216,10 +216,16 @@ light.stairs_led:
   friendly_name: First Floor Staircase Led
 lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
   friendly_name: Front Entrance Lock
+media_player.backyard_mibox:
+  friendly_name: Backyard Mibox
 media_player.backyard_speaker:
   friendly_name: Backyard Speaker
+media_player.basement_mibox:
+  friendly_name: Basement Mibox
 media_player.basement_tv:
   friendly_name: Basement Tv
+media_player.guest_bedroom_mibox:
+  friendly_name: Guest Bedroom Mibox
 media_player.guest_bedroom_tv:
   friendly_name: Guest Bedroom Tv
 media_player.living_room_mpd:
@@ -240,6 +246,8 @@ media_player.master_bedroom_tv:
   friendly_name: Master Bedroom Tv
 media_player.master_bedroom_tv_2:
   friendly_name: Master Bedroom Mibox
+media_player.office_speaker:
+  friendly_name: Office Speaker
 media_player.vizio_smartcast:
   friendly_name: Living Room Vizio Tv
 person.erica:

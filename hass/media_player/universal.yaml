@@ -73,7 +73,7 @@
 - platform: universal
   name: Basement TV
   children:
-    - media_player.basement_tv
+    - media_player.basement_mibox
   commands:
     turn_on:
       service: switch.turn_on
@@ -101,7 +101,7 @@
 - platform: universal
   name: Guest Bedroom TV
   children:
-    - media_player.guest_bedroom_tv
+    - media_player.guest_bedroom_mibox
   commands:
     turn_on:
       service: switch.turn_on

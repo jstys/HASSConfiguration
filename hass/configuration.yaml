@@ -45,12 +45,14 @@ joaoapps_join:
 
 cast:
   media_player:
-    - host: 10.0.0.26 # living room tv
+    - host: 10.0.0.26 # living room shield
     - host: 10.0.0.33 # living room speaker
-    - host: 10.0.0.27 # backyard speaker
-    - host: 10.0.0.28 # master bedroom tv
-    - host: 10.0.0.29 # basement tv
-    - host: 10.0.0.54 # guest bedroom tv
+    - host: 10.0.0.27 # backyard cc audio
+    - host: 10.0.0.28 # backyard mibox3
+    - host: 10.0.0.29 # master bedroom mibox4
+    - host: 10.0.0.54 # guest bedroom mibox4
+    - host: 10.0.0.56 # basement mibox4
+    - host: 10.0.0.57 # office cc audio
 
 google:
   client_id: !secret google_client_id
