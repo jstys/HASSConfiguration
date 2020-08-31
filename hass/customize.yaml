@@ -218,6 +218,8 @@ lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
   friendly_name: Front Entrance Lock
 media_player.backyard_mibox:
   friendly_name: Backyard Mibox
+media_player.backyard_mini:
+  friendly_name: Backyard Mini
 media_player.backyard_speaker:
   friendly_name: Backyard Speaker
 media_player.basement_mibox:
