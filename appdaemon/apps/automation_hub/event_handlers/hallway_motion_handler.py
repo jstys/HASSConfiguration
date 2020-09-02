@@ -17,17 +17,18 @@ def register_callbacks():
     
 def on_motion_triggered(event):
     logger.info("Hallway motion detected")
-    
-    timer_manager.cancel_timer("hallway_motion_timer")
-    timer_manager.start_timer("hallway_motion_timer", lights_off, minutes=5)
-    
-    if not state_machine.is_sleep_state_enabled():
-        LightAction().add_light("hallway_lights").turn_on()
-    else:
-        LightAction().add_lights(["first_floor_staircase_led"]).turn_on()
+
+    if not state_machine.is_enabled("indoor_movie_mode", "privacy_mode"):
+        timer_manager.cancel_timer("hallway_motion_timer")
+        timer_manager.start_timer("hallway_motion_timer", lights_off, minutes=5)
+        
+        if not state_machine.is_enabled("sleep_mode"):
+            LightAction().add_light("hallway_lights").turn_on()
+        else:
+            LightAction().add_lights(["first_floor_staircase_led"]).turn_on()
 
 def lights_off():
-    if not state_machine.is_sleep_state_enabled():
+    if not state_machine.is_enabled("sleep_mode"):
         LightAction().add_lights(["hallway_lights"]).turn_off()
     else:
         LightAction().add_lights(["first_floor_staircase_led"]).turn_off()

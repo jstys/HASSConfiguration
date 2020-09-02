@@ -18,13 +18,14 @@ def register_callbacks():
 def on_motion_triggered(event):
     logger.info("Kitchen motion detected")
     
-    timer_manager.cancel_timer("kitchen_motion_timer")
-    timer_manager.start_timer("kitchen_motion_timer", lights_off, minutes=30)
-    
-    LightAction().add_light("kitchen_cabinet_lights").turn_on(color_temp=400)
+    if not state_machine.is_enabled("outdoor_movie_mode", "indoor_movie_mode"):
+        timer_manager.cancel_timer("kitchen_motion_timer")
+        timer_manager.start_timer("kitchen_motion_timer", lights_off, minutes=30)
 
-    if not state_machine.is_sleep_state_enabled():
-        LightAction().add_light("kitchen_lights").turn_on()
+        LightAction().add_light("kitchen_cabinet_lights").turn_on(color_temp=400)
+
+        if not state_machine.is_enabled("sleep_mode"):
+            LightAction().add_light("kitchen_lights").turn_on()
     
 def lights_off():
     LightAction().add_lights(["kitchen_lights", "kitchen_cabinet_lights"]).turn_off()

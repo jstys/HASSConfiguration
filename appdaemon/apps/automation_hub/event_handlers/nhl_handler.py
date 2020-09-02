@@ -15,7 +15,7 @@ def register_callbacks():
     event_dispatcher.register_callback(on_nhl_game_end, NHLGameEndEvent.__name__)
     
 def on_nhl_goal(event):
-    if not state_machine.is_sleep_state_enabled():
+    if not state_machine.is_enabled("sleep_mode"):
         speech = f"{event.team} goal scored by number {event.scorer_number}, {event.scorer}."
         if event.primary_assist:
             speech = speech + f" Assisted by number {event.primary_number}, {event.primary_assist}"
@@ -24,21 +24,21 @@ def on_nhl_goal(event):
         TTSAction().add_assistant("living_room").say(speech)
 
 def on_nhl_penalty(event):
-    if not state_machine.is_sleep_state_enabled():
+    if not state_machine.is_enabled("sleep_mode"):
         speech = f"{event.team} penalty on number {event.number}, {event.player}.  "
         speech = speech + f"{event.duration} minute {event.severity} for {event.penalty}."
         TTSAction().add_assistant("living_room").say(speech)
 
 def on_nhl_game_end(event):
-    if not state_machine.is_sleep_state_enabled():
+    if not state_machine.is_enabled("sleep_mode"):
         TTSAction().add_assistant("living_room").say("The game has ended")
 
 def on_nhl_period_start(event):
-    if not state_machine.is_sleep_state_enabled():
+    if not state_machine.is_enabled("sleep_mode"):
         TTSAction().add_assistant("living_room").say("Start of {}".format(_get_period_num(event.period)))
 
 def on_nhl_period_end(event):
-    if not state_machine.is_sleep_state_enabled():
+    if not state_machine.is_enabled("sleep_mode"):
         TTSAction().add_assistant("living_room").say("End of {}".format(_get_period_num(event.period)))
 
 def _get_period_num(num):

@@ -2,6 +2,7 @@ import functools
 
 from automation_hub import event_dispatcher
 from automation_hub import timer_manager
+from automation_hub import state_machine
 from util import logutil
 from events.motion_triggered_event import MotionTriggeredEvent
 from actions.light_action import LightAction
@@ -16,11 +17,12 @@ def register_callbacks():
     
 def on_motion_triggered(event):
     logger.info("Landing motion detected")
-    
-    timer_manager.cancel_timer("landing_motion_timer")
-    timer_manager.start_timer("landing_motion_timer", lights_off, minutes=5)
-    
-    LightAction().add_light("landing_light").turn_on()
+
+    if not state_machine.is_enabled("indoor_movie_mode"):
+        timer_manager.cancel_timer("landing_motion_timer")
+        timer_manager.start_timer("landing_motion_timer", lights_off, minutes=5)
+        
+        LightAction().add_light("landing_light").turn_on()
 
 def lights_off():
     LightAction().add_light("landing_light").turn_off()

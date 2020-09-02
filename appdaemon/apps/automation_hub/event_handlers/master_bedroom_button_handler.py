@@ -39,7 +39,7 @@ def on_closet_single_click(event):
 def on_single_click(event):
     logger.info("Master Bedroom Button single clicked")
 
-    if state_machine.is_sleep_state_enabled():
+    if state_machine.is_enabled("sleep_mode"):
         MediaPlayerAction().add_media_player("master_bedroom_mpd").toggle_pause()
 
 def on_double_click(event):

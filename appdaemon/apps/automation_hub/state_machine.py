@@ -6,17 +6,11 @@ def set_api_handle(handle):
     global API_HANDLE
     API_HANDLE = handle
 
-def is_sleep_state_enabled():
-    return API_HANDLE.get_state(name_map["sleep_mode"], namespace="hass") == "on"
-
 def disable_sleep_state():
     return API_HANDLE.set_state(name_map["sleep_mode"], state="off", namespace="hass")
 
 def enable_sleep_state():
     return API_HANDLE.set_state(name_map["sleep_mode"], state="on", namespace="hass")
-
-def is_guest_state_enabled():
-    return API_HANDLE.get_state(name_map["guest_mode"], namespace="hass") == "on"
 
 def disable_guest_state():
     return API_HANDLE.set_state(name_map["guest_mode"], state="off", namespace="hass")
@@ -39,5 +33,5 @@ def is_nobody_home():
 def get_thermostat_mode():
     return API_HANDLE.get_state(name_map["thermostat_mode"], namespace="hass")
 
-def is_christmas_lights_enabled():
-    return API_HANDLE.get_state(name_map["christmas_lights_mode"], namespace="hass") == "on"
+def is_enabled(*modes):
+    return any([API_HANDLE.get_state(name_map[mode], namespace="hass") == "on" for mode in modes])

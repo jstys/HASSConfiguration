@@ -48,7 +48,7 @@ def handle_nobody_home():
     DoorLockAction().add_lock("front_entrance_lock").lock()
     state_machine.disable_sleep_state()
 
-    if not state_machine.is_guest_state_enabled():
+    if not state_machine.is_enabled("guest_mode"):
         all_tvs = entity_map.find_type_entities("tv")
         
         LightAction().add_light("manual_off_lights").turn_off()
