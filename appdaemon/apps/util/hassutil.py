@@ -60,6 +60,9 @@ def lock(lock_entity):
 def unlock(lock_entity):
     call_service("lock", "unlock", entity_id=lock_entity.entity_id)
 
+def activate_scene(name):
+    call_service("scene", "turn_on", entity_id=f"scene.{name}")
+
 def turn_on(entity, **kwargs):
     return try_api_call(API_HANDLE, "turn_on", entity.entity_id, namespace="hass", **kwargs)
 
