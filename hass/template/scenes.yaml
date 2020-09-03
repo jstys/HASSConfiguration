@@ -1,0 +1,32 @@
+- name: Indoor Movie Mode
+  entities:
+    em:living_room_lamps: "off"
+    em:kitchen_lights: "off"
+    em:kitchen_cabinet_lights: "off"
+    em:dining_room_light: "off"
+    em:landing_light: "off"
+    em:hallway_lights: "off"
+    em:piano_led: "off"
+    em:first_floor_staircase_led: "off"
+    em:living_room_tv: "on"
+- name: Outdoor Movie Mode
+  entities:
+    em:kitchen_lights: "off"
+    em:kitchen_cabinet_lights: "off"
+    em:backyard_fence_lights: "off"
+    em:backyard_flood_lights: "off"
+    em:backyard_bar_lights: "off"
+- name: Privacy Mode
+  entities:
+    em:hallway_lights: "off"
+    em:master_bedroom_fixture: "off"
+    em:master_bedroom_closet_lights: "off"
+    em:master_bedroom_mirror_led: "off"
+    em:jim_night_lamp:
+      state: "on"
+      effect: "lsd"
+      brightness_pct: "100"
+    em:erica_night_lamp:
+      state: "on"
+      effect: "lsd"
+      brightness_pct: "100"

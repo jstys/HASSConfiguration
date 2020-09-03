@@ -1,0 +1,32 @@
+- name: Indoor Movie Mode
+  entities:
+    light.living_room_lamps: "off"
+    light.kitchen_lights: "off"
+    light.kitchen_cabinets_zha_group_0x0005: "off"
+    light.dining_room_light: "off"
+    light.cree_connected_a_19_60w_equivalent_fe05fbf3_10: "off"
+    light.hallway_lights_zha_group_0x0001: "off"
+    light.piano_led: "off"
+    light.ledvance_flex_rgbw_000089d8_1: "off"
+    media_player.living_room_tv: "on"
+- name: Outdoor Movie Mode
+  entities:
+    light.kitchen_lights: "off"
+    light.kitchen_cabinets_zha_group_0x0005: "off"
+    light.backyard_fence_lights: "off"
+    light.backyard_flood_lights_zha_group_0x0006: "off"
+    light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off: "off"
+- name: Privacy Mode
+  entities:
+    light.hallway_lights_zha_group_0x0001: "off"
+    light.master_bedroom_fixture_zha_group_0x0002: "off"
+    light.master_bedroom_closet_zha_group_0x0004: "off"
+    light.master_bedroom_mirror_led: "off"
+    light.jim_night_lamp:
+      state: "on"
+      effect: "lsd"
+      brightness_pct: "100"
+    light.erica_night_lamp:
+      state: "on"
+      effect: "lsd"
+      brightness_pct: "100"

@@ -15,7 +15,8 @@ template_files = {
     "hass/template/light/lightgroups.yaml": "hass/light/lightgroups.yaml",
     "hass/template/logbook.yaml" : "hass/logbook.yaml",
     "hass/template/binary_sensor/appliance.yaml": "hass/binary_sensor/appliance.yaml",
-    "hass/template/cover/template.yaml": "hass/cover/template.yaml"
+    "hass/template/cover/template.yaml": "hass/cover/template.yaml",
+    "hass/template/scenes.yaml": "hass/scenes.yaml"
 }
 
 with open("entity_map.yaml", "r") as yamlfile:
