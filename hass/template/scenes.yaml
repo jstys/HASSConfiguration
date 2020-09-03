@@ -8,7 +8,9 @@
     em:hallway_lights: "off"
     em:piano_led: "off"
     em:first_floor_staircase_led: "off"
-    em:living_room_tv: "on"
+    em:living_room_tv: 
+      state: "on"
+      source: "HDMI-2"
 - name: Outdoor Movie Mode
   entities:
     em:kitchen_lights: "off"
@@ -22,6 +24,7 @@
     em:master_bedroom_fixture: "off"
     em:master_bedroom_closet_lights: "off"
     em:master_bedroom_mirror_led: "off"
+    em:master_bedroom_tv: "on"
     em:jim_night_lamp:
       state: "on"
       effect: "lsd"
