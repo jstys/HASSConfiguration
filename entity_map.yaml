@@ -106,15 +106,6 @@ entities:
         light.attic_lights_zha_group_0x0007:
             name: attic_lights
             room: attic
-        light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
-            name: grill_light_1
-            room: backyard
-        light.cree_connected_a_19_60w_equivalent_d4cc09fe_level_on_off:
-            name: grill_light_2
-            room: backyard
-        light.grill_light_zha_group_0x0002:
-            name: grill_light_fixture
-            room: backyard
         light.backyard_fence_lights:
             name: backyard_fence_lights
             room: backyard
@@ -157,8 +148,8 @@ entities:
             name: fourth_bedroom_motion
             room: fourth_bedroom
         binary_sensor.smartthings_motionv4_5f5a0001_ias_zone:
-            name: grill_area_motion
-            room: backyard
+            name: basement_stairs_motion
+            room: basement
         binary_sensor.motion_sensor_158d0002b76374:
             name: kitchen_front_motion
             room: kitchen
@@ -327,6 +318,8 @@ entities:
             name: outdoor_movie_mode
         input_boolean.privacy_mode:
             name: privacy_mode
+        input_boolean.workout_mode:
+            name: workout_mode
             
     vacuum:
         vacuum.xiaomi_vacuum_cleaner:

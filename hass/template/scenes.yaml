@@ -33,3 +33,8 @@
       state: "on"
       effect: "lsd"
       brightness_pct: "100"
+- name: Workout Mode
+  entities:
+    em:basement_tv: "on"
+    em:basement_fan: "on"
+    em:basement_lights: "on"

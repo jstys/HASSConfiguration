@@ -37,7 +37,7 @@ binary_sensor.motion_sensor_158d0002b95de8:
 binary_sensor.motion_sensor_158d0002c63719:
   friendly_name: Garage Front Motion
 binary_sensor.smartthings_motionv4_5f5a0001_ias_zone:
-  friendly_name: Grill Area Motion
+  friendly_name: Basement Stairs Motion
 binary_sensor.smartthings_motionv4_96960301_ias_zone:
   friendly_name: Fourth Bedroom Motion
 binary_sensor.switch_158d00016da2c9:
@@ -84,6 +84,8 @@ input_boolean.privacy_mode:
   friendly_name: Privacy Mode
 input_boolean.sleep_mode:
   friendly_name: Sleep Mode
+input_boolean.workout_mode:
+  friendly_name: Workout Mode
 input_select.appdaemon_log_mode:
   friendly_name: Appdaemon Log Mode
 input_select.thermostat_mode:

@@ -1,8 +1,8 @@
 from automation_hub import event_dispatcher
 from util import logutil
+from util import hassutil
+from util.entity_map import name_map
 from events.button_click_event import ButtonClickEvent
-from actions.media_player_action import MediaPlayerAction
-from actions.light_action import LightAction
 from automation_hub import state_machine
 
 logger = logutil.get_logger("automation_hub")
@@ -21,5 +21,4 @@ def on_button_clicked(event):
 def on_single_click(event):
     logger.info("Basement Button single clicked")
 
-    MediaPlayerAction().add_media_player("basement_tv").toggle_power()
-    LightAction().add_light("basement_fan").toggle()
+    hassutil.toggle(hassutil.Entity(name_map["workout_mode"]))
