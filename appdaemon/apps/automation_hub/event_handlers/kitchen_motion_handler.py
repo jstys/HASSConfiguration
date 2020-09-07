@@ -17,6 +17,10 @@ def register_callbacks():
     
 def on_motion_triggered(event):
     logger.info("Kitchen motion detected")
+
+    if not state_machine.is_enabled("indoor_movie_mode"):
+        LightAction().add_light("landing_light").turn_on()
+        timer_manager.start_timer("landing_motion_timer", lights_off, minutes=5)
     
     if not state_machine.is_enabled("outdoor_movie_mode", "indoor_movie_mode"):
         timer_manager.cancel_timer("kitchen_motion_timer")

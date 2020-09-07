@@ -19,6 +19,9 @@ def on_motion_triggered(event):
     logger.info("Basement stairs motion detected")
 
     timer_manager.cancel_timer("basement_stairs_motion_timer")
+    if not state_machine.is_enabled("indoor_movie_mode"):
+        LightAction().add_light("landing_light").turn_on()
+        timer_manager.start_timer("landing_motion_timer", lights_off, minutes=5)
     
     if not state_machine.is_enabled("sleep_mode"):
         LightAction().add_light("basement_lights").turn_on()
