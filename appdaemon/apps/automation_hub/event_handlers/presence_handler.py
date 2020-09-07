@@ -23,7 +23,7 @@ def on_presence_changed(event):
 def on_person_away(name):
     logger.info("{} has left home".format(name))
     
-    if not hassutil.is_someone_home():
+    if hassutil.is_nobody_home():
         handle_nobody_home()
     
     if name == "jim_presence":

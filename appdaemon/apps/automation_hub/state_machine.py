@@ -27,9 +27,6 @@ def is_jim_home():
 def is_erica_home():
     return API_HANDLE.get_state(name_map["erica_presence"], namespace="hass") == "home"
 
-def is_nobody_home():
-    return API_HANDLE.noone_home()
-
 def get_thermostat_mode():
     return API_HANDLE.get_state(name_map["thermostat_mode"], namespace="hass")
 

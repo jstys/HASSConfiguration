@@ -79,7 +79,10 @@ def fire_event(event, **kwargs):
     return try_api_call(API_HANDLE, "fire_event", event, namespace="hass", **kwargs)
 
 def is_someone_home():
-    return try_api_call(API_HANDLE, "anyone_home", namespace="hass")
+    return try_api_call(API_HANDLE, "anyone_home", person=True, namespace="hass")
+
+def is_nobody_home():
+    return try_api_call(API_HANDLE, "noone_home", person=True, namespace="hass")
 
 def get_current_datetime():
     return try_api_call(API_HANDLE, "datetime")
