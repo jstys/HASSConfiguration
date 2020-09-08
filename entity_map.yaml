@@ -248,7 +248,7 @@ entities:
             name: living_room_fragrance
         switch.centralite_3210_l_0c3283a0_1:
             name: piano_power
-        switch.centralite_3210_l_0ca6f441_1:
+        switch.centralite_3210_l_41f4a60c_on_off:
             name: hallway_outlet
         switch.centralite_3210_l_0c319584_1:
             room: guest_bedroom

@@ -314,6 +314,8 @@ switch.centralite_3210_l_0c3283a0_1:
   friendly_name: Piano Power
 switch.centralite_3210_l_0ca6f441_1:
   friendly_name: Hallway Outlet
+switch.centralite_3210_l_41f4a60c_on_off:
+  friendly_name: Hallway Outlet
 switch.centralite_outlet_1:
   friendly_name: Kettle
 switch.centralite_outlet_2:
