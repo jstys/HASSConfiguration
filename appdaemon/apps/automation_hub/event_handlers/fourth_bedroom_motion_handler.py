@@ -19,10 +19,10 @@ def on_motion_triggered(event):
     logger.info("Fourth bedroom motion detected")
     
     timer_manager.cancel_timer("fourth_bedroom_motion_timer")
-    timer_manager.start_timer("fourth_bedroom_motion_timer", lights_off, minutes=30)
-    
-    if not state_machine.is_sun_up():
-        LightAction().add_light("fourth_bedroom_fixture").turn_on()
+
+    LightAction().add_light("fourth_bedroom_fixture").turn_on()
+
+    timer_manager.start_timer("fourth_bedroom_motion_timer", lights_off, minutes=15)
     
 def lights_off():
     LightAction().add_light("fourth_bedroom_fixture").turn_off()

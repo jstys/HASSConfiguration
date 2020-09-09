@@ -18,9 +18,8 @@ def on_motion_triggered(event):
     logger.info("Garage motion detected")
     
     timer_manager.cancel_timer("garage_motion_timer")
-    timer_manager.start_timer("garage_motion_timer", lights_off, minutes=20)
-    
     LightAction().add_light("front_garage_light").turn_on()
+    timer_manager.start_timer("garage_motion_timer", lights_off, minutes=20)
     
 def lights_off():
     LightAction().add_light("front_garage_light").turn_off()

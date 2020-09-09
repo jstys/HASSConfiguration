@@ -20,12 +20,13 @@ def on_motion_triggered(event):
 
     if not state_machine.is_enabled("indoor_movie_mode", "privacy_mode"):
         timer_manager.cancel_timer("hallway_motion_timer")
-        timer_manager.start_timer("hallway_motion_timer", lights_off, minutes=5)
         
         if not state_machine.is_enabled("sleep_mode"):
             LightAction().add_light("hallway_lights").turn_on()
         else:
             LightAction().add_lights(["first_floor_staircase_led"]).turn_on()
+
+        timer_manager.start_timer("hallway_motion_timer", lights_off, minutes=5)
 
 def lights_off():
     if not state_machine.is_enabled("sleep_mode"):
