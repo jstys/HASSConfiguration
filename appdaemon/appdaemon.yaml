@@ -1,4 +1,5 @@
 appdaemon:
+  pin_apps: false
   internal_function_timeout: 60
   latitude: !secret home_latitude
   longitude: !secret home_longitude
@@ -10,14 +11,14 @@ appdaemon:
       namespace: hass
       ha_url: !secret hass_url
       token: !secret hass_token
-    MQTT:
-      type: mqtt
-      namespace: mqtt
-      client_host: mosquitto
-      client_port: 1883
-      client_id: appdaemon
-      client_user: appdaemon
-      client_topics: 
-        - 'assistant/+/intent'
-        - 'snips/intent/+'
-        - 'snips/nluIntent'
+    # MQTT:
+    #   type: mqtt
+    #   namespace: mqtt
+    #   client_host: mosquitto
+    #   client_port: 1883
+    #   client_id: appdaemon
+    #   client_user: appdaemon
+    #   client_topics: 
+    #     - 'assistant/+/intent'
+    #     - 'snips/intent/+'
+    #     - 'snips/nluIntent'
