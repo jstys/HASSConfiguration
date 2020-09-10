@@ -48,7 +48,8 @@ class AutomationHub(hass.Hass):
         event_dispatcher.dispatch(event)
         
     def subscribe_events(self):
-        self.listen_event(self.on_event, namespace="hass")
+        for event in self.event_list:
+            self.listen_event(self.on_event, event=event, namespace="hass")
         
     def on_event(self, event_name, data, kwargs):
         logger.debug("Received New Event - name = {} data = {} kwargs = {}".format(event_name, data, kwargs))
@@ -59,10 +60,11 @@ class AutomationHub(hass.Hass):
             if adevent:
                 event_dispatcher.dispatch(adevent)
         else:
-            logger.debug(f"Received untracked event: {event_name}")
+            logger.error(f"Received untracked event: {event_name}")
         
     def subscribe_states(self):
-        self.listen_state(self.on_state_changed, attribute="all", namespace="global")
+        for entity in entity_map.keys():
+            self.listen_state(self.on_state_changed, entity=entity, attribute="all", namespace="global")
         
     def on_state_changed(self, entity, attribute, old, new, kwargs):
         
@@ -80,7 +82,7 @@ class AutomationHub(hass.Hass):
             if adevent:
                 event_dispatcher.dispatch(adevent)
         else:
-            logger.debug(f"Received untracked state change from entity: {entity}")
+            logger.error(f"Received untracked state change from entity: {entity}")
                 
     def timer_callback(self, kwargs):
         partial = kwargs.get("partial")
