@@ -64,7 +64,7 @@ class AutomationHub(hass.Hass):
         
     def subscribe_states(self):
         for entity in entity_map.keys():
-            self.listen_state(self.on_state_changed, entity=entity, attribute="all", namespace="global")
+            self.listen_state(self.on_state_changed, entity=entity, attribute="all", namespace="hass")
         
     def on_state_changed(self, entity, attribute, old, new, kwargs):
         
