@@ -91,7 +91,7 @@ def try_api_call(handle, func_name, *args, **kwargs):
     try:
         logger.info(f"Trying to run {func_name}")
         func = getattr(handle, func_name)
-        func(*args, **kwargs)
+        return func(*args, **kwargs)
     except AttributeError as attrib_err:
         logger.error(f"Attribute Error: {attrib_err}")
     except TimeoutError as timeout_err:
