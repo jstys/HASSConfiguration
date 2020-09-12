@@ -5,6 +5,7 @@ from automation_hub import timer_manager
 from automation_hub import state_machine
 from util import logutil
 from events.motion_triggered_event import MotionTriggeredEvent
+from events.motion_cleared_event import MotionClearedEvent
 from actions.light_action import LightAction
 
 logger = logutil.get_logger("automation_hub")
@@ -14,6 +15,7 @@ def event_filter(event):
 
 def register_callbacks():
     event_dispatcher.register_callback(on_motion_triggered, MotionTriggeredEvent.__name__, event_filter=event_filter)
+    event_dispatcher.register_callback(on_motion_cleared, MotionClearedEvent.__name__, event_filter=event_filter)
     
 def on_motion_triggered(event):
     logger.info("Kitchen motion detected")
@@ -21,7 +23,6 @@ def on_motion_triggered(event):
     if not state_machine.is_enabled("indoor_movie_mode"):
         timer_manager.cancel_timer("landing_motion_timer")
         LightAction().add_light("landing_light").turn_on()
-        timer_manager.start_timer("landing_motion_timer", landing_light_off, minutes=5)
     
     if not state_machine.is_enabled("outdoor_movie_mode", "indoor_movie_mode"):
         timer_manager.cancel_timer("kitchen_motion_timer")
@@ -31,7 +32,10 @@ def on_motion_triggered(event):
         if not state_machine.is_enabled("sleep_mode"):
             LightAction().add_light("kitchen_lights").turn_on()
 
-        timer_manager.start_timer("kitchen_motion_timer", kitchen_lights_off, minutes=30)
+def on_motion_cleared(event):
+    logger.info("Kitchen motion cleared")
+    timer_manager.start_timer("landing_motion_timer", landing_light_off, minutes=5)
+    timer_manager.start_timer("kitchen_motion_timer", kitchen_lights_off, minutes=30)
 
 def landing_light_off():
     LightAction().add_light("landing_light").turn_off()
