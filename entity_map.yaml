@@ -39,7 +39,7 @@ entities:
             room: living_room
         light.osram_lightify_par38_on_off_dim_30eea500_level_on_off:
             room: driveway
-        light.ledvance_flex_rgbw_000089d8_1:
+        light.ledvance_flex_rgbw_d8890000_level_light_color_on_off:
             name: first_floor_staircase_led
             room: living_room
         light.osram_gardenspot_rgb_352ca700_level_light_color_on_off:

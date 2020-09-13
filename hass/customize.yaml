@@ -170,6 +170,8 @@ light.ledvance_edge_lit_under_cabinet_tw_0002c7f4_1:
   friendly_name: Kitchen Cabinet Left Light 1
 light.ledvance_flex_rgbw_000089d8_1:
   friendly_name: First Floor Staircase Led
+light.ledvance_flex_rgbw_d8890000_level_light_color_on_off:
+  friendly_name: First Floor Staircase Led
 light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off:
   friendly_name: Backyard Bar Lights
 light.ledvance_par38_w_10_year_05220000_level_light_color_on_off:

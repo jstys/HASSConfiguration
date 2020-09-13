@@ -7,7 +7,7 @@
     light.cree_connected_a_19_60w_equivalent_fe05fbf3_10: "off"
     light.hallway_lights_zha_group_0x0001: "off"
     light.piano_led: "off"
-    light.ledvance_flex_rgbw_000089d8_1: "off"
+    light.ledvance_flex_rgbw_d8890000_level_light_color_on_off: "off"
     media_player.living_room_tv: 
       state: "on"
       source: "HDMI-2"
