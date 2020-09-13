@@ -30,7 +30,7 @@
     - light.kitchen_lights
     - light.dining_room_light
     - light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off
-    - light.osram_lightify_par38_on_off_dim_00a5ee30_3
+    - light.osram_lightify_par38_on_off_dim_30eea500_level_on_off
     - light.backyard_flood_lights_zha_group_0x0006
     - light.backyard_fence_lights
     - light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off
