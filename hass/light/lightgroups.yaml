@@ -29,7 +29,7 @@
     - light.piano_led
     - light.kitchen_lights
     - light.dining_room_light
-    - light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off
+    - light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off
     - light.osram_lightify_par38_on_off_dim_30eea500_level_on_off
     - light.backyard_flood_lights_zha_group_0x0006
     - light.backyard_fence_lights

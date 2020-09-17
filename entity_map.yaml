@@ -21,7 +21,7 @@ entities:
         light.hallway_lights_zha_group_0x0001:
             name: hallway_lights
             room: hallway
-        light.osram_lightify_a19_on_off_dim_10_year_20eb0d00_level_on_off:
+        light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
             room: front_porch
         light.cree_connected_a_19_60w_equivalent_fe05fbf3_10:
             room: landing
