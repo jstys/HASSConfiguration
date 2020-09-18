@@ -1,45 +1,42 @@
 basement_tv_mute:
   alias: Mute
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: "10.0.0.53"
-        packet:
-          - !secret basement_soundbar_mute
+        entity_id: remote.basement_broadlink_remote
+        command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 
 basement_tv_volume_up:
   alias: Volume +
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: "10.0.0.53"
-        packet:
-          - !secret basement_soundbar_volume_up
+        entity_id: remote.basement_broadlink_remote
+        command: b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEDEQMRAxEBAQMRAxEDEQEBAQEBAQEBAxEBAQEBAQEDEQAAchDQUAAAAAAAA=
 
 basement_tv_volume_down:
   alias: Volume -
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: "10.0.0.53"
-        packet:
-          - !secret basement_soundbar_volume_down
+        entity_id: remote.basement_broadlink_remote
+        command: b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEDEQMRAxEDEQEBAxEDEQMRAQEBAQEBAQEDEQAAchDQUAAAAAAAA=
 
 basement_tv_on:
   sequence:
     - condition: state
       entity_id: input_boolean.basement_tv
       state: 'off'
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: "10.0.0.53"
-        packet:
-          - !secret basement_tv_on
-          - !secret basement_tv_on
-          - !secret basement_tv_on
-          - !secret basement_soundbar_power
-          - !secret basement_soundbar_power
-          - !secret basement_soundbar_power
+        entity_id: remote.basement_broadlink_remote
+        command: 
+          - b64:JgBmAHI4Dg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4qDg4ODg4ODg4ODg4ODg4ODg4ODioOKg4qDioOKg4ODg4ODg4qDioOKg4qDioODg4qDgAJew0F=
+          - b64:JgBmAHI4Dg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4qDg4ODg4ODg4ODg4ODg4ODg4ODioOKg4qDioOKg4ODg4ODg4qDioOKg4qDioODg4qDgAJew0F
+          - b64:JgBmAHI4Dg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4qDg4ODg4ODg4ODg4ODg4ODg4ODioOKg4qDioOKg4ODg4ODg4qDioOKg4qDioODg4qDgAJew0F
+          - b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEBAQMRAxEDEQEBAxEDEQMRAxEBAQEBAQEDEQAAchDQUAAAAAAAA=
+          - b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEBAQMRAxEDEQEBAxEDEQMRAxEBAQEBAQEDEQAAchDQUAAAAAAAA=
+          - b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEBAQMRAxEDEQEBAxEDEQMRAxEBAQEBAQEDEQAAchDQUAAAAAAAA=
     - service: input_boolean.turn_on
       data:
         entity_id: input_boolean.basement_tv
@@ -49,16 +46,16 @@ basement_tv_off:
     - condition: state
       entity_id: input_boolean.basement_tv
       state: 'on'
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: "10.0.0.53"
-        packet:
-          - !secret basement_tv_off
-          - !secret basement_tv_off
-          - !secret basement_tv_off
-          - !secret basement_soundbar_power
-          - !secret basement_soundbar_power
-          - !secret basement_soundbar_power
+        entity_id: remote.basement_broadlink_remote
+        command: 
+          - b64:JgBmAHI4Dg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4qDg4ODg4ODg4ODg4ODg4ODg4qDioOKg4qDioOKg4ODg4OKg4qDioOKg4qDioODg4qDgAJew0F
+          - b64:JgBmAHI4Dg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4qDg4ODg4ODg4ODg4ODg4ODg4qDioOKg4qDioOKg4ODg4OKg4qDioOKg4qDioODg4qDgAJew0F
+          - b64:JgBmAHI4Dg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4qDg4ODg4ODg4ODg4ODg4ODg4qDioOKg4qDioOKg4ODg4OKg4qDioOKg4qDioODg4qDgAJew0F
+          - b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEBAQMRAxEDEQEBAxEDEQMRAxEBAQEBAQEDEQAAchDQUAAAAAAAA=
+          - b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEBAQMRAxEDEQEBAxEDEQMRAxEBAQEBAQEDEQAAchDQUAAAAAAAA=
+          - b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEBAQMRAxEDEQEBAxEDEQMRAxEBAQEBAQEDEQAAchDQUAAAAAAAA=
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.basement_tv

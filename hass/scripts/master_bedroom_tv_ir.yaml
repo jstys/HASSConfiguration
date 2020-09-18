@@ -1,27 +1,26 @@
 master_bedroom_tv_mute:
   alias: Mute
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: "10.0.0.4"
-        packet:
-          - !secret master_bedroom_soundbar_mute
+        entity_id: remote.master_bedroom_broadlink_remote
+        command: b64:JgBIAAABKJMTEhMSExITExMSExITEhMSEzcTNxM3EzcTNxM3EzcTNxMSExMTEhM3ExITEhM3ExITNxM3EzcTEhM3EzgUERQ2FAANBQ==
 
 master_bedroom_tv_on:
   sequence:
     - condition: state
       entity_id: input_boolean.master_bedroom_tv
       state: 'off'
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: "10.0.0.4"
-        packet:
-          - !secret master_bedroom_tv_on
-          - !secret master_bedroom_tv_on
-          - !secret master_bedroom_tv_on
-          - !secret master_bedroom_soundbar_power
-          - !secret master_bedroom_soundbar_power
-          - !secret master_bedroom_soundbar_power
+        entity_id: remote.master_bedroom_broadlink_remote
+        command:
+          - b64:JgBWAAABJpITEhMSEzcTEhMSExITERMSEzcTNxMSEzcTNxM3EzcTNxMSExITNxMSExITEhM3EzcTNxM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU=
+          - b64:JgBWAAABJpITEhMSEzcTEhMSExITERMSEzcTNxMSEzcTNxM3EzcTNxMSExITNxMSExITEhM3EzcTNxM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU=
+          - b64:JgBWAAABJpITEhMSEzcTEhMSExITERMSEzcTNxMSEzcTNxM3EzcTNxMSExITNxMSExITEhM3EzcTNxM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU=
+          - b64:JgBQAAABKpEVEBUQFRAWDxYQFRAVEBUQFTUVNRU1FTUVNRU1FTUVNRUQFg8WEBUQFRAVEBU1FRAVNRY0FjQWNBY0FjQWDxY0FgAFEAABKkcVAA0FAAAAAAAAAAA=
+          - b64:JgBQAAABKpEVEBUQFRAWDxYQFRAVEBUQFTUVNRU1FTUVNRU1FTUVNRUQFg8WEBUQFRAVEBU1FRAVNRY0FjQWNBY0FjQWDxY0FgAFEAABKkcVAA0FAAAAAAAAAAA=
+          - b64:JgBQAAABKpEVEBUQFRAWDxYQFRAVEBUQFTUVNRU1FTUVNRU1FTUVNRUQFg8WEBUQFRAVEBU1FRAVNRY0FjQWNBY0FjQWDxY0FgAFEAABKkcVAA0FAAAAAAAAAAA=
     - service: input_boolean.turn_on
       data:
         entity_id: input_boolean.master_bedroom_tv
@@ -31,16 +30,16 @@ master_bedroom_tv_off:
     - condition: state
       entity_id: input_boolean.master_bedroom_tv
       state: 'on'
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: "10.0.0.4"
-        packet:
-          - !secret master_bedroom_tv_off
-          - !secret master_bedroom_tv_off
-          - !secret master_bedroom_tv_off
-          - !secret master_bedroom_soundbar_power
-          - !secret master_bedroom_soundbar_power
-          - !secret master_bedroom_soundbar_power
+        entity_id: remote.master_bedroom_broadlink_remote
+        command:
+          - b64:JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxM3ExETNxMSExITERM3EzcTERM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU=
+          - b64:JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxM3ExETNxMSExITERM3EzcTERM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU=
+          - b64:JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxM3ExETNxMSExITERM3EzcTERM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU=
+          - b64:JgBQAAABKpEVEBUQFRAWDxYQFRAVEBUQFTUVNRU1FTUVNRU1FTUVNRUQFg8WEBUQFRAVEBU1FRAVNRY0FjQWNBY0FjQWDxY0FgAFEAABKkcVAA0FAAAAAAAAAAA=
+          - b64:JgBQAAABKpEVEBUQFRAWDxYQFRAVEBUQFTUVNRU1FTUVNRU1FTUVNRUQFg8WEBUQFRAVEBU1FRAVNRY0FjQWNBY0FjQWDxY0FgAFEAABKkcVAA0FAAAAAAAAAAA=
+          - b64:JgBQAAABKpEVEBUQFRAWDxYQFRAVEBUQFTUVNRU1FTUVNRU1FTUVNRUQFg8WEBUQFRAVEBU1FRAVNRY0FjQWNBY0FjQWDxY0FgAFEAABKkcVAA0FAAAAAAAAAAA=
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.master_bedroom_tv

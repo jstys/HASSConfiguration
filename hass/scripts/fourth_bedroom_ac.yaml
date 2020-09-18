@@ -2,7 +2,7 @@ fourth_bedroom_ac_power:
   sequence:
     - service: remote.send_command
       data:
-        entity_id: remote.fourth_bedroom_broadlink
+        entity_id: remote.fourth_bedroom_broadlink_remote
         device: fourth_bedroom_ac
         command: 
           - power

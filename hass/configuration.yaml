@@ -92,21 +92,6 @@ weather:
   - platform: darksky
     api_key: !secret dark_sky_key
     mode: daily
-  
-##############################################################
-#                       CUSTOM PANELS                        #
-##############################################################
-  
-panel_custom:
-  - name: zwavegraph2
-    sidebar_title: Z-Wave Graph
-    sidebar_icon: mdi:access-point-network
-    url_path: zwave
-    
-##############################################################
-#                       CUSTOM COMPONENTS                    #
-##############################################################
-zha_map:
 
 ##############################################################
 #                       INCLUDES                             #
@@ -130,7 +115,6 @@ person: !include device_tracker/persons.yaml
 binary_sensor: !include_dir_merge_list binary_sensor/
 cover: !include_dir_merge_list cover/
 rest_command: !include rest_command.yaml
-remote: !include_dir_merge_list remotes/
 scene: !include scenes.yaml
 
 ##############################################################

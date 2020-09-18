@@ -2,7 +2,7 @@ dining_room_ac_on:
   sequence:
     - service: remote.send_command
       data:
-        entity_id: remote.downstairs_broadlink
+        entity_id: remote.downstairs_broadlink_remote
         device: dining_room_ac
         command: 
           - power
@@ -15,7 +15,7 @@ dining_room_ac_off:
   sequence:
     - service: remote.send_command
       data:
-        entity_id: remote.downstairs_broadlink
+        entity_id: remote.downstairs_broadlink_remote
         device: dining_room_ac
         command: 
           - power

@@ -2,7 +2,7 @@ master_bedroom_ac_on:
   sequence:
     - service: remote.send_command
       data:
-        entity_id: remote.master_bedroom_broadlink
+        entity_id: remote.master_bedroom_broadlink_remote
         device: master_bedroom_ac
         command: 
           - "on"
@@ -15,7 +15,7 @@ master_bedroom_ac_off:
   sequence:
     - service: remote.send_command
       data:
-        entity_id: remote.master_bedroom_broadlink
+        entity_id: remote.master_bedroom_broadlink_remote
         device: master_bedroom_ac
         command: 
           - "off"
