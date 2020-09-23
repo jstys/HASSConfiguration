@@ -14,6 +14,8 @@ master_bedroom_tv_on:
     - service: remote.send_command
       data:
         entity_id: remote.master_bedroom_broadlink_remote
+        delay_secs: 0
+        num_repeats: 2
         command:
           - b64:JgBWAAABJpITEhMSEzcTEhMSExITERMSEzcTNxMSEzcTNxM3EzcTNxMSExITNxMSExITEhM3EzcTNxM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU=
           - b64:JgBQAAABKpEVEBUQFRAWDxYQFRAVEBUQFTUVNRU1FTUVNRU1FTUVNRUQFg8WEBUQFRAVEBU1FRAVNRY0FjQWNBY0FjQWDxY0FgAFEAABKkcVAA0FAAAAAAAAAAA=
@@ -29,6 +31,8 @@ master_bedroom_tv_off:
     - service: remote.send_command
       data:
         entity_id: remote.master_bedroom_broadlink_remote
+        delay_secs: 0
+        num_repeats: 2
         command:
           - b64:JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxM3ExETNxMSExITERM3EzcTERM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU=
           - b64:JgBQAAABKpEVEBUQFRAWDxYQFRAVEBUQFTUVNRU1FTUVNRU1FTUVNRUQFg8WEBUQFRAVEBU1FRAVNRY0FjQWNBY0FjQWDxY0FgAFEAABKkcVAA0FAAAAAAAAAAA=

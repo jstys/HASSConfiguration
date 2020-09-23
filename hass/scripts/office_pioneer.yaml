@@ -4,6 +4,8 @@ office_ac_on:
       data:
         entity_id: remote.office_broadlink_remote
         device: office_ac
+        delay_secs: 0
+        num_repeats: 3
         command: 
           - "on"
     - service: input_boolean.turn_on
@@ -17,6 +19,8 @@ office_ac_off:
       data:
         entity_id: remote.office_broadlink_remote
         device: office_ac
+        delay_secs: 0
+        num_repeats: 3
         command: 
           - "off"
     - service: input_boolean.turn_off

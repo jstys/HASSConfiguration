@@ -4,6 +4,7 @@ dining_room_ac_on:
       data:
         entity_id: remote.downstairs_broadlink_remote
         device: dining_room_ac
+        delay_secs: 2
         command: 
           - power
           - cool
@@ -17,6 +18,7 @@ dining_room_ac_off:
       data:
         entity_id: remote.downstairs_broadlink_remote
         device: dining_room_ac
+        delay_secs: 2
         command: 
           - power
     - service: input_boolean.turn_off

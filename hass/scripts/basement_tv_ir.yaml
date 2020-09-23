@@ -30,6 +30,8 @@ basement_tv_on:
     - service: remote.send_command
       data:
         entity_id: remote.basement_broadlink_remote
+        delay_secs: 0
+        num_repeats: 2
         command: 
           - b64:JgBmAHI4Dg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4qDg4ODg4ODg4ODg4ODg4ODg4ODioOKg4qDioOKg4ODg4ODg4qDioOKg4qDioODg4qDgAJew0F=
           - b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEBAQMRAxEDEQEBAxEDEQMRAxEBAQEBAQEDEQAAchDQUAAAAAAAA=
@@ -45,6 +47,8 @@ basement_tv_off:
     - service: remote.send_command
       data:
         entity_id: remote.basement_broadlink_remote
+        delay_secs: 0
+        num_repeats: 2
         command: 
           - b64:JgBmAHI4Dg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OKg4ODg4ODg4ODg4ODg4ODg4ODg4qDg4ODg4ODg4ODg4ODg4ODg4qDioOKg4qDioOKg4ODg4OKg4qDioOKg4qDioODg4qDgAJew0F
           - b64:JgBQAJOTEBAQEBAQEBAQMRAxEBAQEBAxEDEQMRAxEBAQEBAQEBAQkxAQEBAQEBAQEBAQEBAQEBAQMRAxEDEQEBAxEDEQMRAxEBAQEBAQEDEQAAchDQUAAAAAAAA=

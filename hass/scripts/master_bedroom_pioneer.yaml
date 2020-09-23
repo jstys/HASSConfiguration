@@ -4,6 +4,8 @@ master_bedroom_ac_on:
       data:
         entity_id: remote.master_bedroom_broadlink_remote
         device: master_bedroom_ac
+        delay_secs: 0
+        num_repeats: 3
         command: 
           - "on"
           - led
@@ -17,6 +19,8 @@ master_bedroom_ac_off:
       data:
         entity_id: remote.master_bedroom_broadlink_remote
         device: master_bedroom_ac
+        delay_secs: 0
+        num_repeats: 3
         command: 
           - "off"
     - service: input_boolean.turn_off
