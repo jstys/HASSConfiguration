@@ -147,7 +147,7 @@ entities:
         binary_sensor.smartthings_motionv4_96960301_ias_zone:
             name: fourth_bedroom_motion
             room: fourth_bedroom
-        binary_sensor.smartthings_motionv4_5f5a0001_ias_zone:
+        binary_sensor.motion_sensor_158d0002b71f6a:
             name: basement_stairs_motion
             room: basement
         binary_sensor.motion_sensor_158d0002b76374:

@@ -30,6 +30,8 @@ binary_sensor.motion_sensor_158d00016612a5:
   friendly_name: Hallway Motion Sensor
 binary_sensor.motion_sensor_158d0002b6fe4e:
   friendly_name: Landing Motion Sensor
+binary_sensor.motion_sensor_158d0002b71f6a:
+  friendly_name: Basement Stairs Motion
 binary_sensor.motion_sensor_158d0002b76374:
   friendly_name: Kitchen Front Motion
 binary_sensor.motion_sensor_158d0002b95de8:
