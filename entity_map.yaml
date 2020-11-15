@@ -144,7 +144,7 @@ entities:
         binary_sensor.centralite_3325_s_2c96cc0b_ias_zone:
             name: garage_back_motion
             room: garage
-        binary_sensor.smartthings_motionv4_96960301_ias_zone:
+        binary_sensor.motion_sensor_158d0002b6edb0:
             name: fourth_bedroom_motion
             room: fourth_bedroom
         binary_sensor.motion_sensor_158d0002b71f6a:

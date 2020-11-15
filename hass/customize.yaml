@@ -28,6 +28,8 @@ binary_sensor.lumi_lumi_sensor_wleak_aq1_023a58df_1_1280:
   friendly_name: Utility Room Water Sensor
 binary_sensor.motion_sensor_158d00016612a5:
   friendly_name: Hallway Motion Sensor
+binary_sensor.motion_sensor_158d0002b6edb0:
+  friendly_name: Fourth Bedroom Motion
 binary_sensor.motion_sensor_158d0002b6fe4e:
   friendly_name: Landing Motion Sensor
 binary_sensor.motion_sensor_158d0002b71f6a:
