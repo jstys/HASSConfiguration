@@ -30,11 +30,6 @@
       data_template:
         entity_id: media_player.vizio_smartcast
         source: '{{ source }}'
-    volume_set:
-      service: media_player.volume_set
-      data_template:
-        entity_id: media_player.vizio_smartcast
-        volume_level: '{{ volume_level }}'
   attributes:
     state: media_player.vizio_smartcast
     is_volume_muted: media_player.vizio_smartcast|is_volume_muted
