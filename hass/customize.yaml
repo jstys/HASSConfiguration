@@ -262,10 +262,14 @@ media_player.master_bedroom_tv:
   friendly_name: Master Bedroom Tv
 media_player.master_bedroom_tv_2:
   friendly_name: Master Bedroom Mibox
+media_player.master_tv:
+  friendly_name: Master Bedroom Vizio Tv
 media_player.office_speaker:
   friendly_name: Office Speaker
 media_player.vizio_smartcast:
   friendly_name: Living Room Vizio Tv
+media_player.viziocastdisplay1515:
+  friendly_name: Master Bedroom Tv Cast
 person.erica:
   entity_picture: /local/erica.jpg
   friendly_name: Erica Presence

@@ -195,12 +195,18 @@ entities:
         media_player.backyard_mibox:
             room: backyard
             name: backyard_mibox
+        media_player.viziocastdisplay1515:
+            room: master_bedroom
+            name: master_bedroom_tv_cast
             
     vizio:
         media_player.vizio_smartcast:
             room: living_room
             name: living_room_vizio_tv
-    
+
+        media_player.master_tv:
+            room: master_bedroom
+            name: master_bedroom_vizio_tv
     tv:
         media_player.living_room_tv:
             room: living_room
