@@ -68,12 +68,12 @@
       data_template:
         entity_id: em:master_bedroom_vizio_tv
         source: '{{ source }}'
-    attributes:
-      state: em:master_bedroom_vizio_tv
-      is_volume_muted: em:master_bedroom_vizio_tv|is_volume_muted
-      volume_level: em:master_bedroom_vizio_tv|volume_level
-      source: em:master_bedroom_vizio_tv|source
-      source_list: em:master_bedroom_vizio_tv|source_list
+  attributes:
+    state: em:master_bedroom_vizio_tv
+    is_volume_muted: em:master_bedroom_vizio_tv|is_volume_muted
+    volume_level: em:master_bedroom_vizio_tv|volume_level
+    source: em:master_bedroom_vizio_tv|source
+    source_list: em:master_bedroom_vizio_tv|source_list
     
 - platform: universal
   name: Basement TV

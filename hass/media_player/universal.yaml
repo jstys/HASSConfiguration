@@ -68,12 +68,12 @@
       data_template:
         entity_id: media_player.master_tv
         source: '{{ source }}'
-    attributes:
-      state: media_player.master_tv
-      is_volume_muted: media_player.master_tv|is_volume_muted
-      volume_level: media_player.master_tv|volume_level
-      source: media_player.master_tv|source
-      source_list: media_player.master_tv|source_list
+  attributes:
+    state: media_player.master_tv
+    is_volume_muted: media_player.master_tv|is_volume_muted
+    volume_level: media_player.master_tv|volume_level
+    source: media_player.master_tv|source
+    source_list: media_player.master_tv|source_list
     
 - platform: universal
   name: Basement TV
