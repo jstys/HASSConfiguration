@@ -20,7 +20,7 @@ def register_callbacks():
 def on_motion_triggered(event):
     logger.info("Landing motion detected")
 
-    if not state_machine.is_enabled("indoor_movie_mode"):
+    if not state_machine.is_enabled("indoor_movie_mode") and state_machine.is_enabled("motion_lighting"):
         timer_manager.cancel_timer("landing_motion_timer")
         
         LightAction().add_light("landing_light").turn_on()
@@ -28,7 +28,8 @@ def on_motion_triggered(event):
 def on_motion_cleared(event):
     logger.info("Landing motion cleared")
 
-    timer_manager.start_timer("landing_motion_timer", lights_off, minutes=5)
+    if state_machine.is_enabled("motion_lighting"):
+        timer_manager.start_timer("landing_motion_timer", lights_off, minutes=5)
 
 def lights_off():
     LightAction().add_light("landing_light").turn_off()

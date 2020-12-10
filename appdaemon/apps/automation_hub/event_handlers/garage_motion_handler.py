@@ -6,6 +6,7 @@ from util import logutil
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 from actions.light_action import LightAction
+from automation_hub import state_machine
 
 logger = logutil.get_logger("automation_hub")
 
@@ -19,12 +20,14 @@ def register_callbacks():
 def on_motion_triggered(event):
     logger.info("Garage motion detected")
     
-    timer_manager.cancel_timer("garage_motion_timer")
-    LightAction().add_light("front_garage_light").turn_on()
+    if state_machine.is_enabled("motion_lighting"):
+        timer_manager.cancel_timer("garage_motion_timer")
+        LightAction().add_light("front_garage_light").turn_on()
 
 def on_motion_cleared(event):
     logger.info("Garage motion cleared")
-    timer_manager.start_timer("garage_motion_timer", lights_off, minutes=20)
+    if state_machine.is_enabled("motion_lighting"):
+        timer_manager.start_timer("garage_motion_timer", lights_off, minutes=20)
     
 def lights_off():
     LightAction().add_light("front_garage_light").turn_off()
