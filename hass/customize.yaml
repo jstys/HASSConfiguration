@@ -82,6 +82,10 @@ input_boolean.guest_mode:
   friendly_name: Guest Mode
 input_boolean.indoor_movie_mode:
   friendly_name: Indoor Movie Mode
+input_boolean.master_bedroom_whitenoise:
+  friendly_name: Master Bedroom Whitenoise
+input_boolean.motion_lighting:
+  friendly_name: Motion Lighting
 input_boolean.outdoor_movie_mode:
   friendly_name: Outdoor Movie Mode
 input_boolean.privacy_mode:

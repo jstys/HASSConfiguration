@@ -326,6 +326,10 @@ entities:
             name: privacy_mode
         input_boolean.workout_mode:
             name: workout_mode
+        input_boolean.motion_lighting:
+            name: motion_lighting
+        input_boolean.master_bedroom_whitenoise:
+            name: master_bedroom_whitenoise
             
     vacuum:
         vacuum.xiaomi_vacuum_cleaner:

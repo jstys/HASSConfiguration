@@ -1,15 +1,9 @@
 from automation_hub import event_dispatcher
-from automation_hub import timer_manager
-from util import entity_map
 from util import logutil
 from util import hassutil
 from events.input_event import InputEvent
-from actions.door_lock_action import DoorLockAction
-from actions.vacuum_action import VacuumAction
 from actions.light_action import LightAction
-from actions.assistant_action import AssistantAction
 from actions.join_action import JoinAction
-from actions.media_player_action import MediaPlayerAction
 from actions.thermostat_action import ThermostatAction
 
 logger = logutil.get_logger("automation_hub")
@@ -30,26 +24,12 @@ def on_state_changed(event):
 
 def on_sleep_state_enabled(event):
     logger.info("Sleep state enabled")
-    
-    play_white_noise()
-    DoorLockAction().add_lock("front_entrance_lock").lock()
-    LightAction().add_lights(["manual_off_lights", "hallway_lights"]).turn_off()
+    hassutil.activate_scene("sleep_mode")
     JoinAction().add_target("jim_cell").send_taker_command("bed_command")
-    MediaPlayerAction().add_media_player("living_room_tv").turn_off()
-
-def play_white_noise():
-    mp_action = MediaPlayerAction().add_media_player("master_bedroom_mpd")
-    mp_action.set_volume(0.8)
-    mp_action.play_music("http://10.0.0.6:8123/local/white_noise.mp3")
-    timer_manager.start_timer("white_noise_restart", play_white_noise, hours=1)
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
     
-    timer_manager.cancel_timer("white_noise_restart")
-    media_action = MediaPlayerAction().add_media_player("master_bedroom_mpd")
-    media_action.stop()
-    media_action.clear_playlist()
     JoinAction().add_target("jim_cell").send_taker_command("awake_command")
     LightAction().add_lights(["first_floor_staircase_led"]).turn_off()
     ThermostatAction().add_thermostat("master_bedroom_ac").turn_off()
