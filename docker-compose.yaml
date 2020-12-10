@@ -38,6 +38,8 @@ services:
     depends_on:
       - "mosquitto"
       - "mariadb"
+      - "syncthing"
+      - "dockermon"
   appdaemon:
     container_name: appdaemon
     build: ./appdaemon/
