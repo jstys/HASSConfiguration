@@ -4,6 +4,7 @@ from util import hassutil
 from util.entity_map import name_map
 from events.button_click_event import ButtonClickEvent
 from actions.media_player_action import MediaPlayerAction
+from actions.switch_action import SwitchAction
 from actions.light_action import LightAction
 from automation_hub import state_machine
 
@@ -40,7 +41,9 @@ def on_single_click(event):
     logger.info("Master Bedroom Button single clicked")
 
     if state_machine.is_enabled("sleep_mode"):
-        MediaPlayerAction().add_media_player("master_bedroom_mpd").toggle_pause()
+        SwitchAction().add_switch("master_bedroom_whitenoise").toggle()
+    else:
+        SwitchAction().add_switch("privacy_mode").toggle()
 
 def on_double_click(event):
     logger.info("Master Bedroom Button double clicked")
