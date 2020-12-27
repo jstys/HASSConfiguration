@@ -13,6 +13,7 @@ template_files = {
     "hass/template/sensor/battery.yaml": "hass/sensor/battery.yaml",
     "hass/template/media_player/universal.yaml": "hass/media_player/universal.yaml",
     "hass/template/light/lightgroups.yaml": "hass/light/lightgroups.yaml",
+    "hass/template/light/switches.yaml": "hass/light/switches.yaml",
     "hass/template/logbook.yaml" : "hass/logbook.yaml",
     "hass/template/binary_sensor/appliance.yaml": "hass/binary_sensor/appliance.yaml",
     "hass/template/cover/template.yaml": "hass/cover/template.yaml",

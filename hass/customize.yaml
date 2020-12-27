@@ -348,6 +348,8 @@ switch.centralite_outlet_3:
   friendly_name: Hallway Outlet
 switch.fortrezz_mimolite_switch:
   friendly_name: Garage Door Switch
+switch.ge_12722_on_off_relay_switch_switch:
+  friendly_name: Kitchen High Hat Switch
 switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch:
   friendly_name: Laundry Outlet
 switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch_2:

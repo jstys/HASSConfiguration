@@ -294,6 +294,9 @@ entities:
         switch.third_reality_inc_3rss007z_1818e0ff_on_off:
             name: office_light_switch
             room: office
+        switch.ge_12722_on_off_relay_switch_switch:
+            name: kitchen_high_hat_switch
+            room: kitchen
     
     lock:
         lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
