@@ -9,10 +9,10 @@
   entity_id: em:office_light_switch
 - platform: switch
   name: Front Garage Light
-  entity_id: switch.centralite_3210_l_c9488805_on_off
+  entity_id: em:front_garage_switch
 - platform: switch
   name: Master Bedroom Mirror LED
-  entity_id: switch.centralite_3210_l_96312d0b_on_off
+  entity_id: em:master_bedroom_led_switch
 - platform: switch
   name: Backyard Fence Lights
   entity_id: switch.aeon_labs_dsc11_smart_strip_switch_2

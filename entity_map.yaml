@@ -256,11 +256,11 @@ entities:
             name: piano_power
         switch.centralite_3210_l_41f4a60c_on_off:
             name: hallway_outlet
-        switch.centralite_3210_l_0c319584_1:
+        switch.centralite_3210_l_8495310c_on_off:
             room: guest_bedroom
         switch.hank_hkzw_so03_smart_plug_switch:
             name: couch_outlet
-        switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
+        switch.ikea_of_sweden_tradfri_control_outlet_5ce433fe_on_off:
             name: porch_outlet
         switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch_2:
             name: laundry_outlet
@@ -297,6 +297,12 @@ entities:
         switch.ge_12722_on_off_relay_switch_switch:
             name: kitchen_high_hat_switch
             room: kitchen
+        switch.centralite_3210_l_c9488805_on_off:
+            name: front_garage_switch
+            room: garage
+        switch.centralite_3210_l_96312d0b_on_off:
+            name: master_bedroom_led_switch
+            room: master_bedroom
     
     lock:
         lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:

@@ -338,8 +338,14 @@ switch.centralite_3210_l_0ca6f441_1:
   friendly_name: Hallway Outlet
 switch.centralite_3210_l_41f4a60c_on_off:
   friendly_name: Hallway Outlet
+switch.centralite_3210_l_8495310c_on_off:
+  friendly_name: Guest Bedroom Outlet
+switch.centralite_3210_l_96312d0b_on_off:
+  friendly_name: Master Bedroom Led Switch
 switch.centralite_3210_l_a083320c_on_off:
   friendly_name: Piano Power
+switch.centralite_3210_l_c9488805_on_off:
+  friendly_name: Front Garage Switch
 switch.centralite_outlet_1:
   friendly_name: Kettle
 switch.centralite_outlet_2:
@@ -358,6 +364,8 @@ switch.hank_hkzw_so03_smart_plug_switch:
   friendly_name: Couch Outlet
 switch.hank_hkzw_so03_smart_plug_switch_2:
   friendly_name: Rice Cooker
+switch.ikea_of_sweden_tradfri_control_outlet_5ce433fe_on_off:
+  friendly_name: Porch Outlet
 switch.ikea_of_sweden_tradfri_control_outlet_9d2328fe_on_off:
   friendly_name: Kitchen Fragrance
 switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1:
