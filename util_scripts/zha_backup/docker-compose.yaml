@@ -1,0 +1,15 @@
+version: '3'
+services:
+  bellows_tty:
+    image: homeassistant/tinker-homeassistant:2020.12.1
+    devices:
+      - $TTY_PORT:$TTY_PORT
+    volumes:
+      - ./backup.txt:/tmp/backup.txt
+    entrypoint: bellows
+  bellows_ip:
+    image: homeassistant/tinker-homeassistant:2020.12.1
+    network_mode: host
+    volumes:
+      - ./backup.txt:/tmp/backup.txt
+    entrypoint: bellows
