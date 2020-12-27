@@ -112,6 +112,8 @@ light.centralite_3210_l_06b1dd0a_on_off:
   friendly_name: Basement Fan
 light.centralite_4257050_rzhac_0ae7df8a_1:
   friendly_name: Espresso Machine
+light.centralite_4257050_rzhac_8adfe70a_on_off:
+  friendly_name: Espresso Machine
 light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
   friendly_name: Front Porch Light
 light.cree_connected_a_19_60w_equivalent_83cc09fe_level_on_off:
@@ -157,6 +159,8 @@ light.grill_light_zha_group_0x0002:
 light.hallway_lights:
   friendly_name: Hallway Lights
 light.hallway_lights_zha_group_0x0001:
+  friendly_name: Hallway Lights
+light.hallway_lights_zha_group_0x0009:
   friendly_name: Hallway Lights
 light.jim_night_lamp:
   friendly_name: Jim Night Lamp
@@ -334,6 +338,8 @@ switch.centralite_3210_l_0ca6f441_1:
   friendly_name: Hallway Outlet
 switch.centralite_3210_l_41f4a60c_on_off:
   friendly_name: Hallway Outlet
+switch.centralite_3210_l_a083320c_on_off:
+  friendly_name: Piano Power
 switch.centralite_outlet_1:
   friendly_name: Kettle
 switch.centralite_outlet_2:
@@ -350,6 +356,8 @@ switch.hank_hkzw_so03_smart_plug_switch:
   friendly_name: Couch Outlet
 switch.hank_hkzw_so03_smart_plug_switch_2:
   friendly_name: Rice Cooker
+switch.ikea_of_sweden_tradfri_control_outlet_9d2328fe_on_off:
+  friendly_name: Kitchen Fragrance
 switch.ikea_of_sweden_tradfri_control_outlet_fe28239d_1:
   friendly_name: Kitchen Fragrance
 switch.ikea_of_sweden_tradfri_control_outlet_fe33e45c_1:
@@ -362,6 +370,12 @@ switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_3:
   friendly_name: Backyard Outlet
 switch.ledvance_plug_00051d4d_1:
   friendly_name: Living Room Fragrance
+switch.ledvance_plug_4d1d0500_on_off:
+  friendly_name: Living Room Fragrance
+switch.third_reality_inc_3rss007z_031be0ff_on_off:
+  friendly_name: Kitchen Fixture Switch
+switch.third_reality_inc_3rss007z_1818e0ff_on_off:
+  friendly_name: Office Light Switch
 switch.third_reality_inc_3rss007z_ffe01818_1_6:
   friendly_name: Office Light Switch
 switch.third_reality_inc_3rss007z_ffe01b03_1_6:

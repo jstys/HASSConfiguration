@@ -5,7 +5,7 @@
     light.kitchen_cabinets_zha_group_0x0005: "off"
     light.dining_room_light: "off"
     light.cree_connected_a_19_60w_equivalent_fe05fbf3_10: "off"
-    light.hallway_lights_zha_group_0x0001: "off"
+    light.hallway_lights_zha_group_0x0009: "off"
     light.piano_led: "off"
     light.ledvance_flex_rgbw_d8890000_level_light_color_on_off: "off"
     media_player.living_room_tv: 
@@ -20,7 +20,7 @@
     light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off: "off"
 - name: Privacy Mode
   entities:
-    light.hallway_lights_zha_group_0x0001: "off"
+    light.hallway_lights_zha_group_0x0009: "off"
     light.master_bedroom_fixture_zha_group_0x0002: "off"
     light.master_bedroom_closet_zha_group_0x0004: "off"
     light.master_bedroom_mirror_led: "off"
@@ -36,7 +36,7 @@
 - name: Sleep Mode
   entities:
     light.living_room_lamps: "off"
-    light.hallway_lights_zha_group_0x0001: "off"
+    light.hallway_lights_zha_group_0x0009: "off"
     light.master_bedroom_fixture_zha_group_0x0002: "off"
     light.master_bedroom_closet_zha_group_0x0004: "off"
     light.master_bedroom_mirror_led: "off"
