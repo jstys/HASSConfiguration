@@ -3,6 +3,12 @@ entities:
         light.master_bedroom_fixture_zha_group_0x0002:
             name: master_bedroom_fixture
             room: master_bedroom
+        light.cree_connected_a_19_60w_equivalent_43d109fe_level_on_off:
+            name: master_bedroom_fixture_1
+            room: master_bedroom
+        light.cree_connected_a_19_60w_equivalent_bfd509fe_level_on_off:
+            name: master_bedroom_fixture_2
+            room: master_bedroom
         light.cree_connected_a_19_60w_equivalent_851804fe_level_on_off:
             name: hallway_fixture
             room: hallway
@@ -161,6 +167,8 @@ entities:
         binary_sensor.door_window_sensor_158d0001d3a024:
             name: kitchen_fridge_sensor
             room: kitchen
+        binary_sensor.visonic_mct_340_e_fa15120b_ias_zone:
+            room: attic
     
     button:
         binary_sensor.switch_158d00016da2c9:
@@ -173,6 +181,26 @@ entities:
         binary_sensor.switch_158d00026ad875:
             name: basement_button
             room: basement
+
+    battery:
+        sensor.fibaro_system_fgkf601_keyfob_battery_level:
+            name: living_room_remote_battery
+        sensor.assa_abloy_yale_push_button_deadbolt_yrd110_battery_level:
+            name: front_lock_battery
+        sensor.linear_gc_tbz48_battery_powered_z_wave_thermostat_battery_level:
+            name: thermostat_battery
+        sensor.linear_wa00z_1_scene_switch_battery_level_3:
+            name: dining_room_switch_battery
+        sensor.linear_wa00z_1_scene_switch_battery_level_4:
+            name: master_bedroom_switch_battery
+        sensor.linear_wa00z_1_scene_switch_battery_level_5:
+            name: master_bedroom_mirror_switch_battery
+        sensor.visonic_mct_340_e_fa15120b_power:
+            name: attic_door_battery
+        sensor.visonic_mct_340_e_781b120b_power:
+            name: garage_door_battery
+        sensor.visonic_mct_340_e_6216120b_power:
+            name: front_door_battery
             
     chromecast:
         media_player.living_room_shield:
@@ -265,12 +293,6 @@ entities:
             name: backyard_outlet
     
     switch:
-        zwave.linear_wa00z_1_scene_switch:
-            name: staircase_bottom_switch
-            room: living_room
-        zwave.linear_wa00z_1_scene_switch_2:
-            name: staircase_top_switch
-            room: hallway
         zwave.linear_wa00z_1_scene_switch_3:
             name: dining_room_switch
             room: dining_room
@@ -393,7 +415,6 @@ entities:
             name: dryer_running
         binary_sensor.washer_running:
             name: washer_running
-        
 
     miscellaneous:
         sun.sun:

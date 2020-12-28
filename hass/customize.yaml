@@ -60,6 +60,8 @@ binary_sensor.visonic_mct_340_e_6216120b_ias_zone:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.visonic_mct_340_e_781b120b_ias_zone:
   friendly_name: Garage Door Sensor
+binary_sensor.visonic_mct_340_e_fa15120b_ias_zone:
+  friendly_name: Attic Door Sensor
 binary_sensor.washer_running:
   friendly_name: Washer Running
 binary_sensor.water_leak_sensor_158d00023a58df:
@@ -118,6 +120,8 @@ light.centralite_4257050_rzhac_0ae7df8a_1:
   friendly_name: Espresso Machine
 light.centralite_4257050_rzhac_8adfe70a_on_off:
   friendly_name: Espresso Machine
+light.cree_connected_a_19_60w_equivalent_43d109fe_level_on_off:
+  friendly_name: Master Bedroom Fixture 1
 light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
   friendly_name: Front Porch Light
 light.cree_connected_a_19_60w_equivalent_83cc09fe_level_on_off:
@@ -126,6 +130,8 @@ light.cree_connected_a_19_60w_equivalent_851804fe_level_on_off:
   friendly_name: Hallway Fixture
 light.cree_connected_a_19_60w_equivalent_b0cf09fe_level_on_off:
   friendly_name: Attic Front Light
+light.cree_connected_a_19_60w_equivalent_bfd509fe_level_on_off:
+  friendly_name: Master Bedroom Fixture 2
 light.cree_connected_a_19_60w_equivalent_d4cc09fe_level_on_off:
   friendly_name: Grill Light 2
 light.cree_connected_a_19_60w_equivalent_f3fb05fe_level_on_off:
@@ -304,10 +310,14 @@ person.erica:
 person.jim:
   entity_picture: /local/jim.jpg
   friendly_name: Jim Presence
+sensor.assa_abloy_yale_push_button_deadbolt_yrd110_battery_level:
+  friendly_name: Front Lock Battery
 sensor.centralite_3210_l_42baa60c_1_2820:
   friendly_name: Dryer Power Monitor
 sensor.centralite_3325_s_2c96cc0b_temperature:
   friendly_name: Garage Back Temperature
+sensor.fibaro_system_fgkf601_keyfob_battery_level:
+  friendly_name: Living Room Remote Battery
 sensor.front_door_temperature:
   friendly_name: Front Door Temperature
 sensor.garage_temperature:
@@ -326,6 +336,14 @@ sensor.humidity_158d000245a6a2:
   friendly_name: Master Bedroom Humidity
 sensor.humidity_158d000245ae4b:
   friendly_name: Office Humidity
+sensor.linear_gc_tbz48_battery_powered_z_wave_thermostat_battery_level:
+  friendly_name: Thermostat Battery
+sensor.linear_wa00z_1_scene_switch_battery_level_3:
+  friendly_name: Dining Room Switch Battery
+sensor.linear_wa00z_1_scene_switch_battery_level_4:
+  friendly_name: Master Bedroom Switch Battery
+sensor.linear_wa00z_1_scene_switch_battery_level_5:
+  friendly_name: Master Bedroom Mirror Switch Battery
 sensor.lumi_lumi_weather_01d6f386_1_1026:
   friendly_name: Downstairs Temperature
 sensor.lumi_lumi_weather_023cf8f7_1_1026:
@@ -350,10 +368,16 @@ sensor.visonic_mct_340_e_0b121662_1_1026:
   friendly_name: Front Door Temperature
 sensor.visonic_mct_340_e_0b121b78_1_1026:
   friendly_name: Garage Temperature
+sensor.visonic_mct_340_e_6216120b_power:
+  friendly_name: Front Door Battery
 sensor.visonic_mct_340_e_6216120b_temperature:
   friendly_name: Front Door Temperature
+sensor.visonic_mct_340_e_781b120b_power:
+  friendly_name: Garage Door Battery
 sensor.visonic_mct_340_e_781b120b_temperature:
   friendly_name: Garage Front Temperature
+sensor.visonic_mct_340_e_fa15120b_power:
+  friendly_name: Attic Door Battery
 sun.sun:
   friendly_name: Sun
 switch.centralite_3210_l_0c319584_1:

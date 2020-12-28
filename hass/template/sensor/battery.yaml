@@ -1,46 +1,35 @@
 - platform: template
   sensors:
     downstairs_temperature_battery:
-      friendly_name: "Downstairs"
       value_template: "{{ state_attr('em:downstairs_temperature', 'battery_level') }}"
       device_class: battery
     master_bedroom_temperature_battery:
-      friendly_name: "Master BR"
       value_template: "{{ state_attr('em:master_bedroom_temperature', 'battery_level') }}"
       device_class: battery
     office_temperature_battery:
-      friendly_name: "Office"
       value_template: "{{ state_attr('em:office_temperature', 'battery_level') }}"
       device_class: battery
     guest_bedroom_temperature_battery:
-      friendly_name: "Guest BR"
       value_template: "{{ state_attr('em:guest_bedroom_temperature', 'battery_level') }}"
       device_class: battery
     fridge_door_battery:
-      friendly_name: "Fridge"
       value_template: "{{ state_attr('em:kitchen_fridge_sensor', 'battery_level') }}"
       device_class: battery
     hallway_motion_battery:
-      friendly_name: "Hallway"
       value_template: "{{ state_attr('em:hallway_motion_sensor', 'battery_level') }}"
       device_class: battery
     landing_motion_battery:
-      friendly_name: "Landing"
       value_template: "{{ state_attr('em:landing_motion_sensor', 'battery_level') }}"
       device_class: battery
     office_motion_battery:
-      friendly_name: "Office"
       value_template: "{{ state_attr('em:office_motion_sensor', 'battery_level') }}"
       device_class: battery
     basement_water_battery:
-      friendly_name: "Basement"
       value_template: "{{ state_attr('em:utility_room_water_sensor', 'battery_level') }}"
       device_class: battery
-    living_room_button_battery:
-      friendly_name: "Office"
-      value_template: "{{ state_attr('em:office_motion_sensor', 'battery_level') }}"
+    master_bedroom_closet_button_battery:
+      value_template: "{{ state_attr('em:master_bedroom_closet_button', 'battery_level') }}"
       device_class: battery
     master_bedroom_button_battery:
-      friendly_name: "Basement"
-      value_template: "{{ state_attr('em:utility_room_water_sensor', 'battery_level') }}"
+      value_template: "{{ state_attr('em:master_bedroom_button', 'battery_level') }}"
       device_class: battery
