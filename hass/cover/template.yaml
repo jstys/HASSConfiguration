@@ -2,8 +2,8 @@
   covers:
     garage_door:
       friendly_name: "Garage Door"
-      value_template: "{{ is_state('binary_sensor.visonic_mct_340_e_0b121b78_1_1280', 'on') }}"
-      availability_template: "{{ states('binary_sensor.visonic_mct_340_e_0b121b78_1_1280') != 'unavailable' }}"
+      value_template: "{{ is_state('binary_sensor.visonic_mct_340_e_781b120b_ias_zone', 'on') }}"
+      availability_template: "{{ states('binary_sensor.visonic_mct_340_e_781b120b_ias_zone') != 'unavailable' }}"
       open_cover:
         service: switch.turn_on
         data:

@@ -4,7 +4,7 @@
     light.kitchen_lights: "off"
     light.kitchen_cabinets_zha_group_0x0005: "off"
     light.dining_room_light: "off"
-    light.cree_connected_a_19_60w_equivalent_fe05fbf3_10: "off"
+    light.cree_connected_a_19_60w_equivalent_f3fb05fe_level_on_off: "off"
     light.hallway_lights_zha_group_0x0009: "off"
     light.piano_led: "off"
     light.ledvance_flex_rgbw_d8890000_level_light_color_on_off: "off"
