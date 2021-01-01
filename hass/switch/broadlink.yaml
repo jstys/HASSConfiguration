@@ -1,18 +1,4 @@
 - platform: broadlink
-  host: 10.0.0.4
-  mac: !secret broadlink1_mac # Location: Master BR
-  switches:
-    master_bedroom_heat:
-      command_on: !secret pioneer_inverter_heat_on
-      command_off: !secret pioneer_inverter_off
-- platform: broadlink
-  host: 10.0.0.30
-  mac: !secret broadlink3_mac # Location: Office
-  switches:
-    office_heat:
-      command_on: !secret pioneer_inverter_heat_on
-      command_off: !secret pioneer_inverter_off
-- platform: broadlink
   host: 10.0.0.31
   mac: !secret broadlink4_mac # Location:Guest Bedroom
   switches:
