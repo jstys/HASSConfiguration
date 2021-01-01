@@ -22,7 +22,7 @@ master_bedroom_ac_off:
         delay_secs: 0
         num_repeats: 3
         command: 
-          - "off"
+          - "ac_off"
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.master_bedroom_ac
@@ -51,7 +51,7 @@ master_bedroom_heat_off:
         delay_secs: 0
         num_repeats: 3
         command: 
-          - "off"
+          - "heat_off"
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.master_bedroom_heat
