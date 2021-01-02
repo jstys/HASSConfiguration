@@ -3,7 +3,7 @@
     dryer_running:
       friendly_name: "Dryer Running"
       device_class: power
-      value_template: "{{ states('sensor.centralite_3210_l_42baa60c_1_2820')|float > 100.0 }}"
+      value_template: "{{ states('sensor.sensor.centralite_3210_l_42baa60c_electrical_measurement')|float > 100.0 }}"
     washer_running:
       friendly_name: "Washer Running"
       device_class: power

@@ -364,6 +364,8 @@ sensor.lumi_lumi_weather_0245a6a2_1_1026:
   friendly_name: Master Bedroom Temperature
 sensor.lumi_lumi_weather_0245ae4b_1_1026:
   friendly_name: Office Temperature
+sensor.sensor.centralite_3210_l_42baa60c_electrical_measurement:
+  friendly_name: Dryer Power Monitor
 sensor.temperature_158d0001d6f386:
   friendly_name: Downstairs Temperature
 sensor.temperature_158d00023cf8f7:
