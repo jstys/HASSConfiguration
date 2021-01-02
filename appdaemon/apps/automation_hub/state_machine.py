@@ -27,8 +27,14 @@ def is_jim_home():
 def is_erica_home():
     return API_HANDLE.get_state(name_map["erica_presence"], namespace="hass") == "home"
 
-def get_thermostat_mode():
-    return API_HANDLE.get_state(name_map["thermostat_mode"], namespace="hass")
+def is_heating_enabled():
+    return API_HANDLE.get_state(name_map["thermostat_mode"], namespace="hass").lower() == "heating"
+
+def is_cooling_enabled():
+    return API_HANDLE.get_state(name_map["thermostat_mode"], namespace="hass").lower() == "cooling"
 
 def is_enabled(*modes):
     return any([API_HANDLE.get_state(name_map[mode], namespace="hass") == "on" for mode in modes])
+
+def get_number(number_setting):
+    return API_HANDLE.get_state(name_map[number_setting], namespace="hass")
