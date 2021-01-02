@@ -18,7 +18,7 @@ vacation_heat:
   step: 1
 away_heat:
   name: Away Heat
-  initial: 7
+  initial: 67
   min: 60
   max: 75
   step: 1
