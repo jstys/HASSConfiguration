@@ -352,10 +352,22 @@ entities:
             name: privacy_mode
         input_boolean.workout_mode:
             name: workout_mode
+        input_boolean.vacation_mode:
+            name: vacation_mode
         input_boolean.motion_lighting:
             name: motion_lighting
         input_boolean.master_bedroom_whitenoise:
             name: master_bedroom_whitenoise
+
+    input_number:
+        input_number.sleep_mode_heat:
+            name: sleep_mode_heat
+        input_number.normal_heat:
+            name: normal_heat
+        input_number.away_heat:
+            name: away_heat
+        input_number.vacation_heat:
+            name: vacation_heat
             
     vacuum:
         vacuum.xiaomi_vacuum_cleaner:

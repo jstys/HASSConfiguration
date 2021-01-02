@@ -98,8 +98,18 @@ input_boolean.privacy_mode:
   friendly_name: Privacy Mode
 input_boolean.sleep_mode:
   friendly_name: Sleep Mode
+input_boolean.vacation_mode:
+  friendly_name: Vacation Mode
 input_boolean.workout_mode:
   friendly_name: Workout Mode
+input_number.away_heat:
+  friendly_name: Away Heat
+input_number.normal_heat:
+  friendly_name: Normal Heat
+input_number.sleep_mode_heat:
+  friendly_name: Sleep Mode Heat
+input_number.vacation_heat:
+  friendly_name: Vacation Heat
 input_select.appdaemon_log_mode:
   friendly_name: Appdaemon Log Mode
 input_select.thermostat_mode:
