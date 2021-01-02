@@ -23,9 +23,6 @@ template_files = {
 with open("entity_map.yaml", "r") as yamlfile:
     entity_map = yaml.safe_load(yamlfile)
 
-with open("hass/customize.yaml", "r") as customization:
-    customized = yaml.safe_load(customization)
-
 entity_name_map = {}
 for entity_type, entity_dict in entity_map["entities"].items():
     for entity_id, values in entity_dict.items():
