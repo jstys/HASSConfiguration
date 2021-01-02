@@ -1,4 +1,5 @@
 from automation_hub import event_dispatcher
+from automation_hub import state_machine
 from util import logutil
 from util import hassutil
 from events.input_event import InputEvent
@@ -28,6 +29,11 @@ def on_sleep_state_enabled(event):
     hassutil.activate_scene("sleep_mode")
     JoinAction().add_target("jim_cell").send_taker_command("bed_command")
 
+    if state_machine.is_heating_enabled():
+        heat_action = ThermostatAction().add_thermostat("oil_thermostat")
+        heat_action.set_temperature(state_machine.get_number("sleep_mode_heat"))
+        heat_action.turn_on()
+
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
     
@@ -35,4 +41,9 @@ def on_sleep_state_disabled(event):
     JoinAction().add_target("jim_cell").send_taker_command("awake_command")
     LightAction().add_lights(["first_floor_staircase_led"]).turn_off()
     ThermostatAction().add_thermostat("master_bedroom_ac").turn_off()
+
+    if state_machine.is_heating_enabled():
+        heat_action = ThermostatAction().add_thermostat("oil_thermostat")
+        heat_action.set_temperature(state_machine.get_number("normal_heat"))
+        heat_action.turn_on()
     

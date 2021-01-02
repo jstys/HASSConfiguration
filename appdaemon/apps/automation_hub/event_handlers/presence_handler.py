@@ -8,6 +8,7 @@ from actions.push_notify_action import PushNotifyAction
 from actions.light_action import LightAction
 from actions.media_player_action import MediaPlayerAction
 from actions.door_lock_action import DoorLockAction
+from actions.thermostat_action import ThermostatAction
 
 logger = logutil.get_logger("automation_hub")
 
@@ -53,6 +54,11 @@ def handle_nobody_home():
         
         LightAction().add_light("manual_off_lights").turn_off()
         MediaPlayerAction().add_media_players(all_tvs).turn_off()
+
+        if state_machine.is_heating_enabled():
+            heat_action = ThermostatAction().add_thermostat("oil_thermostat")
+            heat_action.set_temperature(state_machine.get_number("away_heat"))
+            heat_action.turn_on()
         
         #TODO: schedule timer for simulating someone being home
     
@@ -61,6 +67,11 @@ def handle_somebody_home():
     
     LightAction().add_light("kitchen_lights").turn_on()
     LightAction().add_lights(["dining_room_light", "living_room_lamps"]).turn_on(color_temp=255)
+
+    if state_machine.is_heating_enabled():
+        heat_action = ThermostatAction().add_thermostat("oil_thermostat")
+        heat_action.set_temperature(state_machine.get_number("normal_heat"))
+        heat_action.turn_on()
     
     #TODO: cancel timer for simulating someone being home
     #TODO: set lights / thermostats / tvs
