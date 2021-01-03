@@ -102,7 +102,6 @@ media_player: !include_dir_merge_list media_player/
 input_select: !include input/input_select.yaml
 yeelight: !include_dir_merge_named yeelight/
 climate: !include climate.yaml
-person: !include device_tracker/persons.yaml
 binary_sensor: !include_dir_merge_list binary_sensor/
 cover: !include_dir_merge_list cover/
 rest_command: !include rest_command.yaml
