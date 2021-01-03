@@ -12,6 +12,13 @@ map_lock = threading.Lock()
 def set_api_handle(handle):
     global API_HANDLE
     API_HANDLE = handle
+
+def schedule_daily_task(name, callback, start):
+    if API_HANDLE:
+        logger.info(f"Scheduling daily callback: {name}")
+        API_HANDLE.run_daily(callback, start)
+    else:
+        logger.error("API Handle is None")
     
 def start_repeat_timer(name, callback, repeat_seconds, start=datetime.datetime.now(), num_repeats=INFINITE_REPEATS):
     if API_HANDLE:

@@ -11,6 +11,7 @@ import event_factory
 import event_dispatcher
 import state_machine
 import timer_manager
+import scheduler
 
 logger = logutil.get_logger("automation_hub")
 
@@ -25,6 +26,7 @@ class AutomationHub(hass.Hass):
         if not hasattr(self, "event_handler_map"):
             self.event_handler_map = {}
         self._load_handlers()
+        scheduler.schedule_daily_tasks()
         self._notify_started()
         
     def _load_handlers(self):
