@@ -1,4 +1,4 @@
 appdaemon_admin:
   title: 'Appdaemon'
-  url: 'http://localhost:5050'
+  url: 'http://10.0.0.6:5050'
   icon: mdi:robot
