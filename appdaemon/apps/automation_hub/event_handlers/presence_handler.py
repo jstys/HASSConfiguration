@@ -52,7 +52,6 @@ def handle_nobody_home():
         if state_machine.is_heating_enabled():
             heat_action = ThermostatAction().add_thermostat("oil_thermostat")
             heat_action.set_temperature(state_machine.get_number("away_heat"), 'heat')
-            heat_action.turn_on()
         
         #TODO: schedule timer for simulating someone being home
     
@@ -65,7 +64,6 @@ def handle_somebody_home():
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("oil_thermostat")
         heat_action.set_temperature(state_machine.get_number("normal_heat"), 'heat')
-        heat_action.turn_on()
     
     #TODO: cancel timer for simulating someone being home
     #TODO: set lights / thermostats / tvs
