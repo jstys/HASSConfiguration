@@ -46,14 +46,8 @@ def on_person_home(name):
 def handle_nobody_home():
     logger.info("Nobody home...")
 
-    DoorLockAction().add_lock("front_entrance_lock").lock()
-    state_machine.disable_sleep_state()
-
     if not state_machine.is_enabled("guest_mode"):
-        all_tvs = entity_map.find_type_entities("tv")
-        
-        LightAction().add_light("manual_off_lights").turn_off()
-        MediaPlayerAction().add_media_players(all_tvs).turn_off()
+        hassutil.activate_scene("nobody_home")
 
         if state_machine.is_heating_enabled():
             heat_action = ThermostatAction().add_thermostat("oil_thermostat")
@@ -65,7 +59,7 @@ def handle_nobody_home():
 def handle_somebody_home():
     logger.info("Someone is home now...")
     
-    LightAction().add_light("kitchen_lights").turn_on()
+    LightAction().add_lights(["kitchen_lights", "kitchen_cabinet_lights"]).turn_on()
     LightAction().add_lights(["dining_room_light", "living_room_lamps"]).turn_on(color_temp=255)
 
     if state_machine.is_heating_enabled():
