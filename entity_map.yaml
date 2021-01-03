@@ -428,6 +428,12 @@ entities:
         binary_sensor.washer_running:
             name: washer_running
 
+    calendar:
+        calendar.jim_wfh:
+            name: jim_wfh_calendar
+        calendar.jim_pto:
+            name: jim_pto_calendar
+
     miscellaneous:
         sun.sun:
             name: sun

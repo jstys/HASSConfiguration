@@ -34,6 +34,10 @@ binary_sensor.washer_running:
   friendly_name: Washer Running
 binary_sensor.water_leak_sensor_158d00023a58df:
   friendly_name: Utility Room Water Sensor
+calendar.jim_pto:
+  friendly_name: Jim Pto Calendar
+calendar.jim_wfh:
+  friendly_name: Jim Wfh Calendar
 climate.dining_room_ac:
   friendly_name: Dining Room Ac
 climate.fourth_bedroom_ac:
