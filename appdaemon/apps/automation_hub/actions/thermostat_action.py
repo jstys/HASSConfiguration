@@ -30,6 +30,6 @@ class ThermostatAction():
         for thermostat in self._thermostats:
             hassutil.turn_off(thermostat)
 
-    def set_temperature(self, temperature):
+    def set_temperature(self, temperature, hvac_mode):
         for thermostat in self._thermostats:
-            hassutil.call_service("climate", "set_temperature", entity_id=thermostat.entity_id, temperature=temperature)
+            hassutil.call_service("climate", "set_temperature", entity_id=thermostat.entity_id, temperature=temperature, hvac_mode=hvac_mode)

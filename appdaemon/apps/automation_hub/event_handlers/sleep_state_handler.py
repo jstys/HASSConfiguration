@@ -31,7 +31,7 @@ def on_sleep_state_enabled(event):
 
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("oil_thermostat")
-        heat_action.set_temperature(state_machine.get_number("sleep_mode_heat"))
+        heat_action.set_temperature(state_machine.get_number("sleep_mode_heat"), 'heat')
         heat_action.turn_on()
 
 def on_sleep_state_disabled(event):
@@ -44,6 +44,6 @@ def on_sleep_state_disabled(event):
 
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("oil_thermostat")
-        heat_action.set_temperature(state_machine.get_number("normal_heat"))
+        heat_action.set_temperature(state_machine.get_number("normal_heat"), 'heat')
         heat_action.turn_on()
     
