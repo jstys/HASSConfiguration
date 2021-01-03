@@ -1,4 +1,4 @@
-from automation_hub import state_machine
+import state_machine
 from actions.thermostat_action import ThermostatAction
 from actions.light_action import LightAction
 

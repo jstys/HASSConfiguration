@@ -1,4 +1,4 @@
-from automation_hub import event_dispatcher
+import event_dispatcher
 from util import logutil
 from events.switch_on_event import SwitchOnEvent
 from events.switch_off_event import SwitchOffEvent

@@ -1,5 +1,5 @@
-from automation_hub import event_dispatcher
-from automation_hub import state_machine
+import event_dispatcher
+import state_machine
 from util import logutil
 from util import hassutil
 from events.input_event import InputEvent

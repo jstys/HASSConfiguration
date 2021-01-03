@@ -1,5 +1,5 @@
-from automation_hub import event_dispatcher
-from automation_hub import timer_manager
+import event_dispatcher
+import timer_manager
 from util import entity_map
 from util import logutil
 from util import hassutil

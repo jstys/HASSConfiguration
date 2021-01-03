@@ -1,7 +1,7 @@
 import functools
 
-from automation_hub import event_dispatcher
-from automation_hub import timer_manager
+import event_dispatcher
+import timer_manager
 from util import logutil
 from events.door_open_event import DoorOpenEvent
 from events.door_closed_event import DoorClosedEvent

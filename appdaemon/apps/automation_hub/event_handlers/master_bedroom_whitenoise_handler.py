@@ -1,6 +1,6 @@
-from automation_hub import event_dispatcher
+import event_dispatcher
 from util import logutil
-from automation_hub import timer_manager
+import timer_manager
 from events.input_event import InputEvent
 from actions.media_player_action import MediaPlayerAction
 

@@ -1,8 +1,8 @@
 import functools
 
-from automation_hub import event_dispatcher
-from automation_hub import state_machine
-from automation_hub import timer_manager
+import event_dispatcher
+import state_machine
+import timer_manager
 from util import logutil
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent

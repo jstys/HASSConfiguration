@@ -1,5 +1,5 @@
-from automation_hub import event_dispatcher
-from automation_hub import state_machine
+import event_dispatcher
+import state_machine
 from events.nhl_goal_event import NHLGoalEvent
 from events.nhl_penalty_event import NHLPenaltyEvent
 from events.nhl_period_start_event import NHLPeriodStartEvent

@@ -1,4 +1,4 @@
-from automation_hub import timer_manager
+import timer_manager
 from scheduled_tasks.daily import jim_wfh_check
 
 def schedule_daily_tasks():

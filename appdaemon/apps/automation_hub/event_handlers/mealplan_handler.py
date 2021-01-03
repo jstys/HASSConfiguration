@@ -1,4 +1,4 @@
-from automation_hub import event_dispatcher
+import event_dispatcher
 from util import logutil
 from util import hassutil
 from util import trello_util

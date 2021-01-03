@@ -1,12 +1,12 @@
 import functools
 
-from automation_hub import event_dispatcher
-from automation_hub import timer_manager
+import event_dispatcher
+import timer_manager
 from util import logutil
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 from actions.light_action import LightAction
-from automation_hub import state_machine
+import state_machine
 
 logger = logutil.get_logger("automation_hub")
 

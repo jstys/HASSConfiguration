@@ -1,4 +1,4 @@
-from automation_hub import event_dispatcher
+import event_dispatcher
 from util import logutil
 from events.water_sensor_wet_event import WaterSensorWetEvent
 from events.water_sensor_dry_event import WaterSensorDryEvent

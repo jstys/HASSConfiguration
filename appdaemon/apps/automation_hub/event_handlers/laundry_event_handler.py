@@ -1,8 +1,8 @@
 import functools
 
-from automation_hub import event_dispatcher
-from automation_hub import timer_manager
-from automation_hub import state_machine
+import event_dispatcher
+import timer_manager
+import state_machine
 from util import logutil
 from util import hassutil
 from events.power_sensor_off_event import PowerSensorOffEvent

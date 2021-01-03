@@ -1,4 +1,4 @@
-from automation_hub import event_dispatcher
+import event_dispatcher
 from util import logutil
 from events.zwave_scene_event import ZwaveSceneEvent
 from actions.light_action import LightAction
