@@ -1,4 +1,3 @@
-from util.entity_map import name_map
 from util import hassutil
 
 class ScriptAction():

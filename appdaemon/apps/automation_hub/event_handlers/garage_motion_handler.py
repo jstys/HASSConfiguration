@@ -1,5 +1,3 @@
-import functools
-
 import event_dispatcher
 import timer_manager
 from util import logutil

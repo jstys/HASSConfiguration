@@ -2,12 +2,9 @@ import event_dispatcher
 import state_machine
 from util import logutil
 from util import hassutil
-from util import entity_map
 from events.presence_event import PresenceEvent
 from actions.push_notify_action import PushNotifyAction
 from actions.light_action import LightAction
-from actions.media_player_action import MediaPlayerAction
-from actions.door_lock_action import DoorLockAction
 from actions.thermostat_action import ThermostatAction
 
 logger = logutil.get_logger("automation_hub")

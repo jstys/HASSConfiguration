@@ -2,10 +2,8 @@ import json
 import functools
 
 import event_dispatcher
-import state_machine
 import timer_manager
 from util import logutil
-from util import hassutil
 from util.entity_map import room_map
 from util.entity_map import find_room_entities
 from util.entity_map import assistant_list

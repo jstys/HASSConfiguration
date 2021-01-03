@@ -1,8 +1,5 @@
-import functools
-
 import event_dispatcher
 import state_machine
-import timer_manager
 from util import logutil
 from events.motion_triggered_event import MotionTriggeredEvent
 from actions.light_action import LightAction

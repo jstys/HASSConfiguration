@@ -1,6 +1,5 @@
 import event_dispatcher
 import timer_manager
-from util import entity_map
 from util import logutil
 from util import hassutil
 from events.input_event import InputEvent

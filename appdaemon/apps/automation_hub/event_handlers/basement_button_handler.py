@@ -3,7 +3,6 @@ from util import logutil
 from util import hassutil
 from util.entity_map import name_map
 from events.button_click_event import ButtonClickEvent
-import state_machine
 
 logger = logutil.get_logger("automation_hub")
 

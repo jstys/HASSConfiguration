@@ -1,7 +1,7 @@
 import os
 
 import yaml
-import logutil
+from util import logutil
 
 APPD_DIR = "/conf"
 SECRETS = os.path.join(APPD_DIR, "secrets.yaml")

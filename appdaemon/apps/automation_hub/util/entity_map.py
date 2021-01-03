@@ -1,5 +1,4 @@
-import yaml
-from hassutil import read_config_file, ENTITY_MAP
+from util.hassutil import read_config_file, ENTITY_MAP
 
 file_contents = {}
 entity_map = {}

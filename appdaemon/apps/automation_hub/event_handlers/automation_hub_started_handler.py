@@ -1,5 +1,4 @@
 import event_dispatcher
-import state_machine
 from util import logutil
 from events.automation_hub_started_event import AutomationHubStartedEvent
 
