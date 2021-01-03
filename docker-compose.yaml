@@ -50,6 +50,8 @@ services:
       - /home/dietpi/HASSConfiguration/entity_map.yaml:/conf/apps/util/entity_map.yaml
     expose:
       - "5000"
+    ports:
+      - 5050:5050
     depends_on:
       - "homeassistant"
   syncthing:
