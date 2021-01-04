@@ -93,3 +93,9 @@ class AutomationHub(hass.Hass):
         timer_manager.remove_timer(name)
         if partial:
             partial()
+
+    def scheduler_callback(self, kwargs):
+        name = kwargs.get("name")
+        callback = kwargs.get("partial")
+        if callback:
+            callback()
