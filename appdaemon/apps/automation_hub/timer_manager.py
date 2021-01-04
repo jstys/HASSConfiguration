@@ -16,7 +16,7 @@ def set_api_handle(handle):
 def schedule_daily_task(name, callback, start):
     if API_HANDLE:
         logger.info(f"Scheduling daily callback: {name}")
-        API_HANDLE.run_daily(API_HANDLE.scheduler_callback, start, partial=callback, name=name)
+        API_HANDLE.run_daily(API_HANDLE.scheduler_callback, start, partial=callback, title=name)
     else:
         logger.error("API Handle is None")
     
