@@ -7,7 +7,7 @@ API_HANDLE = None
 INFINITE_REPEATS = -1
 timer_map = {}
 logger = logutil.get_logger("automation_hub")
-map_lock = threading.Lock()
+map_lock = threading.RLock()
 
 def set_api_handle(handle):
     global API_HANDLE
