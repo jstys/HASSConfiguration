@@ -95,6 +95,6 @@ class AutomationHub(hass.Hass):
 
     def scheduler_callback(self, kwargs):
         name = kwargs.get("name")
-        callback = kwargs.get("partial")
-        if callback:
-            callback()
+        partial = kwargs.get("partial")
+        if partial:
+            partial()
