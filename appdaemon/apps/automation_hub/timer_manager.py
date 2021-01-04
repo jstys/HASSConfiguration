@@ -35,12 +35,18 @@ def start_repeat_timer(name, callback, repeat_seconds, start=datetime.datetime.n
         
     return False
 
-def start_timer(name, callback, seconds=0, minutes=0, hours=0, days=0):
+def start_timer(name, callback, replace=True, seconds=0, minutes=0, hours=0, days=0):
     delta = datetime.timedelta(seconds=seconds, minutes=minutes, hours=hours, days=days)
     if API_HANDLE:
         with map_lock:
             if name not in timer_map:
-                logger.info("Scheduling callback in {} seconds".format(delta.total_seconds()))
+                logger.info("Scheduling callback of {} in {} seconds".format(name, delta.total_seconds()))
+                timer = API_HANDLE.run_in(API_HANDLE.timer_callback, int(delta.total_seconds()), title=name, partial=callback)
+                timer_map[name] = timer
+                return True
+            elif replace:
+                logger.info("Scheduling replacement callback of {} in {} seconds".format(name, delta.total_seconds()))
+                cancel_timer(name)
                 timer = API_HANDLE.run_in(API_HANDLE.timer_callback, int(delta.total_seconds()), title=name, partial=callback)
                 timer_map[name] = timer
                 return True
