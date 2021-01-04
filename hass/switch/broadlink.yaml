@@ -8,6 +8,4 @@
     guest_bedroom_heat:
       command_on: !secret pioneer_inverter_heat_on
       command_off: !secret pioneer_inverter_off
-- platform: broadlink
-  host: 10.0.0.53
-  mac: !secret broadlink6_mac
+
