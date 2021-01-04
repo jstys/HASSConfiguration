@@ -148,8 +148,6 @@ light.living_room_lamp_2:
   friendly_name: Living Room Lamp 2
 light.living_room_lamps:
   friendly_name: Living Room Lamps
-light.manual_off_lights:
-  friendly_name: Manual Off Lights
 light.master_bedroom_closet_zha_group_0x0004:
   friendly_name: Master Bedroom Closet Lights
 light.master_bedroom_fixture_zha_group_0x0002:

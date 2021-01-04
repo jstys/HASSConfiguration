@@ -63,8 +63,6 @@ entities:
         light.fourth_bedroom_fixture_zha_group_0x0003:
             name: fourth_bedroom_fixture
             room: fourth_bedroom
-        light.manual_off_lights:
-            name: manual_off_lights
         light.sengled_e11_g13_c9b71603_level_on_off:
             name: fourth_bedroom_fixture_1
             room: fourth_bedroom
