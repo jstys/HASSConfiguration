@@ -18,15 +18,15 @@ def register_callbacks():
 def on_motion_triggered(event):
     logger.info("Garage motion detected")
     
+    timer_manager.cancel_timer("garage_motion_timer")
     if state_machine.is_enabled("motion_lighting"):
-        timer_manager.cancel_timer("garage_motion_timer")
         LightAction().add_light("front_garage_light").turn_on()
 
 def on_motion_cleared(event):
     logger.info("Garage motion cleared")
-    if state_machine.is_enabled("motion_lighting"):
-        timer_manager.start_timer("garage_motion_timer", lights_off, minutes=20)
+    timer_manager.start_timer("garage_motion_timer", lights_off, minutes=20)
     
 def lights_off():
-    LightAction().add_light("front_garage_light").turn_off()
+    if state_machine.is_enabled("motion_lighting"):
+        LightAction().add_light("front_garage_light").turn_off()
     

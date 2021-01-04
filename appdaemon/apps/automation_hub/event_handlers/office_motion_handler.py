@@ -15,5 +15,5 @@ def register_callbacks():
 def on_motion_triggered(event):
     logger.info("Office motion detected")
     
-    if not state_machine.is_enabled("sleep_mode"):
+    if not state_machine.is_enabled("sleep_mode") and state_machine.is_enabled("motion_lighting"):
         LightAction().add_light("office_lights").turn_on()

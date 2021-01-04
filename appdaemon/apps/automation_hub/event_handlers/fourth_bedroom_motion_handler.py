@@ -18,14 +18,14 @@ def register_callbacks():
 def on_motion_triggered(event):
     logger.info("Fourth bedroom motion detected")
     
+    timer_manager.cancel_timer("fourth_bedroom_motion_timer")
     if state_machine.is_enabled("motion_lighting"):
-        timer_manager.cancel_timer("fourth_bedroom_motion_timer")
         LightAction().add_light("fourth_bedroom_fixture").turn_on()
     
 def on_motion_cleared(event):
     logger.info("Fourth bedroom motion cleared")
-    if state_machine.is_enabled("motion_lighting"):
-        timer_manager.start_timer("fourth_bedroom_motion_timer", lights_off, minutes=15)
+    timer_manager.start_timer("fourth_bedroom_motion_timer", lights_off, minutes=15)
 
 def lights_off():
-    LightAction().add_light("fourth_bedroom_fixture").turn_off()
+    if state_machine.is_enabled("motion_lighting"):
+        LightAction().add_light("fourth_bedroom_fixture").turn_off()
