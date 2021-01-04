@@ -20,6 +20,7 @@ class AutomationHub(hass.Hass):
         hassutil.set_api_handle(self)
         timer_manager.set_api_handle(self)
         state_machine.set_api_handle(self)
+        scheduler.set_api_handle(self)
         self.event_list = self.args["event_list"]
         self.subscribe_events()
         self.subscribe_states()
