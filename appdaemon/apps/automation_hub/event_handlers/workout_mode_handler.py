@@ -38,4 +38,6 @@ def on_disabled(event):
     timer_manager.start_timer("basement_stairs_motion_timer", light_action, minutes=10)
 
     if state_machine.is_heating_enabled():
-        ThermostatAction().add_thermostat("oil_thermostat").set_temperature(state_machine.get_number("normal_heat"), "heat")
+        heat_action = ThermostatAction().add_thermostat("oil_thermostat")
+        heat_action.turn_on()
+        heat_action.set_temperature(state_machine.get_number("normal_heat"), "heat")
