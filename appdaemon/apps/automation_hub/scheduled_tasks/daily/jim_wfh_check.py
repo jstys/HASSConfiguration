@@ -11,4 +11,5 @@ def callback():
 
         if state_machine.is_heating_enabled():
             heat_action = ThermostatAction().add_thermostat("office_heat")
+            heat_action.turn_on()
             heat_action.set_temperature("74", "heat")
