@@ -381,8 +381,16 @@ entities:
             name: fourth_bedroom_ac
         climate.guest_bedroom_ac:
             name: guest_bedroom_ac
+        climate.office_ac:
+            name: office_ac
         climate.master_bedroom_ac:
             name: master_bedroom_ac
+        climate.guest_bedroom_heat:
+            name: guest_bedroom_heat
+        climate.master_bedroom_heat:
+            name: master_bedroom_heat
+        climate.office_heat:
+            name: office_heat
 
     temperature:
         sensor.visonic_mct_340_e_781b120b_temperature:

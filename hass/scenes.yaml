@@ -59,6 +59,10 @@
     input_boolean.master_bedroom_whitenoise: "on"
     lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2: "locked"
     input_boolean.privacy_mode: "off"
+    climate.office_heat: "off"
+    climate.office_ac: "off"
+    climate.master_bedroom_heat: "off"
+    climate.master_bedroom_ac: "off"
 - name: Nobody Home
   entities:
     light.living_room_lamps: "off"

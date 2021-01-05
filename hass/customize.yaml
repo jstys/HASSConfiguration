@@ -44,10 +44,18 @@ climate.fourth_bedroom_ac:
   friendly_name: Fourth Bedroom Ac
 climate.guest_bedroom_ac:
   friendly_name: Guest Bedroom Ac
+climate.guest_bedroom_heat:
+  friendly_name: Guest Bedroom Heat
 climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_mode:
   friendly_name: Oil Thermostat
 climate.master_bedroom_ac:
   friendly_name: Master Bedroom Ac
+climate.master_bedroom_heat:
+  friendly_name: Master Bedroom Heat
+climate.office_ac:
+  friendly_name: Office Ac
+climate.office_heat:
+  friendly_name: Office Heat
 input_boolean.christmas_lights:
   friendly_name: Christmas Lights Mode
 input_boolean.guest_mode:
