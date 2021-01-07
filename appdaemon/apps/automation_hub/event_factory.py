@@ -33,6 +33,8 @@ logger = logutil.get_logger("automation_hub")
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
         return create_xiaomi_click_event(event_name, data, kwargs)
+    elif event_name == "xiaomi_aqara.motion":
+        return create_xiaomi_motion_event(event_name, data, kwargs)
     elif event_name == "MQTT_MESSAGE":
         return create_mqtt_event(event_name, data, kwargs)
     elif event_name == "zwave.scene_activated":
@@ -82,6 +84,18 @@ def create_xiaomi_click_event(event_name, data, kwargs):
         return event
     else:
         logger.warning(f"Received invalid click entity: {entity}")
+        return None
+
+def create_xiaomi_motion_event(event_name, data, kwargs):
+    entity = data .get("entity_id")
+    if entity in entity_map:
+        logger.info("Creating MotionTriggeredEvent from event")
+        friendly_name = entity_map[entity]["name"]
+        event = MotionTriggeredEvent()
+        event.name = friendly_name
+        return event
+    else:
+        logger.warning(f"Received invalid motion entity: {entity}")
         return None
         
 def create_mqtt_event(event_name, data, kwargs):
@@ -186,7 +200,7 @@ def create_motion_sensor_state_change_event(friendly_name, entity, attributes, o
         event.name = friendly_name
         return event
     elif old != new and new == "on":
-        logger.info("Creating MotionTriggeredEvent")
+        logger.info("Creating MotionTriggeredEvent from state change")
         event = MotionTriggeredEvent()
         event.name = friendly_name
         return event
