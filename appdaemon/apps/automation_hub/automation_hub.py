@@ -27,6 +27,7 @@ class AutomationHub(hass.Hass):
             self.event_handler_map = {}
         self._load_handlers()
         scheduler.schedule_daily_tasks()
+        scheduler.schedule_polling_tasks()
         self._notify_started()
         
     def _load_handlers(self):

@@ -13,6 +13,11 @@ def set_api_handle(handle):
     global API_HANDLE
     API_HANDLE = handle
 
+def schedule_polling_task(name, callback, interval):
+    if API_HANDLE:
+        logger.info(f"Scheduling polling callback: {name}")
+        API_HANDLE.run_every(API_HANDLE.scheduler_callback, "now", interval, partial=callback, title=name)
+
 def schedule_daily_task(name, callback, start):
     if API_HANDLE:
         logger.info(f"Scheduling daily callback: {name}")
