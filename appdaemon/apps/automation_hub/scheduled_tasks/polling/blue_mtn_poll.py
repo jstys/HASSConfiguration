@@ -4,7 +4,8 @@ import json
 from actions.push_notify_action import PushNotifyAction
 
 INTERVAL = 90
-ENABLED = True
+ENABLED = False
+DATE = '1/23/2021'
 
 def callback():
     conn = http.client.HTTPSConnection("www.shopskibluemt.com")
@@ -15,5 +16,5 @@ def callback():
     data = res.read()
     data = json.loads((data.decode("utf-8")))
     for day in data:
-        if '1/23/2021' in day['optionDisplay']:
+        if DATE in day['optionDisplay']:
             PushNotifyAction().add_target("jim_cell").set_message(day['optionDisplay']).notify()
