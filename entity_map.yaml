@@ -368,7 +368,7 @@ entities:
             name: vacation_heat
             
     vacuum:
-        vacuum.xiaomi_vacuum_cleaner:
+        roborock.vacuum:
             name: robot_vacuum
             room: kitchen
 

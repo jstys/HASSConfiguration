@@ -220,6 +220,8 @@ person.erica:
   friendly_name: Erica Presence
 person.jim:
   friendly_name: Jim Presence
+roborock.vacuum:
+  friendly_name: Robot Vacuum
 sensor.assa_abloy_yale_push_button_deadbolt_yrd110_battery_level:
   friendly_name: Front Lock Battery
 sensor.centralite_3210_l_42baa60c_electrical_measurement:
@@ -304,8 +306,6 @@ switch.third_reality_inc_3rss007z_031be0ff_on_off:
   friendly_name: Kitchen Fixture Switch
 switch.third_reality_inc_3rss007z_1818e0ff_on_off:
   friendly_name: Office Light Switch
-vacuum.xiaomi_vacuum_cleaner:
-  friendly_name: Robot Vacuum
 zwave.fibaro_system_fgkf601_keyfob:
   friendly_name: Fibaro Keychain
 zwave.linear_wa00z_1_scene_switch_3:
