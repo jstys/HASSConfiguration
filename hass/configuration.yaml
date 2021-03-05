@@ -59,11 +59,6 @@ tts:
 
 sun:
 
-vacuum:
-  - platform: xiaomi_miio
-    host: 10.0.0.19
-    token: !secret xiaomi_vacuum_key
-
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
