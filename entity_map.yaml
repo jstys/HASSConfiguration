@@ -173,25 +173,22 @@ entities:
             name: master_bedroom_closet_button
         binary_sensor.switch_158d00016dbf86:
             room: master_bedroom
-        zwave.fibaro_system_fgkf601_keyfob:
-            name: fibaro_keychain
-            room: living_room
         binary_sensor.switch_158d00026ad875:
             name: basement_button
             room: basement
 
     battery:
-        sensor.fibaro_system_fgkf601_keyfob_battery_level:
+        sensor.none_battery_level:
             name: living_room_remote_battery
-        sensor.assa_abloy_yale_push_button_deadbolt_yrd110_battery_level:
+        sensor.key_free_push_button_deadbolt_battery_level:
             name: front_lock_battery
-        sensor.linear_gc_tbz48_battery_powered_z_wave_thermostat_battery_level:
+        sensor.z_wave_plus_thermostat_battery_level:
             name: thermostat_battery
-        sensor.linear_wa00z_1_scene_switch_battery_level_3:
+        sensor.wall_mounted_switch_battery_level:
             name: dining_room_switch_battery
-        sensor.linear_wa00z_1_scene_switch_battery_level_4:
+        sensor.wall_mounted_switch_battery_level_3:
             name: master_bedroom_switch_battery
-        sensor.linear_wa00z_1_scene_switch_battery_level_5:
+        sensor.wall_mounted_switch_battery_level_2:
             name: master_bedroom_mirror_switch_battery
         sensor.visonic_mct_340_e_fa15120b_power:
             name: attic_door_battery
@@ -267,7 +264,7 @@ entities:
     outlet:
         switch.ikea_of_sweden_tradfri_control_outlet_9d2328fe_on_off:
             name: kitchen_fragrance
-        switch.hank_hkzw_so03_smart_plug_switch_2:
+        switch.smart_plug_2:
             name: rice_cooker
         light.centralite_4257050_rzhac_8adfe70a_on_off:
             name: espresso_machine
@@ -279,11 +276,11 @@ entities:
             name: hallway_outlet
         switch.centralite_3210_l_8495310c_on_off:
             room: guest_bedroom
-        switch.hank_hkzw_so03_smart_plug_switch:
+        switch.smart_plug:
             name: couch_outlet
         switch.ikea_of_sweden_tradfri_control_outlet_5ce433fe_on_off:
             name: porch_outlet
-        switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch_2:
+        switch.smart_plug_3:
             name: laundry_outlet
         switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
             name: frontyard_outlet
@@ -291,18 +288,9 @@ entities:
             name: backyard_outlet
     
     switch:
-        zwave.linear_wa00z_1_scene_switch_3:
-            name: dining_room_switch
-            room: dining_room
-        switch.fortrezz_mimolite_switch:
+        switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
             name: garage_door_switch
             room: garage
-        zwave.linear_wa00z_1_scene_switch_4:
-            name: master_bedroom_switch
-            room: master_bedroom
-        zwave.linear_wa00z_1_scene_switch_5:
-            name: master_mirror_switch
-            room: master_bedroom
         switch.third_reality_inc_3rss007z_031be0ff_on_off:
             name: kitchen_fixture_switch
             room: kitchen
@@ -320,7 +308,7 @@ entities:
             room: master_bedroom
     
     lock:
-        lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
+        lock.key_free_push_button_deadbolt:
             room: front_entrance
     
     presence:
@@ -373,7 +361,7 @@ entities:
             room: kitchen
 
     thermostat:
-        climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_mode:
+        climate.z_wave_plus_thermostat:
             name: oil_thermostat
         climate.dining_room_ac:
             name: dining_room_ac
@@ -425,7 +413,7 @@ entities:
     power_monitor:
         sensor.centralite_3210_l_42baa60c_electrical_measurement:
             name: dryer_power_monitor
-        sensor.hank_electronics_ltd_hkzw_so03_smart_plug_power_2:
+        sensor.smart_plug_electric_consumed_w_3:
             name: washer_power_monitor
             
     binary_power_sensor:
@@ -460,6 +448,32 @@ button_ids:
         name: master_bedroom_button
         room: master_bedroom
 
+zwave_scene_map:
+    88:
+        name: dining_room_switch
+        scenes:
+            "001": "on"
+            "002": "off"
+            
+    104:
+        name: fibaro_keychain
+        scenes:
+            "001": "square"
+            "002": "circle"
+            "003": "x"
+            "004": "triangle"
+            "005": "minus"
+            "006": "plus"
+    91:
+        name: master_bedroom_switch
+        scenes:
+            "001": "on"
+            "002": "off"
+    92:
+        name: master_mirror_switch
+        scenes:
+            "001": "on"
+            "002": "off"
 areas:
     front_lawn: frontyard
     driveway: frontyard

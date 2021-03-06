@@ -7,4 +7,4 @@
     washer_running:
       friendly_name: "Washer Running"
       device_class: power
-      value_template: "{{ states('sensor.hank_electronics_ltd_hkzw_so03_smart_plug_power_2')|float > 100.0 }}"
+      value_template: "{{ states('sensor.smart_plug_electric_consumed_w_3')|float > 100.0 }}"

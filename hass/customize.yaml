@@ -46,8 +46,6 @@ climate.guest_bedroom_ac:
   friendly_name: Guest Bedroom Ac
 climate.guest_bedroom_heat:
   friendly_name: Guest Bedroom Heat
-climate.linear_gc_tbz48_battery_powered_z_wave_thermostat_mode:
-  friendly_name: Oil Thermostat
 climate.master_bedroom_ac:
   friendly_name: Master Bedroom Ac
 climate.master_bedroom_heat:
@@ -56,6 +54,8 @@ climate.office_ac:
   friendly_name: Office Ac
 climate.office_heat:
   friendly_name: Office Heat
+climate.z_wave_plus_thermostat:
+  friendly_name: Oil Thermostat
 input_boolean.christmas_lights:
   friendly_name: Christmas Lights Mode
 input_boolean.guest_mode:
@@ -178,7 +178,7 @@ light.sengled_e11_g13_c9b71603_level_on_off:
   friendly_name: Fourth Bedroom Fixture 1
 light.sengled_e11_g13_ef2c1503_level_on_off:
   friendly_name: Fourth Bedroom Fixture 2
-lock.assa_abloy_yale_push_button_deadbolt_yrd110_locked_2:
+lock.key_free_push_button_deadbolt:
   friendly_name: Front Entrance Lock
 media_player.backyard_mibox:
   friendly_name: Backyard Mibox
@@ -222,16 +222,10 @@ person.jim:
   friendly_name: Jim Presence
 roborock.vacuum:
   friendly_name: Robot Vacuum
-sensor.assa_abloy_yale_push_button_deadbolt_yrd110_battery_level:
-  friendly_name: Front Lock Battery
 sensor.centralite_3210_l_42baa60c_electrical_measurement:
   friendly_name: Dryer Power Monitor
 sensor.centralite_3325_s_2c96cc0b_temperature:
   friendly_name: Garage Back Temperature
-sensor.fibaro_system_fgkf601_keyfob_battery_level:
-  friendly_name: Living Room Remote Battery
-sensor.hank_electronics_ltd_hkzw_so03_smart_plug_power_2:
-  friendly_name: Washer Power Monitor
 sensor.humidity_158d0001d6f386:
   friendly_name: Downstairs Humidity
 sensor.humidity_158d00023cf8f7:
@@ -242,14 +236,12 @@ sensor.humidity_158d000245a6a2:
   friendly_name: Master Bedroom Humidity
 sensor.humidity_158d000245ae4b:
   friendly_name: Office Humidity
-sensor.linear_gc_tbz48_battery_powered_z_wave_thermostat_battery_level:
-  friendly_name: Thermostat Battery
-sensor.linear_wa00z_1_scene_switch_battery_level_3:
-  friendly_name: Dining Room Switch Battery
-sensor.linear_wa00z_1_scene_switch_battery_level_4:
-  friendly_name: Master Bedroom Switch Battery
-sensor.linear_wa00z_1_scene_switch_battery_level_5:
-  friendly_name: Master Bedroom Mirror Switch Battery
+sensor.key_free_push_button_deadbolt_battery_level:
+  friendly_name: Front Lock Battery
+sensor.none_battery_level:
+  friendly_name: Living Room Remote Battery
+sensor.smart_plug_electric_consumed_w_3:
+  friendly_name: Washer Power Monitor
 sensor.temperature_158d0001d6f386:
   friendly_name: Downstairs Temperature
 sensor.temperature_158d00023cf8f7:
@@ -270,6 +262,14 @@ sensor.visonic_mct_340_e_781b120b_temperature:
   friendly_name: Garage Front Temperature
 sensor.visonic_mct_340_e_fa15120b_power:
   friendly_name: Attic Door Battery
+sensor.wall_mounted_switch_battery_level:
+  friendly_name: Dining Room Switch Battery
+sensor.wall_mounted_switch_battery_level_2:
+  friendly_name: Master Bedroom Mirror Switch Battery
+sensor.wall_mounted_switch_battery_level_3:
+  friendly_name: Master Bedroom Switch Battery
+sensor.z_wave_plus_thermostat_battery_level:
+  friendly_name: Thermostat Battery
 sun.sun:
   friendly_name: Sun
 switch.centralite_3210_l_41f4a60c_on_off:
@@ -282,16 +282,10 @@ switch.centralite_3210_l_a083320c_on_off:
   friendly_name: Piano Power
 switch.centralite_3210_l_c9488805_on_off:
   friendly_name: Front Garage Switch
-switch.fortrezz_mimolite_switch:
+switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
   friendly_name: Garage Door Switch
 switch.ge_12722_on_off_relay_switch_switch:
   friendly_name: Kitchen High Hat Switch
-switch.hank_electronics_ltd_hkzw_so03_smart_plug_switch_2:
-  friendly_name: Laundry Outlet
-switch.hank_hkzw_so03_smart_plug_switch:
-  friendly_name: Couch Outlet
-switch.hank_hkzw_so03_smart_plug_switch_2:
-  friendly_name: Rice Cooker
 switch.ikea_of_sweden_tradfri_control_outlet_5ce433fe_on_off:
   friendly_name: Porch Outlet
 switch.ikea_of_sweden_tradfri_control_outlet_9d2328fe_on_off:
@@ -302,15 +296,13 @@ switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_3:
   friendly_name: Backyard Outlet
 switch.ledvance_plug_4d1d0500_on_off:
   friendly_name: Living Room Fragrance
+switch.smart_plug:
+  friendly_name: Couch Outlet
+switch.smart_plug_2:
+  friendly_name: Rice Cooker
+switch.smart_plug_3:
+  friendly_name: Laundry Outlet
 switch.third_reality_inc_3rss007z_031be0ff_on_off:
   friendly_name: Kitchen Fixture Switch
 switch.third_reality_inc_3rss007z_1818e0ff_on_off:
   friendly_name: Office Light Switch
-zwave.fibaro_system_fgkf601_keyfob:
-  friendly_name: Fibaro Keychain
-zwave.linear_wa00z_1_scene_switch_3:
-  friendly_name: Dining Room Switch
-zwave.linear_wa00z_1_scene_switch_4:
-  friendly_name: Master Bedroom Switch
-zwave.linear_wa00z_1_scene_switch_5:
-  friendly_name: Master Mirror Switch
