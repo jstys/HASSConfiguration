@@ -356,7 +356,7 @@ entities:
             name: vacation_heat
             
     vacuum:
-        roborock.vacuum:
+        vacuum.roborock_vacuum:
             name: robot_vacuum
             room: kitchen
 

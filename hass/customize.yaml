@@ -220,8 +220,6 @@ person.erica:
   friendly_name: Erica Presence
 person.jim:
   friendly_name: Jim Presence
-roborock.vacuum:
-  friendly_name: Robot Vacuum
 sensor.centralite_3210_l_42baa60c_electrical_measurement:
   friendly_name: Dryer Power Monitor
 sensor.centralite_3325_s_2c96cc0b_temperature:
@@ -306,3 +304,5 @@ switch.third_reality_inc_3rss007z_031be0ff_on_off:
   friendly_name: Kitchen Fixture Switch
 switch.third_reality_inc_3rss007z_1818e0ff_on_off:
   friendly_name: Office Light Switch
+vacuum.roborock_vacuum:
+  friendly_name: Robot Vacuum
