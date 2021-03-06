@@ -63,7 +63,7 @@ services:
     devices:
       - '/dev/ttyUSB0:/dev/ttyUSB0'
     volumes:
-      - ./store:/usr/src/app/store
+      - /home/dietpi/zwavejs/store:/usr/src/app/store
     ports:
       - '8091:8091' # port for web interface
       - '3000:3000' # port for zwave-js websocket server
@@ -79,6 +79,7 @@ services:
       - /home/dietpi/syncthing/config:/config
       - /home/dietpi/syncthing/data:/data
       - /home/dietpi/HASSConfiguration:/hass
+      - /home/dietpi/zwavejs:/zwavejs
     ports:
       - 8384:8384
       - 22000:22000
