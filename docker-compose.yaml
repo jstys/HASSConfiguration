@@ -24,7 +24,7 @@ services:
       - "9001:9001"
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2021.3.1
+    image: homeassistant/tinker-homeassistant:2021.3.2
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
@@ -54,19 +54,19 @@ services:
       - 5050:5050
     depends_on:
       - "homeassistant"
-  # zwavejs2mqtt:
-  #   container_name: zwavejs2mqtt
-  #   image: zwavejs/zwavejs2mqtt:latest
-  #   restart: always
-  #   tty: true
-  #   stop_signal: SIGINT
-  #   devices:
-  #     - '/dev/ttyUSB0:/dev/ttyUSB0'
-  #   volumes:
-  #     - ./store:/usr/src/app/store
-  #   ports:
-  #     - '8091:8091' # port for web interface
-  #     - '3000:3000' # port for zwave-js websocket server
+  zwavejs2mqtt:
+    container_name: zwavejs2mqtt
+    image: zwavejs/zwavejs2mqtt:latest
+    restart: unless-stopped
+    tty: true
+    stop_signal: SIGINT
+    devices:
+      - '/dev/ttyUSB0:/dev/ttyUSB0'
+    volumes:
+      - ./store:/usr/src/app/store
+    ports:
+      - '8091:8091' # port for web interface
+      - '3000:3000' # port for zwave-js websocket server
   syncthing:
     container_name: syncthing
     image: linuxserver/syncthing:arm32v7-latest
