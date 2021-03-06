@@ -282,9 +282,9 @@ entities:
             name: porch_outlet
         switch.smart_plug_3:
             name: laundry_outlet
-        switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
+        switch.outdoor_z_wave_plug_in_module_1_channel_2:
             name: frontyard_outlet
-        switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_3:
+        switch.outdoor_z_wave_plug_in_module_1_channel:
             name: backyard_outlet
     
     switch:

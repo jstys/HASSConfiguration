@@ -288,12 +288,12 @@ switch.ikea_of_sweden_tradfri_control_outlet_5ce433fe_on_off:
   friendly_name: Porch Outlet
 switch.ikea_of_sweden_tradfri_control_outlet_9d2328fe_on_off:
   friendly_name: Kitchen Fragrance
-switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch:
-  friendly_name: Frontyard Outlet
-switch.inovelli_nzw96_1_channel_outdoor_smart_plug_switch_3:
-  friendly_name: Backyard Outlet
 switch.ledvance_plug_4d1d0500_on_off:
   friendly_name: Living Room Fragrance
+switch.outdoor_z_wave_plug_in_module_1_channel:
+  friendly_name: Backyard Outlet
+switch.outdoor_z_wave_plug_in_module_1_channel_2:
+  friendly_name: Frontyard Outlet
 switch.smart_plug:
   friendly_name: Couch Outlet
 switch.smart_plug_2:
