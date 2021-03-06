@@ -1,6 +1,7 @@
 from util import logutil
 from util.entity_map import entity_map
 from util.entity_map import button_id_map
+from util.entity_map import zwave_scene_map
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 from events.button_click_event import ButtonClickEvent
@@ -35,7 +36,7 @@ def create_from_event(event_name, data, kwargs):
         return create_xiaomi_click_event(event_name, data, kwargs)
     elif event_name == "MQTT_MESSAGE":
         return create_mqtt_event(event_name, data, kwargs)
-    elif event_name == "zwave.scene_activated":
+    elif event_name == "zwave_js_event":
         return create_zwave_scene_event(event_name, data, kwargs)
     elif event_name == "generate_mealplan":
         return GenerateMealplanEvent()
@@ -93,17 +94,15 @@ def create_mqtt_event(event_name, data, kwargs):
     return event
 
 def create_zwave_scene_event(event_name, data, kwargs):
-    entity = data.get("entity_id")
-    scene_id = data.get("scene_id")
-    scene_data = data.get("scene_data")
-    if entity in entity_map:
+    node_id = data.get("node_id")
+    scene_id = data.get("property_key")
+    if node_id in zwave_scene_map:
         event = ZwaveSceneEvent()
-        event.name = entity_map[entity]["name"]
-        event.scene_id = scene_id
-        event.scene_data = scene_data
+        event.name = zwave_scene_map[node_id]["name"]
+        event.scene_id = int(scene_id)
         return event
     else:
-        logger.warning(f"Received invalid zwave entity: {entity}")
+        logger.warning(f"Received invalid zwave node_id: {node_id}")
         return None
 
 def create_nhl_scoring_event(event_name, data, kwargs):
