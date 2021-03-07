@@ -90,7 +90,7 @@ input_select.thermostat_mode:
   friendly_name: Thermostat Mode
 light.attic_lights_zha_group_0x0007:
   friendly_name: Attic Lights
-light.backyard_fence_lights:
+light.backyard_fence_lights_2:
   friendly_name: Backyard Fence Lights
 light.backyard_flood_lights_zha_group_0x0006:
   friendly_name: Backyard Flood Lights
@@ -134,7 +134,7 @@ light.kitchen_cabinets_zha_group_0x0005:
   friendly_name: Kitchen Cabinet Lights
 light.kitchen_fixture:
   friendly_name: Kitchen Fixture
-light.kitchen_high_hats:
+light.kitchen_high_hats_2:
   friendly_name: Kitchen High Hats
 light.kitchen_lights:
   friendly_name: Kitchen Lights

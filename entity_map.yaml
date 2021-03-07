@@ -34,7 +34,7 @@ entities:
         light.kitchen_lights:
             name: kitchen_lights
             room: kitchen
-        light.kitchen_high_hats:
+        light.kitchen_high_hats_2:
             name: kitchen_high_hats
             room: kitchen
         light.dining_room_light:
@@ -105,7 +105,7 @@ entities:
         light.attic_lights_zha_group_0x0007:
             name: attic_lights
             room: attic
-        light.backyard_fence_lights:
+        light.backyard_fence_lights_2:
             name: backyard_fence_lights
             room: backyard
         light.office_lights:
