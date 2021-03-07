@@ -15,4 +15,4 @@
   entity_id: switch.centralite_3210_l_96312d0b_on_off
 - platform: switch
   name: Backyard Fence Lights
-  entity_id: switch.aeon_labs_dsc11_smart_strip_switch_2
+  entity_id: switch.smart_strip_2

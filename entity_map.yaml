@@ -306,6 +306,14 @@ entities:
         switch.centralite_3210_l_96312d0b_on_off:
             name: master_bedroom_led_switch
             room: master_bedroom
+        switch.smart_strip:
+            name: aeon_labs_smart_strip_1
+        switch.smart_strip_2:
+            name: aeon_labs_smart_strip_2
+        switch.smart_strip_3:
+            name: aeon_labs_smart_strip_3
+        switch.smart_strip_4:
+            name: aeon_labs_smart_strip_4
     
     lock:
         lock.key_free_push_button_deadbolt:

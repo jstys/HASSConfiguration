@@ -15,4 +15,4 @@
   entity_id: em:master_bedroom_led_switch
 - platform: switch
   name: Backyard Fence Lights
-  entity_id: switch.aeon_labs_dsc11_smart_strip_switch_2
+  entity_id: em:aeon_labs_smart_strip_2

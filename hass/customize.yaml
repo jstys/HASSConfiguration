@@ -300,6 +300,14 @@ switch.smart_plug_2:
   friendly_name: Rice Cooker
 switch.smart_plug_3:
   friendly_name: Laundry Outlet
+switch.smart_strip:
+  friendly_name: Aeon Labs Smart Strip 1
+switch.smart_strip_2:
+  friendly_name: Aeon Labs Smart Strip 2
+switch.smart_strip_3:
+  friendly_name: Aeon Labs Smart Strip 3
+switch.smart_strip_4:
+  friendly_name: Aeon Labs Smart Strip 4
 switch.third_reality_inc_3rss007z_031be0ff_on_off:
   friendly_name: Kitchen Fixture Switch
 switch.third_reality_inc_3rss007z_1818e0ff_on_off:
