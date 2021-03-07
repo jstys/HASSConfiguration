@@ -1,24 +1,20 @@
 sleep_mode_heat:
   name: Sleep Mode Heat
-  initial: 67
   min: 60
   max: 75
   step: 1
 normal_heat:
   name: Sleep Mode Heat
-  initial: 69
   min: 60
   max: 75
   step: 1
 vacation_heat:
   name: Vacation Heat
-  initial: 65
   min: 60
   max: 75
   step: 1
 away_heat:
   name: Away Heat
-  initial: 67
   min: 60
   max: 75
   step: 1
