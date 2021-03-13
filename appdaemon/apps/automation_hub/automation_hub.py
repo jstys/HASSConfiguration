@@ -54,6 +54,7 @@ class AutomationHub(hass.Hass):
         self.listen_event(self.on_event, event="MQTT_MESSAGE", namespace="mqtt")
         for event in self.event_list:
             self.listen_event(self.on_event, event=event, namespace="hass")
+        self.event_list.append("MQTT_MESSAGE")
         
     def on_event(self, event_name, data, kwargs):
         logger.debug("Received New Event - name = {} data = {} kwargs = {}".format(event_name, data, kwargs))
