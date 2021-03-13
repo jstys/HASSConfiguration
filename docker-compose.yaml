@@ -94,12 +94,6 @@ services:
       # - /home/dietpi/HASSConfiguration/dockermon:/config
     ports:
       - 8126:8126
-  amcrest2mqtt:
-    container_name: amcrest2mqtt
-    image: dchesterton/amcrest2mqtt:latest
-    restart: unless-stopped
-    env_file:
-      - /home/dietpi/syncthing/data/hass_secrets/amcrest_docker.env
   # grafana:
   #   container_name: grafana
   #   image: grafana/grafana:master
