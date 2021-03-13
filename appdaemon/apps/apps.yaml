@@ -5,7 +5,6 @@ automation_hub:
     - zha_event
     - xiaomi_aqara.click
     - zwave_js_event
-    - MQTT_MESSAGE
     - state_machine.state_changed
     - generate_mealplan
     - archive_mealplan

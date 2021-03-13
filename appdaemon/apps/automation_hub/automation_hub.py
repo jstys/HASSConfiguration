@@ -51,6 +51,7 @@ class AutomationHub(hass.Hass):
         event_dispatcher.dispatch(event)
         
     def subscribe_events(self):
+        self.listen_event(self.on_event, event="MQTT_MESSAGE", namespace="mqtt")
         for event in self.event_list:
             self.listen_event(self.on_event, event=event, namespace="hass")
         
