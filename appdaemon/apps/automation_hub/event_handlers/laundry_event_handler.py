@@ -32,7 +32,7 @@ def on_washer_off_event(event):
     timer_manager.start_timer("laundry_washer_timer", on_washer_finished, minutes=6)
 
 def on_washer_finished():
-    PushNotifyAction().add_targets(["jim_cell", "erica_cell"]).set_message("Washing Machine has finished").notify()
+    PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Washing Machine has finished").notify()
 
     if not state_machine.is_enabled("sleep_mode"):
         TTSAction().add_assistants(["living_room_mpd", "master_bedroom_mpd"]).say("Washer has finished")
@@ -63,5 +63,5 @@ def _notify_dryer_finish():
     if not state_machine.is_enabled("sleep_mode"):
         TTSAction().add_assistants(["living_room_mpd", "master_bedroom_mpd"]).say("Dryer has finished")
         
-    PushNotifyAction().add_targets(["jim_cell", "erica_cell"]).set_message("Dryer has finished").notify()
+    PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Dryer has finished").notify()
     dryer_start = None
