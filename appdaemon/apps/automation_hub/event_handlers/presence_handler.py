@@ -27,6 +27,9 @@ def on_person_away(name):
     if name == "jim_presence":
         PushNotifyAction().add_target("jim_cell").set_message("Come back soon!").notify()
 
+        if state_machine.is_garage_open():
+            PushNotifyAction().add_target("jim_cell").set_message("Garage door is open!", notification_id="garage-alert", tts=True).notify()
+
 
 def on_person_home(name):
     logger.info("{} has arrived home".format(name))
