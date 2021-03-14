@@ -1,7 +1,4 @@
 - platform: switch
-  name: Kitchen High Hats
-  entity_id: switch.ge_12722_on_off_relay_switch_switch
-- platform: switch
   name: Kitchen Fixture
   entity_id: switch.third_reality_inc_3rss007z_031be0ff_on_off
 - platform: switch

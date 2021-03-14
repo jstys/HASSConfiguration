@@ -1,7 +1,4 @@
 - platform: switch
-  name: Kitchen High Hats
-  entity_id: em:kitchen_high_hat_switch
-- platform: switch
   name: Kitchen Fixture
   entity_id: em:kitchen_fixture_switch
 - platform: switch

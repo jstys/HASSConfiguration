@@ -34,9 +34,6 @@ entities:
         light.kitchen_lights:
             name: kitchen_lights
             room: kitchen
-        light.kitchen_high_hats_2:
-            name: kitchen_high_hats
-            room: kitchen
         light.dining_room_light:
             name: dining_room_light
             room: dining_room
@@ -48,9 +45,6 @@ entities:
         light.ledvance_flex_rgbw_d8890000_level_light_color_on_off:
             name: first_floor_staircase_led
             room: living_room
-        light.osram_gardenspot_rgb_352ca700_level_light_color_on_off:
-            name: front_garden_lights
-            room: frontyard
         light.jim_night_lamp:
             name: jim_night_lamp
             room: master_bedroom
@@ -297,9 +291,6 @@ entities:
         switch.third_reality_inc_3rss007z_1818e0ff_on_off:
             name: office_light_switch
             room: office
-        switch.ge_12722_on_off_relay_switch_switch:
-            name: kitchen_high_hat_switch
-            room: kitchen
         switch.centralite_3210_l_c9488805_on_off:
             name: front_garage_switch
             room: garage

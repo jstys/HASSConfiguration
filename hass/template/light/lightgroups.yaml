@@ -8,7 +8,6 @@
   name: Kitchen Lights
   entities:
     - em:kitchen_fixture
-    - em:kitchen_high_hats
 
 - platform: group
   name: Backyard Lights

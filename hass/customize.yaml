@@ -136,8 +136,6 @@ light.kitchen_cabinets_zha_group_0x0005:
   friendly_name: Kitchen Cabinet Lights
 light.kitchen_fixture:
   friendly_name: Kitchen Fixture
-light.kitchen_high_hats_2:
-  friendly_name: Kitchen High Hats
 light.kitchen_lights:
   friendly_name: Kitchen Lights
 light.ledvance_edge_lit_under_cabinet_tw_0dc70200_level_light_color_on_off:
@@ -166,8 +164,6 @@ light.master_bedroom_mirror_led:
   friendly_name: Master Bedroom Mirror Led
 light.office_lights:
   friendly_name: Office Lights
-light.osram_gardenspot_rgb_352ca700_level_light_color_on_off:
-  friendly_name: Front Garden Lights
 light.osram_lightify_par38_on_off_dim_30eea500_level_on_off:
   friendly_name: Driveway Light
 light.piano_led:
@@ -284,8 +280,6 @@ switch.centralite_3210_l_c9488805_on_off:
   friendly_name: Front Garage Switch
 switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
   friendly_name: Garage Door Switch
-switch.ge_12722_on_off_relay_switch_switch:
-  friendly_name: Kitchen High Hat Switch
 switch.ikea_of_sweden_tradfri_control_outlet_5ce433fe_on_off:
   friendly_name: Porch Outlet
 switch.ikea_of_sweden_tradfri_control_outlet_9d2328fe_on_off:
