@@ -1,6 +1,7 @@
 import event_dispatcher
 from util import logutil
 from events.mqtt_event import MQTTEvent
+from actions.push_notify_action import PushNotifyAction
 
 logger = logutil.get_logger("automation_hub")
 
@@ -15,17 +16,20 @@ def on_doorbell_event(event: MQTTEvent):
     if doorbell_event == "motion":
         on_doorbell_motion(event.payload)
     elif doorbell_event == "doorbell":
-        on_doorbell_pushed()
+        on_doorbell_pushed(event.payload)
     else:
         logger.warning(f"Received invalid doorbell event {doorbell_event}")
 
 def on_doorbell_motion(payload):
     if payload == 'on':
         logger.info("Doorbell motion detected")
+        PushNotifyAction().add_target("jim_cell").set_message("Motion at front door", notification_id="hass-doorbell-motion").notify()
     elif payload == 'off':
         logger.info("Doorbell motion cleared")
     else:
         logger.warning(f"Received invalid motion payload {payload}")
 
-def on_doorbell_pushed():
-    logger.info("Doorbell push detected")
+def on_doorbell_pushed(payload):
+    if payload == 'on':
+        logger.info("Doorbell push detected")
+        PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Doorbell is ringing", notification_id="hass-doorbell-push", tts=True).notify()
