@@ -435,6 +435,9 @@ entities:
             name: jim_wfh_calendar
         calendar.jim_pto:
             name: jim_pto_calendar
+    cover:
+        cover.garage_door:
+            name: garage_door
 
     miscellaneous:
         sun.sun:

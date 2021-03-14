@@ -56,6 +56,8 @@ climate.office_heat:
   friendly_name: Office Heat
 climate.z_wave_plus_thermostat:
   friendly_name: Oil Thermostat
+cover.garage_door:
+  friendly_name: Garage Door
 input_boolean.christmas_lights:
   friendly_name: Christmas Lights Mode
 input_boolean.guest_mode:
