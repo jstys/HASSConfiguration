@@ -42,8 +42,8 @@ def gui_notify(title, message, notification_id=None):
     else:
         call_service("persistent_notification", "create", title=title, message=message)
 
-def join_notify(target, message, title="Home Assistant"):
-    call_service("notify", target, message=message, title=title)
+def join_notify(target, message, title="Home Assistant", **kwargs):
+    call_service("notify", target, message=message, title=title, **kwargs)
     
 def join_ring_device(target):
     call_service("joaoapps_join", "{}_ring".format(target))
