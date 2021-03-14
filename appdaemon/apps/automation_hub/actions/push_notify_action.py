@@ -6,8 +6,9 @@ class PushNotifyAction():
         self._targets = []
         self._message = None
         self._title = None
+        self._kwargs = {}
         
-    def add_targets(self, targets):
+    def add_targets(self, *targets):
         for target in targets:
             self.add_target(target)
         
@@ -19,11 +20,16 @@ class PushNotifyAction():
         
         return self
             
-    def set_message(self, message, title="Home Assistant"):
+    def set_message(self, message, title="Home Assistant", **kwargs):
         self._message = message
         self._title = title
+        self._kwargs = kwargs
         return self
 
     def notify(self):
+        tts_enabled = self._kwargs.pop("tts", False)
+        if tts_enabled:
+            self._kwargs['tts'] = self._message
+            self._kwargs['tts_language'] = "english"
         for target in self._targets:
-            hassutil.join_notify(target, self._message, title=self._title)
+            hassutil.join_notify(target, self._message, title=self._title, **self._kwargs)
