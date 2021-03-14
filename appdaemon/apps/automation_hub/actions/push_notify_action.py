@@ -32,4 +32,4 @@ class PushNotifyAction():
             self._kwargs['tts'] = self._message
             self._kwargs['tts_language'] = "english"
         for target in self._targets:
-            hassutil.join_notify(target, self._message, title=self._title, **self._kwargs)
+            hassutil.join_notify(target, self._message, title=self._title, data=self._kwargs)
