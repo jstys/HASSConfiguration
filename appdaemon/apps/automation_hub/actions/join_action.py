@@ -7,7 +7,7 @@ class JoinAction():
         self._message = None
         self._title = None
         
-    def add_targets(self, targets):
+    def add_targets(self, *targets):
         for target in targets:
             self.add_target(target)
         
