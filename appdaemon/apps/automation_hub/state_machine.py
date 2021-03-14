@@ -33,6 +33,9 @@ def is_heating_enabled():
 def is_cooling_enabled():
     return API_HANDLE.get_state(name_map["thermostat_mode"], namespace="hass").lower() == "cooling"
 
+def is_garage_open():
+    return API_HANDLE.get_state(name_map["garage_door"], namespace="hass").lower() == "open"
+
 def is_enabled(*modes):
     return any([API_HANDLE.get_state(name_map[mode], namespace="hass") == "on" for mode in modes])
 
