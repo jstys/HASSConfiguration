@@ -24,7 +24,7 @@ def register_callbacks():
     event_dispatcher.register_callback(on_door_opened, DoorOpenEvent.__name__, event_filter=sensor_filter)
     event_dispatcher.register_callback(on_door_lock_changed, LockEvent.__name__, event_filter=lock_filter)
     event_dispatcher.register_callback(on_door_locked_notification, DoorLockNotificationLockedEvent.__name__, event_filter=notify_filter)
-    event_dispatcher.register_callback(on_door_unlocked_notification, DoorLockNotificationLockedEvent.__name__, event_filter=notify_filter)
+    event_dispatcher.register_callback(on_door_unlocked_notification, DoorLockNotificationUnlockedEvent.__name__, event_filter=notify_filter)
     
 def on_door_locked_notification(event):
     state_machine.set_state("front_entrance_lock", "locked")
