@@ -43,4 +43,5 @@ def get_number(number_setting):
     return API_HANDLE.get_state(name_map[number_setting], namespace="hass")
 
 def set_state(entity_name, state):
-    return API_HANDLE.set_state(name_map[entity_name], state=state, namespace="hass")
+    attributes = API_HANDLE.get_state(name_map[entity_name], attribute="all", namespace="hass").get("attributes", {})
+    return API_HANDLE.set_state(name_map[entity_name], state=state, attributes=attributes, namespace="hass")
