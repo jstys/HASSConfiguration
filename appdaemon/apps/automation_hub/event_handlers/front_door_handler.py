@@ -41,7 +41,7 @@ def on_door_opened(event):
 def on_door_lock_changed(event):
     if event.is_locked:
         logger.info("Front door locked")
-        PushNotifyAction().add_target("jim_cell").set_message("Front door locked ({})".format(event.status)).notify()
+        PushNotifyAction().add_target("jim_cell").set_message("Front door locked", notification_id="front-door-lock").notify()
     else:
         logger.info("Front door unlocked")
-        PushNotifyAction().add_target("jim_cell").set_message("Front door Unlocked ({})".format(event.status)).notify()
+        PushNotifyAction().add_target("jim_cell").set_message("Front door Unlocked", notification_id="front-door-lock").notify()
