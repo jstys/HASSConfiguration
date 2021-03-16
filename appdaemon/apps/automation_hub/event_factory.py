@@ -28,6 +28,8 @@ from events.power_sensor_on_event import PowerSensorOnEvent
 from events.automation_hub_started_event import AutomationHubStartedEvent
 from events.water_sensor_dry_event import WaterSensorDryEvent
 from events.water_sensor_wet_event import WaterSensorWetEvent
+from events.door_lock_notification_locked_event import DoorLockNotificationLockedEvent
+from events.door_lock_notification_unlocked_event import DoorLockNotificationUnlockedEvent
 
 logger = logutil.get_logger("automation_hub")
 
@@ -174,6 +176,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         return create_sun_event(old, new)
     if entity_type == "binary_power_sensor":
         return create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
+    if friendly_name == "front_door_lock_alarmtype":
+        return create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
     
     logger.debug(f"Received invalid state change entity - type: {entity_type} entity: {friendly_name}")
     return None
@@ -290,4 +294,18 @@ def create_water_sensor_change_event(friendly_name, entity, attributes, old, new
         return event
     else:
         logger.warning("Received invalid water sensor transition")
+        return None
+
+def create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs):
+    logger.info("Creating DoorLockNotificationEvent")
+    if old != new and new in [0x16, 0x13]:
+        event = DoorLockNotificationUnlockedEvent()
+        event.name = friendly_name
+        return event
+    elif old != new and new in [0x15, 0x12]:
+        event = DoorLockNotificationLockedEvent()
+        event.name = friendly_name
+        return event
+    else:
+        logger.warning("Received invalid door lock notification")
         return None
