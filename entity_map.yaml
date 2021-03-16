@@ -431,6 +431,8 @@ entities:
             name: garage_door
 
     miscellaneous:
+        sensor.key_free_push_button_deadbolt_alarmtype:
+            name: front_door_lock_alarmtype
         sun.sun:
             name: sun
             
