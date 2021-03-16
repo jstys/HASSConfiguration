@@ -298,11 +298,11 @@ def create_water_sensor_change_event(friendly_name, entity, attributes, old, new
 
 def create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.info("Creating DoorLockNotificationEvent")
-    if old != new and new in [0x16, 0x13]:
+    if old != new and int(new) in [0x16, 0x13]:
         event = DoorLockNotificationUnlockedEvent()
         event.name = friendly_name
         return event
-    elif old != new and new in [0x15, 0x12]:
+    elif old != new and int(new) in [0x15, 0x12]:
         event = DoorLockNotificationLockedEvent()
         event.name = friendly_name
         return event
