@@ -30,6 +30,7 @@ from events.water_sensor_dry_event import WaterSensorDryEvent
 from events.water_sensor_wet_event import WaterSensorWetEvent
 from events.door_lock_notification_locked_event import DoorLockNotificationLockedEvent
 from events.door_lock_notification_unlocked_event import DoorLockNotificationUnlockedEvent
+from events.unavailable_event import UnavailableEvent
 
 logger = logutil.get_logger("automation_hub")
 
@@ -158,29 +159,38 @@ def create_automation_hub_started_event():
     return AutomationHubStartedEvent()
 
 def create_from_state_change(friendly_name, entity_type, entity, attributes, old, new, kwargs):
+    adevents = []
+    if old != new and new.lower() == "unavailable":
+        adevents.append(create_unavailable_event(friendly_name))
+
+    state_change_event = None
     if entity_type == "water_sensor":
-        return create_water_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
+        state_change_event = create_water_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "motion_sensor":
-        return create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
+        state_change_event = create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "door_sensor":
-        return create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
+        state_change_event = create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "presence":
-        return create_presence_change_event(friendly_name, entity, attributes, old, new, kwargs)
+        state_change_event = create_presence_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "lock":
-        return create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs)
+        state_change_event = create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type in ["input_boolean", "input_select"]:
-        return create_input_change_event(friendly_name, entity, attributes, old, new, kwargs)
+        state_change_event = create_input_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "switch":
-        return create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs)
+        state_change_event = create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if friendly_name == "sun":
-        return create_sun_event(old, new)
+        state_change_event = create_sun_event(old, new)
     if entity_type == "binary_power_sensor":
-        return create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
+        state_change_event = create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if friendly_name == "front_door_lock_alarmtype":
-        return create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
-    
-    logger.debug(f"Received invalid state change entity - type: {entity_type} entity: {friendly_name}")
-    return None
+        state_change_event = create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
+
+    if state_change_event:
+        adevents.append(state_change_event)
+    else:
+        logger.debug(f"Received invalid state change entity - type: {entity_type} entity: {friendly_name}")
+
+    return adevents
 
 def create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
     if old != new and new == "off":
@@ -309,3 +319,9 @@ def create_door_lock_notification_event(friendly_name, entity, attributes, old, 
     else:
         logger.warning("Received invalid door lock notification")
         return None
+
+def create_unavailable_event(friendly_name):
+    logger.info("Creating UnavailableEvent")
+    event = UnavailableEvent()
+    event.name = friendly_name
+    return event

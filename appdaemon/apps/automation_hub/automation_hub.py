@@ -83,8 +83,8 @@ class AutomationHub(hass.Hass):
             new_state = new.get("state") if new else None
             attributes = new.get("attributes")
             
-            adevent = event_factory.create_from_state_change(friendly_name, entity_type, entity, attributes, old_state, new_state, kwargs)
-            if adevent:
+            adevents = event_factory.create_from_state_change(friendly_name, entity_type, entity, attributes, old_state, new_state, kwargs)
+            for adevent in adevents:
                 event_dispatcher.dispatch(adevent)
         else:
             logger.error(f"Received untracked state change from entity: {entity}")
