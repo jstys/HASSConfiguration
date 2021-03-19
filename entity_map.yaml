@@ -445,12 +445,10 @@ join_targets:
     - erica_cell
 
 button_ids:
-    00:15:8d:00:01:6d:a2:c9:1:0x0006:
+    00:0d:6f:00:0e:c8:ff:1c:3:0x0006:
+        type: lightify
         name: living_room_button
         room: living_room
-    00:15:8d:00:01:6d:bf:86:1:0x0006:
-        name: master_bedroom_button
-        room: master_bedroom
 
 zwave_scene_map:
     88:

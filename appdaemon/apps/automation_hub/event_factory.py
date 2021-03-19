@@ -68,11 +68,20 @@ def create_from_zha_event(event_name, data, kwargs):
         unique_id = data.get("unique_id")
         if unique_id in button_id_map:
             friendly_name = button_id_map[unique_id]["name"]
-            click_type = data.get("args").get("click_type")
-            event = ButtonClickEvent()
-            event.button_name = friendly_name
-            event.click_type = click_type
-            return event
+            button_type = button_id_map[unique_id]['type']
+            if button_type == 'lightify':
+                command = data.get('commmand', 'on')
+                click_type = 'unknown'
+                if command == 'on':
+                    click_type = 'single'
+                elif command == 'move':
+                    click_type = 'long'
+                elif command == 'stop':
+                    click_type = 'release'
+                event = ButtonClickEvent()
+                event.button_name = friendly_name
+                event.click_type = click_type
+                return event
 
     return None
 
