@@ -31,6 +31,7 @@ from events.water_sensor_wet_event import WaterSensorWetEvent
 from events.door_lock_notification_locked_event import DoorLockNotificationLockedEvent
 from events.door_lock_notification_unlocked_event import DoorLockNotificationUnlockedEvent
 from events.unavailable_event import UnavailableEvent
+from events.available_event import AvailableEvent
 
 logger = logutil.get_logger("automation_hub")
 
@@ -162,6 +163,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
     adevents = []
     if old != new and new.lower() == "unavailable":
         adevents.append(create_unavailable_event(friendly_name))
+    elif old != new and old.lower() == "unavailable":
+        adevents.append(create_available_event(friendly_name))
 
     state_change_event = None
     if entity_type == "water_sensor":
@@ -323,5 +326,11 @@ def create_door_lock_notification_event(friendly_name, entity, attributes, old, 
 def create_unavailable_event(friendly_name):
     logger.info("Creating UnavailableEvent")
     event = UnavailableEvent()
+    event.name = friendly_name
+    return event
+
+def create_available_event(friendly_name):
+    logger.info("Creating AvailableEvent")
+    event = AvailableEvent()
     event.name = friendly_name
     return event
