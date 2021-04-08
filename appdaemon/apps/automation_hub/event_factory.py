@@ -40,7 +40,7 @@ def create_from_event(event_name, data, kwargs):
         return create_xiaomi_click_event(event_name, data, kwargs)
     elif event_name == "MQTT_MESSAGE":
         return create_mqtt_event(event_name, data, kwargs)
-    elif event_name == "zwave_js_event":
+    elif event_name == "zwave_js_event" or event_name == "zwave_js_value_notification":
         return create_zwave_scene_event(event_name, data, kwargs)
     elif event_name == "generate_mealplan":
         return GenerateMealplanEvent()
