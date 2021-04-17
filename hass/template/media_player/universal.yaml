@@ -40,7 +40,7 @@
 - platform: universal
   name: Master Bedroom TV
   children:
-    - em:master_bedroom_tv_cast
+    - em:master_bedroom_gtv
   commands:
     turn_on:
       service: media_player.turn_on

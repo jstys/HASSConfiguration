@@ -195,9 +195,9 @@ entities:
         media_player.living_room_shield:
             room: living_room
             name: living_room_shield
-        media_player.master_bedroom_mibox:
-            room: master_bedroom
-            name: master_bedroom_mibox
+        media_player.fourth_bedroom_mibox:
+            room: fourth_bedroom
+            name: fourth_bedroom_mibox
         media_player.basement_mibox:
             room: basement
             name: basement_mibox
@@ -207,12 +207,12 @@ entities:
         media_player.backyard_mibox:
             room: backyard
             name: backyard_mibox
-        media_player.viziocastdisplay1515:
+        media_player.master_bedroom_gtv:
             room: master_bedroom
-            name: master_bedroom_tv_cast
+            name: master_bedroom_gtv
             
     vizio:
-        media_player.vizio_smartcast:
+        media_player.living_room_vizio_tv:
             room: living_room
             name: living_room_vizio_tv
 
