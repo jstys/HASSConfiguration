@@ -116,8 +116,6 @@ light.cree_connected_a_19_60w_equivalent_bfd509fe_level_on_off:
   friendly_name: Master Bedroom Fixture 2
 light.cree_connected_a_19_60w_equivalent_f3fb05fe_level_on_off:
   friendly_name: Landing Light
-light.cree_connected_a_19_60w_equivalent_f40904fe_level_on_off:
-  friendly_name: Hallway Wall Light
 light.dining_room_light:
   friendly_name: Dining Room Light
 light.erica_night_lamp:
@@ -176,6 +174,8 @@ light.sengled_e11_g13_c9b71603_level_on_off:
   friendly_name: Fourth Bedroom Fixture 1
 light.sengled_e11_g13_ef2c1503_level_on_off:
   friendly_name: Fourth Bedroom Fixture 2
+light.the_home_depot_ecosmart_zbt_a19_cct_bulb_5886d7fe_level_light_color_on_off:
+  friendly_name: Hallway Wall Light
 lock.key_free_push_button_deadbolt:
   friendly_name: Front Entrance Lock
 media_player.backyard_mibox:

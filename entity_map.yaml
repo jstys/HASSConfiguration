@@ -12,7 +12,7 @@ entities:
         light.cree_connected_a_19_60w_equivalent_851804fe_level_on_off:
             name: hallway_fixture
             room: hallway
-        light.cree_connected_a_19_60w_equivalent_f40904fe_level_on_off:
+        light.the_home_depot_ecosmart_zbt_a19_cct_bulb_5886d7fe_level_light_color_on_off:
             name: hallway_wall_light
             room: hallway
         light.living_room_lamp_1:
