@@ -2,7 +2,7 @@ version: '3'
 services:
   mariadb:
     container_name: mariadb
-    image: yobasystems/alpine-mariadb:armhf
+    image: yobasystems/alpine-mariadb:10.4.17-armhf
     restart: unless-stopped
     ports:
       - "3306:3306"
