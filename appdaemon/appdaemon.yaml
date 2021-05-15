@@ -1,5 +1,6 @@
 appdaemon:
   pin_apps: false
+  uvloop: true
   internal_function_timeout: 60
   latitude: !secret home_latitude
   longitude: !secret home_longitude
