@@ -27,11 +27,11 @@
     em:master_bedroom_tv: "on"
     em:jim_night_lamp:
       state: "on"
-      effect: "lsd"
+      effect: "LSD"
       brightness_pct: "100"
     em:erica_night_lamp:
       state: "on"
-      effect: "lsd"
+      effect: "LSD"
       brightness_pct: "100"
 - name: Sleep Mode
   entities:
