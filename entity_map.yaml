@@ -9,7 +9,7 @@ entities:
         light.cree_connected_a_19_60w_equivalent_bfd509fe_level_on_off:
             name: master_bedroom_fixture_2
             room: master_bedroom
-        light.cree_connected_a_19_60w_equivalent_851804fe_level_on_off:
+        light.the_home_depot_ecosmart_zbt_a19_cct_bulb_36d294fe_level_light_color_on_off:
             name: hallway_fixture
             room: hallway
         light.the_home_depot_ecosmart_zbt_a19_cct_bulb_5886d7fe_level_light_color_on_off:
