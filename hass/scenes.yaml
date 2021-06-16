@@ -61,8 +61,6 @@
     input_boolean.privacy_mode: "off"
     climate.office_heat: "off"
     climate.office_ac: "off"
-    climate.master_bedroom_heat: "off"
-    climate.master_bedroom_ac: "off"
 - name: Nobody Home
   entities:
     light.living_room_lamps: "off"
