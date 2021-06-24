@@ -8,6 +8,13 @@
   name: Kitchen Lights
   entities:
     - em:kitchen_fixture
+    - em:kitchen_hi_hats
+
+- platform: group
+  name: Garage Lights
+  entities:
+    - em:garage_back_light
+    - em:garage_front_light
 
 - platform: group
   name: Backyard Lights

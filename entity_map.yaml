@@ -129,8 +129,14 @@ entities:
         light.kitchen_hi_hat_switch:
             name: kitchen_hi_hats
             room: kitchen
-        light.garage_back_switch:
-            name: garage_back
+        light.garage_back_light:
+            name: garage_back_light
+            room: garage
+        light.garage_front_light:
+            name: garage_front_light
+            room: garage
+        light.garage_lights:
+            name: garage_lights
             room: garage
 
     motion_sensor:

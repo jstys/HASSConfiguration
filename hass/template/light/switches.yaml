@@ -5,7 +5,7 @@
   name: Office Lights
   entity_id: em:office_light_switch
 - platform: switch
-  name: Front Garage Light
+  name: Garage Front Light
   entity_id: em:front_garage_switch
 - platform: switch
   name: Master Bedroom Mirror LED
@@ -17,6 +17,6 @@
   name: Kitchen Hi Hat Switch
   entity_id: em:kitchen_hi_hat_switch
 - platform: switch
-  name: Garage Back Switch
+  name: Garage Back Light
   entity_id: em:garage_back_switch
   

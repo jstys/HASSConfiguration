@@ -5,7 +5,7 @@
   name: Office Lights
   entity_id: switch.third_reality_inc_3rss007z_1818e0ff_on_off
 - platform: switch
-  name: Front Garage Light
+  name: Garage Front Light
   entity_id: switch.centralite_3210_l_c9488805_on_off
 - platform: switch
   name: Master Bedroom Mirror LED
@@ -17,6 +17,6 @@
   name: Kitchen Hi Hat Switch
   entity_id: switch.node_110
 - platform: switch
-  name: Garage Back Switch
+  name: Garage Back Light
   entity_id: switch.node_111
   

@@ -122,8 +122,12 @@ light.fourth_bedroom_fixture_zha_group_0x0003:
   friendly_name: Fourth Bedroom Fixture
 light.front_garage_light:
   friendly_name: Front Garage Light
-light.garage_back_switch:
-  friendly_name: Garage Back
+light.garage_back_light:
+  friendly_name: Garage Back Light
+light.garage_front_light:
+  friendly_name: Garage Front Light
+light.garage_lights:
+  friendly_name: Garage Lights
 light.gateway_light_34ce008dcec1:
   friendly_name: Gateway Light
 light.hallway_lights_zha_group_0x0009:
