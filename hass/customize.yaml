@@ -120,8 +120,6 @@ light.erica_night_lamp:
   friendly_name: Erica Night Lamp
 light.fourth_bedroom_fixture_zha_group_0x0003:
   friendly_name: Fourth Bedroom Fixture
-light.front_garage_light:
-  friendly_name: Front Garage Light
 light.garage_back_light:
   friendly_name: Garage Back Light
 light.garage_front_light:

@@ -72,9 +72,6 @@ entities:
         light.kitchen_cabinets_zha_group_0x0005:
             name: kitchen_cabinet_lights
             room: kitchen
-        light.front_garage_light:
-            name: front_garage_light
-            room: garage
         light.sengled_e11_g13_b02c1503_level_on_off:
             name: master_bedroom_closet_light_1
             room: master_bedroom
