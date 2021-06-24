@@ -8,7 +8,7 @@
   name: Kitchen Lights
   entities:
     - light.kitchen_fixture
-    - light.kitchen_hi_hat_switch
+    - light.kitchen_hi_hats
 
 - platform: group
   name: Garage Lights

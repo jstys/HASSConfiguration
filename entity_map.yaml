@@ -123,7 +123,7 @@ entities:
         light.node_109:
             name: guest_bedroom_hi_hats
             room: guest_bedroom
-        light.kitchen_hi_hat_switch:
+        light.kitchen_hi_hats:
             name: kitchen_hi_hats
             room: kitchen
         light.garage_back_light:

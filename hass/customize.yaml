@@ -136,7 +136,7 @@ light.kitchen_cabinets_zha_group_0x0005:
   friendly_name: Kitchen Cabinet Lights
 light.kitchen_fixture:
   friendly_name: Kitchen Fixture
-light.kitchen_hi_hat_switch:
+light.kitchen_hi_hats:
   friendly_name: Kitchen Hi Hats
 light.kitchen_lights:
   friendly_name: Kitchen Lights
