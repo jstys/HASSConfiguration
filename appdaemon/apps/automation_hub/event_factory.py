@@ -32,6 +32,8 @@ from events.door_lock_notification_locked_event import DoorLockNotificationLocke
 from events.door_lock_notification_unlocked_event import DoorLockNotificationUnlockedEvent
 from events.unavailable_event import UnavailableEvent
 from events.available_event import AvailableEvent
+from events.light_off_event import LightOffEvent
+from events.light_on_event import LightOnEvent
 
 logger = logutil.get_logger("automation_hub")
 
@@ -196,6 +198,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         state_change_event = create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if friendly_name == "front_door_lock_alarmtype":
         state_change_event = create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
+    if entity_type == "light":
+        state_change_event = create_light_change_event(friendly_name, entity, attributes, old, new, kwargs)
 
     if state_change_event:
         adevents.append(state_change_event)
@@ -281,6 +285,20 @@ def create_switch_change_event(friendly_name, entity, attributes, old, new, kwar
         return event
     else:
         logger.warning("Received invalid switch transition")
+        return None
+
+def create_light_change_event(friendly_name, entity, attributes, old, new, kwargs):
+    logger.info("Creating LightEvent")
+    if old != new and new == "on":
+        event = LightOnEvent()
+        event.name = friendly_name
+        return event
+    elif old != new and new == "off":
+        event = LightOffEvent()
+        event.name = friendly_name
+        return event
+    else:
+        logger.warning("Received invalid light transition")
         return None
 
 def create_sun_event(old, new):
