@@ -14,8 +14,8 @@ def register_callbacks():
     event_dispatcher.register_callback(handle_turned_off, SwitchOffEvent.__name__, event_filter=event_filter)
 
 def handle_turned_on(event):
-    LightAction().add_light("kitchen_high_hats").turn_on()
+    LightAction().add_light("kitchen_hi_hats").turn_on()
     
 def handle_turned_off(event):
-    LightAction().add_light("kitchen_high_hats").turn_off()
+    LightAction().add_light("kitchen_hi_hats").turn_off()
     
