@@ -13,3 +13,10 @@
 - platform: switch
   name: Backyard Fence Lights
   entity_id: switch.smart_strip_2
+- platform: switch
+  name: Kitchen Hi Hat Switch
+  entity_id: switch.node_110
+- platform: switch
+  name: Garage Back Switch
+  entity_id: switch.node_111
+  

@@ -13,3 +13,10 @@
 - platform: switch
   name: Backyard Fence Lights
   entity_id: em:aeon_labs_smart_strip_2
+- platform: switch
+  name: Kitchen Hi Hat Switch
+  entity_id: em:kitchen_hi_hat_switch
+- platform: switch
+  name: Garage Back Switch
+  entity_id: em:garage_back_switch
+  

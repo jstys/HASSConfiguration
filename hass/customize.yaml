@@ -122,6 +122,8 @@ light.fourth_bedroom_fixture_zha_group_0x0003:
   friendly_name: Fourth Bedroom Fixture
 light.front_garage_light:
   friendly_name: Front Garage Light
+light.garage_back_switch:
+  friendly_name: Garage Back
 light.gateway_light_34ce008dcec1:
   friendly_name: Gateway Light
 light.hallway_lights_zha_group_0x0009:
@@ -132,6 +134,8 @@ light.kitchen_cabinets_zha_group_0x0005:
   friendly_name: Kitchen Cabinet Lights
 light.kitchen_fixture:
   friendly_name: Kitchen Fixture
+light.kitchen_hi_hat_switch:
+  friendly_name: Kitchen Hi Hats
 light.kitchen_lights:
   friendly_name: Kitchen Lights
 light.ledvance_edge_lit_under_cabinet_tw_0dc70200_level_light_color_on_off:
@@ -158,6 +162,8 @@ light.master_bedroom_fixture_zha_group_0x0002:
   friendly_name: Master Bedroom Fixture
 light.master_bedroom_mirror_led:
   friendly_name: Master Bedroom Mirror Led
+light.node_109:
+  friendly_name: Guest Bedroom Hi Hats
 light.office_lights:
   friendly_name: Office Lights
 light.osram_lightify_par38_on_off_dim_30eea500_level_on_off:
@@ -288,6 +294,10 @@ switch.ikea_of_sweden_tradfri_control_outlet_9d2328fe_on_off:
   friendly_name: Kitchen Fragrance
 switch.ledvance_plug_4d1d0500_on_off:
   friendly_name: Living Room Fragrance
+switch.node_110:
+  friendly_name: Kitchen Hi Hat Switch
+switch.node_111:
+  friendly_name: Garage Back Switch
 switch.outdoor_z_wave_plug_in_module_1_channel:
   friendly_name: Backyard Outlet
 switch.outdoor_z_wave_plug_in_module_1_channel_2:

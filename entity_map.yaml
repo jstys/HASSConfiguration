@@ -123,6 +123,15 @@ entities:
         light.basement_lights_zha_group_0x0008:
             name: basement_lights
             room: basement
+        light.node_109:
+            name: guest_bedroom_hi_hats
+            room: guest_bedroom
+        light.kitchen_hi_hat_switch:
+            name: kitchen_hi_hats
+            room: kitchen
+        light.garage_back_switch:
+            name: garage_back
+            room: garage
 
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
@@ -305,6 +314,10 @@ entities:
             name: aeon_labs_smart_strip_3
         switch.smart_strip_4:
             name: aeon_labs_smart_strip_4
+        switch.node_110:
+            name: kitchen_hi_hat_switch
+        switch.node_111:
+            name: garage_back_switch
     
     lock:
         lock.key_free_push_button_deadbolt:
