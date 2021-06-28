@@ -9,7 +9,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  precision: 0.1
+  precision: 1.0
 - platform: generic_thermostat
   name: Master Bedroom AC
   heater: switch.master_bedroom_ac
@@ -21,7 +21,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  precision: 0.1
+  precision: 1.0
 - platform: generic_thermostat
   name: Master Bedroom Heat
   heater: switch.master_bedroom_heat
@@ -33,7 +33,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  precision: 0.1
+  precision: 1.0
 - platform: generic_thermostat
   name: Dining Room AC
   heater: switch.dining_room_ac
@@ -45,7 +45,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  precision: 0.1
+  precision: 1.0
 - platform: generic_thermostat
   name: Guest Bedroom AC
   heater: switch.guest_bedroom_ac
@@ -57,7 +57,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  precision: 0.1
+  precision: 1.0
 - platform: generic_thermostat
   name: Guest Bedroom Heat
   heater: switch.guest_bedroom_heat
@@ -69,7 +69,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  precision: 0.1
+  precision: 1.0
 - platform: generic_thermostat
   name: Office AC
   heater: switch.office_ac
@@ -81,7 +81,7 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  precision: 0.1
+  precision: 1.0
 - platform: generic_thermostat
   name: Office Heat
   heater: switch.office_heat
@@ -93,4 +93,4 @@
   hot_tolerance: 1.0
   min_cycle_duration:
     seconds: 30
-  precision: 0.1
+  precision: 1.0
