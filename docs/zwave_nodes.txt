@@ -1,0 +1,21 @@
+zwave_nodes:
+    - 1: husbzb stick
+    - 3: smart strip
+    - 26: couch outlet
+    - 27: kitchen outlet
+    - 73: outlet
+    - 78: outlet
+    - 79: thermostat
+    - 87: garage door
+    - 88: dining room switch
+    - 89: door lock
+    - 91: master bedroom switch
+    - 92: master mirror switch
+    - 98: laundry outlet
+    - 99: backyard outlet
+    - 100: frontyard outlet
+    - 104: tv keychain
+    - 108: Hallway outlet
+    - 109: Guest bedroom switch
+    - 110: Kitchen switch
+    - 111: Garage back switch
