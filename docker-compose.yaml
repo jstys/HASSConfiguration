@@ -26,6 +26,7 @@ services:
     container_name: home-assistant
     image: homeassistant/tinker-homeassistant:2021.7.1
     restart: unless-stopped
+    privileged: true
     volumes:
       - /home/dietpi/HASSConfiguration/hass:/config
       - /home/dietpi/syncthing/data/hass_secrets/secrets_hass.yaml:/config/secrets.yaml
