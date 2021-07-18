@@ -292,6 +292,14 @@ entities:
             name: frontyard_outlet
         switch.outdoor_z_wave_plug_in_module_1_channel:
             name: backyard_outlet
+        switch.centralite_3210_l_12bc940e_on_off:
+            name: master_bedroom_humidifier_outlet
+        switch.centralite_3210_l_42baa60c_on_off:
+            name: dryer_outlet
+        switch.plug_158d00039e6ce3:
+            name: kitchen_xiaomi_outlet
+        switch.plug_158d00039ec6ff:
+            name: basement_xiaomi_outlet
     
     switch:
         switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:

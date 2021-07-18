@@ -278,8 +278,12 @@ sensor.z_wave_plus_thermostat_battery_level:
   friendly_name: Thermostat Battery
 sun.sun:
   friendly_name: Sun
+switch.centralite_3210_l_12bc940e_on_off:
+  friendly_name: Master Bedroom Humidifier Outlet
 switch.centralite_3210_l_41f4a60c_on_off:
   friendly_name: Hallway Outlet
+switch.centralite_3210_l_42baa60c_on_off:
+  friendly_name: Dryer Outlet
 switch.centralite_3210_l_8495310c_on_off:
   friendly_name: Guest Bedroom Outlet
 switch.centralite_3210_l_96312d0b_on_off:
@@ -304,6 +308,10 @@ switch.outdoor_z_wave_plug_in_module_1_channel:
   friendly_name: Backyard Outlet
 switch.outdoor_z_wave_plug_in_module_1_channel_2:
   friendly_name: Frontyard Outlet
+switch.plug_158d00039e6ce3:
+  friendly_name: Kitchen Xiaomi Outlet
+switch.plug_158d00039ec6ff:
+  friendly_name: Basement Xiaomi Outlet
 switch.smart_plug:
   friendly_name: Couch Outlet
 switch.smart_plug_2:
