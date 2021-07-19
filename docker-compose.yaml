@@ -33,7 +33,7 @@ services:
       - /home/dietpi/syncthing/data/hass_www:/config/www
       - /etc/localtime:/etc/localtime:ro
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
     network_mode: host
     depends_on:
       - "mosquitto"
