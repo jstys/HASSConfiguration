@@ -1,4 +1,0 @@
-- platform: flux_led
-  devices:
-    10.0.0.61:
-      name: flux_waterproof_1
