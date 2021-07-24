@@ -7,6 +7,7 @@ room_map = {}
 assistant_list = []
 button_id_map = {}
 join_targets = []
+nfc_scanner_id_map = {}
 zwave_scene_map = {}
 
 def create_entity_and_name_maps(file_contents):
@@ -45,6 +46,12 @@ def create_join_targets(file_contents):
     if file_contents:
         join_targets = file_contents.get("join_targets")
 
+def create_nfc_scanner_id_map(file_contents):
+    global nfc_scanner_id_map
+
+    if file_contents:
+        nfc_scanner_id_map = file_contents.get('nfc_scanner_id_map')
+
 def create_zwave_scene_map(file_contents):
     global zwave_scene_map
 
@@ -80,4 +87,5 @@ create_room_map(file_contents)
 create_assistant_list(file_contents)
 create_join_targets(file_contents)
 create_button_id_map(file_contents)
+create_nfc_scanner_id_map(file_contents)
 create_zwave_scene_map(file_contents)

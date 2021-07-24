@@ -474,6 +474,9 @@ button_ids:
         name: living_room_button
         room: living_room
 
+nfc_scanner_id_map:
+    jim_cell: '901b511ca54d6029'
+
 zwave_scene_map:
     88:
         name: dining_room_switch

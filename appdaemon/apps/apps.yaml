@@ -7,6 +7,7 @@ automation_hub:
     - zwave_js_event
     - zwave_js_value_notification
     - zwave_js_notification
+    - tag_scanned
     - state_machine.state_changed
     - generate_mealplan
     - archive_mealplan
