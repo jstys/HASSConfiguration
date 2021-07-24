@@ -1,6 +1,8 @@
 from util import logutil
 from util.entity_map import entity_map
 from util.entity_map import button_id_map
+from util.entity_map import nfc_tag_id_map
+from util.entity_map import nfc_scanner_id_map
 from util.entity_map import zwave_scene_map
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
@@ -34,6 +36,7 @@ from events.unavailable_event import UnavailableEvent
 from events.available_event import AvailableEvent
 from events.light_off_event import LightOffEvent
 from events.light_on_event import LightOnEvent
+from events.nfc_event import NFCEvent
 
 logger = logutil.get_logger("automation_hub")
 
@@ -60,6 +63,8 @@ def create_from_event(event_name, data, kwargs):
         return create_nhl_period_end_event(event_name, data, kwargs)
     elif event_name == "nhl_game_end":
         return create_nhl_game_end_event(event_name, data, kwargs)
+    elif event_name == "tag_scanned":
+        return create_nfc_event(event_name, data, kwargs)
 
     logger.debug(f"Received invalid event type: {event_name}")
     return None
@@ -169,6 +174,18 @@ def create_nhl_game_end_event(event_name, data, kwargs):
     
 def create_automation_hub_started_event():
     return AutomationHubStartedEvent()
+
+def create_nfc_event(event_name, data, kwargs):
+    tag_id = data.get('tag_id')
+    device_id = data.get('device_id')
+    if not tag_id in nfc_tag_id_map:
+        logger.warning(f"{tag_id} is not a recognized NFC tag")
+        return None
+    elif not device_id in nfc_scanner_id_map:
+        logger.warning(f"{device_id} is not a recongized NFC scanner")
+        return None
+
+    return NFCEvent(tag_id=nfc_tag_id_map[tag_id], scanner_id=nfc_scanner_id_map[device_id])
 
 def create_from_state_change(friendly_name, entity_type, entity, attributes, old, new, kwargs):
     adevents = []

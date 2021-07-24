@@ -474,6 +474,9 @@ button_ids:
         name: living_room_button
         room: living_room
 
+nfc_tag_id_map:
+    master_bathroom: '8420b756-dc14-411e-abaa-55b7b7e88b9b'
+
 nfc_scanner_id_map:
     jim_cell: '901b511ca54d6029'
 
