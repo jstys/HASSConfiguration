@@ -481,7 +481,7 @@ zwave_scene_map:
             "001": "on"
             "002": "off"
             
-    104:
+    112:
         name: fibaro_keychain
         scenes:
             "001": "square"
