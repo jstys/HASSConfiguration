@@ -24,7 +24,7 @@ services:
       - "9001:9001"
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2021.7.3
+    image: homeassistant/tinker-homeassistant:2021.7.4
     restart: unless-stopped
     privileged: true
     volumes:
@@ -92,18 +92,5 @@ services:
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      # - /home/dietpi/HASSConfiguration/dockermon:/config
     ports:
       - 8126:8126
-  # grafana:
-  #   container_name: grafana
-  #   image: grafana/grafana:master
-  #   restart: unless-stopped
-  #   volumes:
-  #     - /home/dietpi/grafana:/var/lib/grafana
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - "homeassistant"
-    
-    
