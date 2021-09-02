@@ -330,5 +330,7 @@ switch.third_reality_inc_3rss007z_031be0ff_on_off:
   friendly_name: Kitchen Fixture Switch
 switch.third_reality_inc_3rss007z_1818e0ff_on_off:
   friendly_name: Office Light Switch
+vacuum.roborock_s6_pure:
+  friendly_name: Main Vacuum
 vacuum.roborock_vacuum:
-  friendly_name: Robot Vacuum
+  friendly_name: Upstairs Vacuum

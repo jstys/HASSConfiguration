@@ -380,7 +380,10 @@ entities:
             
     vacuum:
         vacuum.roborock_vacuum:
-            name: robot_vacuum
+            name: upstairs_vacuum
+            room: master_bedroom
+        vacuum.roborock_s6_pure:
+            name: main_vacuum
             room: kitchen
 
     thermostat:
