@@ -24,7 +24,7 @@ services:
       - "9001:9001"
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2021.9.0
+    image: homeassistant/tinker-homeassistant:2021.9.2
     restart: unless-stopped
     privileged: true
     volumes:
