@@ -88,7 +88,6 @@ light: !include_dir_merge_list light/
 panel_iframe: !include_dir_merge_named panel_iframes/
 sensor: !include_dir_merge_list sensor/
 switch: !include_dir_merge_list switch/
-device_tracker: !include device_tracker/trackers.yaml
 media_player: !include_dir_merge_list media_player/
 input_select: !include input/input_select.yaml
 yeelight: !include_dir_merge_named yeelight/
