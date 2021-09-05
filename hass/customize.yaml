@@ -332,5 +332,5 @@ switch.third_reality_inc_3rss007z_1818e0ff_on_off:
   friendly_name: Office Light Switch
 vacuum.roborock_s6_pure:
   friendly_name: Main Vacuum
-vacuum.roborock_vacuum:
+vacuum.roborock_v1:
   friendly_name: Upstairs Vacuum
