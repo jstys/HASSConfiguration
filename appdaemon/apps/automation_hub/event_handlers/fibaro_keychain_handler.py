@@ -27,11 +27,11 @@ def on_scene_activated(event):
     
 def on_square_pressed(event):
     logger.info("Square button pressed")
-    MediaPlayerAction().add_media_player("living_room_tv").turn_off()
+    MediaPlayerAction().add_media_player("living_room_tv").mute()
 
 def on_circle_pressed(event):
     logger.info("Circle button pressed")
-    MediaPlayerAction().add_media_player("living_room_tv").turn_on()
+    MediaPlayerAction().add_media_player("living_room_tv").toggle_power()
 
 def on_x_pressed(event):
     logger.info("X button pressed")
