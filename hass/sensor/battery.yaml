@@ -20,17 +20,13 @@
       friendly_name: Fridge Door Battery
       value_template: "{{ state_attr('binary_sensor.door_window_sensor_158d0001d3a024', 'battery_level') }}"
       device_class: battery
-    hallway_motion_battery:
-      friendly_name: Hallway Motion Battery
-      value_template: "{{ state_attr('binary_sensor.motion_sensor_158d00016612a5', 'battery_level') }}"
-      device_class: battery
     landing_motion_battery:
       friendly_name: Landing Motion Battery
       value_template: "{{ state_attr('binary_sensor.motion_sensor_158d0002b6fe4e', 'battery_level') }}"
       device_class: battery
     office_motion_battery:
       friendly_name: Office Motion Battery
-      value_template: "{{ state_attr('binary_sensor.motion_sensor_158d0002b95de8', 'battery_level') }}"
+      value_template: "{{ state_attr('binary_sensor.motion_sensor_158d00016612a5', 'battery_level') }}"
       device_class: battery
     basement_water_battery:
       friendly_name: Basement Water Battery

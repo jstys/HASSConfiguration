@@ -138,9 +138,9 @@ entities:
 
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
-            room: hallway
-        binary_sensor.motion_sensor_158d0002b95de8:
             room: office
+        binary_sensor.third_reality_inc_3rms16bz_dd4ae7ff_ias_zone:
+            room: hallway
         binary_sensor.motion_sensor_158d0002b6fe4e:
             room: landing
         binary_sensor.motion_sensor_158d0002c63719:
