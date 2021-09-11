@@ -12,8 +12,6 @@ binary_sensor.motion_sensor_158d0002b6fe4e:
   friendly_name: Landing Motion Sensor
 binary_sensor.motion_sensor_158d0002b71f6a:
   friendly_name: Basement Stairs Motion
-binary_sensor.motion_sensor_158d0002b76374:
-  friendly_name: Kitchen Front Motion
 binary_sensor.motion_sensor_158d0002c63719:
   friendly_name: Garage Front Motion
 binary_sensor.switch_158d00016da2c9:
@@ -24,6 +22,8 @@ binary_sensor.switch_158d00026ad875:
   friendly_name: Basement Button
 binary_sensor.third_reality_inc_3rms16bz_dd4ae7ff_ias_zone:
   friendly_name: Hallway Motion Sensor
+binary_sensor.third_reality_inc_3rms16bz_ed52e7ff_ias_zone:
+  friendly_name: Kitchen Front Motion
 binary_sensor.visonic_mct_340_e_6216120b_ias_zone:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.visonic_mct_340_e_781b120b_ias_zone:
