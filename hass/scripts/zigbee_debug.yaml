@@ -2,11 +2,19 @@ zigbee_debug_on:
   sequence:
     - service: logger.set_level
       data:
+        homeassistant.core: debug
         homeassistant.components.zha: debug
+        bellows.zigbee.application: debug
         bellows.ezsp: debug
-        bellows.uart: debug
-        zigpy.zdo: debug
-        zigpy.application: debug
+        zigpy: debug
+        zigpy_cc: debug
+        zigpy_deconz.zigbee.application: debug
+        zigpy_deconz.api: debug
+        zigpy_xbee.zigbee.application: debug
+        zigpy_xbee.api: debug
+        zigpy_zigate: debug
+        zigpy_znp: debug
+        zhaquirks: debug
     - service: input_boolean.turn_on
       data:
         entity_id: input_boolean.zigbee_debug
@@ -15,11 +23,19 @@ zigbee_debug_off:
   sequence:
     - service: logger.set_level
       data:
-        homeassistant.components.zha: warning
-        bellows.ezsp: warning
-        bellows.uart: warning
-        zigpy.zdo: warning
-        zigpy.application: warning
+        homeassistant.core: error
+        homeassistant.components.zha: error
+        bellows.zigbee.application: error
+        bellows.ezsp: error
+        zigpy: error
+        zigpy_cc: error
+        zigpy_deconz.zigbee.application: error
+        zigpy_deconz.api: error
+        zigpy_xbee.zigbee.application: error
+        zigpy_xbee.api: error
+        zigpy_zigate: error
+        zigpy_znp: error
+        zhaquirks: error
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.zigbee_debug
