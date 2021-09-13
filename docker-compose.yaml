@@ -24,7 +24,7 @@ services:
       - "9001:9001"
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2021.9.2
+    image: homeassistant/tinker-homeassistant:2021.9.6
     restart: unless-stopped
     privileged: true
     volumes:
@@ -42,7 +42,7 @@ services:
       - "dockermon"
   appdaemon:
     container_name: appdaemon
-    build: ./appdaemon/
+    image: acockburn/appdaemon:latest
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/appdaemon:/conf
