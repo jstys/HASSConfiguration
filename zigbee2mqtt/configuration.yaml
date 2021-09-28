@@ -7,7 +7,7 @@ permit_join: false
 # MQTT settings
 mqtt:
   base_topic: zigbee2mqtt
-  server: 'mqtt://localhost'
+  server: 'mqtt://localhost:1883'
   user: zigbee2mqtt
 
 # Serial settings
