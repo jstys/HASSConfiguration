@@ -1,9 +1,9 @@
 import re
+import functools
 
 import requests
 from requests_oauthlib import OAuth1
-from ratelimit import limits, RateLimitException
-from backoff import on_exception, expo
+from ratelimit import limits, sleep_and_retry
 
 API_BASE = "https://api.trello.com/1"
 CHECKED_STATE = "complete"
@@ -111,16 +111,19 @@ def _update_item_amount(item, amount):
 
 def _get_grocery_list():
     try:
-        return _api_call(requests.get, "{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
+        check_api_limit()
+        return requests.get("{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
     except:
         return {}
 
 def _get_grocery_items_for_day(day, daymap):
     ingredients = []
     trello_id = daymap[day]
-    day_recipes = _api_call(requests.get, "{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
+    check_api_limit()
+    day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
     for day_recipe in day_recipes:
         for ingredient_list_ids in day_recipe['idChecklists']:
+            check_api_limit()
             ingredients.extend(requests.get("{}/checklists/{}/checkitems".format(API_BASE, ingredient_list_ids), auth=_get_auth()).json())
 
     return ingredients
@@ -135,8 +138,9 @@ def _save_item(item):
     params["idChecklist"] = item["idChecklist"]
     if "pos" in item:
         params["pos"] = item["pos"]
-    res = _api_call(requests.request, "PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
-    
+    check_api_limit()
+    res = requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
+
 # def _delete_item(item):
 #     requests.request("DELETE", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), auth=_get_auth())
     
@@ -149,7 +153,8 @@ def _save_item(item):
 
 def _get_lists():
     try:
-        return _api_call(requests.get, "{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
+        check_api_limit()
+        return requests.get("{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
     except:
         return []
 
@@ -162,7 +167,7 @@ def _get_day_lists():
             daymap[name] = listid
     return daymap
 
-@on_exception(expo, RateLimitException, max_tries=5)
-@limits(calls=95, period=10)
-def _api_call(func, *args, **kwargs):
-    return func(*args, **kwargs)
+@sleep_and_retry
+@limits(calls=90, period=10)
+def check_api_limit():
+    return
