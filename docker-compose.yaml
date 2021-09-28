@@ -74,6 +74,7 @@ services:
     image: koenkk/zigbee2mqtt
     volumes:
       - /home/dietpi/zig2mqtt:/app/data
+      - /home/dietpi/HASSConfiguration/zigbee2mqtt/configuration.yaml:/app/data/configuration.yaml
       - /run/udev:/run/udev:ro
     restart: unless-stopped
     network_mode: host
