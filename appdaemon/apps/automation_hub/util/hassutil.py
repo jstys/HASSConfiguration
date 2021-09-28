@@ -29,7 +29,8 @@ def read_config_file(filename):
     try:
         with open(filename) as yamlfile:
             return yaml.safe_load(yamlfile)
-    except:
+    except Exception as e:
+        logger.error(f"Error Loading {filename}: {e}")
         return {}
 
 def read_binary_file(filename):
