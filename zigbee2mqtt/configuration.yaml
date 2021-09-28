@@ -14,3 +14,9 @@ mqtt:
 serial:
   adapter: ezsp
   port: 'tcp://10.0.0.63:8888'
+
+frontend:
+  # Optional, default 8080
+  port: 8080
+  # Optional, default 0.0.0.0
+  host: 0.0.0.0
