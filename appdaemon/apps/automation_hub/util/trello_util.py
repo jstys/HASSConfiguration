@@ -1,7 +1,9 @@
 import re
+import functools
 
 import requests
 from requests_oauthlib import OAuth1
+from ratelimit import limits, sleep_and_retry
 
 API_BASE = "https://api.trello.com/1"
 CHECKED_STATE = "complete"
@@ -80,10 +82,6 @@ def set_auth(key, secret, oauth):
     
     _AUTH = OAuth1(key, secret, oauth)
 
-def _get_day_list(day, daymap):
-    if daymap.get(day.title) is not None:
-        return requests.get()
-
 def _get_item_reference_from_grocery_list(item, grocery_cache):
     if item.lower() in grocery_cache:
         return grocery_cache[item.lower()]
@@ -113,14 +111,14 @@ def _update_item_amount(item, amount):
 
 def _get_grocery_list():
     try:
-        return requests.get("{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
+        return _api_call(requests.get, "{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
     except:
         return {}
 
 def _get_grocery_items_for_day(day, daymap):
     ingredients = []
     trello_id = daymap[day]
-    day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
+    day_recipes = _api_call(requests.get, "{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
     for day_recipe in day_recipes:
         for ingredient_list_ids in day_recipe['idChecklists']:
             ingredients.extend(requests.get("{}/checklists/{}/checkitems".format(API_BASE, ingredient_list_ids), auth=_get_auth()).json())
@@ -137,21 +135,21 @@ def _save_item(item):
     params["idChecklist"] = item["idChecklist"]
     if "pos" in item:
         params["pos"] = item["pos"]
-    res = requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
+    res = _api_call(requests.request, "PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
     
-def _delete_item(item):
-    requests.request("DELETE", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), auth=_get_auth())
+# def _delete_item(item):
+#     requests.request("DELETE", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), auth=_get_auth())
     
-def _add_item(checklist, item):
-    params = {}
-    params["name"] = item["name"]
-    params["pos"] = "bottom"
-    params["checked"] = "true" if (item.get("state", "complete") == CHECKED_STATE) else "false"
-    res = requests.post("{}/checklists/{}/checkItems".format(API_BASE, checklist.get("id"), params=params, auth=_get_auth()))
+# def _add_item(checklist, item):
+#     params = {}
+#     params["name"] = item["name"]
+#     params["pos"] = "bottom"
+#     params["checked"] = "true" if (item.get("state", "complete") == CHECKED_STATE) else "false"
+#     res = requests.post("{}/checklists/{}/checkItems".format(API_BASE, checklist.get("id"), params=params, auth=_get_auth()))
 
 def _get_lists():
     try:
-        return requests.get("{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
+        return _api_call(requests.get, "{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
     except:
         return []
 
@@ -163,3 +161,8 @@ def _get_day_lists():
         if name.lower() in ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]:
             daymap[name] = listid
     return daymap
+
+@sleep_and_retry
+@limits(calls=100, period=10)
+def _api_call(func, *args, **kwargs):
+    return func(*args, **kwargs)
