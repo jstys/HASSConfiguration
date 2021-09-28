@@ -1,9 +1,9 @@
 import re
-import functools
 
 import requests
 from requests_oauthlib import OAuth1
-from ratelimit import limits, sleep_and_retry
+from ratelimit import limits, RateLimitException
+from backoff import on_exception, expo
 
 API_BASE = "https://api.trello.com/1"
 CHECKED_STATE = "complete"
@@ -162,7 +162,7 @@ def _get_day_lists():
             daymap[name] = listid
     return daymap
 
-@sleep_and_retry
-@limits(calls=100, period=10)
+@on_exception(expo, RateLimitException, max_tries=5)
+@limits(calls=95, period=10)
 def _api_call(func, *args, **kwargs):
     return func(*args, **kwargs)
