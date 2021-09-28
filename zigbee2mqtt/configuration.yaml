@@ -4,13 +4,15 @@ homeassistant: true
 # allow new devices to join
 permit_join: false
 
+devices: devices.yaml
+
 # MQTT settings
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://localhost:1883'
-  user: zigbee2mqtt
-  client_id: zigbee2mqtt
-  version: 3
+  user: 'zigbee2mqtt'
+  password: 'zigbee2mqtt'
+  client_id: 'zigbee2mqtt'
 
 # Serial settings
 serial:
