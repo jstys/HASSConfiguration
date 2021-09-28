@@ -16,7 +16,9 @@ def register_callbacks():
     event_dispatcher.register_callback(on_archive, ArchiveMealplanEvent.__name__)
     
 def on_generate(event):
+    logger.info("Generating mealplan")
     success, errorList = trello_util.generate_grocery_list_from_meal_plan()
+    logger.info(f"Result was {success}")
     if not success:
         hassutil.gui_notify("Grocery List Errors", message="\n".join(errorList))
 
