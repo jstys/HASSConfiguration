@@ -68,6 +68,18 @@ services:
     ports:
       - '8091:8091' # port for web interface
       - '3000:3000' # port for zwave-js websocket server
+
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - /home/dietpi/zig2mqtt:/app/data
+      - /run/udev:/run/udev:ro
+    restart: unless-stopped
+    network_mode: host
+    privileged: true
+    environment:
+      - TZ=America/New_York
   syncthing:
     container_name: syncthing
     image: linuxserver/syncthing:arm32v7-latest
