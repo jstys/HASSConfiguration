@@ -10,6 +10,7 @@ mqtt:
   server: 'mqtt://localhost:1883'
   user: zigbee2mqtt
   client_id: zigbee2mqtt
+  version: 3
 
 # Serial settings
 serial:
