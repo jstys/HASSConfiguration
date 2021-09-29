@@ -2,6 +2,7 @@ import event_dispatcher
 from util import logutil
 from util import hassutil
 from util import trello_util
+from actions.push_notify_action import PushNotifyAction
 from events.generate_mealplan_event import GenerateMealplanEvent
 from events.archive_mealplan_event import ArchiveMealplanEvent
 
@@ -18,7 +19,9 @@ def register_callbacks():
 def on_generate(event):
     logger.info("Generating mealplan")
     success, errorList = trello_util.generate_grocery_list_from_meal_plan()
-    logger.info(f"Result was {success}")
+    
+    PushNotifyAction().add_target("jim_cell").set_message("Mealplan generation is finished!", notification_id="mealplan-alert", tts=True).notify()
+
     if not success:
         hassutil.gui_notify("Grocery List Errors", message="\n".join(errorList))
 
