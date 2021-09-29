@@ -1,9 +1,9 @@
 import re
-import functools
 
 import requests
+from requests.models import HTTPError
 from requests_oauthlib import OAuth1
-from ratelimit import limits, sleep_and_retry
+from backoff import expo, on_exception
 
 API_BASE = "https://api.trello.com/1"
 CHECKED_STATE = "complete"
@@ -13,6 +13,8 @@ _AUTH = None
 _GROCERY_LIST_ID = "1iKTzp7F"
 _MEALPLAN_BOARD_ID = "BYUf1NJ0"
 _RECENT_RECIPES_ID = "57b1272100998a82de83e0e7"
+
+session = None
 
 def create_grocery_cache():
     grocery_cache = {}
@@ -39,6 +41,12 @@ def archive_last_week():
 
 
 def generate_grocery_list_from_meal_plan():
+    global session
+
+    if session is not None:
+        return False, []
+
+    session = requests.Session()
     failed_to_add = []
 
     cache = create_grocery_cache()
@@ -58,6 +66,8 @@ def generate_grocery_list_from_meal_plan():
         item["pos"] = "bottom"
         _save_item(item)
 
+    session.close()
+    session = None
     if failed_to_add:
         return False, failed_to_add
     else:
@@ -111,20 +121,18 @@ def _update_item_amount(item, amount):
 
 def _get_grocery_list():
     try:
-        check_api_limit()
-        return requests.get("{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
-    except:
+        return api_call("GET", "{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
+    except Exception as e:
+        print(f"Error getting grocery list: {e}")
         return {}
 
 def _get_grocery_items_for_day(day, daymap):
     ingredients = []
     trello_id = daymap[day]
-    check_api_limit()
-    day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
+    day_recipes = api_call("GET", "{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
     for day_recipe in day_recipes:
         for ingredient_list_ids in day_recipe['idChecklists']:
-            check_api_limit()
-            ingredients.extend(requests.get("{}/checklists/{}/checkitems".format(API_BASE, ingredient_list_ids), auth=_get_auth()).json())
+            ingredients.extend(api_call("GET", "{}/checklists/{}/checkitems".format(API_BASE, ingredient_list_ids), auth=_get_auth()).json())
 
     return ingredients
 
@@ -138,8 +146,7 @@ def _save_item(item):
     params["idChecklist"] = item["idChecklist"]
     if "pos" in item:
         params["pos"] = item["pos"]
-    check_api_limit()
-    res = requests.request("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
+    res = api_call("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
 
 # def _delete_item(item):
 #     requests.request("DELETE", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), auth=_get_auth())
@@ -153,9 +160,9 @@ def _save_item(item):
 
 def _get_lists():
     try:
-        check_api_limit()
-        return requests.get("{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
-    except:
+        return api_call("GET", "{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
+    except Exception as e:
+        print(f"Error getting lists: {e}")
         return []
 
 def _get_day_lists():
@@ -167,7 +174,12 @@ def _get_day_lists():
             daymap[name] = listid
     return daymap
 
-@sleep_and_retry
-@limits(calls=90, period=10)
-def check_api_limit():
-    return
+@on_exception(expo, HTTPError, max_tries=8)
+def api_call(method: str, *args, **kwargs):
+    response = session.request(method, *args, **kwargs, timeout=5)
+    try:
+        response.raise_for_status()
+    except HTTPError as e:
+        print(f"API Call exception: {e}")
+        raise e
+    return response
