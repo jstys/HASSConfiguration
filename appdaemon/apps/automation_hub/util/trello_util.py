@@ -12,33 +12,46 @@ UNCHECKED_STATE = "incomplete"
 _AUTH = None
 _GROCERY_LIST_ID = "1iKTzp7F"
 _MEALPLAN_BOARD_ID = "BYUf1NJ0"
-_RECENT_RECIPES_ID = "57b1272100998a82de83e0e7"
 
 session = None
 
-def create_grocery_cache():
-    grocery_cache = {}
-    grocery_json = _get_grocery_list()
-
-    for category in grocery_json:
-        category_items = category.get("checkItems")
-        sorted_items = sorted(category_items, key=lambda it: it["name"])
-        for i, item in enumerate(category_items):
-            new_item = item.copy()
-            new_item["name"] = sorted_items[i]["name"]
-            new_item["state"] = sorted_items[i]["state"]
-            grocery_cache[_get_grocery_item_name(new_item)] = new_item
-
-    return grocery_cache
+def set_auth(key, secret, oauth):
+    global _AUTH
+    
+    _AUTH = OAuth1(key, secret, oauth)
 
 def archive_last_week():
-    pass
-    # for day, _ in _DAY_LIST_MAP.items():
-    #     trello_id = _DAY_LIST_MAP[day]
-    #     day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
-    #     for day_recipe in day_recipes:
-    #         requests.put("{}/cards/{}/idList?value={}".format(API_BASE, day_recipe['id'], _RECENT_RECIPES_ID), auth=_get_auth())
+    global session
 
+    if session is not None:
+        return False, []
+
+    session = requests.Session()
+
+    day_list_map = _get_day_lists()
+    recent_list = _get_recent_list()
+    if recent_list:
+        for _, list_id in day_list_map.items():
+            trello_id = list_id
+            day_recipes = requests.get("{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
+            for day_recipe in day_recipes:
+                requests.put("{}/cards/{}/idList?value={}".format(API_BASE, day_recipe['id'], recent_list), auth=_get_auth())
+
+    session.close()
+    session = None
+
+def clear_grocery_list():
+    global session
+
+    if session is not None:
+        return False, []
+
+    session = requests.Session()
+
+    _clear_all()
+
+    session.close()
+    session = None
 
 def generate_grocery_list_from_meal_plan():
     global session
@@ -49,8 +62,8 @@ def generate_grocery_list_from_meal_plan():
     session = requests.Session()
     failed_to_add = []
 
-    cache = create_grocery_cache()
-    reset_all_item_amounts(cache)
+    cache = _create_grocery_cache()
+    _reset_all_item_amounts(cache)
 
     day_list_map = _get_day_lists()
 
@@ -58,7 +71,7 @@ def generate_grocery_list_from_meal_plan():
         for item in _get_grocery_items_for_day(day, day_list_map):
             name = _get_grocery_item_name(item)
             amount = _get_grocery_item_amount(item)
-            result, _ = add_to_grocery_list(name, cache, amount=amount)
+            result, _ = _add_to_grocery_list(name, cache, amount=amount)
             if not result:
                 failed_to_add.append("{} ({}) - {}".format(name, amount, day))
 
@@ -73,7 +86,33 @@ def generate_grocery_list_from_meal_plan():
     else:
         return True, []
 
-def add_to_grocery_list(item_name, cache, amount=""):
+def _clear_all():
+    cache = _create_grocery_cache()
+    for _, item in cache.items():
+        item["state"] = CHECKED_STATE
+
+    _reset_all_item_amounts(cache)
+
+    for _, item in cache.items():
+        item["pos"] = "bottom"
+        _save_item(item)
+
+def _create_grocery_cache():
+    grocery_cache = {}
+    grocery_json = _get_grocery_list()
+
+    for category in grocery_json:
+        category_items = category.get("checkItems")
+        sorted_items = sorted(category_items, key=lambda it: it["name"])
+        for i, item in enumerate(category_items):
+            new_item = item.copy()
+            new_item["name"] = sorted_items[i]["name"]
+            new_item["state"] = sorted_items[i]["state"]
+            grocery_cache[_get_grocery_item_name(new_item)] = new_item
+
+    return grocery_cache
+
+def _add_to_grocery_list(item_name, cache, amount=""):
     item = _get_item_reference_from_grocery_list(item_name, cache)
     if item:
         _update_item_amount(item, amount)
@@ -82,15 +121,10 @@ def add_to_grocery_list(item_name, cache, amount=""):
     else:
         return False, " ".join([item_name, "is not on the grocery list"])
 
-def reset_all_item_amounts(cache):
+def _reset_all_item_amounts(cache):
     for _, grocery_item in cache.items():
         if grocery_item.get("state") == CHECKED_STATE:
             _update_item_amount(grocery_item, "")
-    
-def set_auth(key, secret, oauth):
-    global _AUTH
-    
-    _AUTH = OAuth1(key, secret, oauth)
 
 def _get_item_reference_from_grocery_list(item, grocery_cache):
     if item.lower() in grocery_cache:
@@ -121,7 +155,7 @@ def _update_item_amount(item, amount):
 
 def _get_grocery_list():
     try:
-        return api_call("GET", "{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
+        return _api_call("GET", "{}/cards/{}/checklists".format(API_BASE, _GROCERY_LIST_ID), auth=_get_auth()).json()
     except Exception as e:
         print(f"Error getting grocery list: {e}")
         return {}
@@ -129,10 +163,10 @@ def _get_grocery_list():
 def _get_grocery_items_for_day(day, daymap):
     ingredients = []
     trello_id = daymap[day]
-    day_recipes = api_call("GET", "{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
+    day_recipes = _api_call("GET", "{}/lists/{}/cards".format(API_BASE, trello_id), auth=_get_auth()).json()
     for day_recipe in day_recipes:
         for ingredient_list_ids in day_recipe['idChecklists']:
-            ingredients.extend(api_call("GET", "{}/checklists/{}/checkitems".format(API_BASE, ingredient_list_ids), auth=_get_auth()).json())
+            ingredients.extend(_api_call("GET", "{}/checklists/{}/checkitems".format(API_BASE, ingredient_list_ids), auth=_get_auth()).json())
 
     return ingredients
 
@@ -146,7 +180,7 @@ def _save_item(item):
     params["idChecklist"] = item["idChecklist"]
     if "pos" in item:
         params["pos"] = item["pos"]
-    res = api_call("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
+    res = _api_call("PUT", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), params=params, auth=_get_auth())
 
 # def _delete_item(item):
 #     requests.request("DELETE", "{}/cards/{}/checkItem/{}".format(API_BASE, _GROCERY_LIST_ID, item.get("id")), auth=_get_auth())
@@ -160,7 +194,7 @@ def _save_item(item):
 
 def _get_lists():
     try:
-        return api_call("GET", "{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
+        return _api_call("GET", "{}/boards/{}/lists".format(API_BASE, _MEALPLAN_BOARD_ID), auth=_get_auth()).json()
     except Exception as e:
         print(f"Error getting lists: {e}")
         return []
@@ -174,8 +208,18 @@ def _get_day_lists():
             daymap[name] = listid
     return daymap
 
+def _get_recent_list():
+    lists = _get_lists()
+    for list in lists:
+        name = list.get("name")
+        listid = list.get("id")
+        if name.lower() == "last week":
+            return listid
+    
+    return None
+
 @on_exception(expo, HTTPError, max_tries=8)
-def api_call(method: str, *args, **kwargs):
+def _api_call(method: str, *args, **kwargs):
     response = session.request(method, *args, **kwargs, timeout=5)
     try:
         response.raise_for_status()
