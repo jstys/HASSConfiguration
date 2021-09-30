@@ -1,12 +1,12 @@
 entities:
     light:
-        light.master_bedroom_fixture_zha_group_0x0002:
+        light.master_bedroom_fixture:
             name: master_bedroom_fixture
             room: master_bedroom
-        light.cree_connected_a_19_60w_equivalent_43d109fe_level_on_off:
+        light.master_bedroom_fixture_1:
             name: master_bedroom_fixture_1
             room: master_bedroom
-        light.cree_connected_a_19_60w_equivalent_bfd509fe_level_on_off:
+        light.master_bedroom_fixture_2:
             name: master_bedroom_fixture_2
             room: master_bedroom
         light.hallway_fixture:
@@ -27,7 +27,7 @@ entities:
         light.hallway_lights:
             name: hallway_lights
             room: hallway
-        light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
+        light.front_porch_light:
             room: front_porch
         light.landing_light:
             room: landing
@@ -40,7 +40,7 @@ entities:
         light.gateway_light_34ce008dcec1:
             name: gateway_light
             room: living_room
-        light.osram_lightify_par38_on_off_dim_30eea500_level_on_off:
+        light.driveway_light:
             room: driveway
         light.first_floor_staircase_led:
             name: first_floor_staircase_led
@@ -72,13 +72,13 @@ entities:
         light.kitchen_cabinet_lights:
             name: kitchen_cabinet_lights
             room: kitchen
-        light.sengled_e11_g13_b02c1503_level_on_off:
+        light.master_bedroom_closet_light_1:
             name: master_bedroom_closet_light_1
             room: master_bedroom
-        light.sengled_e11_g13_befa1603_level_on_off:
+        light.master_bedroom_closet_light_2:
             name: master_bedroom_closet_light_2
             room: master_bedroom
-        light.master_bedroom_closet_zha_group_0x0004:
+        light.master_bedroom_closet_lights:
             name: master_bedroom_closet_lights
             room: master_bedroom
         light.master_bedroom_mirror_led:
@@ -102,16 +102,16 @@ entities:
         light.office_lights:
             name: office_lights
             room: office
-        light.ledvance_par38_w_10_year_05220000_level_light_color_on_off:
+        light.backyard_flood_light_1:
             name: backyard_flood_light_1
             room: backyard
-        light.ledvance_par38_w_10_year_13430000_level_light_color_on_off:
+        light.backyard_flood_light_2:
             name: backyard_flood_light_2
             room: backyard
-        light.backyard_flood_lights_zha_group_0x0006:
+        light.backyard_flood_lights:
             name: backyard_flood_lights
             room: backyard
-        light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off:
+        light.backyard_bar_lights:
             name: backyard_bar_lights
             room: backyard
         light.kitchen_fixture:

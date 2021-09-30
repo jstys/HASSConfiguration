@@ -19,6 +19,6 @@
 - platform: group
   name: Backyard Lights
   entities:
-    - light.backyard_flood_lights_zha_group_0x0006
+    - light.backyard_flood_lights
     - light.backyard_fence_lights_2
-    - light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off
+    - light.backyard_bar_lights
