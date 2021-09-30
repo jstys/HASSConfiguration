@@ -3,13 +3,13 @@
   entity_id: switch.third_reality_inc_3rss007z_031be0ff_on_off
 - platform: switch
   name: Office Lights
-  entity_id: switch.third_reality_inc_3rss007z_1818e0ff_on_off
+  entity_id: switch.office_light_switch
 - platform: switch
   name: Garage Front Light
-  entity_id: switch.centralite_3210_l_c9488805_on_off
+  entity_id: switch.front_garage_switch
 - platform: switch
   name: Master Bedroom Mirror LED
-  entity_id: switch.centralite_3210_l_96312d0b_on_off
+  entity_id: switch.master_bedroom_led_switch
 - platform: switch
   name: Backyard Fence Lights
   entity_id: switch.smart_strip_2
