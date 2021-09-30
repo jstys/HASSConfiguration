@@ -9,10 +9,10 @@ entities:
         light.cree_connected_a_19_60w_equivalent_bfd509fe_level_on_off:
             name: master_bedroom_fixture_2
             room: master_bedroom
-        light.the_home_depot_ecosmart_zbt_a19_cct_bulb_36d294fe_level_light_color_on_off:
+        light.hallway_fixture:
             name: hallway_fixture
             room: hallway
-        light.the_home_depot_ecosmart_zbt_a19_cct_bulb_5886d7fe_level_light_color_on_off:
+        light.hallway_wall_light:
             name: hallway_wall_light
             room: hallway
         light.living_room_lamp_1:
@@ -24,12 +24,12 @@ entities:
         light.living_room_lamps:
             name: living_room_lamps
             room: living_room
-        light.hallway_lights_zha_group_0x0009:
+        light.hallway_lights:
             name: hallway_lights
             room: hallway
         light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
             room: front_porch
-        light.cree_connected_a_19_60w_equivalent_f3fb05fe_level_on_off:
+        light.landing_light:
             room: landing
         light.kitchen_lights:
             name: kitchen_lights
@@ -54,22 +54,22 @@ entities:
         light.piano_led:
             name: piano_led
             room: living_room
-        light.fourth_bedroom_fixture_zha_group_0x0003:
+        light.fourth_bedroom_fixture:
             name: fourth_bedroom_fixture
             room: fourth_bedroom
-        light.sengled_e11_g13_c9b71603_level_on_off:
+        light.fourth_bedroom_fixture_1:
             name: fourth_bedroom_fixture_1
             room: fourth_bedroom
-        light.sengled_e11_g13_ef2c1503_level_on_off:
+        light.fourth_bedroom_fixture_2:
             name: fourth_bedroom_fixture_2
             room: fourth_bedroom
-        light.ledvance_edge_lit_under_cabinet_tw_0dc70200_level_light_color_on_off:
+        light.kitchen_cabinet_right_light:
             name: kitchen_cabinet_right_light
             room: kitchen
-        light.ledvance_edge_lit_under_cabinet_tw_f4c70200_level_light_color_on_off:
+        light.kitchen_cabinet_left_light:
             name: kitchen_cabinet_left_light
             room: kitchen
-        light.kitchen_cabinets_zha_group_0x0005:
+        light.kitchen_cabinet_lights:
             name: kitchen_cabinet_lights
             room: kitchen
         light.sengled_e11_g13_b02c1503_level_on_off:
@@ -84,16 +84,16 @@ entities:
         light.master_bedroom_mirror_led:
             name: master_bedroom_mirror_led
             room: master_bedroom
-        light.centralite_3210_l_06b1dd0a_on_off:
+        switch.basement_fan_switch:
             name: basement_fan
             room: basement
-        light.cree_connected_a_19_60w_equivalent_b0cf09fe_level_on_off:
+        light.attic_front_light:
             name: attic_front_light
             room: attic
-        light.cree_connected_a_19_60w_equivalent_83cc09fe_level_on_off:
+        light.attic_back_light:
             name: attic_back_light
             room: attic
-        light.attic_lights_zha_group_0x0007:
+        light.attic_lights:
             name: attic_lights
             room: attic
         light.backyard_fence_lights_2:
@@ -117,7 +117,7 @@ entities:
         light.kitchen_fixture:
             name: kitchen_fixture
             room: kitchen
-        light.basement_lights_zha_group_0x0008:
+        light.basement_lights:
             name: basement_lights
             room: basement
         light.node_109:
@@ -164,14 +164,14 @@ entities:
             room: utility_room
     
     door_sensor:
-        binary_sensor.visonic_mct_340_e_6216120b_ias_zone:
+        binary_sensor.front_entrance_sensor:
             room: front_entrance
         binary_sensor.visonic_mct_340_e_781b120b_ias_zone:
             room: garage
         binary_sensor.door_window_sensor_158d0001d3a024:
             name: kitchen_fridge_sensor
             room: kitchen
-        binary_sensor.visonic_mct_340_e_fa15120b_ias_zone:
+        binary_sensor.attic_door_sensor:
             room: attic
     
     button:
@@ -305,7 +305,7 @@ entities:
         switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
             name: garage_door_switch
             room: garage
-        switch.third_reality_inc_3rss007z_031be0ff_on_off:
+        switch.kitchen_fixture_switch:
             name: kitchen_fixture_switch
             room: kitchen
         switch.office_light_switch:

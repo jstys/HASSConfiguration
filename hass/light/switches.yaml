@@ -1,6 +1,6 @@
 - platform: switch
   name: Kitchen Fixture
-  entity_id: switch.third_reality_inc_3rss007z_031be0ff_on_off
+  entity_id: switch.kitchen_fixture_switch
 - platform: switch
   name: Office Lights
   entity_id: switch.office_light_switch

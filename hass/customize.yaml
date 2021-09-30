@@ -1,9 +1,13 @@
+binary_sensor.attic_door_sensor:
+  friendly_name: Attic Door Sensor
 binary_sensor.centralite_3325_s_2c96cc0b_ias_zone:
   friendly_name: Garage Back Motion
 binary_sensor.door_window_sensor_158d0001d3a024:
   friendly_name: Kitchen Fridge Sensor
 binary_sensor.dryer_running:
   friendly_name: Dryer Running
+binary_sensor.front_entrance_sensor:
+  friendly_name: Front Entrance Door Sensor
 binary_sensor.motion_sensor_158d00016612a5:
   friendly_name: Office Motion Sensor
 binary_sensor.motion_sensor_158d0002b6edb0:
@@ -24,12 +28,8 @@ binary_sensor.third_reality_inc_3rms16bz_dd4ae7ff_ias_zone:
   friendly_name: Hallway Motion Sensor
 binary_sensor.third_reality_inc_3rms16bz_ed52e7ff_ias_zone:
   friendly_name: Kitchen Front Motion
-binary_sensor.visonic_mct_340_e_6216120b_ias_zone:
-  friendly_name: Front Entrance Door Sensor
 binary_sensor.visonic_mct_340_e_781b120b_ias_zone:
   friendly_name: Garage Door Sensor
-binary_sensor.visonic_mct_340_e_fa15120b_ias_zone:
-  friendly_name: Attic Door Sensor
 binary_sensor.washer_running:
   friendly_name: Washer Running
 binary_sensor.water_leak_sensor_158d00023a58df:
@@ -90,36 +90,36 @@ input_select.appdaemon_log_mode:
   friendly_name: Appdaemon Log Mode
 input_select.thermostat_mode:
   friendly_name: Thermostat Mode
-light.attic_lights_zha_group_0x0007:
+light.attic_back_light:
+  friendly_name: Attic Back Light
+light.attic_front_light:
+  friendly_name: Attic Front Light
+light.attic_lights:
   friendly_name: Attic Lights
 light.backyard_fence_lights_2:
   friendly_name: Backyard Fence Lights
 light.backyard_flood_lights_zha_group_0x0006:
   friendly_name: Backyard Flood Lights
-light.basement_lights_zha_group_0x0008:
+light.basement_lights:
   friendly_name: Basement Lights
-light.centralite_3210_l_06b1dd0a_on_off:
-  friendly_name: Basement Fan
 light.cree_connected_a_19_60w_equivalent_43d109fe_level_on_off:
   friendly_name: Master Bedroom Fixture 1
 light.cree_connected_a_19_60w_equivalent_72cc09fe_level_on_off:
   friendly_name: Front Porch Light
-light.cree_connected_a_19_60w_equivalent_83cc09fe_level_on_off:
-  friendly_name: Attic Back Light
-light.cree_connected_a_19_60w_equivalent_b0cf09fe_level_on_off:
-  friendly_name: Attic Front Light
 light.cree_connected_a_19_60w_equivalent_bfd509fe_level_on_off:
   friendly_name: Master Bedroom Fixture 2
-light.cree_connected_a_19_60w_equivalent_f3fb05fe_level_on_off:
-  friendly_name: Landing Light
 light.dining_room_light:
   friendly_name: Dining Room Light
 light.erica_night_lamp:
   friendly_name: Erica Night Lamp
 light.first_floor_staircase_led:
   friendly_name: First Floor Staircase Led
-light.fourth_bedroom_fixture_zha_group_0x0003:
+light.fourth_bedroom_fixture:
   friendly_name: Fourth Bedroom Fixture
+light.fourth_bedroom_fixture_1:
+  friendly_name: Fourth Bedroom Fixture 1
+light.fourth_bedroom_fixture_2:
+  friendly_name: Fourth Bedroom Fixture 2
 light.garage_back_light:
   friendly_name: Garage Back Light
 light.garage_front_light:
@@ -128,22 +128,28 @@ light.garage_lights:
   friendly_name: Garage Lights
 light.gateway_light_34ce008dcec1:
   friendly_name: Gateway Light
-light.hallway_lights_zha_group_0x0009:
+light.hallway_fixture:
+  friendly_name: Hallway Fixture
+light.hallway_lights:
   friendly_name: Hallway Lights
+light.hallway_wall_light:
+  friendly_name: Hallway Wall Light
 light.jim_night_lamp:
   friendly_name: Jim Night Lamp
-light.kitchen_cabinets_zha_group_0x0005:
+light.kitchen_cabinet_left_light:
+  friendly_name: Kitchen Cabinet Left Light
+light.kitchen_cabinet_lights:
   friendly_name: Kitchen Cabinet Lights
+light.kitchen_cabinet_right_light:
+  friendly_name: Kitchen Cabinet Right Light
 light.kitchen_fixture:
   friendly_name: Kitchen Fixture
 light.kitchen_hi_hats:
   friendly_name: Kitchen Hi Hats
 light.kitchen_lights:
   friendly_name: Kitchen Lights
-light.ledvance_edge_lit_under_cabinet_tw_0dc70200_level_light_color_on_off:
-  friendly_name: Kitchen Cabinet Right Light
-light.ledvance_edge_lit_under_cabinet_tw_f4c70200_level_light_color_on_off:
-  friendly_name: Kitchen Cabinet Left Light
+light.landing_light:
+  friendly_name: Landing Light
 light.ledvance_outdoor_accent_light_rgb_23840700_level_light_color_on_off:
   friendly_name: Backyard Bar Lights
 light.ledvance_par38_w_10_year_05220000_level_light_color_on_off:
@@ -174,14 +180,6 @@ light.sengled_e11_g13_b02c1503_level_on_off:
   friendly_name: Master Bedroom Closet Light 1
 light.sengled_e11_g13_befa1603_level_on_off:
   friendly_name: Master Bedroom Closet Light 2
-light.sengled_e11_g13_c9b71603_level_on_off:
-  friendly_name: Fourth Bedroom Fixture 1
-light.sengled_e11_g13_ef2c1503_level_on_off:
-  friendly_name: Fourth Bedroom Fixture 2
-light.the_home_depot_ecosmart_zbt_a19_cct_bulb_36d294fe_level_light_color_on_off:
-  friendly_name: Hallway Fixture
-light.the_home_depot_ecosmart_zbt_a19_cct_bulb_5886d7fe_level_light_color_on_off:
-  friendly_name: Hallway Wall Light
 lock.key_free_push_button_deadbolt:
   friendly_name: Front Entrance Lock
 media_player.backyard_mibox:
@@ -276,6 +274,8 @@ sensor.z_wave_plus_thermostat_battery_level:
   friendly_name: Thermostat Battery
 sun.sun:
   friendly_name: Sun
+switch.basement_fan_switch:
+  friendly_name: Basement Fan
 switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
   friendly_name: Garage Door Switch
 switch.dryer_outlet:
@@ -288,6 +288,8 @@ switch.guest_bedroom_outlet:
   friendly_name: Guest Bedroom Outlet
 switch.hallway_outlet:
   friendly_name: Hallway Outlet
+switch.kitchen_fixture_switch:
+  friendly_name: Kitchen Fixture Switch
 switch.kitchen_fragrance_outlet:
   friendly_name: Kitchen Fragrance
 switch.living_room_fragrance_outlet:
@@ -328,8 +330,6 @@ switch.smart_strip_3:
   friendly_name: Aeon Labs Smart Strip 3
 switch.smart_strip_4:
   friendly_name: Aeon Labs Smart Strip 4
-switch.third_reality_inc_3rss007z_031be0ff_on_off:
-  friendly_name: Kitchen Fixture Switch
 vacuum.roborock_s6_pure:
   friendly_name: Main Vacuum
 vacuum.roborock_v1:
