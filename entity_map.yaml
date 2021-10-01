@@ -139,7 +139,7 @@ entities:
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
             room: office
-        binary_sensor.third_reality_inc_3rms16bz_dd4ae7ff_ias_zone:
+        binary_sensor.hallway_motion_sensor:
             room: hallway
         binary_sensor.motion_sensor_158d0002b6fe4e:
             room: landing
@@ -155,7 +155,7 @@ entities:
         binary_sensor.motion_sensor_158d0002b71f6a:
             name: basement_stairs_motion
             room: basement
-        binary_sensor.third_reality_inc_3rms16bz_ed52e7ff_ias_zone:
+        binary_sensor.kitchen_front_motion_sensor:
             name: kitchen_front_motion
             room: kitchen
     

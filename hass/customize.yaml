@@ -8,6 +8,10 @@ binary_sensor.dryer_running:
   friendly_name: Dryer Running
 binary_sensor.front_entrance_sensor:
   friendly_name: Front Entrance Door Sensor
+binary_sensor.hallway_motion_sensor:
+  friendly_name: Hallway Motion Sensor
+binary_sensor.kitchen_front_motion_sensor:
+  friendly_name: Kitchen Front Motion
 binary_sensor.motion_sensor_158d00016612a5:
   friendly_name: Office Motion Sensor
 binary_sensor.motion_sensor_158d0002b6edb0:
@@ -24,10 +28,6 @@ binary_sensor.switch_158d00016dbf86:
   friendly_name: Master Bedroom Button
 binary_sensor.switch_158d00026ad875:
   friendly_name: Basement Button
-binary_sensor.third_reality_inc_3rms16bz_dd4ae7ff_ias_zone:
-  friendly_name: Hallway Motion Sensor
-binary_sensor.third_reality_inc_3rms16bz_ed52e7ff_ias_zone:
-  friendly_name: Kitchen Front Motion
 binary_sensor.visonic_mct_340_e_781b120b_ias_zone:
   friendly_name: Garage Door Sensor
 binary_sensor.washer_running:
