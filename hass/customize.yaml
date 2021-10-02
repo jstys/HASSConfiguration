@@ -1,13 +1,15 @@
-binary_sensor.attic_door_sensor:
+binary_sensor.attic_door_sensor_contact:
   friendly_name: Attic Door Sensor
 binary_sensor.door_window_sensor_158d0001d3a024:
   friendly_name: Kitchen Fridge Sensor
 binary_sensor.dryer_running:
   friendly_name: Dryer Running
-binary_sensor.front_entrance_sensor:
+binary_sensor.front_entrance_sensor_contact:
   friendly_name: Front Entrance Door Sensor
 binary_sensor.garage_back_motion_occupancy:
   friendly_name: Garage Back Motion
+binary_sensor.garage_door_sensor_contact:
+  friendly_name: Garage Door Sensor
 binary_sensor.hallway_motion_sensor_occupancy:
   friendly_name: Hallway Motion Sensor
 binary_sensor.kitchen_front_motion_sensor_occupancy:
@@ -28,8 +30,6 @@ binary_sensor.switch_158d00016dbf86:
   friendly_name: Master Bedroom Button
 binary_sensor.switch_158d00026ad875:
   friendly_name: Basement Button
-binary_sensor.visonic_mct_340_e_781b120b_ias_zone:
-  friendly_name: Garage Door Sensor
 binary_sensor.washer_running:
   friendly_name: Washer Running
 binary_sensor.water_leak_sensor_158d00023a58df:
