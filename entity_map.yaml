@@ -139,14 +139,14 @@ entities:
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
             room: office
-        binary_sensor.hallway_motion_sensor:
+        binary_sensor.hallway_motion_sensor_occupancy:
             room: hallway
         binary_sensor.motion_sensor_158d0002b6fe4e:
             room: landing
         binary_sensor.motion_sensor_158d0002c63719:
             name: garage_front_motion
             room: garage
-        binary_sensor.centralite_3325_s_2c96cc0b_ias_zone:
+        binary_sensor.garage_back_motion_occupancy:
             name: garage_back_motion
             room: garage
         binary_sensor.motion_sensor_158d0002b6edb0:
@@ -155,7 +155,7 @@ entities:
         binary_sensor.motion_sensor_158d0002b71f6a:
             name: basement_stairs_motion
             room: basement
-        binary_sensor.kitchen_front_motion_sensor:
+        binary_sensor.kitchen_front_motion_sensor_occupancy:
             name: kitchen_front_motion
             room: kitchen
     
@@ -164,14 +164,14 @@ entities:
             room: utility_room
     
     door_sensor:
-        binary_sensor.front_entrance_sensor:
+        binary_sensor.front_entrance_sensor_contact:
             room: front_entrance
-        binary_sensor.visonic_mct_340_e_781b120b_ias_zone:
+        binary_sensor.garage_door_sensor_contact:
             room: garage
         binary_sensor.door_window_sensor_158d0001d3a024:
             name: kitchen_fridge_sensor
             room: kitchen
-        binary_sensor.attic_door_sensor:
+        binary_sensor.attic_door_sensor_contact:
             room: attic
     
     button:
