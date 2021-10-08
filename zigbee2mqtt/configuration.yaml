@@ -5,6 +5,7 @@ homeassistant: true
 permit_join: false
 
 devices: devices.yaml
+groups: groups.yaml
 
 # MQTT settings
 mqtt:
