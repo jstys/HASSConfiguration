@@ -79,6 +79,7 @@ services:
       - /home/dietpi/zig2mqtt:/app/data
       - /home/dietpi/HASSConfiguration/zigbee2mqtt/configuration.yaml:/app/data/configuration.yaml
       - /home/dietpi/HASSConfiguration/zigbee2mqtt/devices.yaml:/app/data/devices.yaml
+      - /home/dietpi/HASSConfiguration/zigbee2mqtt/groups.yaml:/app/data/groups.yaml
       - /run/udev:/run/udev:ro
     restart: unless-stopped
     network_mode: host
