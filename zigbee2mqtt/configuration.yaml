@@ -4,6 +4,9 @@ homeassistant: true
 # allow new devices to join
 permit_join: false
 
+advanced:
+  availability_timeout: 60
+
 devices: devices.yaml
 groups: groups.yaml
 
