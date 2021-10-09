@@ -5,7 +5,13 @@ homeassistant: true
 permit_join: false
 
 advanced:
-  availability_timeout: 60
+  availability_timeout: 0
+  last_seen: 'ISO_8601_local'
+  homeassistant_legacy_entity_attributes: false
+  homeassistant_legacy_triggers: false
+
+ota:
+  disable_automatic_update_check: true
 
 devices: devices.yaml
 groups: groups.yaml
