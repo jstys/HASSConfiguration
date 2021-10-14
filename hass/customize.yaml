@@ -222,10 +222,10 @@ person.erica:
   friendly_name: Erica Presence
 person.jim:
   friendly_name: Jim Presence
-sensor.centralite_3210_l_42baa60c_electrical_measurement:
-  friendly_name: Dryer Power Monitor
 sensor.centralite_3325_s_2c96cc0b_temperature:
   friendly_name: Garage Back Temperature
+sensor.dryer_outlet_power:
+  friendly_name: Dryer Power Monitor
 sensor.humidity_158d0001d6f386:
   friendly_name: Downstairs Humidity
 sensor.humidity_158d00023cf8f7:
@@ -280,7 +280,7 @@ switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
   friendly_name: Garage Door Switch
 switch.dryer_outlet:
   friendly_name: Dryer Outlet
-switch.espress_machine_outlet:
+switch.espresso_machine_outlet:
   friendly_name: Espresso Machine
 switch.front_garage_switch:
   friendly_name: Front Garage Switch

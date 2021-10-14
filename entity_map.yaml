@@ -272,7 +272,7 @@ entities:
             name: kitchen_fragrance
         switch.smart_plug_2:
             name: rice_cooker
-        switch.espress_machine_outlet:
+        switch.espresso_machine_outlet:
             name: espresso_machine
         switch.living_room_fragrance_outlet:
             name: living_room_fragrance
@@ -437,7 +437,7 @@ entities:
             name: upstairs_humidity
 
     power_monitor:
-        sensor.centralite_3210_l_42baa60c_electrical_measurement:
+        sensor.dryer_outlet_power:
             name: dryer_power_monitor
         sensor.smart_plug_electric_consumed_w_3:
             name: washer_power_monitor
