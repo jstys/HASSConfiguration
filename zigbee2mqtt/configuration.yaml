@@ -26,8 +26,7 @@ mqtt:
 
 # Serial settings
 serial:
-  adapter: ezsp
-  port: 'tcp://10.0.0.63:8888'
+  port: /dev/ttyUSB2
 
 frontend:
   # Optional, default 8080
