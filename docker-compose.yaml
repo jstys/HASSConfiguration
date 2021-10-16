@@ -27,7 +27,7 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2021.10.0
+    image: homeassistant/tinker-homeassistant:2021.10.5
     restart: unless-stopped
     privileged: true
     volumes:
@@ -84,6 +84,8 @@ services:
     restart: unless-stopped
     network_mode: host
     privileged: true
+    devices:
+      - '/dev/ttyUSB2:/dev/ttyUSB2'
     environment:
       - TZ=America/New_York
 
