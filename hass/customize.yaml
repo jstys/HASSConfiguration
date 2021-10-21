@@ -110,8 +110,6 @@ light.basement_lights:
   friendly_name: Basement Lights
 light.dining_room_light:
   friendly_name: Dining Room Light
-light.driveway_light:
-  friendly_name: Driveway Light
 light.erica_night_lamp:
   friendly_name: Erica Night Lamp
 light.first_floor_staircase_led:

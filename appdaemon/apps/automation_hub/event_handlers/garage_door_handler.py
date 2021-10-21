@@ -16,12 +16,7 @@ def register_callbacks():
     
 def on_door_closed(event):
     logger.info("Garage door closed")
-    
-    LightAction().add_light("driveway_light").turn_off()
 
 def on_door_opened(event):
     logger.info("Garage door opened")
-    
-    if not state_machine.is_sun_up():
-        LightAction().add_light("driveway_light").turn_on()
     

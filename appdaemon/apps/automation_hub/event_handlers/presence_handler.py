@@ -35,9 +35,6 @@ def on_person_home(name):
     logger.info("{} has arrived home".format(name))
     
     handle_somebody_home()
-
-    if not state_machine.is_sun_up():
-        LightAction().add_light("driveway_light").turn_on()
     
     if name == "jim_presence":
         PushNotifyAction().add_target("jim_cell").set_message("Welcome home!").notify()
