@@ -27,7 +27,7 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2021.10.5
+    image: homeassistant/tinker-homeassistant:2021.10.7
     restart: unless-stopped
     privileged: true
     volumes:
