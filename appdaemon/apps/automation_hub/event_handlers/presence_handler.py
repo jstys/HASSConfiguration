@@ -6,6 +6,7 @@ from events.presence_event import PresenceEvent
 from actions.push_notify_action import PushNotifyAction
 from actions.light_action import LightAction
 from actions.thermostat_action import ThermostatAction
+from actions.door_lock_action import DoorLockAction
 
 logger = logutil.get_logger("automation_hub")
 
@@ -25,6 +26,7 @@ def on_person_away(name):
         handle_nobody_home()
     
     if name == "jim_presence":
+        DoorLockAction().add_lock("front_entrance_lock").lock()
         PushNotifyAction().add_target("jim_cell").set_message("Come back soon!").notify()
 
         if state_machine.is_garage_open():
