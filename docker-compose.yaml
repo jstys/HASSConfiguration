@@ -27,7 +27,7 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2021.11.2
+    image: homeassistant/tinker-homeassistant:2021.11.5
     restart: unless-stopped
     privileged: true
     volumes:
@@ -44,7 +44,7 @@ services:
 
   appdaemon:
     container_name: appdaemon
-    build: ./appdaemon/
+    image: acockburn/appdaemon:4.1.0
     restart: unless-stopped
     volumes:
       - /home/dietpi/HASSConfiguration/appdaemon:/conf
@@ -60,7 +60,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:latest
+    image: zwavejs/zwavejs2mqtt:5.12.0
     restart: unless-stopped
     tty: true
     stop_signal: SIGINT
@@ -74,7 +74,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt
+    image: koenkk/zigbee2mqtt:1.22.0
     volumes:
       - /home/dietpi/zig2mqtt:/app/data
       - /home/dietpi/HASSConfiguration/zigbee2mqtt/configuration.yaml:/app/data/configuration.yaml
