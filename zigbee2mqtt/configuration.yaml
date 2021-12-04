@@ -9,7 +9,7 @@ advanced:
   last_seen: 'ISO_8601_local'
   homeassistant_legacy_entity_attributes: false
   homeassistant_legacy_triggers: false
-  pan_id: 0x1a62
+  pan_id: 0x1a63
   channel: 11
 
 ota:
