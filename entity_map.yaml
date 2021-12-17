@@ -134,6 +134,10 @@ entities:
             name: garage_lights
             room: garage
 
+        light.christmas_tree_led_controller:
+            name: christmas_tree_lights
+            room: living_room
+
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
             room: office
@@ -286,7 +290,7 @@ entities:
             name: porch_outlet
         switch.smart_plug_3:
             name: laundry_outlet
-        switch.outdoor_z_wave_plug_in_module_1_channel_2:
+        switch.frontyard_outlet:
             name: frontyard_outlet
         switch.outdoor_z_wave_plug_in_module_1_channel:
             name: backyard_outlet

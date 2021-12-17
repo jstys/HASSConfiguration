@@ -108,6 +108,8 @@ light.backyard_flood_lights:
   friendly_name: Backyard Flood Lights
 light.basement_lights:
   friendly_name: Basement Lights
+light.christmas_tree_led_controller:
+  friendly_name: Christmas Tree Lights
 light.dining_room_light:
   friendly_name: Dining Room Light
 light.erica_night_lamp:
@@ -282,6 +284,8 @@ switch.espresso_machine_outlet:
   friendly_name: Espresso Machine
 switch.front_garage_switch:
   friendly_name: Front Garage Switch
+switch.frontyard_outlet:
+  friendly_name: Frontyard Outlet
 switch.guest_bedroom_outlet:
   friendly_name: Guest Bedroom Outlet
 switch.hallway_outlet:
@@ -304,8 +308,6 @@ switch.office_light_switch:
   friendly_name: Office Light Switch
 switch.outdoor_z_wave_plug_in_module_1_channel:
   friendly_name: Backyard Outlet
-switch.outdoor_z_wave_plug_in_module_1_channel_2:
-  friendly_name: Frontyard Outlet
 switch.piano_power_outlet:
   friendly_name: Piano Power
 switch.plug_158d00039e6ce3:

@@ -33,6 +33,9 @@ def on_sleep_state_enabled(event):
         heat_action = ThermostatAction().add_thermostat("oil_thermostat")
         heat_action.set_temperature(state_machine.get_number("sleep_mode_heat"), 'heat')
 
+    if state_machine.is_enabled("christmas_lights_mode"):
+        LightAction().add_light("christmas_tree_lights").turn_off()
+
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
     
@@ -44,4 +47,7 @@ def on_sleep_state_disabled(event):
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("oil_thermostat")
         heat_action.set_temperature(state_machine.get_number("normal_heat"), 'heat')
+
+    if state_machine.is_enabled("christmas_lights_mode"):
+        LightAction().add_light("christmas_tree_lights").turn_on()
     
