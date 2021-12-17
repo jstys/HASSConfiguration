@@ -49,5 +49,5 @@ def on_sleep_state_disabled(event):
         heat_action.set_temperature(state_machine.get_number("normal_heat"), 'heat')
 
     if state_machine.is_enabled("christmas_lights_mode"):
-        LightAction().add_light("christmas_tree_lights").turn_on()
+        LightAction().add_light("christmas_tree_lights").turn_on_no_brightness()
     
