@@ -30,6 +30,10 @@ class LightAction():
         for light in self._lights:
             hassutil.turn_on(light, brightness_pct=brightness_pct, **kwargs)
 
+    def turn_on_no_brightness(self, **kwargs):
+        for light in self._lights:
+            hassutil.turn_on(light, **kwargs)
+
     def turn_off(self):
         for light in self._lights:
             hassutil.turn_off(light)
