@@ -15,8 +15,8 @@
   entity_id: switch.smart_strip_2
 - platform: switch
   name: Kitchen Hi Hats
-  entity_id: switch.node_110
+  entity_id: switch.kitchen_switch
 - platform: switch
   name: Garage Back Light
-  entity_id: switch.node_111
+  entity_id: switch.garage_back_switch
   

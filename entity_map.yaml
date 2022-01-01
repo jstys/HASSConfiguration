@@ -327,9 +327,9 @@ entities:
             name: aeon_labs_smart_strip_3
         switch.smart_strip_4:
             name: aeon_labs_smart_strip_4
-        switch.node_110:
+        switch.kitchen_switch:
             name: kitchen_hi_hat_switch
-        switch.node_111:
+        switch.garage_back_switch:
             name: garage_back_switch
     
     lock:

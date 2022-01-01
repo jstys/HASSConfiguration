@@ -288,6 +288,8 @@ switch.front_garage_switch:
   friendly_name: Front Garage Switch
 switch.frontyard_outlet:
   friendly_name: Frontyard Outlet
+switch.garage_back_switch:
+  friendly_name: Garage Back Switch
 switch.guest_bedroom_outlet:
   friendly_name: Guest Bedroom Outlet
 switch.hallway_outlet:
@@ -296,16 +298,14 @@ switch.kitchen_fixture_switch:
   friendly_name: Kitchen Fixture Switch
 switch.kitchen_fragrance_outlet:
   friendly_name: Kitchen Fragrance
+switch.kitchen_switch:
+  friendly_name: Kitchen Hi Hat Switch
 switch.living_room_fragrance_outlet:
   friendly_name: Living Room Fragrance
 switch.master_bedroom_humidifier_outlet:
   friendly_name: Master Bedroom Humidifier Outlet
 switch.master_bedroom_led_switch:
   friendly_name: Master Bedroom Led Switch
-switch.node_110:
-  friendly_name: Kitchen Hi Hat Switch
-switch.node_111:
-  friendly_name: Garage Back Switch
 switch.office_light_switch:
   friendly_name: Office Light Switch
 switch.piano_power_outlet:
