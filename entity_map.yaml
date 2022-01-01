@@ -292,7 +292,7 @@ entities:
             name: laundry_outlet
         switch.frontyard_outlet:
             name: frontyard_outlet
-        switch.outdoor_z_wave_plug_in_module_1_channel:
+        switch.backyard_outlet:
             name: backyard_outlet
         switch.master_bedroom_humidifier_outlet:
             name: master_bedroom_humidifier_outlet
@@ -333,7 +333,7 @@ entities:
             name: garage_back_switch
     
     lock:
-        lock.key_free_push_button_deadbolt:
+        lock.front_entrance_lock:
             room: front_entrance
     
     presence:
@@ -389,7 +389,7 @@ entities:
             room: kitchen
 
     thermostat:
-        climate.z_wave_plus_thermostat:
+        climate.oil_thermostat:
             name: oil_thermostat
         climate.dining_room_ac:
             name: dining_room_ac

@@ -54,7 +54,7 @@ climate.office_ac:
   friendly_name: Office Ac
 climate.office_heat:
   friendly_name: Office Heat
-climate.z_wave_plus_thermostat:
+climate.oil_thermostat:
   friendly_name: Oil Thermostat
 cover.garage_door:
   friendly_name: Garage Door
@@ -180,7 +180,7 @@ light.office_lights:
   friendly_name: Office Lights
 light.piano_led:
   friendly_name: Piano Led
-lock.key_free_push_button_deadbolt:
+lock.front_entrance_lock:
   friendly_name: Front Entrance Lock
 media_player.backyard_mibox:
   friendly_name: Backyard Mibox
@@ -274,6 +274,8 @@ sensor.z_wave_plus_thermostat_battery_level:
   friendly_name: Thermostat Battery
 sun.sun:
   friendly_name: Sun
+switch.backyard_outlet:
+  friendly_name: Backyard Outlet
 switch.basement_fan_switch:
   friendly_name: Basement Fan
 switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
@@ -306,8 +308,6 @@ switch.node_111:
   friendly_name: Garage Back Switch
 switch.office_light_switch:
   friendly_name: Office Light Switch
-switch.outdoor_z_wave_plug_in_module_1_channel:
-  friendly_name: Backyard Outlet
 switch.piano_power_outlet:
   friendly_name: Piano Power
 switch.plug_158d00039e6ce3:
