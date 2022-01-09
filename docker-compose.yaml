@@ -78,9 +78,6 @@ services:
     image: koenkk/zigbee2mqtt:1.22.1
     volumes:
       - /home/dietpi/zig2mqtt:/app/data
-      - /home/dietpi/HASSConfiguration/zigbee2mqtt/configuration.yaml:/app/data/configuration.yaml
-      - /home/dietpi/HASSConfiguration/zigbee2mqtt/devices.yaml:/app/data/devices.yaml
-      - /home/dietpi/HASSConfiguration/zigbee2mqtt/groups.yaml:/app/data/groups.yaml
       - /run/udev:/run/udev:ro
     restart: unless-stopped
     network_mode: host
@@ -103,6 +100,7 @@ services:
       - /home/dietpi/syncthing/data:/data
       - /home/dietpi/HASSConfiguration:/hass
       - /home/dietpi/zwavejs:/zwavejs
+      - /home/dietpi/zig2mqtt:/zig2mqtt
     ports:
       - 8384:8384
       - 22000:22000
