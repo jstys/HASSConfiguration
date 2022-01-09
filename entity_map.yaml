@@ -94,7 +94,7 @@ entities:
         light.attic_lights:
             name: attic_lights
             room: attic
-        light.backyard_fence_lights_2:
+        light.backyard_fence_lights:
             name: backyard_fence_lights
             room: backyard
         light.office_lights:

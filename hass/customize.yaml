@@ -98,7 +98,7 @@ light.attic_lights:
   friendly_name: Attic Lights
 light.backyard_bar_lights:
   friendly_name: Backyard Bar Lights
-light.backyard_fence_lights_2:
+light.backyard_fence_lights:
   friendly_name: Backyard Fence Lights
 light.backyard_flood_light_1:
   friendly_name: Backyard Flood Light 1

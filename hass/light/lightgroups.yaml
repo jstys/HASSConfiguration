@@ -20,5 +20,5 @@
   name: Backyard Lights
   entities:
     - light.backyard_flood_lights
-    - light.backyard_fence_lights_2
+    - light.backyard_fence_lights
     - light.backyard_bar_lights

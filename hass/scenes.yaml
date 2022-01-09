@@ -15,7 +15,7 @@
   entities:
     light.kitchen_lights: "off"
     light.kitchen_cabinet_lights: "off"
-    light.backyard_fence_lights_2: "off"
+    light.backyard_fence_lights: "off"
     light.backyard_flood_lights: "off"
     light.backyard_bar_lights: "off"
 - name: Privacy Mode
@@ -47,7 +47,7 @@
     light.dining_room_light: "off"
     light.front_porch_light: "off"
     light.backyard_flood_lights: "off"
-    light.backyard_fence_lights_2: "off"
+    light.backyard_fence_lights: "off"
     light.backyard_bar_lights: "off"
     light.office_lights: "off"
     light.garage_lights: "off"
@@ -75,7 +75,7 @@
     light.dining_room_light: "off"
     light.front_porch_light: "off"
     light.backyard_flood_lights: "off"
-    light.backyard_fence_lights_2: "off"
+    light.backyard_fence_lights: "off"
     light.backyard_bar_lights: "off"
     light.office_lights: "off"
     light.garage_lights: "off"
