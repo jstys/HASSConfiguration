@@ -304,7 +304,7 @@ entities:
             name: basement_xiaomi_outlet
     
     switch:
-        switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
+        switch.garage_door_switch:
             name: garage_door_switch
             room: garage
         switch.kitchen_fixture_switch:

@@ -7,8 +7,8 @@
       open_cover:
         service: switch.turn_on
         data:
-          entity_id: switch.digital_or_analog_voltage_input_and_or_dry_contact_relay
+          entity_id: switch.garage_door_switch
       close_cover:
         service: switch.turn_on
         data:
-          entity_id: switch.digital_or_analog_voltage_input_and_or_dry_contact_relay
+          entity_id: switch.garage_door_switch
