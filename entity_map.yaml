@@ -148,7 +148,7 @@ entities:
         binary_sensor.motion_sensor_158d0002c63719:
             name: garage_front_motion
             room: garage
-        binary_sensor.garage_back_motion_occupancy:
+        binary_sensor.garage_back_motion_sensor_occupancy:
             name: garage_back_motion
             room: garage
         binary_sensor.motion_sensor_158d0002b6edb0:
