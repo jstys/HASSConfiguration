@@ -278,7 +278,7 @@ switch.backyard_outlet:
   friendly_name: Backyard Outlet
 switch.basement_fan_switch:
   friendly_name: Basement Fan
-switch.digital_or_analog_voltage_input_and_or_dry_contact_relay:
+switch.garage_door_switch:
   friendly_name: Garage Door Switch
 switch.dryer_outlet:
   friendly_name: Dryer Outlet
