@@ -68,8 +68,8 @@ class AutomationHub(hass.Hass):
             logger.error(f"Received untracked event: {event_name}")
         
     def subscribe_states(self):
-        for entity in entity_map.keys():
-            self.listen_state(self.on_state_changed, entity=entity, attribute="all", namespace="hass")
+        for entity_id in entity_map.keys():
+            self.listen_state(self.on_state_changed, entity_id=entity_id, attribute="all", namespace="hass")
         
     def on_state_changed(self, entity, attribute, old, new, kwargs):
         
