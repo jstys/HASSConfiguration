@@ -18,6 +18,18 @@
         service: script.master_bedroom_heat_on
       turn_off:
         service: script.master_bedroom_heat_off
+    guest_bedroom_ac:
+      value_template: "{{ is_state('input_boolean.guest_bedroom_ac', 'on') }}"
+      turn_on:
+        service: script.guest_bedroom_ac_on
+      turn_off:
+        service: script.guest_bedroom_ac_off
+    guest_bedroom_heat:
+      value_template: "{{ is_state('input_boolean.guest_bedroom_heat', 'on') }}"
+      turn_on:
+        service: script.guest_bedroom_heat_on
+      turn_off:
+        service: script.guest_bedroom_heat_off
     office_ac:
       value_template: "{{ is_state('input_boolean.office_ac', 'on') }}"
       turn_on:
