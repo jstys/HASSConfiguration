@@ -65,19 +65,19 @@ def activate_scene(name):
     call_service("scene", "turn_on", entity_id=f"scene.{name}")
 
 def turn_on(entity, **kwargs):
-    return try_api_call(API_HANDLE, "turn_on", entity.entity_id, namespace="hass", **kwargs)
+    try_api_call(API_HANDLE, "turn_on", entity.entity_id, namespace="hass", **kwargs)
 
 def toggle(entity):
-    return try_api_call(API_HANDLE, "toggle", entity.entity_id, namespace="hass")
+    try_api_call(API_HANDLE, "toggle", entity.entity_id, namespace="hass")
 
 def turn_off(entity):
-    return try_api_call(API_HANDLE, "turn_off", entity.entity_id, namespace="hass")
+    try_api_call(API_HANDLE, "turn_off", entity.entity_id, namespace="hass")
 
 def call_service(domain, action, **kwargs):
-    return try_api_call(API_HANDLE, "call_service", "/".join([domain, action]), namespace="hass", **kwargs)
+    try_api_call(API_HANDLE, "call_service", "/".join([domain, action]), namespace="hass", **kwargs)
 
 def fire_event(event, **kwargs):
-    return try_api_call(API_HANDLE, "fire_event", event, namespace="hass", **kwargs)
+    try_api_call(API_HANDLE, "fire_event", event, namespace="hass", **kwargs)
 
 def is_someone_home():
     return try_api_call(API_HANDLE, "anyone_home", person=True, namespace="hass")
