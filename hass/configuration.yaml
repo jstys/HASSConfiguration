@@ -43,8 +43,6 @@ joaoapps_join:
     device_id: !secret erica_cell_device_id
     api_key: !secret erica_join_key
 
-cast:
-
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
