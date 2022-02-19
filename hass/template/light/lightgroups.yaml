@@ -1,10 +1,4 @@
 - platform: group
-  name: Living Room Lamps
-  entities:
-    - em:living_room_lamp_1
-    - em:living_room_lamp_2
-
-- platform: group
   name: Kitchen Lights
   entities:
     - em:kitchen_fixture

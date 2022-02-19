@@ -278,8 +278,6 @@ switch.backyard_outlet:
   friendly_name: Backyard Outlet
 switch.basement_fan_switch:
   friendly_name: Basement Fan
-switch.garage_door_switch:
-  friendly_name: Garage Door Switch
 switch.dryer_outlet:
   friendly_name: Dryer Outlet
 switch.espresso_machine_outlet:
@@ -290,6 +288,8 @@ switch.frontyard_outlet:
   friendly_name: Frontyard Outlet
 switch.garage_back_switch:
   friendly_name: Garage Back Switch
+switch.garage_door_switch:
+  friendly_name: Garage Door Switch
 switch.guest_bedroom_outlet:
   friendly_name: Guest Bedroom Outlet
 switch.hallway_outlet:
