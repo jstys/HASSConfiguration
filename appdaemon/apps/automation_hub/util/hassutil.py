@@ -65,33 +65,36 @@ def activate_scene(name):
     call_service("scene", "turn_on", entity_id=f"scene.{name}")
 
 def turn_on(entity, **kwargs):
-    try_api_call(API_HANDLE, "turn_on", entity.entity_id, namespace="hass", **kwargs)
+    try_api_call("turn_on", entity.entity_id, namespace="hass", **kwargs)
 
 def toggle(entity):
-    try_api_call(API_HANDLE, "toggle", entity.entity_id, namespace="hass")
+    try_api_call("toggle", entity.entity_id, namespace="hass")
 
 def turn_off(entity):
-    try_api_call(API_HANDLE, "turn_off", entity.entity_id, namespace="hass")
+    try_api_call("turn_off", entity.entity_id, namespace="hass")
 
 def call_service(domain, action, **kwargs):
-    try_api_call(API_HANDLE, "call_service", "/".join([domain, action]), namespace="hass", **kwargs)
+    try_api_call("call_service", "/".join([domain, action]), namespace="hass", **kwargs)
 
 def fire_event(event, **kwargs):
-    try_api_call(API_HANDLE, "fire_event", event, namespace="hass", **kwargs)
+    try_api_call("fire_event", event, namespace="hass", **kwargs)
 
 def is_someone_home():
-    return try_api_call(API_HANDLE, "anyone_home", person=True, namespace="hass")
+    return try_api_call("anyone_home", person=True, namespace="hass")
 
 def is_nobody_home():
-    return try_api_call(API_HANDLE, "noone_home", person=True, namespace="hass")
+    return try_api_call("noone_home", person=True, namespace="hass")
 
 def get_current_datetime():
-    return try_api_call(API_HANDLE, "datetime")
+    return try_api_call("datetime")
 
-def try_api_call(handle, func_name, *args, **kwargs):
+def get_current_date():
+    return try_api_call("date")
+
+def try_api_call(func_name, *args, **kwargs):
     try:
         logger.info(f"Trying to run {func_name}")
-        func = getattr(handle, func_name)
+        func = getattr(API_HANDLE, func_name)
         return func(*args, **kwargs)
     except AttributeError as attrib_err:
         logger.error(f"Attribute Error: {attrib_err}")
