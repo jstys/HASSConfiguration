@@ -27,7 +27,7 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2022.2.9
+    image: homeassistant/tinker-homeassistant:2022.3.2
     restart: unless-stopped
     privileged: true
     volumes:
@@ -75,7 +75,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.23.0
+    image: koenkk/zigbee2mqtt:1.24.0
     volumes:
       - /home/dietpi/zig2mqtt:/app/data
       - /run/udev:/run/udev:ro
