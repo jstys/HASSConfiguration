@@ -4,7 +4,7 @@ from scheduled_tasks.daily import auto_end_sleep_mode
 
 def schedule_daily_tasks():
     timer_manager.schedule_daily_task("office_heatup", office_heatup.callback, office_heatup.START_TIME)
-    timer_manager.schedule_daily_task("auto_end_sleep_mode", auto_end_sleep_mode.callback, auto_end_sleep_mode.get_starttime(is_weekend()))
+    timer_manager.schedule_daily_task("auto_end_sleep_mode", auto_end_sleep_mode.callback, auto_end_sleep_mode.START_TIME)
 
 def schedule_polling_tasks():
     pass
