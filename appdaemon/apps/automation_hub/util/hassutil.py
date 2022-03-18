@@ -1,3 +1,4 @@
+from datetime import date
 import os
 
 import yaml
@@ -88,7 +89,7 @@ def is_nobody_home():
 def get_current_datetime():
     return try_api_call("datetime")
 
-def get_current_date():
+def get_current_date() -> date:
     return try_api_call("date")
 
 def try_api_call(func_name, *args, **kwargs):
