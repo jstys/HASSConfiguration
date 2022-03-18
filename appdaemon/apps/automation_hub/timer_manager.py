@@ -16,7 +16,7 @@ def set_api_handle(handle):
 def schedule_oneoff_task(name, callback, start):
     if API_HANDLE:
         logger.info(f"Scheduling oneoff callback: {name}")
-        API_HANDLE.run_once(callback, start)
+        API_HANDLE.run_once(API_HANDLE.scheduler_callback, start, partial=callback, title=name)
 
 def schedule_polling_task(name, callback, interval):
     if API_HANDLE:
