@@ -11,9 +11,10 @@ def _enable_office_heat():
     heat_action.set_temperature("74", "heat")
 
 def callback():
-    if state_machine.is_enabled("jim_wfh_calendar"):
-        LightAction().add_light("office_lights").turn_on()
-        if state_machine.is_heating_enabled():
-            _enable_office_heat()
-    else:
-        timer_manager.schedule_oneoff_task("office_heatup", _enable_office_heat, "08:00:00")
+    if state_machine.is_heating_enabled():
+        if state_machine.is_enabled("jim_wfh_calendar"):
+            LightAction().add_light("office_lights").turn_on()
+            if state_machine.is_heating_enabled():
+                _enable_office_heat()
+        else:
+            timer_manager.schedule_oneoff_task("office_heatup", _enable_office_heat, "08:00:00")
