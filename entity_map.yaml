@@ -166,6 +166,9 @@ entities:
         binary_sensor.kitchen_front_motion_sensor_occupancy:
             name: kitchen_front_motion
             room: kitchen
+        binary_sensor.motion_sensor_158d0002b6f246:
+            name: erica_closet_motion
+            room: fourth_bedroom
     
     water_sensor:
          binary_sensor.water_leak_sensor_158d00023a58df:

@@ -20,6 +20,8 @@ binary_sensor.motion_sensor_158d00016612a5:
   friendly_name: Office Motion Sensor
 binary_sensor.motion_sensor_158d0002b6edb0:
   friendly_name: Fourth Bedroom Motion
+binary_sensor.motion_sensor_158d0002b6f246:
+  friendly_name: Erica Closet Motion
 binary_sensor.motion_sensor_158d0002b6fe4e:
   friendly_name: Landing Motion Sensor
 binary_sensor.motion_sensor_158d0002b71f6a:
