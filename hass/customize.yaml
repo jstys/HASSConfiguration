@@ -12,6 +12,8 @@ binary_sensor.garage_door_sensor_contact:
   friendly_name: Garage Door Sensor
 binary_sensor.hallway_motion_sensor_occupancy:
   friendly_name: Hallway Motion Sensor
+binary_sensor.jim_closet_door_sensor_contact:
+  friendly_name: Jim Closet Door Sensor
 binary_sensor.kitchen_front_motion_sensor_occupancy:
   friendly_name: Kitchen Front Motion
 binary_sensor.motion_sensor_158d00016612a5:
@@ -112,6 +114,8 @@ light.christmas_tree_led_controller:
   friendly_name: Christmas Tree Lights
 light.dining_room_light:
   friendly_name: Dining Room Light
+light.erica_closet_light:
+  friendly_name: Erica Closet Light
 light.erica_night_lamp:
   friendly_name: Erica Night Lamp
 light.first_floor_staircase_led:
@@ -138,6 +142,8 @@ light.hallway_lights:
   friendly_name: Hallway Lights
 light.hallway_wall_light:
   friendly_name: Hallway Wall Light
+light.jim_closet_light:
+  friendly_name: Jim Closet Light
 light.jim_night_lamp:
   friendly_name: Jim Night Lamp
 light.kitchen_cabinet_left_light:

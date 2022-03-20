@@ -137,6 +137,12 @@ entities:
         light.christmas_tree_led_controller:
             name: christmas_tree_lights
             room: living_room
+        light.erica_closet_light:
+            name: erica_closet_light
+            room: fourth_bedroom
+        light.jim_closet_light:
+            name: jim_closet_light
+            room: fourth_bedroom
 
     motion_sensor:
         binary_sensor.motion_sensor_158d00016612a5:
@@ -175,6 +181,9 @@ entities:
             room: kitchen
         binary_sensor.attic_door_sensor_contact:
             room: attic
+        binary_sensor.jim_closet_door_sensor_contact:
+            name: jim_closet_door_sensor
+            room: fourth_bedroom
     
     button:
         binary_sensor.switch_158d00016da2c9:
