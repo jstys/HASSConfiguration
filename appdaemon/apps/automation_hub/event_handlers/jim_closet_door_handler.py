@@ -23,7 +23,7 @@ def on_door_opened(event):
 
 def on_door_closed(event):
     logger.info("Jim Closet door closed")
-    timer_manager.start_timer("jim_closet_door_timer", lights_off, minutes=10)
+    timer_manager.start_timer("jim_closet_door_timer", lights_off, minutes=5)
 
 def lights_off():
     LightAction().add_lights(["jim_closet_light"]).turn_off()
