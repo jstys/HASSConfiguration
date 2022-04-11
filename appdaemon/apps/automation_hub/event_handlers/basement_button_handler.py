@@ -20,12 +20,12 @@ def on_button_clicked(event):
     elif event.click_type == "long_click_press":
         on_long_press(event)
 
-def on_single_click(event):
+def on_long_press(event):
     logger.info("Basement Button single clicked")
 
     hassutil.toggle(hassutil.Entity(name_map["workout_mode"]))
 
-def on_long_press(event):
+def on_single_click(event):
     logger.info("Basement Button long press")
 
     LightAction().add_light("basement_fan").toggle()
