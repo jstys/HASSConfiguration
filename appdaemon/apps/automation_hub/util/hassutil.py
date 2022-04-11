@@ -92,6 +92,9 @@ def get_current_datetime():
 def get_current_date() -> date:
     return try_api_call("date")
 
+def is_weekend():
+    return get_current_date().weekday() > 4
+
 def try_api_call(func_name, *args, **kwargs):
     try:
         logger.info(f"Trying to run {func_name}")
