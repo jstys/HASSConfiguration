@@ -1,5 +1,6 @@
 import state_machine
 import timer_manager
+from util import hassutil
 from actions.thermostat_action import ThermostatAction
 from actions.light_action import LightAction
 
@@ -11,7 +12,7 @@ def _enable_office_heat():
     heat_action.set_temperature("74", "heat")
 
 def callback():
-    if state_machine.is_heating_enabled():
+    if not hassutil.is_weekend() and state_machine.is_heating_enabled():
         if state_machine.is_enabled("jim_wfh_calendar"):
             LightAction().add_light("office_lights").turn_on()
             if state_machine.is_heating_enabled():
