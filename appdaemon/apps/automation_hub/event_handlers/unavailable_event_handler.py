@@ -8,6 +8,9 @@ from events.available_event import AvailableEvent
 from actions.push_notify_action import PushNotifyAction
 
 logger = logutil.get_logger("automation_hub")
+blacklist = [
+    "gateway_light"
+]
 
 def register_callbacks():
     event_dispatcher.register_callback(on_unavailable, UnavailableEvent.__name__)
@@ -22,4 +25,5 @@ def on_unavailable(event):
     timer_manager.start_timer(f"{event.name}_unavailable_timer", partial(on_timeout, event.name), minutes=5)
 
 def on_timeout(friendly_name):
-    PushNotifyAction().add_target("jim_cell").set_message(f"{friendly_name} is unavailable").notify()
+    if friendly_name not in blacklist:
+        PushNotifyAction().add_target("jim_cell").set_message(f"{friendly_name} is unavailable").notify()
