@@ -20,6 +20,6 @@ def on_door_closed(event):
 
 def on_door_opened(event):
     logger.info("Garage door opened")
-    PushNotifyAction().add_target("jim_cell").set_message("Garage door closed", notification_id="garage-door-state").notify()
+    PushNotifyAction().add_target("jim_cell").set_message("Garage door opened", notification_id="garage-door-state").notify()
     LightAction().add_light("garage_lights").turn_on()
     
