@@ -18,8 +18,6 @@ lovelace:
       show_in_sidebar: true
       require_admin: true
 
-mobile_app:
-
 mqtt:
   broker: !secret mqtt_host
   port: !secret mqtt_port
@@ -55,8 +53,6 @@ tts:
     base_url: http://10.0.0.6:8123
     service_name: google_say
 
-sun:
-
 owntracks:
   secret: !secret owntracks_encryption
   
@@ -91,8 +87,16 @@ scene: !include scenes.yaml
 ##############################################################
 #                       ENABLED                              #
 ##############################################################
-
+config:
+map:
+image:
 system_health:
+mobile_app:
+sun:
+media_source:
+tag:
+my:
+zeroconf:
 
 logger:
   default: error
@@ -103,11 +107,6 @@ logbook: !include logbook.yaml
 # Enables the frontend
 frontend:
   themes: !include themes.yaml
-
-# Enables configuration UI
-config:
-
-map:
 
 recorder:
   db_url: !secret mariadb_url
