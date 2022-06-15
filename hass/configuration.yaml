@@ -96,7 +96,6 @@ sun:
 media_source:
 tag:
 my:
-zeroconf:
 
 logger:
   default: error
