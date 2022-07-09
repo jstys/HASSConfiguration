@@ -94,3 +94,10 @@
   min_cycle_duration:
     seconds: 30
   precision: 1.0
+
+- platform: smartir
+  name: Office Test
+  unique_id: office_test
+  device_code: 2040
+  controller_data: remote.office_broadlink_remote
+  temperature_sensor: em:office_temperature
