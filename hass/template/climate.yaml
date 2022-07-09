@@ -10,30 +10,7 @@
   min_cycle_duration:
     seconds: 30
   precision: 1.0
-- platform: generic_thermostat
-  name: Master Bedroom AC
-  heater: switch.master_bedroom_ac
-  target_sensor: em:master_bedroom_temperature
-  ac_mode: true
-  min_temp: 65
-  max_temp: 80
-  cold_tolerance: 1.0
-  hot_tolerance: 1.0
-  min_cycle_duration:
-    seconds: 30
-  precision: 1.0
-- platform: generic_thermostat
-  name: Master Bedroom Heat
-  heater: switch.master_bedroom_heat
-  target_sensor: em:master_bedroom_temperature
-  ac_mode: false
-  min_temp: 65
-  max_temp: 80
-  cold_tolerance: 1.0
-  hot_tolerance: 1.0
-  min_cycle_duration:
-    seconds: 30
-  precision: 1.0
+
 - platform: generic_thermostat
   name: Dining Room AC
   heater: switch.dining_room_ac
@@ -46,58 +23,24 @@
   min_cycle_duration:
     seconds: 30
   precision: 1.0
-- platform: generic_thermostat
-  name: Guest Bedroom AC
-  heater: switch.guest_bedroom_ac
-  target_sensor: em:guest_bedroom_temperature
-  ac_mode: true
-  min_temp: 65
-  max_temp: 80
-  cold_tolerance: 1.0
-  hot_tolerance: 1.0
-  min_cycle_duration:
-    seconds: 30
-  precision: 1.0
-- platform: generic_thermostat
-  name: Guest Bedroom Heat
-  heater: switch.guest_bedroom_heat
-  target_sensor: em:guest_bedroom_temperature
-  ac_mode: false
-  min_temp: 65
-  max_temp: 80
-  cold_tolerance: 1.0
-  hot_tolerance: 1.0
-  min_cycle_duration:
-    seconds: 30
-  precision: 1.0
-- platform: generic_thermostat
-  name: Office AC
-  heater: switch.office_ac
-  target_sensor: em:office_temperature
-  ac_mode: true
-  min_temp: 65
-  max_temp: 80
-  cold_tolerance: 1.0
-  hot_tolerance: 1.0
-  min_cycle_duration:
-    seconds: 30
-  precision: 1.0
-- platform: generic_thermostat
-  name: Office Heat
-  heater: switch.office_heat
-  target_sensor: em:office_temperature
-  ac_mode: false
-  min_temp: 65
-  max_temp: 80
-  cold_tolerance: 1.0
-  hot_tolerance: 1.0
-  min_cycle_duration:
-    seconds: 30
-  precision: 1.0
 
 - platform: smartir
-  name: Office Test
-  unique_id: office_test
+  name: Office Minisplit
+  unique_id: office_minisplit
   device_code: 2040
   controller_data: remote.office_broadlink_remote
   temperature_sensor: em:office_temperature
+
+- platform: smartir
+  name: Master Bedroom Minisplit
+  unique_id: master_bedroom_minisplit
+  device_code: 2040
+  controller_data: remote.master_bedroom_broadlink_remote
+  temperature_sensor: em:master_bedroom_temperature
+
+- platform: smartir
+  name: Guest Bedroom Minisplit
+  unique_id: guest_bedroom_minisplit
+  device_code: 2040
+  controller_data: remote.guest_bedroom_broadlink_remote
+  temperature_sensor: em:guest_bedroom_temperature
