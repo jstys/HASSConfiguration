@@ -58,8 +58,7 @@
     input_boolean.master_bedroom_whitenoise: "on"
     lock.front_entrance_lock: "locked"
     input_boolean.privacy_mode: "off"
-    climate.office_heat: "off"
-    climate.office_ac: "off"
+    climate.office_minisplit: "off"
 - name: Nobody Home
   entities:
     light.living_room_lamps: "off"

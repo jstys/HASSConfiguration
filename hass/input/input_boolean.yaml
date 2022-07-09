@@ -2,12 +2,6 @@ master_bedroom_tv:
 guest_bedroom_tv:
 basement_tv:
 dining_room_ac:
-master_bedroom_ac:
-master_bedroom_heat:
-office_ac:
-office_heat:
-guest_bedroom_ac:
-guest_bedroom_heat:
 fourth_bedroom_ac:
 zigbee_debug:
 sleep_mode:

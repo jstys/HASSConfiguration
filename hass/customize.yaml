@@ -46,18 +46,12 @@ climate.dining_room_ac:
   friendly_name: Dining Room Ac
 climate.fourth_bedroom_ac:
   friendly_name: Fourth Bedroom Ac
-climate.guest_bedroom_ac:
-  friendly_name: Guest Bedroom Ac
-climate.guest_bedroom_heat:
-  friendly_name: Guest Bedroom Heat
-climate.master_bedroom_ac:
-  friendly_name: Master Bedroom Ac
-climate.master_bedroom_heat:
-  friendly_name: Master Bedroom Heat
-climate.office_ac:
-  friendly_name: Office Ac
-climate.office_heat:
-  friendly_name: Office Heat
+climate.guest_bedroom_minisplit:
+  friendly_name: Guest Bedroom Minisplit
+climate.master_bedroom_minisplit:
+  friendly_name: Master Bedroom Minisplit
+climate.office_minisplit:
+  friendly_name: Office Minisplit
 climate.oil_thermostat:
   friendly_name: Oil Thermostat
 cover.garage_door:

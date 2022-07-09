@@ -407,18 +407,12 @@ entities:
             name: dining_room_ac
         climate.fourth_bedroom_ac:
             name: fourth_bedroom_ac
-        climate.guest_bedroom_ac:
-            name: guest_bedroom_ac
-        climate.office_ac:
-            name: office_ac
-        climate.master_bedroom_ac:
-            name: master_bedroom_ac
-        climate.guest_bedroom_heat:
-            name: guest_bedroom_heat
-        climate.master_bedroom_heat:
-            name: master_bedroom_heat
-        climate.office_heat:
-            name: office_heat
+        climate.guest_bedroom_minisplit:
+            name: guest_bedroom_minisplit
+        climate.office_minisplit:
+            name: office_minisplit
+        climate.master_bedroom_minisplit:
+            name: master_bedroom_minisplit
 
     temperature:
         sensor.visonic_mct_340_e_781b120b_temperature:

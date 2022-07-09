@@ -58,8 +58,7 @@
     em:master_bedroom_whitenoise: "on"
     em:front_entrance_lock: "locked"
     em:privacy_mode: "off"
-    em:office_heat: "off"
-    em:office_ac: "off"
+    em:office_minisplit: "off"
 - name: Nobody Home
   entities:
     em:living_room_lamps: "off"
