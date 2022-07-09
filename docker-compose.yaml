@@ -83,7 +83,7 @@ services:
     network_mode: host
     privileged: true
     devices:
-      - '/dev/zigbee:/dev/ttyUSB2'
+      - '/dev/zigbee:/dev/ttyUSB0'
     environment:
       - TZ=America/New_York
 
