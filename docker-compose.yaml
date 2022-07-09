@@ -3,7 +3,7 @@ services:
 
   mariadb:
     container_name: mariadb
-    image: yobasystems/alpine-mariadb:10.4.17-armhf
+    image: yobasystems/alpine-mariadb:10.6.7-armhf
     restart: unless-stopped
     ports:
       - "3306:3306"
@@ -14,7 +14,7 @@ services:
 
   mosquitto:
     container_name: mqtt-broker
-    image: eclipse-mosquitto:1.6.14
+    image: eclipse-mosquitto:2.0.14
     restart: unless-stopped
     volumes:
       - /home/dietpi/syncthing/data/mosquitto_config:/mosquitto/config
@@ -27,7 +27,7 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/tinker-homeassistant:2022.6.6
+    image: homeassistant/tinker-homeassistant:2022.7.2
     restart: unless-stopped
     privileged: true
     volumes:
@@ -61,7 +61,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:6.12.0
+    image: zwavejs/zwavejs2mqtt:6.13.0
     restart: unless-stopped
     tty: true
     stop_signal: SIGINT
@@ -75,7 +75,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.25.2
+    image: koenkk/zigbee2mqtt:1.26.0
     volumes:
       - /home/dietpi/zig2mqtt:/app/data
       - /run/udev:/run/udev:ro
