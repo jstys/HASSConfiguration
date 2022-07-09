@@ -61,6 +61,9 @@ weather:
     api_key: !secret dark_sky_key
     mode: daily
 
+smartir:
+  check_updates: false
+
 ##############################################################
 #                       INCLUDES                             #
 ##############################################################
