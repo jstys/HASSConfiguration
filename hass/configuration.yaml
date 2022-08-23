@@ -28,6 +28,7 @@ mqtt:
       state_topic: "rtl_433/0302062ee07c/devices/Acurite-Tower/A/3658/temperature_C"
       unit_of_measurement: "°F"
       device_class: temperature
+      value_template: "{{(float(value_json) * 9/5)+32}}"
 
 notify:
   - platform: joaoapps_join
