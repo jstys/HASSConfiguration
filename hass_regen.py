@@ -11,7 +11,6 @@ entity_map = {}
 template_files = {
     "hass/template/climate.yaml": "hass/climate.yaml",
     "hass/template/sensor/battery.yaml": "hass/sensor/battery.yaml",
-    "hass/template/sensor/mqtt.yaml": "hass/sensor/mqtt.yaml",
     "hass/template/media_player/universal.yaml": "hass/media_player/universal.yaml",
     "hass/template/light/lightgroups.yaml": "hass/light/lightgroups.yaml",
     "hass/template/light/switches.yaml": "hass/light/switches.yaml",
