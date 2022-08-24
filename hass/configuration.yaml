@@ -29,6 +29,11 @@ mqtt:
       unit_of_measurement: "°F"
       device_class: temperature
       value_template: "{{(float(value_json) * 9/5)+32}}"
+    - name: "Pool Temperature"
+      state_topic: "rtl_433/0302062ee07c/devices/Inkbird-ITH20R/14856/temperature_C"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      value_template: "{{(float(value_json) * 9/5)+32}}"
 
 notify:
   - platform: joaoapps_join
