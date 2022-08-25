@@ -25,12 +25,12 @@ mqtt:
   username: !secret mqtt_user
   sensor:
     - name: "Backyard Temperature"
-      state_topic: "rtl_433/0302062ee07c/devices/Acurite-Tower/A/3658/temperature_C"
+      state_topic: "rtl_433/0c6d919bf905/devices/Acurite-Tower/A/3658/temperature_C"
       unit_of_measurement: "°F"
       device_class: temperature
       value_template: "{{(float(value_json) * 9/5)+32}}"
     - name: "Pool Temperature"
-      state_topic: "rtl_433/0302062ee07c/devices/Inkbird-ITH20R/14856/temperature_C"
+      state_topic: "rtl_433/0c6d919bf905/devices/Inkbird-ITH20R/14856/temperature_C"
       unit_of_measurement: "°F"
       device_class: temperature
       value_template: "{{(float(value_json) * 9/5)+32}}"
