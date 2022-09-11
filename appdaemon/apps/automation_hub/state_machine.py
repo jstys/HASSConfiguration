@@ -1,4 +1,5 @@
 from util.entity_map import name_map
+from util import  hassutil
 
 API_HANDLE = None
 
@@ -7,16 +8,16 @@ def set_api_handle(handle):
     API_HANDLE = handle
 
 def disable_sleep_state():
-    return API_HANDLE.set_state(name_map["sleep_mode"], state="off", namespace="hass")
+    return hassutil.turn_off(name_map["sleep_mode"])
 
 def enable_sleep_state():
-    return API_HANDLE.set_state(name_map["sleep_mode"], state="on", namespace="hass")
+    return hassutil.turn_on(name_map["sleep_mode"])
 
 def disable_guest_state():
-    return API_HANDLE.set_state(name_map["guest_mode"], state="off", namespace="hass")
+    return hassutil.turn_off(name_map["guest_mode"])
 
 def enable_guest_state():
-    return API_HANDLE.set_state(name_map["guest_mode"], state="on", namespace="hass")
+    return hassutil.turn_on(name_map["guest_mode"])
 
 def is_sun_up():
     return API_HANDLE.get_state(name_map["sun"], namespace="hass") == "above_horizon"
@@ -41,7 +42,3 @@ def is_enabled(*modes):
 
 def get_number(number_setting):
     return API_HANDLE.get_state(name_map[number_setting], namespace="hass")
-
-def set_state(entity_name, state):
-    attributes = API_HANDLE.get_state(name_map[entity_name], attribute="all", namespace="hass").get("attributes", {})
-    return API_HANDLE.set_state(name_map[entity_name], state=state, attributes=attributes, namespace="hass")
