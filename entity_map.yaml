@@ -290,8 +290,8 @@ entities:
             name: espresso_machine
         switch.living_room_fragrance_outlet:
             name: living_room_fragrance
-        switch.piano_power_outlet:
-            name: piano_power
+        switch.backyard_receiver_outlet:
+            name: backyard_receiver_power
         switch.hallway_outlet:
             name: hallway_outlet
         switch.guest_bedroom_outlet:

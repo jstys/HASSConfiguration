@@ -278,6 +278,8 @@ sun.sun:
   friendly_name: Sun
 switch.backyard_outlet:
   friendly_name: Backyard Outlet
+switch.backyard_receiver_outlet:
+  friendly_name: Backyard Receiver Power
 switch.basement_fan_switch:
   friendly_name: Basement Fan
 switch.dryer_outlet:
@@ -310,8 +312,6 @@ switch.master_bedroom_led_switch:
   friendly_name: Master Bedroom Led Switch
 switch.office_light_switch:
   friendly_name: Office Light Switch
-switch.piano_power_outlet:
-  friendly_name: Piano Power
 switch.plug_158d00039e6ce3:
   friendly_name: Kitchen Xiaomi Outlet
 switch.plug_158d00039ec6ff:
