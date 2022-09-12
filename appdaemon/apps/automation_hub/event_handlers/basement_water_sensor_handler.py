@@ -1,10 +1,8 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from events.water_sensor_wet_event import WaterSensorWetEvent
 from events.water_sensor_dry_event import WaterSensorDryEvent
 from actions.push_notify_action import PushNotifyAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "utility_room_water_sensor"

@@ -3,23 +3,20 @@ import os
 import importlib
 import re
 
-from util import hassutil
+
 from util.entity_map import entity_map
-from util import logutil
+from util import logger
 import appdaemon.plugins.hass.hassapi as hass
 import event_factory
 import event_dispatcher
-import state_machine
 import timer_manager
 import scheduler
-
-logger = logutil.get_logger("automation_hub")
+import api_handle
 
 class AutomationHub(hass.Hass):
     def initialize(self):
-        hassutil.set_api_handle(self)
-        timer_manager.set_api_handle(self)
-        state_machine.set_api_handle(self)
+        api_handle.instance = self
+        
         self.event_list = self.args["event_list"]
         self.subscribe_events()
         self.subscribe_states()

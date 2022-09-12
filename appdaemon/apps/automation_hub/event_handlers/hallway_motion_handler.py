@@ -1,12 +1,10 @@
 import event_dispatcher
 import state_machine
 import timer_manager
-from util import logutil
+from util import logger
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 from actions.light_action import LightAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "hallway_motion_sensor"

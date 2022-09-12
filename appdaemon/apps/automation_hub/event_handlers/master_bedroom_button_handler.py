@@ -1,5 +1,5 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from util import hassutil
 from util.entity_map import name_map
 from events.button_click_event import ButtonClickEvent
@@ -7,8 +7,6 @@ from actions.media_player_action import MediaPlayerAction
 from actions.switch_action import SwitchAction
 from actions.light_action import LightAction
 import state_machine
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.button_name == "master_bedroom_button"

@@ -1,9 +1,7 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from events.zwave_scene_event import ZwaveSceneEvent
 from actions.light_action import LightAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name in ["master_mirror_switch"]

@@ -1,11 +1,9 @@
 import event_dispatcher
 import timer_manager
-from util import logutil
+from util import logger
 from events.door_open_event import DoorOpenEvent
 from events.door_closed_event import DoorClosedEvent
 from actions.light_action import LightAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "jim_closet_door_sensor"

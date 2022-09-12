@@ -2,12 +2,11 @@ from functools import partial
 
 import event_dispatcher
 import timer_manager
-from util import logutil
+from util import logger
 from events.unavailable_event import UnavailableEvent
 from events.available_event import AvailableEvent
 from actions.push_notify_action import PushNotifyAction
 
-logger = logutil.get_logger("automation_hub")
 blacklist = [
     "gateway_light"
 ]

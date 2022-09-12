@@ -1,4 +1,4 @@
-from util import logutil
+from util import logger
 from util.entity_map import entity_map
 from util.entity_map import button_id_map
 from util.entity_map import nfc_tag_id_map
@@ -37,8 +37,6 @@ from events.available_event import AvailableEvent
 from events.light_off_event import LightOffEvent
 from events.light_on_event import LightOnEvent
 from events.nfc_event import NFCEvent
-
-logger = logutil.get_logger("automation_hub")
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":

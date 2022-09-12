@@ -1,11 +1,9 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from events.door_closed_event import DoorClosedEvent
 from events.door_open_event import DoorOpenEvent
 from events.lock_event import LockEvent
 from actions.push_notify_action import PushNotifyAction
-
-logger = logutil.get_logger("automation_hub")
 
 def sensor_filter(event):
     return event.name == "front_entrance_door_sensor"

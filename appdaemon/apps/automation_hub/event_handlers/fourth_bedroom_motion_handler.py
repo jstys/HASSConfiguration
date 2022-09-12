@@ -1,12 +1,10 @@
 import event_dispatcher
 import timer_manager
 import state_machine
-from util import logutil
+from util import logger
 from events.motion_triggered_event import MotionTriggeredEvent
 from events.motion_cleared_event import MotionClearedEvent
 from actions.light_action import LightAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name in ["fourth_bedroom_motion"]

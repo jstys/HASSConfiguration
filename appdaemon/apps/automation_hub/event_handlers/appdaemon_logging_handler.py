@@ -1,8 +1,6 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from events.input_event import InputEvent
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "appdaemon_log_mode"

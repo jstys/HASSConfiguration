@@ -1,11 +1,9 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from events.door_closed_event import DoorClosedEvent
 from events.door_open_event import DoorOpenEvent
 from actions.light_action import LightAction
 from actions.push_notify_action import PushNotifyAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "garage_door_sensor"

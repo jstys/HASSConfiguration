@@ -1,12 +1,10 @@
 import event_dispatcher
 import state_machine
-from util import logutil
+from util import logger
 from events.sunrise_event import SunriseEvent
 from events.sunset_event import SunsetEvent
 from actions.light_action import LightAction
 from actions.switch_action import SwitchAction
-
-logger = logutil.get_logger("automation_hub")
 
 def register_callbacks():
     event_dispatcher.register_callback(on_sunrise, SunriseEvent.__name__)

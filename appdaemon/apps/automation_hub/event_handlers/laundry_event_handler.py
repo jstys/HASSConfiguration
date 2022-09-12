@@ -1,14 +1,13 @@
 import event_dispatcher
 import timer_manager
 import state_machine
-from util import logutil
+from util import logger
 from util import hassutil
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
 from actions.push_notify_action import PushNotifyAction
 from actions.tts_action import TTSAction
 
-logger = logutil.get_logger("automation_hub")
 dryer_start = None
 
 def washer_filter(event):

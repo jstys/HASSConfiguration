@@ -1,9 +1,7 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from events.mqtt_event import MQTTEvent
 from actions.push_notify_action import PushNotifyAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event: MQTTEvent):
     return event.topic.startswith("amcrest2mqtt/")

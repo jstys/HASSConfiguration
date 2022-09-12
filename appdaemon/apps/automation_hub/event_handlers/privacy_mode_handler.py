@@ -1,9 +1,7 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from util import hassutil
 from events.input_event import InputEvent
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "privacy_mode"

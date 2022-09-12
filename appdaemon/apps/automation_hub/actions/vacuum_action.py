@@ -1,8 +1,6 @@
 from util import hassutil
-from util import logutil
+from util import logger
 from util.entity_map import name_map
-
-logger = logutil.get_logger("automation_hub")
 
 class VacuumAction():
     def __init__(self):

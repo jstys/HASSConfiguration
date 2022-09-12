@@ -1,9 +1,7 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from events.zwave_scene_event import ZwaveSceneEvent
 from actions.media_player_action import MediaPlayerAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name in ["fibaro_keychain"]

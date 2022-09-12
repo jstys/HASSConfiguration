@@ -2,14 +2,12 @@ from datetime import date
 import os
 
 import yaml
-from util import logutil
+import api_handle
+from util import logger
 
 APPD_DIR = "/conf"
 SECRETS = os.path.join(APPD_DIR, "secrets.yaml")
 ENTITY_MAP = os.path.join(APPD_DIR, "apps", "util", "entity_map.yaml")
-API_HANDLE = None
-
-logger = logutil.get_logger("automation_hub")
 
 class Entity(object):
     def __init__(self, fully_qualified_name):
@@ -21,10 +19,6 @@ class Entity(object):
     @classmethod
     def fromSplitName(cls, domain, name):
         return cls(".".join([domain, name]))
-
-def set_api_handle(handle):
-    global API_HANDLE
-    API_HANDLE = handle
 
 def read_config_file(filename):
     try:
@@ -80,6 +74,9 @@ def call_service(domain, action, **kwargs):
 def fire_event(event, **kwargs):
     try_api_call("fire_event", event, namespace="hass", **kwargs)
 
+def get_state(entity: Entity, **kwargs):
+    return try_api_call("get_state", entity.entity_id, namespace="hass", **kwargs)
+
 def is_someone_home():
     return try_api_call("anyone_home", person=True, namespace="hass")
 
@@ -98,7 +95,7 @@ def is_weekend():
 def try_api_call(func_name, *args, **kwargs):
     try:
         logger.info(f"Trying to run {func_name}")
-        func = getattr(API_HANDLE, func_name)
+        func = getattr(api_handle.instance, func_name)
         return func(*args, **kwargs)
     except AttributeError as attrib_err:
         logger.error(f"Attribute Error: {attrib_err}")

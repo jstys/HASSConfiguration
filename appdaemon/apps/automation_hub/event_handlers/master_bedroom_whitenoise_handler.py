@@ -1,10 +1,8 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 import timer_manager
 from events.input_event import InputEvent
 from actions.media_player_action import MediaPlayerAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "master_bedroom_whitenoise"

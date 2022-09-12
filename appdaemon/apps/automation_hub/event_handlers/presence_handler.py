@@ -1,14 +1,12 @@
 import event_dispatcher
 import state_machine
-from util import logutil
+from util import logger
 from util import hassutil
 from events.presence_event import PresenceEvent
 from actions.push_notify_action import PushNotifyAction
 from actions.light_action import LightAction
 from actions.thermostat_action import ThermostatAction
 from actions.door_lock_action import DoorLockAction
-
-logger = logutil.get_logger("automation_hub")
 
 def register_callbacks():
     event_dispatcher.register_callback(on_presence_changed, PresenceEvent.__name__)

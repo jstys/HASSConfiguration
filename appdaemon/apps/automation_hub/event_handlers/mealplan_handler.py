@@ -1,12 +1,10 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from util import hassutil
 from util import trello_util
 from actions.push_notify_action import PushNotifyAction
 from events.generate_mealplan_event import GenerateMealplanEvent
 from events.archive_mealplan_event import ArchiveMealplanEvent
-
-logger = logutil.get_logger("automation_hub")
 
 # Read HASS secrets
 secrets = hassutil.read_config_file(hassutil.SECRETS)

@@ -1,14 +1,12 @@
 import event_dispatcher
 import timer_manager
 import state_machine
-from util import logutil
+from util import logger
 from util import hassutil
 from events.input_event import InputEvent
 from actions.light_action import LightAction
 from actions.media_player_action import MediaPlayerAction
 from actions.thermostat_action import ThermostatAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.name == "workout_mode"

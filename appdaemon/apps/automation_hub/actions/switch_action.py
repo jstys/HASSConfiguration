@@ -1,8 +1,6 @@
 from util.entity_map import name_map
 from util import hassutil
-from util import logutil
-
-logger = logutil.get_logger("automation_hub")
+from util import logger
 
 class SwitchAction():
     def __init__(self):

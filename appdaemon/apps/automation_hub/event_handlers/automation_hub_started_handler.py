@@ -1,8 +1,6 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from events.automation_hub_started_event import AutomationHubStartedEvent
-
-logger = logutil.get_logger("automation_hub")
 
 def register_callbacks():
     event_dispatcher.register_callback(on_start, AutomationHubStartedEvent.__name__)

@@ -1,11 +1,9 @@
 import event_dispatcher
-from util import logutil
+from util import logger
 from util import hassutil
 from util.entity_map import name_map
 from events.button_click_event import ButtonClickEvent
 from actions.light_action import LightAction
-
-logger = logutil.get_logger("automation_hub")
 
 def event_filter(event):
     return event.button_name == "basement_button"
