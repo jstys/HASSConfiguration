@@ -8,16 +8,16 @@ def set_api_handle(handle):
     API_HANDLE = handle
 
 def disable_sleep_state():
-    return hassutil.turn_off(name_map["sleep_mode"])
+    return hassutil.turn_off(hassutil.Entity(name_map["sleep_mode"]))
 
 def enable_sleep_state():
-    return hassutil.turn_on(name_map["sleep_mode"])
+    return hassutil.turn_on(hassutil.Entity(name_map["sleep_mode"]))
 
 def disable_guest_state():
-    return hassutil.turn_off(name_map["guest_mode"])
+    return hassutil.turn_off(hassutil.Entity(name_map["guest_mode"]))
 
 def enable_guest_state():
-    return hassutil.turn_on(name_map["guest_mode"])
+    return hassutil.turn_on(hassutil.Entity(name_map["guest_mode"]))
 
 def is_sun_up():
     return API_HANDLE.get_state(name_map["sun"], namespace="hass") == "above_horizon"

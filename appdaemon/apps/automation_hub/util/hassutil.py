@@ -53,25 +53,25 @@ def join_ring_device(target):
 def join_send_tasker(target, command):
     call_service("joaoapps_join", "{}_send_tasker".format(target), command=command)
 
-def tts_say(message, media_player):
+def tts_say(message, media_player: Entity):
     call_service("tts", "google_say", entity_id=media_player.entity_id, message=message)
     
-def lock(lock_entity):
+def lock(lock_entity: Entity):
     call_service("lock", "lock", entity_id=lock_entity.entity_id)
     
-def unlock(lock_entity):
+def unlock(lock_entity: Entity):
     call_service("lock", "unlock", entity_id=lock_entity.entity_id)
 
 def activate_scene(name):
     call_service("scene", "turn_on", entity_id=f"scene.{name}")
 
-def turn_on(entity, **kwargs):
+def turn_on(entity: Entity, **kwargs):
     try_api_call("turn_on", entity.entity_id, namespace="hass", **kwargs)
 
-def toggle(entity):
+def toggle(entity: Entity):
     try_api_call("toggle", entity.entity_id, namespace="hass")
 
-def turn_off(entity):
+def turn_off(entity: Entity):
     try_api_call("turn_off", entity.entity_id, namespace="hass")
 
 def call_service(domain, action, **kwargs):

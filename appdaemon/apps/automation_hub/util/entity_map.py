@@ -1,8 +1,9 @@
+from typing import Dict
 from util.hassutil import read_config_file, ENTITY_MAP
 
 file_contents = {}
 entity_map = {}
-name_map = {}
+name_map: Dict[str, str] = {}
 room_map = {}
 assistant_list = []
 button_id_map = {}
