@@ -225,12 +225,12 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
 
 def create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
     if old != new and new == "off":
-        logger.info("Creating MotionClearedEvent")
+        logger.debug("Creating MotionClearedEvent")
         event = MotionClearedEvent()
         event.name = friendly_name
         return event
     elif old != new and new == "on":
-        logger.info("Creating MotionTriggeredEvent")
+        logger.debug("Creating MotionTriggeredEvent")
         event = MotionTriggeredEvent()
         event.name = friendly_name
         return event
@@ -240,12 +240,12 @@ def create_motion_sensor_state_change_event(friendly_name, entity, attributes, o
 
 def create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs):
     if old != new and new == "on":
-        logger.info("Creating DoorOpenEvent")
+        logger.debug("Creating DoorOpenEvent")
         event = DoorOpenEvent()
         event.name = friendly_name
         return event
     elif old != new and new == "off":
-        logger.info("Creating DoorClosedEvent")
+        logger.debug("Creating DoorClosedEvent")
         event = DoorClosedEvent()
         event.name = friendly_name
         return event
@@ -254,7 +254,7 @@ def create_door_sensor_state_change_event(friendly_name, entity, attributes, old
         return None
         
 def create_presence_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    logger.info("Creating PresenceEvent")
+    logger.debug("Creating PresenceEvent")
     event = PresenceEvent()
     if old != new:
         event.name = friendly_name
@@ -265,7 +265,7 @@ def create_presence_change_event(friendly_name, entity, attributes, old, new, kw
         return None
 
 def create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    logger.info("Creating LockEvent")
+    logger.debug("Creating LockEvent")
     if new != old:
         event = LockEvent()
         event.name = friendly_name
@@ -277,7 +277,7 @@ def create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs
         return None
 
 def create_input_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    logger.info("Creating InputEvent")
+    logger.debug("Creating InputEvent")
     if new != old:
         event = InputEvent()
         event.name = friendly_name
@@ -289,7 +289,7 @@ def create_input_change_event(friendly_name, entity, attributes, old, new, kwarg
         return None
 
 def create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    logger.info("Creating SwitchEvent")
+    logger.debug("Creating SwitchEvent")
     if old != new and new == "on":
         event = SwitchOnEvent()
         event.name = friendly_name
@@ -303,7 +303,7 @@ def create_switch_change_event(friendly_name, entity, attributes, old, new, kwar
         return None
 
 def create_light_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    logger.info("Creating LightEvent")
+    logger.debug("Creating LightEvent")
     if old != new and new == "on":
         event = LightOnEvent()
         event.name = friendly_name
@@ -317,14 +317,14 @@ def create_light_change_event(friendly_name, entity, attributes, old, new, kwarg
         return None
 
 def create_sun_event(old, new):
-    logger.info("Creating Sun event")
+    logger.debug("Creating Sun event")
     if new != old and new == "above_horizon":
         return SunriseEvent()
     elif new != old and new == "below_horizon":
         return SunsetEvent()
         
 def create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    logger.info("Creating Power Sensor Change Event")
+    logger.debug("Creating Power Sensor Change Event")
     if old != new and new == "on":
         event = PowerSensorOnEvent()
         event.name = friendly_name
@@ -338,7 +338,7 @@ def create_power_sensor_change_event(friendly_name, entity, attributes, old, new
         return None
 
 def create_water_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs):
-    logger.info("Creating WaterSensorEvent")
+    logger.debug("Creating WaterSensorEvent")
     if old != new and new == "on":
         event = WaterSensorWetEvent()
         event.name = friendly_name
@@ -352,7 +352,7 @@ def create_water_sensor_change_event(friendly_name, entity, attributes, old, new
         return None
 
 def create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs):
-    logger.info("Creating DoorLockNotificationEvent")
+    logger.debug("Creating DoorLockNotificationEvent")
     if old != new and int(new) in [0x16, 0x13, 0x19]:
         event = DoorLockNotificationUnlockedEvent()
         event.name = friendly_name
@@ -366,13 +366,13 @@ def create_door_lock_notification_event(friendly_name, entity, attributes, old, 
         return None
 
 def create_unavailable_event(friendly_name):
-    logger.info("Creating UnavailableEvent")
+    logger.debug("Creating UnavailableEvent")
     event = UnavailableEvent()
     event.name = friendly_name
     return event
 
 def create_available_event(friendly_name):
-    logger.info("Creating AvailableEvent")
+    logger.debug("Creating AvailableEvent")
     event = AvailableEvent()
     event.name = friendly_name
     return event

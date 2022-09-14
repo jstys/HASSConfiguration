@@ -94,12 +94,11 @@ def is_weekend():
 
 def try_api_call(func_name, *args, **kwargs):
     try:
-        logger.info(f"Trying to run {func_name}")
         func = getattr(api_handle.instance, func_name)
         return func(*args, **kwargs)
     except AttributeError as attrib_err:
-        logger.error(f"Attribute Error: {attrib_err}")
+        logger.error(f"Attribute Error: {attrib_err} while running {func_name}")
     except TimeoutError as timeout_err:
-        logger.error(f"Timeout Error: {timeout_err}")
+        logger.error(f"Timeout Error: {timeout_err} while running {func_name}")
     except Exception as other_err:
-        logger.error(f"Other Error: {other_err}")
+        logger.error(f"Other Error: {other_err} while running {func_name}")
