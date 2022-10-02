@@ -25,15 +25,35 @@ mqtt:
   username: !secret mqtt_user
   sensor:
     - name: "Backyard Temperature"
-      state_topic: "rtl_433/0c6d919bf905/devices/Acurite-Tower/A/3658/temperature_C"
+      state_topic: "rtl_433/+/devices/Acurite-Tower/A/3658/temperature_C"
       unit_of_measurement: "°F"
       device_class: temperature
       value_template: "{{(float(value_json) * 9/5)+32}}"
     - name: "Pool Temperature"
-      state_topic: "rtl_433/0c6d919bf905/devices/Inkbird-ITH20R/14856/temperature_C"
+      state_topic: "rtl_433/+/devices/Inkbird-ITH20R/14856/temperature_C"
       unit_of_measurement: "°F"
       device_class: temperature
       value_template: "{{(float(value_json) * 9/5)+32}}"
+    - name: "iGrill Probe 1"
+      state_topic: "temperature/grill/grill/probe1"
+      unit_of_measurement: "°F"
+      device_class: temperature
+    - name: i"Grill Probe 2"
+      state_topic: "temperature/grill/grill/probe2"
+      unit_of_measurement: "°F"
+      device_class: temperature
+    - name: "iGrill Probe 3"
+      state_topic: "temperature/grill/grill/probe3"
+      unit_of_measurement: "°F"
+      device_class: temperature
+    - name: "iGrill Probe 4"
+      state_topic: "temperature/grill/grill/probe4"
+      unit_of_measurement: "°F"
+      device_class: temperature
+    - name: "iGrill Battery"
+      state_topic: "temperature/grill/grill/battery"
+      unit_of_measurement: "%"
+      device_class: battery
 
 notify:
   - platform: joaoapps_join
