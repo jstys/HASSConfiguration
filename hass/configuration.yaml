@@ -38,7 +38,7 @@ mqtt:
       state_topic: "temperature/grill/grill/probe1"
       unit_of_measurement: "°F"
       device_class: temperature
-    - name: i"Grill Probe 2"
+    - name: "iGrill Probe 2"
       state_topic: "temperature/grill/grill/probe2"
       unit_of_measurement: "°F"
       device_class: temperature
