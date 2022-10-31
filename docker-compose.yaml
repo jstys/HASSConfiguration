@@ -61,8 +61,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    # image: zwavejs/zwave-js-ui:8.2.2
-    image: zwavejs/zwavejs2mqtt:6.16.0
+    image: zwavejs/zwave-js-ui:8.2.2
     restart: unless-stopped
     tty: true
     stop_signal: SIGINT
