@@ -19,10 +19,6 @@ lovelace:
       require_admin: true
 
 mqtt:
-  broker: !secret mqtt_host
-  port: !secret mqtt_port
-  client_id: !secret mqtt_client
-  username: !secret mqtt_user
   sensor:
     - name: "Backyard Temperature"
       state_topic: "rtl_433/+/devices/Acurite-Tower/A/3658/temperature_C"
