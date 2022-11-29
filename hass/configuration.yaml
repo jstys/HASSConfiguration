@@ -78,6 +78,7 @@ tts:
 
 owntracks:
   secret: !secret owntracks_encryption
+  waypoints: false
   
 weather:
   - platform: darksky
