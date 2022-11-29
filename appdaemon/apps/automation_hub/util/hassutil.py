@@ -77,6 +77,9 @@ def fire_event(event, **kwargs):
 def get_state(entity: Entity, **kwargs):
     return try_api_call("get_state", entity.entity_id, namespace="hass", **kwargs)
 
+def set_state(entity: Entity, state, **kwargs):
+    return try_api_call("set_state", entity.entity_id, state, namespace="hass", **kwargs)
+
 def is_someone_home():
     return try_api_call("anyone_home", person=True, namespace="hass")
 
