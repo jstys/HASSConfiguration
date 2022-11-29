@@ -22,6 +22,7 @@ appdaemon:
       client_topics: 
         - 'amcrest2mqtt/+/doorbell'
         - 'amcrest2mqtt/+/motion'
+        - 'owntracks/owntracks/+'
 http:
   url: http://0.0.0.0:5050
 admin:
