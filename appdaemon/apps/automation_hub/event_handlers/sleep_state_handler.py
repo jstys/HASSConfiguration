@@ -40,7 +40,7 @@ def on_sleep_state_disabled(event):
     SwitchAction().add_switch("master_bedroom_whitenoise").turn_off()
     JoinAction().add_target("jim_cell").send_taker_command("awake_command")
     LightAction().add_lights(["first_floor_staircase_led"]).turn_off()
-    ThermostatAction().add_thermostat("master_bedroom_ac").turn_off()
+    ThermostatAction().add_thermostat("master_bedroom_minisplit").turn_off()
 
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("oil_thermostat")
