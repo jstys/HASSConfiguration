@@ -116,7 +116,6 @@ scene: !include scenes.yaml
 ##############################################################
 config:
 map:
-image:
 system_health:
 mobile_app:
 sun:
