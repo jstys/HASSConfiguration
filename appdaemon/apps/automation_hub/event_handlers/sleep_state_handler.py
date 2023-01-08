@@ -52,4 +52,10 @@ def on_sleep_state_disabled(event):
 
     if state_machine.is_enabled("christmas_lights_mode"):
         LightAction().add_light("christmas_tree_lights").turn_on_no_brightness()
+        SwitchAction().add_switches([
+            "aeon_labs_smart_strip_1",
+            "aeon_labs_smart_strip_2",
+            "aeon_labs_smart_strip_3",
+            "aeon_labs_smart_strip_4"
+        ]).turn_off()
     

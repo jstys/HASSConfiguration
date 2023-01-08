@@ -7,6 +7,7 @@ from actions.push_notify_action import PushNotifyAction
 from actions.light_action import LightAction
 from actions.thermostat_action import ThermostatAction
 from actions.door_lock_action import DoorLockAction
+from actions.switch_action import SwitchAction
 
 def register_callbacks():
     event_dispatcher.register_callback(on_presence_changed, PresenceEvent.__name__)
@@ -49,6 +50,15 @@ def handle_nobody_home():
         if state_machine.is_heating_enabled():
             heat_action = ThermostatAction().add_thermostat("oil_thermostat")
             heat_action.set_temperature(state_machine.get_number("away_heat"), 'heat')
+
+        if state_machine.is_enabled("christmas_lights_mode"):
+            LightAction().add_light("christmas_tree_lights").turn_off()
+            SwitchAction().add_switches([
+                "aeon_labs_smart_strip_1",
+                "aeon_labs_smart_strip_2",
+                "aeon_labs_smart_strip_3",
+                "aeon_labs_smart_strip_4"
+            ]).turn_off()
         
         #TODO: schedule timer for simulating someone being home
     
@@ -61,6 +71,15 @@ def handle_somebody_home():
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("oil_thermostat")
         heat_action.set_temperature(state_machine.get_number("normal_heat"), 'heat')
+
+    if state_machine.is_enabled("christmas_lights_mode") and not state_machine.is_enabled("sleep_mode"):
+            LightAction().add_light("christmas_tree_lights").turn_on_no_brightness()
+            SwitchAction().add_switches([
+                "aeon_labs_smart_strip_1",
+                "aeon_labs_smart_strip_2",
+                "aeon_labs_smart_strip_3",
+                "aeon_labs_smart_strip_4"
+            ]).turn_on()
     
     #TODO: cancel timer for simulating someone being home
     #TODO: set lights / thermostats / tvs
