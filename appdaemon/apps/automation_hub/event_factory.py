@@ -37,6 +37,7 @@ from events.available_event import AvailableEvent
 from events.light_off_event import LightOffEvent
 from events.light_on_event import LightOnEvent
 from events.nfc_event import NFCEvent
+from events.media_player_event import MediaPlayerEvent
 
 def create_from_event(event_name, data, kwargs):
     if event_name == "xiaomi_aqara.click":
@@ -215,6 +216,8 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         state_change_event = create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "light":
         state_change_event = create_light_change_event(friendly_name, entity, attributes, old, new, kwargs)
+    if entity_type == "media_player":
+        state_change_event = create_media_player_event(friendly_name, entity, attributes, old, new, kwargs)
 
     if state_change_event:
         adevents.append(state_change_event)
@@ -315,6 +318,10 @@ def create_light_change_event(friendly_name, entity, attributes, old, new, kwarg
     else:
         logger.warning("Received invalid light transition")
         return None
+
+def create_media_player_event(friendly_name, entity, attributes, old, new, kwargs):
+    logger.debug("Creating MediaPlayerEvent")
+    return MediaPlayerEvent(friendly_name, new, attributes.get("app_name"))
 
 def create_sun_event(old, new):
     logger.debug("Creating Sun event")
