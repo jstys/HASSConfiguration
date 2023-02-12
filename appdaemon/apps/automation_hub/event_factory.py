@@ -216,7 +216,7 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         state_change_event = create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "light":
         state_change_event = create_light_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type == "media_player":
+    if entity_type == "tv":
         state_change_event = create_media_player_event(friendly_name, entity, attributes, old, new, kwargs)
 
     if state_change_event:
