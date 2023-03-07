@@ -5,7 +5,7 @@ services:
     container_name: mariadb
     restart: unless-stopped
     volumes:
-      - /home/dietpi/mariadb:/var/lib/mysql
+      - /home/dietpi/mariadb:/config
     env_file:
       - /home/dietpi/mariadb.env
     ports:
