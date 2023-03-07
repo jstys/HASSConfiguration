@@ -1,16 +1,15 @@
 version: '3'
 services:
-
   mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
     container_name: mariadb
-    image: yobasystems/alpine-mariadb:10.6.7-armhf
     restart: unless-stopped
-    ports:
-      - "3306:3306"
     volumes:
       - /home/dietpi/mariadb:/var/lib/mysql
     env_file:
       - /home/dietpi/mariadb.env
+    ports:
+      - 3306:3306
 
   mosquitto:
     container_name: mqtt-broker
