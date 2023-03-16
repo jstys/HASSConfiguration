@@ -1,0 +1,6 @@
+lock_car:
+  alias: Lock Car
+  sequence:
+    - service: lock.lock
+      data:
+        entity_id: lock.jim_s_cx_5_lock
