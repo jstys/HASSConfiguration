@@ -20,11 +20,6 @@ from events.sunrise_event import SunriseEvent
 from events.sunset_event import SunsetEvent
 from events.switch_off_event import SwitchOffEvent
 from events.switch_on_event import SwitchOnEvent
-from events.nhl_goal_event import NHLGoalEvent
-from events.nhl_penalty_event import NHLPenaltyEvent
-from events.nhl_period_start_event import NHLPeriodStartEvent
-from events.nhl_period_end_event import NHLPeriodEndEvent
-from events.nhl_game_end_event import NHLGameEndEvent
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
 from events.automation_hub_started_event import AutomationHubStartedEvent
@@ -52,16 +47,6 @@ def create_from_event(event_name, data, kwargs):
         return ArchiveMealplanEvent()
     elif event_name == "zha_event":
         return create_from_zha_event(event_name, data, kwargs)
-    elif event_name == "nhl_scoring":
-        return create_nhl_scoring_event(event_name, data, kwargs)
-    elif event_name == "nhl_penalty":
-        return create_nhl_penalty_event(event_name, data, kwargs)
-    elif event_name == "nhl_period_start":
-        return create_nhl_period_start_event(event_name, data, kwargs)
-    elif event_name == "nhl_period_end":
-        return create_nhl_period_end_event(event_name, data, kwargs)
-    elif event_name == "nhl_game_end":
-        return create_nhl_game_end_event(event_name, data, kwargs)
     elif event_name == "tag_scanned":
         return create_nfc_event(event_name, data, kwargs)
 
@@ -123,53 +108,6 @@ def create_zwave_scene_event(event_name, data, kwargs):
     else:
         logger.warning(f"Received invalid zwave node_id: {node_id}")
         return None
-
-def create_nhl_scoring_event(event_name, data, kwargs):
-    event = NHLGoalEvent()
-    event.team = data.get('team')
-    
-    scorer = data.get('scorer')
-    event.scorer = scorer.get('name')
-    event.scorer_number = scorer.get('number')
-    
-    assists = data.get('assists')
-    if assists:
-        for index, player in enumerate(assists):
-            if index == 0:
-                event.primary_assist = player.get('name')
-                event.primary_number = player.get('number')
-            elif index == 1:
-                event.secondary_assist = player.get('name')
-                event.secondary_number = player.get('number')
-
-    return event
-
-def create_nhl_penalty_event(event_name, data, kwargs):
-    event = NHLPenaltyEvent()
-    event.team = data.get('team')
-
-    player = data.get('player')
-    event.player = player.get('name')
-    event.number = player.get('number')
-
-    event.duration = data.get('duration')
-    event.penalty = data.get('penalty')
-    event.severity = data.get('severity')
-
-    return event
-
-def create_nhl_period_start_event(event_name, data, kwargs):
-    event = NHLPeriodStartEvent()
-    event.period = data.get('period')
-    return event
-
-def create_nhl_period_end_event(event_name, data, kwargs):
-    event = NHLPeriodEndEvent()
-    event.period = data.get('period')
-    return event
-
-def create_nhl_game_end_event(event_name, data, kwargs):
-    return NHLGameEndEvent()
     
 def create_automation_hub_started_event():
     return AutomationHubStartedEvent()
