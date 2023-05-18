@@ -80,11 +80,6 @@ owntracks:
   secret: !secret owntracks_encryption
   waypoints: false
   
-weather:
-  - platform: darksky
-    api_key: !secret dark_sky_key
-    mode: daily
-
 smartir:
   check_updates: false
 
