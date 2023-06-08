@@ -74,7 +74,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.30.4
+    image: koenkk/zigbee2mqtt:1.31.2
     volumes:
       - /home/dietpi/zig2mqtt:/app/data
       - /run/udev:/run/udev:ro
