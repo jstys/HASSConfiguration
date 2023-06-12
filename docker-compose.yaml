@@ -13,7 +13,7 @@ services:
 
   mosquitto:
     container_name: mqtt-broker
-    image: eclipse-mosquitto:1.6.15
+    image: eclipse-mosquitto:latest
     restart: unless-stopped
     volumes:
       - /home/dietpi/syncthing/data/mosquitto_config:/mosquitto/config
