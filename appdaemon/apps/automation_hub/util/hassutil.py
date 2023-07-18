@@ -48,7 +48,7 @@ def join_send_tasker(target, command):
     call_service("joaoapps_join", "{}_send_tasker".format(target), command=command)
 
 def tts_say(message, media_player: Entity):
-    call_service("tts", "google_say", entity_id=media_player.entity_id, message=message)
+    call_service("tts", "speak", entity_id="tts.google_en_com", media_player_entity_id=media_player.entity_id, message=message)
     
 def lock(lock_entity: Entity):
     call_service("lock", "lock", entity_id=lock_entity.entity_id)
