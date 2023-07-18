@@ -68,14 +68,6 @@ joaoapps_join:
     device_id: !secret erica_cell_device_id
     api_key: !secret erica_join_key
 
-tts:
-  - platform: google_translate
-    cache: true
-    cache_dir: /tmp/tts
-    time_memory: 300
-    base_url: http://10.0.0.6:8123
-    service_name: google_say
-
 owntracks:
   secret: !secret owntracks_encryption
   waypoints: false
