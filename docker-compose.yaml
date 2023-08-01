@@ -60,7 +60,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwave-js-ui:8.21.2
+    image: zwavejs/zwave-js-ui:8.22.0
     restart: unless-stopped
     tty: true
     stop_signal: SIGINT
@@ -74,7 +74,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.32.1
+    image: koenkk/zigbee2mqtt:1.32.2
     volumes:
       - /home/dietpi/zig2mqtt:/app/data
       - /run/udev:/run/udev:ro
