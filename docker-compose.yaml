@@ -1,7 +1,7 @@
 version: '3'
 services:
   mariadb:
-    image: linuxserver/mariadb:arm32v7-latest
+    image: linuxserver/mariadb:arm32v7-10.6.13
     container_name: mariadb
     restart: unless-stopped
     volumes:
@@ -88,7 +88,7 @@ services:
 
   syncthing:
     container_name: syncthing
-    image: linuxserver/syncthing:arm32v7-latest
+    image: linuxserver/syncthing:arm32v7-1.23.5
     environment:
       - PUID=1000
       - PGID=1000
