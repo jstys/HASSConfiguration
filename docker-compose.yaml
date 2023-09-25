@@ -1,7 +1,7 @@
 version: '3'
 services:
   mariadb:
-    image: lscr.io/linuxserver/mariadb:arm32v7-latest
+    image: linuxserver/mariadb:arm32v7-latest
     container_name: mariadb
     restart: unless-stopped
     volumes:
