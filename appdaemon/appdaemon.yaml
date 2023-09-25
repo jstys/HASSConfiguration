@@ -19,6 +19,7 @@ appdaemon:
       client_port: 1883
       client_id: appdaemon
       client_user: appdaemon
+      client_password: appdaemon
       client_topics: 
         - 'amcrest2mqtt/+/doorbell'
         - 'amcrest2mqtt/+/motion'
