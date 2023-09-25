@@ -7,7 +7,7 @@ services:
     volumes:
       - /home/dietpi/mariadb:/config
     env_file:
-      - /home/dietpi/mariadb.env
+      - /home/dietpi/mariadb/mariadb.env
     ports:
       - 3306:3306
 
