@@ -100,10 +100,7 @@ services:
       - /home/dietpi/HASSConfiguration:/hass
       - /home/dietpi/zwavejs:/zwavejs
       - /home/dietpi/zig2mqtt:/zig2mqtt
-    ports:
-      - 8384:8384
-      - 22000:22000
-      - 21027:21027/udp
+    network_mode: host
     restart: unless-stopped
 
   dockermon:
