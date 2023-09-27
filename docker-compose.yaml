@@ -65,7 +65,7 @@ services:
     tty: true
     stop_signal: SIGINT
     devices:
-      - '/dev/zwave:/dev/ttyUSB0'
+      - '/dev/ttyACM0:/dev/ttyACM0'
     volumes:
       - /home/dietpi/zwavejs/store:/usr/src/app/store
     ports:
