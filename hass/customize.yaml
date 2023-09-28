@@ -132,6 +132,8 @@ light.garage_lights:
   friendly_name: Garage Lights
 light.gateway_light_34ce008dcec1:
   friendly_name: Gateway Light
+light.guest_bedroom_switch:
+  friendly_name: Guest Bedroom Hi Hats
 light.hallway_fixture:
   friendly_name: Hallway Fixture
 light.hallway_lights:
@@ -176,8 +178,6 @@ light.master_bedroom_fixture_2:
   friendly_name: Master Bedroom Fixture 2
 light.master_bedroom_mirror_led:
   friendly_name: Master Bedroom Mirror Led
-light.node_109:
-  friendly_name: Guest Bedroom Hi Hats
 light.office_lights:
   friendly_name: Office Lights
 light.piano_led:
@@ -242,10 +242,10 @@ sensor.key_free_push_button_deadbolt_alarmtype:
   friendly_name: Front Door Lock Alarmtype
 sensor.key_free_push_button_deadbolt_battery_level:
   friendly_name: Front Lock Battery
+sensor.laundry_outlet_electric_consumption_w:
+  friendly_name: Washer Power Monitor
 sensor.none_battery_level:
   friendly_name: Living Room Remote Battery
-sensor.smart_plug_electric_consumed_w_3:
-  friendly_name: Washer Power Monitor
 sensor.temperature_158d0001d6f386:
   friendly_name: Downstairs Temperature
 sensor.temperature_158d00023cf8f7:

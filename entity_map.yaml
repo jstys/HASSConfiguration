@@ -118,7 +118,7 @@ entities:
         light.basement_lights:
             name: basement_lights
             room: basement
-        light.node_109:
+        light.guest_bedroom_switch:
             name: guest_bedroom_hi_hats
             room: guest_bedroom
         light.kitchen_hi_hats:
@@ -447,7 +447,7 @@ entities:
     power_monitor:
         sensor.dryer_outlet_power:
             name: dryer_power_monitor
-        sensor.smart_plug_electric_consumed_w_3:
+        sensor.laundry_outlet_electric_consumption_w:
             name: washer_power_monitor
             
     binary_power_sensor:
@@ -492,13 +492,13 @@ nfc_scanner_id_map:
     jim_cell: '901b511ca54d6029'
 
 zwave_scene_map:
-    88:
+    7:
         name: dining_room_switch
         scenes:
             "001": "on"
             "002": "off"
             
-    138:
+    9:
         name: fibaro_keychain
         scenes:
             "001": "square"
@@ -507,12 +507,12 @@ zwave_scene_map:
             "004": "triangle"
             "005": "minus"
             "006": "plus"
-    91:
+    4:
         name: master_bedroom_switch
         scenes:
             "001": "on"
             "002": "off"
-    92:
+    5:
         name: master_mirror_switch
         scenes:
             "001": "on"
