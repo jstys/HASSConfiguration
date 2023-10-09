@@ -3,10 +3,10 @@ from util import logger
 from util import hassutil
 from util.entity_map import name_map
 from events.button_click_event import ButtonClickEvent
-from actions.light_action import LightAction
+from actions.switch_action import SwitchAction
 
 def event_filter(event):
-    return event.button_name == "basement_button"
+    return event.button_name == "Basement Switch Button"
 
 
 def register_callbacks():
@@ -26,4 +26,4 @@ def on_long_press(event):
 def on_single_click(event):
     logger.info("Basement Button long press")
 
-    LightAction().add_light("basement_fan").toggle()
+    SwitchAction().add_switch("Basement Fan Switch").toggle()

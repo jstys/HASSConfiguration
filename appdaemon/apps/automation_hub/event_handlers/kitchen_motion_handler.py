@@ -7,7 +7,7 @@ from events.motion_cleared_event import MotionClearedEvent
 from actions.light_action import LightAction
 
 def event_filter(event):
-    return event.name in ["kitchen_front_motion"]
+    return event.name in ["Kitchen Front Motion Sensor"]
 
 def register_callbacks():
     event_dispatcher.register_callback(on_motion_triggered, MotionTriggeredEvent.__name__, event_filter=event_filter)
@@ -20,13 +20,13 @@ def on_motion_triggered(event):
     timer_manager.cancel_timer("kitchen_motion_timer")
 
     if not state_machine.is_enabled("indoor_movie_mode") and state_machine.is_enabled("motion_lighting"):
-        LightAction().add_light("landing_light").turn_on()
+        LightAction().add_light("Landing Light").turn_on()
     
     if not state_machine.is_enabled("outdoor_movie_mode", "indoor_movie_mode") and state_machine.is_enabled("motion_lighting"):
-        LightAction().add_light("kitchen_cabinet_lights").turn_on(color_temp=400)
+        LightAction().add_light("Kitchen Cabinet Lights").turn_on(color_temp=400)
 
         if not state_machine.is_enabled("sleep_mode"):
-            LightAction().add_light("kitchen_lights").turn_on()
+            LightAction().add_light("Kitchen Lights").turn_on()
 
 def on_motion_cleared(event):
     logger.info("Kitchen motion cleared")
@@ -35,8 +35,8 @@ def on_motion_cleared(event):
 
 def landing_light_off():
     if state_machine.is_enabled("motion_lighting"):
-        LightAction().add_light("landing_light").turn_off()
+        LightAction().add_light("Landing Light").turn_off()
 
 def kitchen_lights_off():
     if state_machine.is_enabled("motion_lighting"):
-        LightAction().add_lights(["kitchen_lights", "kitchen_cabinet_lights"]).turn_off()
+        LightAction().add_lights(["Kitchen Lights", "Kitchen Cabinet Lights"]).turn_off()

@@ -6,13 +6,10 @@ from events.lock_event import LockEvent
 from actions.push_notify_action import PushNotifyAction
 
 def sensor_filter(event):
-    return event.name == "front_entrance_door_sensor"
+    return event.name == "Front Entrance Sensor Contact"
 
 def lock_filter(event):
-    return event.name == "front_entrance_lock"
-
-def notify_filter(event):
-    return event.name == "front_door_lock_alarmtype"
+    return event.name == "Front Entrance Lock"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_door_closed, DoorClosedEvent.__name__, event_filter=sensor_filter)

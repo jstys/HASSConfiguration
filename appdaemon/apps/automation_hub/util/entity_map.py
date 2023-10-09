@@ -24,7 +24,7 @@ def create_entity_and_name_maps(file_contents):
                 if "name" in attribs:
                     name_map[attribs["name"]] = entity
                 elif "room" in attribs:
-                    name = "{}_{}".format(attribs["room"], category)
+                    name = "{} {}".format(attribs["room"], category).title()
                     entity_map[entity]["name"] = name
                     name_map[name] = entity
                 else:

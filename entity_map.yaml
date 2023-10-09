@@ -1,303 +1,223 @@
 entities:
     light:
         light.master_bedroom_fixture:
-            name: master_bedroom_fixture
+            name: Master Bedroom Fixture
             room: master_bedroom
-        light.master_bedroom_fixture_1:
-            name: master_bedroom_fixture_1
-            room: master_bedroom
-        light.master_bedroom_fixture_2:
-            name: master_bedroom_fixture_2
-            room: master_bedroom
-        light.hallway_fixture:
-            name: hallway_fixture
-            room: hallway
-        light.hallway_wall_light:
-            name: hallway_wall_light
-            room: hallway
-        light.living_room_lamp_1:
-            name: living_room_lamp_1
-            room: living_room
-        light.living_room_lamp_2:
-            name: living_room_lamp_2
-            room: living_room
         light.living_room_lamps:
-            name: living_room_lamps
+            name: Living Room Lamps
             room: living_room
         light.hallway_lights:
-            name: hallway_lights
+            name: Hallway Lights
             room: hallway
         light.front_porch_light:
+            name: Front Porch Light
             room: front_porch
         light.landing_light:
+            name: Landing Light
             room: landing
+        light.kitchen_fixture:
+            name: Kitchen Fixture
+            room: kitchen
+        light.kitchen_hi_hats:
+            name: Kitchen Hi Hats
+            room: Kitchen
         light.kitchen_lights:
-            name: kitchen_lights
+            name: Kitchen Lights
             room: kitchen
         light.dining_room_light:
-            name: dining_room_light
+            name: Dining Room Light
             room: dining_room
-        light.gateway_light_34ce008dcec1:
-            name: gateway_light
+        light.gateway_light:
+            name: Gateway Light
             room: living_room
         light.first_floor_staircase_led:
-            name: first_floor_staircase_led
+            name: First Floor Staircase LED
             room: living_room
         light.jim_night_lamp:
-            name: jim_night_lamp
+            name: Jim Night Lamp
             room: master_bedroom
         light.erica_night_lamp:
-            name: erica_night_lamp
+            name: Erica Night Lamp
             room: master_bedroom
         light.piano_led:
-            name: piano_led
+            name: Piano LED
             room: living_room
         light.fourth_bedroom_fixture:
-            name: fourth_bedroom_fixture
+            name: Fourth Bedroom Fixture
             room: fourth_bedroom
-        light.fourth_bedroom_fixture_1:
-            name: fourth_bedroom_fixture_1
-            room: fourth_bedroom
-        light.fourth_bedroom_fixture_2:
-            name: fourth_bedroom_fixture_2
-            room: fourth_bedroom
-        light.kitchen_cabinet_right_light:
-            name: kitchen_cabinet_right_light
-            room: kitchen
-        light.kitchen_cabinet_left_light:
-            name: kitchen_cabinet_left_light
-            room: kitchen
         light.kitchen_cabinet_lights:
-            name: kitchen_cabinet_lights
+            name: Kitchen Cabinet Lights
             room: kitchen
-        light.master_bedroom_closet_light_1:
-            name: master_bedroom_closet_light_1
-            room: master_bedroom
-        light.master_bedroom_closet_light_2:
-            name: master_bedroom_closet_light_2
-            room: master_bedroom
         light.master_bedroom_closet_lights:
-            name: master_bedroom_closet_lights
+            name: Master Bedroom Closet Lights
             room: master_bedroom
         light.master_bedroom_mirror_led:
-            name: master_bedroom_mirror_led
+            name: Master Bedroom Mirror LED
             room: master_bedroom
-        switch.basement_fan_switch:
-            name: basement_fan
-            room: basement
-        light.attic_front_light:
-            name: attic_front_light
-            room: attic
-        light.attic_back_light:
-            name: attic_back_light
-            room: attic
         light.attic_lights:
-            name: attic_lights
+            name: Attic Lights
             room: attic
         light.backyard_fence_lights:
-            name: backyard_fence_lights
+            name: Backyard Fence Lights
             room: backyard
         light.office_lights:
-            name: office_lights
+            name: Office Lights
             room: office
-        light.backyard_flood_light_1:
-            name: backyard_flood_light_1
-            room: backyard
-        light.backyard_flood_light_2:
-            name: backyard_flood_light_2
-            room: backyard
         light.backyard_flood_lights:
-            name: backyard_flood_lights
+            name: Backyard Flood Lights
             room: backyard
         light.backyard_bar_lights:
-            name: backyard_bar_lights
+            name: Backyard Bar Lights
             room: backyard
-        light.kitchen_fixture:
-            name: kitchen_fixture
-            room: kitchen
         light.basement_lights:
-            name: basement_lights
+            name: Basement Lights
             room: basement
         light.guest_bedroom_switch:
-            name: guest_bedroom_hi_hats
+            name: Guest Bedroom Hi Hats
             room: guest_bedroom
-        light.kitchen_hi_hats:
-            name: kitchen_hi_hats
-            room: kitchen
-        light.garage_back_light:
-            name: garage_back_light
-            room: garage
-        light.garage_front_light:
-            name: garage_front_light
-            room: garage
         light.garage_lights:
-            name: garage_lights
+            name: Garage Lights
             room: garage
-
         light.christmas_tree_led_controller:
-            name: christmas_tree_lights
+            name: Christmas Tree LEDs
             room: living_room
         light.erica_closet_light:
-            name: erica_closet_light
+            name: Erica Closet Light
             room: fourth_bedroom
         light.jim_closet_light:
-            name: jim_closet_light
+            name: Jim Closet Light
             room: fourth_bedroom
 
     motion_sensor:
-        binary_sensor.motion_sensor_158d00016612a5:
+        binary_sensor.office_motion_sensor:
+            name: Office Motion Sensor
             room: office
-        binary_sensor.hallway_motion_sensor_occupancy:
+        binary_sensor.hallway_motion_sensor:
+            name: Hallway Motion Sensor
             room: hallway
-        binary_sensor.motion_sensor_158d0002b6fe4e:
+        binary_sensor.landing_motion_sensor:
+            name: Landing Motion Sensor
             room: landing
-        binary_sensor.motion_sensor_158d0002c63719:
-            name: garage_front_motion
+        binary_sensor.garage_front_motion_sensor:
+            name: Garage Front Motion Sensor
             room: garage
-        binary_sensor.garage_back_motion_sensor_occupancy:
-            name: garage_back_motion
+        binary_sensor.garage_back_motion_sensor:
+            name: Garage Back Motion Sensor
             room: garage
-        binary_sensor.motion_sensor_158d0002b6edb0:
-            name: fourth_bedroom_motion
+        binary_sensor.fourth_bedroom_motion_sensor:
+            name: Fourth Bedroom Motion Sensor
             room: fourth_bedroom
-        binary_sensor.motion_sensor_158d0002b71f6a:
-            name: basement_stairs_motion
+        binary_sensor.basement_stairs_motion_sensor:
+            name: Basement Stairs Motion Sensor
             room: basement
-        binary_sensor.kitchen_front_motion_sensor_occupancy:
-            name: kitchen_front_motion
+        binary_sensor.kitchen_front_motion_sensor:
+            name: Kitchen Front Motion Sensor
             room: kitchen
-        binary_sensor.erica_closet_motion_sensor_occupancy:
-            name: erica_closet_motion
+        binary_sensor.erica_closet_motion_sensor:
+            name: Erica Closet Motion Sensor
             room: fourth_bedroom
     
-    water_sensor:
-         binary_sensor.water_leak_sensor_158d00023a58df:
-            room: utility_room
+    water_sensor: ~
     
     door_sensor:
         binary_sensor.front_entrance_sensor_contact:
+            name: Front Entrance Sensor Contact
             room: front_entrance
         binary_sensor.garage_door_sensor_contact:
+            name: Garage Door Sensor Contact
             room: garage
-        binary_sensor.door_window_sensor_158d0001d3a024:
-            name: kitchen_fridge_sensor
+        binary_sensor.kitchen_fridge_sensor_contact:
+            name: Kitchen Fridge Sensor Contact
             room: kitchen
         binary_sensor.attic_door_sensor_contact:
+            name: Attic Door Sensor Contact
             room: attic
         binary_sensor.jim_closet_door_sensor_contact:
-            name: jim_closet_door_sensor
+            name: Jim Closet Door Sensor Contact
             room: fourth_bedroom
     
     button:
-        binary_sensor.switch_158d00016da2c9:
-            name: master_bedroom_closet_button
-        binary_sensor.switch_158d00016dbf86:
+        binary_sensor.master_bedroom_closet_switch_button:
+            name: Master Bedroom Closet Switch Button
             room: master_bedroom
-        binary_sensor.switch_158d00026ad875:
-            name: basement_button
+        binary_sensor.master_bedroom_bed_switch_button:
+            name: Master Bedroom Bed Switch Button
+            room: master_bedroom
+        binary_sensor.basement_switch_button:
+            name: Basement Switch Button
             room: basement
-
-    battery:
-        sensor.none_battery_level:
-            name: living_room_remote_battery
-        sensor.key_free_push_button_deadbolt_battery_level:
-            name: front_lock_battery
-        sensor.z_wave_plus_thermostat_battery_level:
-            name: thermostat_battery
-        sensor.wall_mounted_switch_battery_level:
-            name: dining_room_switch_battery
-        sensor.wall_mounted_switch_battery_level_3:
-            name: master_bedroom_switch_battery
-        sensor.wall_mounted_switch_battery_level_2:
-            name: master_bedroom_mirror_switch_battery
-        sensor.visonic_mct_340_e_fa15120b_power:
-            name: attic_door_battery
-        sensor.visonic_mct_340_e_781b120b_power:
-            name: garage_door_battery
-        sensor.visonic_mct_340_e_6216120b_power:
-            name: front_door_battery
             
     chromecast:
         media_player.living_room_shield:
             room: living_room
-            name: living_room_shield
-        media_player.fourth_bedroom_mibox:
-            room: fourth_bedroom
-            name: fourth_bedroom_mibox
-        media_player.basement_mibox:
-            room: basement
-            name: basement_mibox
-        media_player.guest_bedroom_mibox:
-            room: guest_bedroom
-            name: guest_bedroom_mibox
-        media_player.backyard_mibox:
-            room: backyard
-            name: backyard_mibox
+            name: Living Room Sheild
         media_player.master_bedroom_gtv:
             room: master_bedroom
-            name: master_bedroom_gtv
+            name: Master Bedroom GTV
             
     vizio:
         media_player.living_room_vizio_tv:
             room: living_room
-            name: living_room_vizio_tv
-
-        media_player.master_tv:
-            room: master_bedroom
-            name: master_bedroom_vizio_tv
+            name: Living Room Vizio TV
     tv:
         media_player.living_room_tv:
+            name: Living Room TV
             room: living_room
             inputs:
                 tv: HDMI-2
                 gaming: HDMI-5
         media_player.master_bedroom_tv:
+            name: Master Bedroom TV
             room: master_bedroom
             inputs:
                 tv: null
         media_player.basement_tv:
+            name: Basement TV
             room: basement
             inputs:
                 tv: null
         media_player.guest_bedroom_tv:
+            name: Guest Bedroom TV
             room: guest_bedroom
             inputs:
                 tv: null
             
     speaker:
         media_player.backyard_speaker:
+            name: Backyard Speaker
             room: backyard
         media_player.living_room_speaker:
+            name: Living Room Speaker
             room: living_room
         media_player.office_speaker:
+            name: Office Speaker
             room: office
         media_player.backyard_mini:
             room: backyard
-            name: backyard_mini
+            name: Backyard Mini
         media_player.master_bedroom_mpd:
             room: master_bedroom
-            name: master_bedroom_mpd
+            name: Master Bedroom MPD
         media_player.living_room_mpd:
             room: living_room
-            name: living_room_mpd
+            name: Living Room MPD
 
     outlet:
-        switch.kitchen_fragrance_outlet:
-            name: kitchen_fragrance
-        switch.smart_plug_2:
-            name: rice_cooker
         switch.espresso_machine_outlet:
-            name: espresso_machine
-        switch.living_room_fragrance_outlet:
-            name: living_room_fragrance
+            name: Espresso Machine Outlet
+            room: kitchen
         switch.backyard_receiver_outlet:
-            name: backyard_receiver_power
+            name: Backyard Receiver Outlet
+            room: garage
         switch.hallway_outlet:
-            name: hallway_outlet
+            name: Hallway Outlet
+            room: hallway
         switch.guest_bedroom_outlet:
+            name: Guest Bedroom Outlet
             room: guest_bedroom
         switch.smart_plug:
-            name: couch_outlet
+            name: Couch Outlet
+            room: living_room
         switch.porch_outlet:
             name: porch_outlet
         switch.smart_plug_3:
@@ -332,17 +252,20 @@ entities:
             name: master_bedroom_led_switch
             room: master_bedroom
         switch.smart_strip:
-            name: aeon_labs_smart_strip_1
+            name: Smart Strip Outlet 1
         switch.smart_strip_2:
-            name: aeon_labs_smart_strip_2
+            name: Smart Strip Outlet 2
         switch.smart_strip_3:
-            name: aeon_labs_smart_strip_3
+            name: Smart Strip Outlet 3
         switch.smart_strip_4:
-            name: aeon_labs_smart_strip_4
+            name: Smart Strip Outlet 4
         switch.kitchen_switch:
             name: kitchen_hi_hat_switch
         switch.garage_back_switch:
             name: garage_back_switch
+        switch.basement_fan_switch:
+            name: Basement Fan Switch
+            room: basement
     
     lock:
         lock.front_entrance_lock:
@@ -402,17 +325,17 @@ entities:
 
     thermostat:
         climate.oil_thermostat:
-            name: oil_thermostat
+            name: Oil Thermostat
         climate.dining_room_ac:
-            name: dining_room_ac
+            name: Dining Room AC
         climate.fourth_bedroom_ac:
-            name: fourth_bedroom_ac
+            name: Fourth Bedroom AC
         climate.guest_bedroom_minisplit:
-            name: guest_bedroom_minisplit
+            name: Guest Bedroom Minisplit
         climate.office_minisplit:
-            name: office_minisplit
+            name: Office Minisplit
         climate.master_bedroom_minisplit:
-            name: master_bedroom_minisplit
+            name: Master Bedroom Minisplit
 
     temperature:
         sensor.visonic_mct_340_e_781b120b_temperature:
@@ -447,14 +370,14 @@ entities:
     power_monitor:
         sensor.dryer_outlet_power:
             name: dryer_power_monitor
-        sensor.laundry_outlet_electric_consumption_w:
+        sensor.laundry_outlet_power:
             name: washer_power_monitor
             
     binary_power_sensor:
         binary_sensor.dryer_running:
-            name: dryer_running
+            name: Dryer Running Sensor
         binary_sensor.washer_running:
-            name: washer_running
+            name: Washer Running Sensor
 
     calendar:
         calendar.jim_wfh:
@@ -479,12 +402,6 @@ join_targets:
     - jim_cell
     - erica_cell
 
-button_ids:
-    00:0d:6f:00:0e:c8:ff:1c:3:0x0006:
-        type: lightify
-        name: living_room_button
-        room: living_room
-
 nfc_tag_id_map:
     master_bathroom: '8420b756-dc14-411e-abaa-55b7b7e88b9b'
 
@@ -493,13 +410,13 @@ nfc_scanner_id_map:
 
 zwave_scene_map:
     7:
-        name: dining_room_switch
+        name: Dining Room Switch
         scenes:
             "001": "on"
             "002": "off"
             
     9:
-        name: fibaro_keychain
+        name: Fibaro Keychain
         scenes:
             "001": "square"
             "002": "circle"
@@ -508,36 +425,12 @@ zwave_scene_map:
             "005": "minus"
             "006": "plus"
     4:
-        name: master_bedroom_switch
+        name: Master Bedroom Light Switch
         scenes:
             "001": "on"
             "002": "off"
     5:
-        name: master_mirror_switch
+        name: Master Bedroom Mirror Switch
         scenes:
             "001": "on"
             "002": "off"
-areas:
-    front_lawn: frontyard
-    driveway: frontyard
-    front_porch: frontyard
-    front_entrance: first_floor
-    living_room: first_floor
-    dining_room: first_floor
-    kitchen: first_floor
-    hallway: second_floor
-    master_bedroom: second_floor
-    main_bathroom: second_floor
-    office: second_floor
-    guest_bedroom: second_floor
-    fourth_bedroom: third_floor
-    attic: fourth_floor
-    grill: backyard
-    pool: backyard
-    back_deck: backyard
-    landing: basement
-    basement_main: basement
-    utility_room: basement
-    basement_bathroom: basement
-    laundry: basement
-    garage: garage

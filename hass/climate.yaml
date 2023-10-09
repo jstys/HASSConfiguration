@@ -1,7 +1,7 @@
 - platform: generic_thermostat
   name: Fourth Bedroom AC
   heater: switch.fourth_bedroom_ac
-  target_sensor: sensor.temperature_158d00023cf950
+  target_sensor: sensor.fourth_bedroom_weather_temperature
   ac_mode: true
   min_temp: 65
   max_temp: 80
@@ -14,7 +14,7 @@
 - platform: generic_thermostat
   name: Dining Room AC
   heater: switch.dining_room_ac
-  target_sensor: sensor.temperature_158d0001d6f386
+  target_sensor: sensor.downstairs_weather_temperature
   ac_mode: true
   min_temp: 65
   max_temp: 80
@@ -29,18 +29,18 @@
   unique_id: office_minisplit
   device_code: 2040
   controller_data: remote.office_broadlink_remote
-  temperature_sensor: sensor.temperature_158d000245ae4b
+  temperature_sensor: sensor.office_weather_temperature
 
 - platform: smartir
   name: Master Bedroom Minisplit
   unique_id: master_bedroom_minisplit
   device_code: 2040
   controller_data: remote.master_bedroom_broadlink_remote
-  temperature_sensor: sensor.temperature_158d000245a6a2
+  temperature_sensor: sensor.master_bedroom_weather_temperature
 
 - platform: smartir
   name: Guest Bedroom Minisplit
   unique_id: guest_bedroom_minisplit
   device_code: 2040
   controller_data: remote.guest_bedroom_broadlink_remote
-  temperature_sensor: sensor.temperature_158d00023cf8f7
+  temperature_sensor: sensor.guest_bedroom_weather_temperature

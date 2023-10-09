@@ -6,7 +6,7 @@ from actions.light_action import LightAction
 from actions.push_notify_action import PushNotifyAction
 
 def event_filter(event):
-    return event.name == "garage_door_sensor"
+    return event.name == "Garage Door Sensor Contact"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_door_closed, DoorClosedEvent.__name__, event_filter=event_filter)
@@ -19,5 +19,5 @@ def on_door_closed(event):
 def on_door_opened(event):
     logger.info("Garage door opened")
     PushNotifyAction().add_target("jim_cell").set_message("Garage door opened", notification_id="garage-door-state").notify()
-    LightAction().add_light("garage_lights").turn_on()
+    LightAction().add_light("Garage Lights").turn_on()
     

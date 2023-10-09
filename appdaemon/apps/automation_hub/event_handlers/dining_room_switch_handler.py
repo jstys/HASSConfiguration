@@ -4,7 +4,7 @@ from events.zwave_scene_event import ZwaveSceneEvent
 from actions.light_action import LightAction
 
 def event_filter(event):
-    return event.name in ["dining_room_switch"]
+    return event.name in ["Dining Room Switch"]
 
 def register_callbacks():
     event_dispatcher.register_callback(on_scene_activated, ZwaveSceneEvent.__name__, event_filter=event_filter)
@@ -17,8 +17,8 @@ def on_scene_activated(event):
 
 def on_top_button(event):
     logger.info("Turning on dining room light")
-    LightAction().add_light("dining_room_light").turn_on(color_temp=255)
+    LightAction().add_light("Dining Room Light").turn_on(color_temp=255)
 
 def on_bottom_button(event):
     logger.info("Turning off dining room light")
-    LightAction().add_light("dining_room_light").turn_off()
+    LightAction().add_light("Dining Room Light").turn_off()

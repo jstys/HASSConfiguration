@@ -7,7 +7,7 @@ from actions.light_action import LightAction
 import state_machine
 
 def motion_event_filter(event):
-    return event.name == "erica_closet_motion"
+    return event.name == "Erica Closet Motion Sensor"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_motion_triggered, MotionTriggeredEvent.__name__, event_filter=motion_event_filter)
@@ -18,7 +18,7 @@ def on_motion_triggered(event):
     
     timer_manager.cancel_timer("erica_closet_motion_timer")
     if state_machine.is_enabled("motion_lighting"):
-        LightAction().add_light("erica_closet_light").turn_on()
+        LightAction().add_light("Erica Closet Light").turn_on()
 
 def on_motion_cleared(event):
     logger.info("Erica closet motion cleared")
@@ -26,5 +26,5 @@ def on_motion_cleared(event):
     
 def lights_off():
     if state_machine.is_enabled("motion_lighting"):
-        LightAction().add_light("erica_closet_light").turn_off()
+        LightAction().add_light("Erica Closet Light").turn_off()
     

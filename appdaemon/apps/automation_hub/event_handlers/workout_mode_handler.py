@@ -5,6 +5,7 @@ from util import logger
 from util import hassutil
 from events.input_event import InputEvent
 from actions.light_action import LightAction
+from actions.switch_action import SwitchAction
 from actions.media_player_action import MediaPlayerAction
 from actions.thermostat_action import ThermostatAction
 
@@ -26,16 +27,16 @@ def on_enabled(event):
     hassutil.activate_scene("workout_mode")
 
     if state_machine.is_heating_enabled():
-        ThermostatAction().add_thermostat("oil_thermostat").turn_off()
+        ThermostatAction().add_thermostat("Oil Thermostat").turn_off()
 
 def on_disabled(event):
-    MediaPlayerAction().add_media_player("basement_tv").turn_off()
-    LightAction().add_light("basement_fan").turn_off()
+    MediaPlayerAction().add_media_player("Basement TV").turn_off()
+    SwitchAction().add_switch("Basement Fan Switch").turn_off()
 
-    light_action = LightAction().add_light("basement_lights").turn_off
+    light_action = LightAction().add_light("Basement Lights").turn_off
     timer_manager.start_timer("basement_stairs_motion_timer", light_action, minutes=10)
 
     if state_machine.is_heating_enabled():
-        heat_action = ThermostatAction().add_thermostat("oil_thermostat")
+        heat_action = ThermostatAction().add_thermostat("Oil Thermostat")
         heat_action.turn_on()
         heat_action.set_temperature(state_machine.get_number("normal_heat"), "heat")

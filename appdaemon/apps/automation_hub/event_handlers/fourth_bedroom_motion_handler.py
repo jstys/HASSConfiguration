@@ -7,7 +7,7 @@ from events.motion_cleared_event import MotionClearedEvent
 from actions.light_action import LightAction
 
 def event_filter(event):
-    return event.name in ["fourth_bedroom_motion"]
+    return event.name in ["Fourth Bedroom Motion Sensor"]
 
 def register_callbacks():
     event_dispatcher.register_callback(on_motion_triggered, MotionTriggeredEvent.__name__, event_filter=event_filter)
@@ -18,7 +18,7 @@ def on_motion_triggered(event):
     
     timer_manager.cancel_timer("fourth_bedroom_motion_timer")
     if state_machine.is_enabled("motion_lighting"):
-        LightAction().add_light("fourth_bedroom_fixture").turn_on()
+        LightAction().add_light("Fourth Bedroom Fixture").turn_on()
     
 def on_motion_cleared(event):
     logger.info("Fourth bedroom motion cleared")
@@ -26,4 +26,4 @@ def on_motion_cleared(event):
 
 def lights_off():
     if state_machine.is_enabled("motion_lighting"):
-        LightAction().add_light("fourth_bedroom_fixture").turn_off()
+        LightAction().add_light("Fourth Bedroom Fixture").turn_off()

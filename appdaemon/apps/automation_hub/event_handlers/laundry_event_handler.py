@@ -12,10 +12,10 @@ WASHER_IDLE_MINUTES = 10
 dryer_start = None
 
 def washer_filter(event):
-    return event.name == "washer_running"
+    return event.name == "Washer Running Sensor"
     
 def dryer_filter(event):
-    return event.name == "dryer_running"
+    return event.name == "Dryer Running Sensor"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_washer_on_event, PowerSensorOnEvent.__name__, event_filter=washer_filter)
@@ -35,7 +35,7 @@ def on_washer_finished():
     PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Washing Machine has finished").notify()
 
     if not state_machine.is_enabled("sleep_mode"):
-        TTSAction().add_assistants(["living_room_mpd", "master_bedroom_mpd"]).say("Washer has finished")
+        TTSAction().add_assistants(["Living Room MPD", "Master Bedroom MPD"]).say("Washer has finished")
 
 def on_dryer_on_event(event):
     global dryer_start
@@ -61,7 +61,7 @@ def _notify_dryer_finish():
     global dryer_start
 
     if not state_machine.is_enabled("sleep_mode"):
-        TTSAction().add_assistants(["living_room_mpd", "master_bedroom_mpd"]).say("Dryer has finished")
+        TTSAction().add_assistants(["Living Room MPD", "Master Bedroom MPD"]).say("Dryer has finished")
         
     PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Dryer has finished").notify()
     dryer_start = None

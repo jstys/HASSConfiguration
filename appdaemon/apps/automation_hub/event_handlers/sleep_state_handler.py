@@ -30,32 +30,32 @@ def on_sleep_state_enabled(event):
         JoinAction().add_target("jim_cell").send_taker_command("bed_command")
 
     if state_machine.is_heating_enabled():
-        heat_action = ThermostatAction().add_thermostat("oil_thermostat")
+        heat_action = ThermostatAction().add_thermostat("Oil Thermostat")
         heat_action.set_temperature(state_machine.get_number("sleep_mode_heat"), 'heat')
 
     if state_machine.is_enabled("christmas_lights_mode"):
-        LightAction().add_light("christmas_tree_lights").turn_off()
+        LightAction().add_light("Christmas Tree LEDs").turn_off()
 
 def on_sleep_state_disabled(event):
     logger.info("Sleep state disabled")
     
     SwitchAction().add_switch("master_bedroom_whitenoise").turn_off()
-    LightAction().add_lights(["first_floor_staircase_led"]).turn_off()
-    ThermostatAction().add_thermostat("master_bedroom_minisplit").turn_off()
+    LightAction().add_lights(["First Floor Staircase LED"]).turn_off()
+    ThermostatAction().add_thermostat("Master Bedroom Minisplit").turn_off()
 
     if state_machine.is_jim_home():
         JoinAction().add_target("jim_cell").send_taker_command("awake_command")
 
     if state_machine.is_heating_enabled():
-        heat_action = ThermostatAction().add_thermostat("oil_thermostat")
+        heat_action = ThermostatAction().add_thermostat("Oil Thermostat")
         heat_action.set_temperature(state_machine.get_number("normal_heat"), 'heat')
 
     if state_machine.is_enabled("christmas_lights_mode"):
-        LightAction().add_light("christmas_tree_lights").turn_on_no_brightness()
+        LightAction().add_light("Christmas Tree LEDs").turn_on_no_brightness()
         SwitchAction().add_switches([
-            "aeon_labs_smart_strip_1",
-            "aeon_labs_smart_strip_2",
-            "aeon_labs_smart_strip_3",
-            "aeon_labs_smart_strip_4"
+            "Smart Strip Outlet 1",
+            "Smart Strip Outlet 2",
+            "Smart Strip Outlet 3",
+            "Smart Strip Outlet 4"
         ]).turn_off()
     
