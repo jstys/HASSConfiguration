@@ -117,8 +117,6 @@ entities:
             name: Erica Closet Motion Sensor
             room: fourth_bedroom
     
-    water_sensor: ~
-    
     door_sensor:
         binary_sensor.front_entrance_sensor_contact:
             name: Front Entrance Sensor Contact
