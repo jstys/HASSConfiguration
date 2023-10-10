@@ -1,4 +1,5 @@
 - platform: universal
+  unique_id: universal.living_room_tv
   name: Living Room TV
   children:
     - media_player.living_room_speaker
@@ -38,6 +39,7 @@
     source_list: media_player.living_room_vizio_tv|source_list
 
 - platform: universal
+  unique_id: universal.master_bedroom_tv
   name: Master Bedroom TV
   children:
     - media_player.master_bedroom_gtv
@@ -76,9 +78,10 @@
     source_list: media_player.master_tv|source_list
     
 - platform: universal
+  unique_id: universal.basement_tv
   name: Basement TV
   children:
-    - media_player.basement_mibox
+    - media_player.basement_gtv
   commands:
     turn_on:
       service: switch.turn_on
@@ -104,9 +107,10 @@
     state: input_boolean.basement_tv
     
 - platform: universal
+  unique_id: universal.guest_bedroom_tv
   name: Guest Bedroom TV
   children:
-    - media_player.guest_bedroom_mibox
+    - media_player.guest_bedroom_gtv
   commands:
     turn_on:
       service: switch.turn_on
