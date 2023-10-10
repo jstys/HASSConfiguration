@@ -1,4 +1,5 @@
 - platform: group
+  unique_id: group.kitchen_lights
   name: Kitchen Lights
   entities:
     - light.kitchen_fixture
@@ -6,12 +7,14 @@
 
 - platform: group
   name: Garage Lights
+  unique_id: group.garage_lights
   entities:
     - light.garage_back_light
     - light.garage_front_light
 
 - platform: group
   name: Backyard Lights
+  unique_id: group.backyard_lights
   entities:
     - light.backyard_flood_lights
     - light.backyard_fence_lights
