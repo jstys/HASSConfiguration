@@ -20,7 +20,7 @@ def on_state_changed(event):
 
 def on_disabled(event):
     timer_manager.cancel_timer("white_noise_restart")
-    media_action = MediaPlayerAction().add_media_player("master_bedroom_mpd")
+    media_action = MediaPlayerAction().add_media_player("Master Bedroom MPD")
     media_action.stop()
     media_action.clear_playlist()
 
@@ -28,7 +28,7 @@ def on_enabled(event):
     play_white_noise()
 
 def play_white_noise():
-    mp_action = MediaPlayerAction().add_media_player("master_bedroom_mpd")
+    mp_action = MediaPlayerAction().add_media_player("Master Bedroom MPD")
     mp_action.set_volume(0.8)
     mp_action.play_music("http://10.0.0.6:8123/local/white_noise.mp3")
     timer_manager.start_timer("white_noise_restart", play_white_noise, hours=1)

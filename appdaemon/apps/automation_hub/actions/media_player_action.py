@@ -17,7 +17,7 @@ class MediaPlayerAction():
         if media_player in name_map:
             self._media_players.append(hassutil.Entity(name_map[media_player]))
         else:
-            logger.error("Unable to add unknown light to MediaPlayerAction: {}".format(media_player))
+            logger.error("Unable to add unknown media player to MediaPlayerAction: {}".format(media_player))
 
         return self
 
