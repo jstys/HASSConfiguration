@@ -1,0 +1,108 @@
+strategy:
+  type: custom:mushroom-strategy
+  options:
+    areas:
+      living_room:
+        name: Living Room
+        order: 1
+        icon: mdi:sofa
+        extra_cards:
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: input_boolean.indoor_movie_mode
+                icon: mdi:movie
+            alignment: center
+      master_bedroom:
+        name: Master Bedroom
+        icon: mdi:bed
+        order: 2
+        extra_cards:
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: input_boolean.sleep_mode
+                icon: mdi:bed
+              - type: entity
+                entity: input_boolean.master_bedroom_whitenoise
+                icon: mdi:fan
+              - type: entity
+                entity: input_boolean.privacy_mode
+                icon: mdi:eye
+            alignment: center
+      office:
+        name: Office
+        icon: mdi:office-building
+        order: 3
+      kitchen:
+        name: Kitchen
+        icon: mdi:fridge
+        order: 4
+      garage:
+        name: Garage
+        icon: mdi:garage
+        order: 5
+      basement:
+        name: Basement
+        icon: mdi:dumbbell
+        order: 6
+        extra_cards:
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: input_boolean.workout_mode
+                icon: mdi:dumbbell
+              - type: entity
+                entity: switch.basement_fan_switch
+                icon: mdi:fan
+            alignment: center 
+      backyard:
+        name: Backyard
+        icon: mdi:pool
+        order: 7
+      frontyard:
+        name: Frontyard
+        icon: mdi:tree
+        order: 8
+      fourth_bedroom:
+        name: Fourth Bedroom
+        icon: mdi:stairs
+        order: 9
+      guest_bedroom:
+        name: Guest Bedroom
+        icon: mdi:account-supervisor
+        order: 10
+      hallway:
+        name: Hallway
+        icon: mdi:door
+        order: 11
+        hidden: true
+      undisclosed:
+        hidden: true
+    domains:
+      light:
+        showControls: false
+      switch:
+        showControls: false
+      cover:
+        showControls: false
+    chips:
+      climate_count: false
+      light_count: false
+      fan_count: false
+      switch_count: false
+      cover_count: false
+    views:
+      light:
+        hidden: true
+      fan:
+        hidden: true
+      cover:
+        hidden: true
+      switch:
+        hidden: true
+      climate:
+        hidden: true
+      camera:
+        hidden: true
+views: []
