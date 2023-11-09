@@ -76,7 +76,7 @@
         command: input_hdmi4
         source: '{{ source }}'
   attributes:
-    state: media_player.master_bedroom_tcl
+    state: remote.master_bedroom_tcl
     is_volume_muted: media_player.master_bedroom_tcl|is_volume_muted
     volume_level: media_player.master_bedroom_tcl|volume_level
     source: media_player.master_bedroom_tcl|source
