@@ -42,40 +42,45 @@
   unique_id: universal.master_bedroom_tv
   name: Master Bedroom TV
   children:
+    - media_player.master_bedroom_tcl
     - media_player.master_bedroom_gtv
   commands:
     turn_on:
-      service: media_player.turn_on
+      service: remote.turn_on
       data:
-        entity_id: media_player.master_tv
+        entity_id: remote.master_bedroom_tcl
     turn_off:
-      service: media_player.turn_off
+      service: remote.turn_off
       data:
-        entity_id: media_player.master_tv
+        entity_id: remote.master_bedroom_tcl
     volume_up:
-      service: media_player.volume_up
+      service: remote.send_command
       data:
-        entity_id: media_player.master_tv
+        entity_id: remote.master_bedroom_tcl
+        command: volume_up
     volume_down:
-      service: media_player.volume_down
+      service: remote.send_command
       data:
-        entity_id: media_player.master_tv
+        entity_id: remote.master_bedroom_tcl
+        command: volume_down
     volume_mute:
-      service: media_player.volume_mute
+      service: remote.send_command
       data_template:
-        entity_id: media_player.master_tv
+        entity_id: remote.master_bedroom_tcl
+        command: volume_mute
         is_volume_muted: '{{ is_volume_muted }}'
     select_source:
-      service: media_player.select_source
+      service: remote.send_command
       data_template:
-        entity_id: media_player.master_tv
+        entity_id: remote.master_bedroom_tcl
+        command: input_hdmi4
         source: '{{ source }}'
   attributes:
-    state: media_player.master_tv
-    is_volume_muted: media_player.master_tv|is_volume_muted
-    volume_level: media_player.master_tv|volume_level
-    source: media_player.master_tv|source
-    source_list: media_player.master_tv|source_list
+    state: media_player.master_bedroom_tcl
+    is_volume_muted: media_player.master_bedroom_tcl|is_volume_muted
+    volume_level: media_player.master_bedroom_tcl|volume_level
+    source: media_player.master_bedroom_tcl|source
+    source_list: media_player.master_bedroom_tcl|source_list
     
 - platform: universal
   unique_id: universal.basement_tv
