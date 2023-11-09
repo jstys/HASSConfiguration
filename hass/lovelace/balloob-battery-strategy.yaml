@@ -1,0 +1,9 @@
+views:
+  - title: Batteries
+    strategy:
+      type: custom:balloob-battery
+      options:
+        gridOptions:
+          columns: 3
+        entityOptions:
+          graph: none

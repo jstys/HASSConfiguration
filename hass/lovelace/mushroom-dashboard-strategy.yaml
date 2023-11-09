@@ -1,6 +1,28 @@
 strategy:
   type: custom:mushroom-strategy
   options:
+    homeView:
+      hidden:
+        - greeting
+        - areaTitle
+    quick_access_cards:
+      - type: custom:mushroom-template-card
+        icon: mdi:hvac
+        icon_color: white
+        primary: HVAC
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace-hvac/0
+          navigation_replace: false
+    extra_cards:
+      - type: custom:mushroom-template-card
+        icon: mdi:battery
+        icon_color: green
+        primary: Batteries
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-batteries/0
+          navigation_replace: false
     areas:
       living_room:
         name: Living Room
@@ -38,6 +60,10 @@ strategy:
         name: Kitchen
         icon: mdi:fridge
         order: 4
+        extra_cards:
+          - type: custom:mushroom-vacuum-card
+            entity: vacuum.roborock_s6_pure
+            fill_container: true
       garage:
         name: Garage
         icon: mdi:garage
@@ -55,11 +81,17 @@ strategy:
               - type: entity
                 entity: switch.basement_fan_switch
                 icon: mdi:fan
-            alignment: center 
+            alignment: center
       backyard:
         name: Backyard
         icon: mdi:pool
         order: 7
+        extra_cards:
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: sensor.backyard_temperature
+                icon: mdi:thermometer
       frontyard:
         name: Frontyard
         icon: mdi:tree
@@ -86,12 +118,23 @@ strategy:
         showControls: false
       cover:
         showControls: false
+        order: 2
+      lock:
+        order: 1
+      media_player:
+        order: 3
+      climate:
+        hidden: true
     chips:
       climate_count: false
       light_count: false
       fan_count: false
       switch_count: false
       cover_count: false
+      extra_chips:
+        - type: entity
+          entity: sensor.backyard_temperature
+          icon: mdi:thermometer
     views:
       light:
         hidden: true
