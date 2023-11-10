@@ -17,8 +17,8 @@ def on_motion_triggered(event):
     logger.info("Hallway motion detected")
 
     timer_manager.cancel_timer("hallway_motion_timer")
-    if not state_machine.is_enabled("indoor_movie_mode", "privacy_mode") and state_machine.is_enabled("motion_lighting"):
-        if not state_machine.is_enabled("sleep_mode"):
+    if not state_machine.is_enabled("Indoor Movie Mode", "Privacy Mode") and state_machine.is_enabled("Motion Lighting"):
+        if not state_machine.is_enabled("Sleep Mode"):
             LightAction().add_light("Hallway Lights").turn_on()
         else:
             LightAction().add_lights(["First Floor Staircase LED"]).turn_on()
@@ -28,8 +28,8 @@ def on_motion_cleared(event):
     timer_manager.start_timer("hallway_motion_timer", lights_off, minutes=5)
 
 def lights_off():
-    if state_machine.is_enabled("motion_lighting"):
-        if not state_machine.is_enabled("sleep_mode"):
+    if state_machine.is_enabled("Motion Lighting"):
+        if not state_machine.is_enabled("Sleep Mode"):
             LightAction().add_lights(["Hallway Lights"]).turn_off()
         else:
             LightAction().add_lights(["First Floor Staircase LED"]).turn_off()

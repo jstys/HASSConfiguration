@@ -7,7 +7,7 @@ from actions.thermostat_action import ThermostatAction
 from actions.switch_action import SwitchAction
 
 def event_filter(event):
-    return event.name == "vacation_mode"
+    return event.name == "Vacation Mode"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_state_changed, InputEvent.__name__, event_filter=event_filter)
@@ -22,10 +22,10 @@ def on_state_changed(event):
 
 def on_enabled(event):
     if state_machine.is_heating_enabled():
-        ThermostatAction().add_thermostat("Oil Thermostat").set_temperature(state_machine.get_number("vacation_heat"), "heat")
+        ThermostatAction().add_thermostat("Oil Thermostat").set_temperature(state_machine.get_number("Vacation Heat"), "heat")
 
-    if state_machine.is_enabled("christmas_lights_mode"):
-        LightAction().add_light("christmas_tree_lights").turn_off()
+    if state_machine.is_enabled("Christmas Lights Mode"):
+        LightAction().add_light("Christmas Tree Lights").turn_off()
         SwitchAction().add_switches([
             "Smart Strip Outlet 1",
             "Smart Strip Outlet 2",
@@ -35,4 +35,4 @@ def on_enabled(event):
 
 def on_disabled(event):
     if state_machine.is_heating_enabled():
-        ThermostatAction().add_thermostat("Oil Thermostat").set_temperature(state_machine.get_number("normal_heat"), "heat")
+        ThermostatAction().add_thermostat("Oil Thermostat").set_temperature(state_machine.get_number("Normal Heat"), "heat")

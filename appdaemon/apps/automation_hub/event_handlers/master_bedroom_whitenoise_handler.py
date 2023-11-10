@@ -5,7 +5,7 @@ from events.input_event import InputEvent
 from actions.media_player_action import MediaPlayerAction
 
 def event_filter(event):
-    return event.name == "master_bedroom_whitenoise"
+    return event.name == "Master Bedroom Whitenoise"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_state_changed, InputEvent.__name__, event_filter=event_filter)

@@ -4,7 +4,7 @@ from util import hassutil
 from events.input_event import InputEvent
 
 def event_filter(event):
-    return event.name == "indoor_movie_mode"
+    return event.name == "Indoor Movie Mode"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_state_changed, InputEvent.__name__, event_filter=event_filter)

@@ -21,7 +21,7 @@ def on_button_clicked(event):
 def on_long_press(event):
     logger.info("Basement Button single clicked")
 
-    hassutil.toggle(hassutil.Entity(name_map["workout_mode"]))
+    hassutil.toggle(hassutil.Entity(name_map["Workout Mode"]))
 
 def on_single_click(event):
     logger.info("Basement Button long press")

@@ -8,7 +8,7 @@ from events.available_event import AvailableEvent
 from actions.push_notify_action import PushNotifyAction
 
 blacklist = [
-    "gateway_light"
+    "Gateway Light"
 ]
 
 def register_callbacks():

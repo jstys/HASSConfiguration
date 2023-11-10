@@ -19,13 +19,13 @@ def on_motion_triggered(event):
     timer_manager.cancel_timer("landing_motion_timer")
     timer_manager.cancel_timer("kitchen_motion_timer")
 
-    if not state_machine.is_enabled("indoor_movie_mode") and state_machine.is_enabled("motion_lighting"):
+    if not state_machine.is_enabled("Indoor Movie Mode") and state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Landing Light").turn_on()
     
-    if not state_machine.is_enabled("outdoor_movie_mode", "indoor_movie_mode") and state_machine.is_enabled("motion_lighting"):
+    if not state_machine.is_enabled("Outdoor Movie Mode", "Indoor Movie Mode") and state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Kitchen Cabinet Lights").turn_on(color_temp=400)
 
-        if not state_machine.is_enabled("sleep_mode"):
+        if not state_machine.is_enabled("Sleep Mode"):
             LightAction().add_light("Kitchen Lights").turn_on()
 
 def on_motion_cleared(event):
@@ -34,9 +34,9 @@ def on_motion_cleared(event):
     timer_manager.start_timer("kitchen_motion_timer", kitchen_lights_off, minutes=30)
 
 def landing_light_off():
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Landing Light").turn_off()
 
 def kitchen_lights_off():
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_lights(["Kitchen Lights", "Kitchen Cabinet Lights"]).turn_off()

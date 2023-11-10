@@ -56,8 +56,8 @@ def lock(lock_entity: Entity):
 def unlock(lock_entity: Entity):
     call_service("lock", "unlock", entity_id=lock_entity.entity_id)
 
-def activate_scene(name):
-    call_service("scene", "turn_on", entity_id=f"scene.{name}")
+def activate_scene(name: str):
+    call_service("scene", "turn_on", entity_id=f"scene.{'_'.join(name.lower().split())}")
 
 def turn_on(entity: Entity, **kwargs):
     try_api_call("turn_on", entity.entity_id, namespace="hass", **kwargs)

@@ -18,23 +18,23 @@ def on_motion_triggered(event):
 
     timer_manager.cancel_timer("basement_stairs_motion_timer")
     timer_manager.cancel_timer("landing_motion_timer")
-    if not state_machine.is_enabled("indoor_movie_mode") and state_machine.is_enabled("motion_lighting"):
+    if not state_machine.is_enabled("Indoor Movie Mode") and state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Landing Light").turn_on()
     
-    if not state_machine.is_enabled("sleep_mode") and state_machine.is_enabled("motion_lighting"):
+    if not state_machine.is_enabled("Sleep Mode") and state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Basement Lights").turn_on()
 
 def on_motion_cleared(event):
     logger.info("Basement stairs motion cleared")
     
     timer_manager.start_timer("landing_motion_timer", landing_light_off, minutes=5)
-    if not state_machine.is_enabled("workout_mode"):
+    if not state_machine.is_enabled("Workout Mode"):
         timer_manager.start_timer("basement_stairs_motion_timer", basement_lights_off, minutes=10)
     
 def landing_light_off():
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Landing Light").turn_off()
 
 def basement_lights_off():
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Basement Lights").turn_off()

@@ -24,8 +24,8 @@ def on_person_away(name):
     if hassutil.is_nobody_home():
         handle_nobody_home()
     
-    if name == "jim_presence":
-        DoorLockAction().add_lock("front_entrance_lock").lock()
+    if name == "Jim Presence":
+        DoorLockAction().add_lock("Front Entrance Lock").lock()
         PushNotifyAction().add_target("jim_cell").set_message("Come back soon!").notify()
 
         if state_machine.is_garage_open():
@@ -37,21 +37,21 @@ def on_person_home(name):
     
     handle_somebody_home()
     
-    if name == "jim_presence":
+    if name == "Jim Presence":
         PushNotifyAction().add_target("jim_cell").set_message("Welcome home!").notify()
         
         
 def handle_nobody_home():
     logger.info("Nobody home...")
 
-    if not state_machine.is_enabled("guest_mode"):
-        hassutil.activate_scene("nobody_home")
+    if not state_machine.is_enabled("Guest Mode"):
+        hassutil.activate_scene("Nobody Home")
 
         if state_machine.is_heating_enabled():
-            heat_action = ThermostatAction().add_thermostat("oil_thermostat")
-            heat_action.set_temperature(state_machine.get_number("away_heat"), 'heat')
+            heat_action = ThermostatAction().add_thermostat("Oil Thermostat")
+            heat_action.set_temperature(state_machine.get_number("Away Heat"), 'heat')
 
-        if state_machine.is_enabled("christmas_lights_mode"):
+        if state_machine.is_enabled("Christmas Lights Mode"):
             LightAction().add_light("Christmas Tree LEDs").turn_off()
             SwitchAction().add_switches([
                 "Smart Strip Outlet 1",
@@ -69,7 +69,7 @@ def handle_somebody_home():
 
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("Oil Thermostat")
-        heat_action.set_temperature(state_machine.get_number("normal_heat"), 'heat')
+        heat_action.set_temperature(state_machine.get_number("Normal Heat"), 'heat')
 
     if state_machine.is_enabled("christmas_lights_mode") and not state_machine.is_enabled("sleep_mode"):
             LightAction().add_light("christmas_tree_lights").turn_on_no_brightness()

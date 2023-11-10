@@ -11,9 +11,9 @@ def register_callbacks():
     event_dispatcher.register_callback(on_sunset, SunsetEvent.__name__)
     
 def on_sunrise(event):
-    if state_machine.is_enabled("christmas_lights_mode"):
+    if state_machine.is_enabled("Christmas Lights Mode"):
         SwitchAction().add_switches(["Frontyard Outlet", "Backyard Outlet", "Porch Outlet"]).turn_off()
 
 def on_sunset(event):
-    if state_machine.is_enabled("christmas_lights_mode"):
+    if state_machine.is_enabled("Christmas Lights Mode"):
         SwitchAction().add_switches(["Frontyard Outlet", "Backyard Outlet", "Porch Outlet"]).turn_on()

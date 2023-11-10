@@ -146,11 +146,11 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         state_change_event = create_input_change_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "switch":
         state_change_event = create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if friendly_name == "sun":
+    if friendly_name == "Sun":
         state_change_event = create_sun_event(old, new)
     if entity_type == "binary_power_sensor":
         state_change_event = create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if friendly_name == "front_door_lock_alarmtype":
+    if friendly_name == "Front Door Lock Alarmtype":
         state_change_event = create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
     if entity_type == "light":
         state_change_event = create_light_change_event(friendly_name, entity, attributes, old, new, kwargs)

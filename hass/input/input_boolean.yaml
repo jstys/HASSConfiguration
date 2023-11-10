@@ -3,14 +3,23 @@ guest_bedroom_tv:
 basement_tv:
 dining_room_ac:
 fourth_bedroom_ac:
-zigbee_debug:
 sleep_mode:
+  name: Sleep Mode
 guest_mode:
+  name: Guest Mode
 christmas_lights:
+  name: Christmas Lights
 indoor_movie_mode:
+  name: Indoor Movie Mode
 outdoor_movie_mode:
+  name: Outdoor Movie Mode
 privacy_mode:
+  name: Privacy Mode
 workout_mode:
+  name: Workout Mode
 vacation_mode:
+  name: Vacation Mode
 motion_lighting:
+  name: Motion Lighting
 master_bedroom_whitenoise:
+  name: Master Bedroom Whitenoise

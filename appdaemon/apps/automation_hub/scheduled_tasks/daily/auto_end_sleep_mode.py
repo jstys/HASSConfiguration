@@ -11,7 +11,7 @@ def get_starttime(weekend: bool):
         return "09:00:00"
 
 def _disable_sleep_state():
-    if state_machine.is_enabled("sleep_mode"):
+    if state_machine.is_enabled("Sleep Mode"):
         state_machine.disable_sleep_state()
 
 def callback():

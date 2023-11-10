@@ -18,7 +18,7 @@ def on_motion_triggered(event):
 
     timer_manager.cancel_timer("landing_motion_timer")
     
-    if not state_machine.is_enabled("indoor_movie_mode") and state_machine.is_enabled("motion_lighting"):    
+    if not state_machine.is_enabled("Indoor Movie Mode") and state_machine.is_enabled("Motion Lighting"):    
         LightAction().add_light("Landing Light").turn_on()
 
 def on_motion_cleared(event):
@@ -27,5 +27,5 @@ def on_motion_cleared(event):
     timer_manager.start_timer("landing_motion_timer", lights_off, minutes=5)
 
 def lights_off():
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Landing Light").turn_off()

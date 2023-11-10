@@ -10,7 +10,7 @@ from actions.media_player_action import MediaPlayerAction
 from actions.thermostat_action import ThermostatAction
 
 def event_filter(event):
-    return event.name == "workout_mode"
+    return event.name == "Workout Mode"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_state_changed, InputEvent.__name__, event_filter=event_filter)
@@ -24,7 +24,7 @@ def on_state_changed(event):
         logger.warning("Invalid state transition for workout mode")
 
 def on_enabled(event):
-    hassutil.activate_scene("workout_mode")
+    hassutil.activate_scene("Workout Mode")
 
     if state_machine.is_heating_enabled():
         ThermostatAction().add_thermostat("Oil Thermostat").turn_off()
@@ -39,4 +39,4 @@ def on_disabled(event):
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("Oil Thermostat")
         heat_action.turn_on()
-        heat_action.set_temperature(state_machine.get_number("normal_heat"), "heat")
+        heat_action.set_temperature(state_machine.get_number("Normal Heat"), "heat")

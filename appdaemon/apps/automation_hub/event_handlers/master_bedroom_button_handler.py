@@ -37,10 +37,10 @@ def on_closet_single_click(event):
 def on_single_click(event):
     logger.info("Master Bedroom Button single clicked")
 
-    if state_machine.is_enabled("sleep_mode"):
-        hassutil.toggle(hassutil.Entity(name_map["master_bedroom_whitenoise"]))
+    if state_machine.is_enabled("Sleep Mode"):
+        hassutil.toggle(hassutil.Entity(name_map["Master Bedroom Whitenoise"]))
     else:
-        hassutil.toggle(hassutil.Entity(name_map["privacy_mode"]))
+        hassutil.toggle(hassutil.Entity(name_map["Privacy Mode"]))
 
 def on_double_click(event):
     logger.info("Master Bedroom Button double clicked")
@@ -50,4 +50,4 @@ def on_double_click(event):
 def on_long_press(event):
     logger.info("Master Bedroom Button long pressed")
 
-    hassutil.toggle(hassutil.Entity(name_map["sleep_mode"]))
+    hassutil.toggle(hassutil.Entity(name_map["Sleep Mode"]))

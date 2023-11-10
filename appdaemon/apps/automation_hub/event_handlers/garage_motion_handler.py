@@ -17,7 +17,7 @@ def on_motion_triggered(event):
     logger.info("Garage motion detected")
     
     timer_manager.cancel_timer("garage_motion_timer")
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Garage Lights").turn_on()
 
 def on_motion_cleared(event):
@@ -25,6 +25,6 @@ def on_motion_cleared(event):
     timer_manager.start_timer("garage_motion_timer", lights_off, minutes=20)
     
 def lights_off():
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Garage Lights").turn_off()
     

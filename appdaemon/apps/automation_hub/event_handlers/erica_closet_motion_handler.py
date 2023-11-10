@@ -17,7 +17,7 @@ def on_motion_triggered(event):
     logger.info("Erica closet motion detected")
     
     timer_manager.cancel_timer("erica_closet_motion_timer")
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Erica Closet Light").turn_on()
 
 def on_motion_cleared(event):
@@ -25,6 +25,6 @@ def on_motion_cleared(event):
     timer_manager.start_timer("erica_closet_motion_timer", lights_off, minutes=5)
     
 def lights_off():
-    if state_machine.is_enabled("motion_lighting"):
+    if state_machine.is_enabled("Motion Lighting"):
         LightAction().add_light("Erica Closet Light").turn_off()
     

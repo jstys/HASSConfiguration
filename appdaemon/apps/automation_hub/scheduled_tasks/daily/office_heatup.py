@@ -12,8 +12,8 @@ def _enable_office_heat():
     heat_action.set_temperature("74", "heat")
 
 def callback():
-    if not hassutil.is_weekend() and not state_machine.is_enabled("vacation_mode") and state_machine.is_heating_enabled():
-        if state_machine.is_enabled("jim_wfh_calendar"):
+    if not hassutil.is_weekend() and not state_machine.is_enabled("Vacation Mode") and state_machine.is_heating_enabled():
+        if state_machine.is_enabled("Jim WFH Calendar"):
             LightAction().add_light("Office Lights").turn_on()
             _enable_office_heat()
         else:
