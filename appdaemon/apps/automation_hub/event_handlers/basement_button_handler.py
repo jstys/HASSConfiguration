@@ -26,4 +26,4 @@ def on_long_press(event):
 def on_single_click(event):
     logger.info("Basement Button long press")
 
-    SwitchAction().add_switch("Basement Fan Switch").toggle()
+    SwitchAction().add_switches(["Basement Fan Switch", "Basement Treadmill Fan"]).toggle()

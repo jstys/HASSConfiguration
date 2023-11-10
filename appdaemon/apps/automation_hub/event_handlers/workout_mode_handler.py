@@ -31,7 +31,7 @@ def on_enabled(event):
 
 def on_disabled(event):
     MediaPlayerAction().add_media_player("Basement TV").turn_off()
-    SwitchAction().add_switch("Basement Fan Switch").turn_off()
+    SwitchAction().add_switches(["Basement Fan Switch", "Basement Treadmill Fan"]).turn_off()
 
     light_action = LightAction().add_light("Basement Lights").turn_off
     timer_manager.start_timer("basement_stairs_motion_timer", light_action, minutes=10)

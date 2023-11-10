@@ -190,6 +190,8 @@ entities:
             name: Garage Back Switch
         switch.basement_fan_switch:
             name: Basement Fan Switch
+        switch.basement_treadmill_fan:
+            name: Basement Treadmill Fan
     
     lock:
         lock.front_entrance_lock:
