@@ -126,9 +126,9 @@ def create_nfc_event(event_name, data, kwargs):
 
 def create_from_state_change(friendly_name, entity_type, entity, attributes, old, new, kwargs):
     adevents = []
-    if old != new and new.lower() == "unavailable":
+    if old != new and new and new.lower() == "unavailable":
         adevents.append(create_unavailable_event(friendly_name))
-    elif old != new and old.lower() == "unavailable":
+    elif old != new and old and old.lower() == "unavailable":
         adevents.append(create_available_event(friendly_name))
 
     state_change_event = None
