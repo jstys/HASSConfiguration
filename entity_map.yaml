@@ -223,7 +223,7 @@ entities:
         input_boolean.workout_mode:
             name: Workout Mode
         input_boolean.vacation_mode:
-            name: vacation_mode
+            name: Vacation Mode
         input_boolean.motion_lighting:
             name: Motion Lighting
         input_boolean.master_bedroom_whitenoise:
