@@ -71,8 +71,8 @@ def handle_somebody_home():
         heat_action = ThermostatAction().add_thermostat("Oil Thermostat")
         heat_action.set_temperature(state_machine.get_number("Normal Heat"), 'heat')
 
-    if state_machine.is_enabled("christmas_lights_mode") and not state_machine.is_enabled("sleep_mode"):
-            LightAction().add_light("christmas_tree_lights").turn_on_no_brightness()
+    if state_machine.is_enabled("Christmas Lights Mode") and not state_machine.is_enabled("Sleep Mode"):
+            LightAction().add_light("Christmas Tree Lights").turn_on_no_brightness()
             SwitchAction().add_switches([
                 "Smart Strip Outlet 1",
                 "Smart Strip Outlet 2",

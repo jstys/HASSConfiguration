@@ -31,7 +31,7 @@ def on_sleep_state_enabled(event):
 
     if state_machine.is_heating_enabled():
         heat_action = ThermostatAction().add_thermostat("Oil Thermostat")
-        heat_action.set_temperature(state_machine.get_number("Sleep Mode_heat"), 'heat')
+        heat_action.set_temperature(state_machine.get_number("Sleep Mode Heat"), 'heat')
 
     if state_machine.is_enabled("Christmas Lights Mode"):
         LightAction().add_light("Christmas Tree LEDs").turn_off()
