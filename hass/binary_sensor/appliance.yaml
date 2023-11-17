@@ -9,4 +9,4 @@
       unique_id: binary_sensor.washer_running
       friendly_name: "Washer Running"
       device_class: power
-      value_template: "{{ states('sensor.laundry_outlet_power')|float > 100.0 }}"
+      value_template: "{{ states('sensor.laundry_outlet_power')|float > 4.0 }}"

@@ -9,6 +9,8 @@ from actions.push_notify_action import PushNotifyAction
 from actions.tts_action import TTSAction
 
 WASHER_IDLE_MINUTES = 10
+DRYER_MIN_RUNTIME_MINUTES = 5
+
 dryer_start = None
 
 def washer_filter(event):
@@ -29,7 +31,8 @@ def on_washer_on_event(event):
 
 def on_washer_off_event(event):
     logger.info("Washer turned off")
-    timer_manager.start_timer("laundry_washer_timer", on_washer_finished, minutes=WASHER_IDLE_MINUTES)
+    on_washer_finished()
+    # timer_manager.start_timer("laundry_washer_timer", on_washer_finished, minutes=WASHER_IDLE_MINUTES)
 
 def on_washer_finished():
     PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Washing Machine has finished").notify()
@@ -51,7 +54,7 @@ def on_dryer_off_event(event):
     else:
         runtime = curtime - dryer_start
         runtime_minutes = int(runtime.total_seconds() / 60)
-        if runtime_minutes > 5:
+        if runtime_minutes > DRYER_MIN_RUNTIME_MINUTES:
             logger.info("Dryer has run for at least 5 minutes")
             _notify_dryer_finish()
         else:
