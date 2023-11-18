@@ -326,3 +326,14 @@ zwave_scene_map:
         scenes:
             "001": "on"
             "002": "off"
+    19:
+        name: Scene Controller
+        scenes:
+            "001": "one"
+            "002": "two"
+            "003": "three"
+            "004": "four"
+            "005": "five"
+            "006": "six"
+            "007": "seven"
+            "008": "eight"

@@ -100,10 +100,12 @@ def create_mqtt_event(event_name, data, kwargs):
 def create_zwave_scene_event(event_name, data, kwargs):
     node_id = data.get("node_id")
     scene_id = data.get("property_key")
+    value = data.get("value")
     if node_id in zwave_scene_map:
         event = ZwaveSceneEvent()
         event.name = zwave_scene_map[node_id]["name"]
         event.scene_id = int(scene_id)
+        event.scene_data = value
         return event
     else:
         logger.warning(f"Received invalid zwave node_id: {node_id}")
