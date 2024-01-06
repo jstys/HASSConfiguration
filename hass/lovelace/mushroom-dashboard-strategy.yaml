@@ -1,10 +1,10 @@
 strategy:
   type: custom:mushroom-strategy
   options:
-    homeView:
+    home_view:
       hidden:
         - greeting
-        - areaTitle
+        - areasTitle
     quick_access_cards:
       - type: custom:mushroom-template-card
         icon: mdi:hvac
@@ -14,14 +14,13 @@ strategy:
           action: navigate
           navigation_path: /lovelace-hvac/0
           navigation_replace: false
-    extra_cards:
       - type: custom:mushroom-template-card
-        icon: mdi:battery
-        icon_color: green
-        primary: Batteries
+        icon: mdi:phone
+        icon_color: white
+        primary: Phones
         tap_action:
           action: navigate
-          navigation_path: /dashboard-batteries/0
+          navigation_path: /phone-finder/main
           navigation_replace: false
     areas:
       living_room:
@@ -82,10 +81,18 @@ strategy:
                 entity: switch.basement_fan_switch
                 icon: mdi:fan
             alignment: center
+      fourth_bedroom:
+        name: Fourth Bedroom
+        icon: mdi:stairs
+        order: 7
+      guest_bedroom:
+        name: Guest Bedroom
+        icon: mdi:account-supervisor
+        order: 8
       backyard:
         name: Backyard
         icon: mdi:pool
-        order: 7
+        order: 9
         extra_cards:
           - type: custom:mushroom-chips-card
             chips:
@@ -95,14 +102,6 @@ strategy:
       frontyard:
         name: Frontyard
         icon: mdi:tree
-        order: 8
-      fourth_bedroom:
-        name: Fourth Bedroom
-        icon: mdi:stairs
-        order: 9
-      guest_bedroom:
-        name: Guest Bedroom
-        icon: mdi:account-supervisor
         order: 10
       hallway:
         name: Hallway
@@ -131,10 +130,6 @@ strategy:
       fan_count: false
       switch_count: false
       cover_count: false
-      extra_chips:
-        - type: entity
-          entity: sensor.backyard_temperature
-          icon: mdi:thermometer
     views:
       light:
         hidden: true
