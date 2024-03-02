@@ -26,7 +26,7 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: ghcr.io/home-assistant/home-assistant:2024.2.1
+    image: ghcr.io/home-assistant/home-assistant:2024.2.5
     restart: unless-stopped
     privileged: true
     volumes:
@@ -60,7 +60,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwave-js-ui:9.8.3
+    image: zwavejs/zwave-js-ui:9.9.0
     restart: unless-stopped
     tty: true
     stop_signal: SIGINT
@@ -74,7 +74,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.35.3
+    image: koenkk/zigbee2mqtt:1.36.0
     volumes:
       - /home/dietpi/zig2mqtt:/app/data
       - /run/udev:/run/udev:ro
