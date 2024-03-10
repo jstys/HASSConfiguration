@@ -78,7 +78,7 @@ strategy:
                 entity: input_boolean.workout_mode
                 icon: mdi:dumbbell
               - type: entity
-                entity: switch.basement_fan_switch
+                entity: switch.basement_fans
                 icon: mdi:fan
             alignment: center
       fourth_bedroom:

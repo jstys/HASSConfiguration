@@ -89,6 +89,5 @@
 - name: Workout Mode
   entities:
     media_player.basement_tv: "on"
-    switch.basement_fan_switch: "on"
-    switch.basement_treadmill_fan: "on"
+    switch.basement_fans: "on"
     light.basement_lights: "on"

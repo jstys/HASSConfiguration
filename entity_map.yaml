@@ -192,6 +192,8 @@ entities:
             name: Basement Fan Switch
         switch.basement_treadmill_fan:
             name: Basement Treadmill Fan
+        switch.basement_fans:
+            name: Basement Fans
     
     lock:
         lock.front_entrance_lock:
