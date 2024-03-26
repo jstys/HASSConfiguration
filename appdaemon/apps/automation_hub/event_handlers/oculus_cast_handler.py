@@ -1,3 +1,4 @@
+import time
 import event_dispatcher
 from util import logger
 from util import entity_map
@@ -14,5 +15,6 @@ def on_oculus_cast(event: MediaPlayerEvent):
     logger.info(f"Oculus cast detected on {event.media_player_name}")
 
     if event.media_player_name in entity_map.find_type_entities("tv"):
-        MediaPlayerAction().add_media_player(event.media_player_name).set_volume(0)
+        time.sleep(3)
+        MediaPlayerAction().add_media_player(event.media_player_name).mute()
     
