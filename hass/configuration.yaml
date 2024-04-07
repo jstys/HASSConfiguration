@@ -77,7 +77,6 @@ zone: !include zones.yaml
 input_boolean: !include input/input_boolean.yaml
 input_number: !include input/input_number.yaml
 light: !include_dir_merge_list light/
-panel_iframe: !include_dir_merge_named panel_iframes/
 sensor: !include_dir_merge_list sensor/
 switch: !include_dir_merge_list switch/
 media_player: !include_dir_merge_list media_player/
@@ -93,7 +92,6 @@ scene: !include scenes.yaml
 #                       ENABLED                              #
 ##############################################################
 config:
-map:
 system_health:
 mobile_app:
 sun:
