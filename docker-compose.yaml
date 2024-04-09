@@ -1,13 +1,13 @@
 version: '3'
 services:
   mariadb:
-    image: linuxserver/mariadb:arm32v7-10.6.13
+    image: linuxserver/mariadb
     container_name: mariadb
     restart: unless-stopped
     volumes:
-      - /home/dietpi/mariadb:/config
+      - $HOME/hass/mariadb:/config
     env_file:
-      - /home/dietpi/mariadb/mariadb.env
+      - $HOME/hass/mariadb/mariadb.env
     ports:
       - 3306:3306
 
@@ -16,9 +16,9 @@ services:
     image: eclipse-mosquitto:latest
     restart: unless-stopped
     volumes:
-      - /home/dietpi/syncthing/data/mosquitto_config:/mosquitto/config
-      - /home/dietpi/mosquitto/data:/mosquitto/data
-      - /home/dietpi/mosquitto/log:/mosquitto/log
+      - $HOME/hass/syncthing/data/mosquitto_config:/mosquitto/config
+      - $HOME/hass/mosquitto/data:/mosquitto/data
+      - $HOME/hass/mosquitto/log:/mosquitto/log
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "1883:1883"
@@ -26,13 +26,13 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: ghcr.io/home-assistant/home-assistant:2024.4.1
+    image: ghcr.io/home-assistant/home-assistant:2024.4.2
     restart: unless-stopped
     privileged: true
     volumes:
-      - /home/dietpi/HASSConfiguration/hass:/config
-      - /home/dietpi/syncthing/data/hass_secrets/secrets_hass.yaml:/config/secrets.yaml
-      - /home/dietpi/syncthing/data/hass_www:/config/www
+      - $HOME/hass/HASSConfiguration/hass:/config
+      - $HOME/hass/syncthing/data/hass_secrets/secrets_hass.yaml:/config/secrets.yaml
+      - $HOME/hass/syncthing/data/hass_www:/config/www
       - /etc/localtime:/etc/localtime:ro
     network_mode: host
     depends_on:
@@ -47,10 +47,10 @@ services:
     restart: unless-stopped
     privileged: true
     volumes:
-      - /home/dietpi/HASSConfiguration/appdaemon:/conf
-      - /home/dietpi/syncthing/data/hass_secrets/secrets_appdaemon.yaml:/conf/secrets.yaml
+      - $HOME/hass/HASSConfiguration/appdaemon:/conf
+      - $HOME/hass/syncthing/data/hass_secrets/secrets_appdaemon.yaml:/conf/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
-      - /home/dietpi/HASSConfiguration/entity_map.yaml:/conf/apps/util/entity_map.yaml
+      - $HOME/hass/HASSConfiguration/entity_map.yaml:/conf/apps/util/entity_map.yaml
     expose:
       - "5000"
     ports:
@@ -67,7 +67,7 @@ services:
     devices:
       - '/dev/ttyACM0:/dev/ttyACM0'
     volumes:
-      - /home/dietpi/zwavejs/store:/usr/src/app/store
+      - $HOME/hass/zwavejs/store:/usr/src/app/store
     ports:
       - '8091:8091' # port for web interface
       - '3000:3000' # port for zwave-js websocket server
@@ -76,7 +76,7 @@ services:
     container_name: zigbee2mqtt
     image: koenkk/zigbee2mqtt:1.36.1
     volumes:
-      - /home/dietpi/zig2mqtt:/app/data
+      - $HOME/hass/zig2mqtt:/app/data
       - /run/udev:/run/udev:ro
     restart: unless-stopped
     network_mode: host
@@ -88,24 +88,24 @@ services:
 
   syncthing:
     container_name: syncthing
-    image: linuxserver/syncthing:arm32v7-1.23.5
+    image: linuxserver/syncthing
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=America/New_York
       - UMASK_SET=022
     volumes:
-      - /home/dietpi/syncthing/config:/config
-      - /home/dietpi/syncthing/data:/data
-      - /home/dietpi/HASSConfiguration:/hass
-      - /home/dietpi/zwavejs:/zwavejs
-      - /home/dietpi/zig2mqtt:/zig2mqtt
+      - $HOME/hass/syncthing/config:/config
+      - $HOME/hass/syncthing/data:/data
+      - $HOME/hass/HASSConfiguration:/hass
+      - $HOME/hass/zwavejs:/zwavejs
+      - $HOME/hass/zig2mqtt:/zig2mqtt
     network_mode: host
     restart: unless-stopped
 
   dockermon:
     container_name: dockermon
-    image: philhawthorne/ha-dockermon:arm
+    image: philhawthorne/ha-dockermon
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
