@@ -77,10 +77,8 @@ services:
     image: koenkk/zigbee2mqtt:1.36.1
     volumes:
       - $HOME/hass/zig2mqtt:/app/data
-      - /run/udev:/run/udev:ro
     restart: unless-stopped
     network_mode: host
-    privileged: true
     devices:
       - '/dev/zigbee:/dev/ttyUSB2'
     environment:

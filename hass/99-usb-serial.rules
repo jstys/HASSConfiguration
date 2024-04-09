@@ -1,2 +1,2 @@
-SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="8a2a", ATTRS{serial}=="312004A4", ENV{ID_USB_INTERFACE_NUM}=="00", SYMLINK+="zwave"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d4", ENV{ID_USB_INTERFACE_NUM}=="00", SYMLINK+="zwave"
 SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ENV{ID_USB_INTERFACE_NUM}=="00", SYMLINK+="zigbee"
