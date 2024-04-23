@@ -26,7 +26,7 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: ghcr.io/home-assistant/home-assistant:2024.4.2
+    image: ghcr.io/home-assistant/home-assistant:2024.4.4
     restart: unless-stopped
     privileged: true
     volumes:
@@ -60,7 +60,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwave-js-ui:9.10.2
+    image: zwavejs/zwave-js-ui:9.11.1
     restart: unless-stopped
     tty: true
     stop_signal: SIGINT
