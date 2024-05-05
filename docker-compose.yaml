@@ -119,5 +119,18 @@ services:
       - portainer-data:/data
       - /var/run/docker.sock:/var/run/docker.sock
 
+  amcrest2mqtt:
+    container_name: amcrest2mqtt
+    image: dchesterton/amcrest2mqtt:latest
+    restart: unless-stopped
+    environment:
+      AMCREST_HOST: 10.0.0.51
+      AMCREST_PASSWORD: Anycolor92!
+      MQTT_HOST: 10.0.0.6
+      MQTT_USERNAME: amcrest
+      MQTT_PASSWORD: amcrestpass
+      MQTT_QOS: 2
+      HOME_ASSISTANT: "false"
+
 volumes:
   portainer-data:
