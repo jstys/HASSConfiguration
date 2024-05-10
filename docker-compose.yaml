@@ -132,5 +132,20 @@ services:
       MQTT_QOS: 2
       HOME_ASSISTANT: "false"
 
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+    environment:
+      TZ: 'America/New_York'
+      WEBPASSWORD: '${PIHOLE_PW}'
+    volumes:
+      - '$HOME/pihole/etc-pihole:/etc/pihole'
+      - '$HOME/pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
+    restart: unless-stopped
+
 volumes:
   portainer-data:
