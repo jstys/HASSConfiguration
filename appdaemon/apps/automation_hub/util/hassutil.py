@@ -1,5 +1,6 @@
 from datetime import date
 import os
+from typing import List
 
 import yaml
 import api_handle
@@ -40,6 +41,9 @@ def gui_notify(title, message, notification_id=None):
 
 def join_notify(target, message, title="Home Assistant", **kwargs):
     call_service("notify", target, message=message, title=title, **kwargs)
+
+def discord_notify(channel_ids: List[str], message, title="Home Assistant Bot", **kwargs):
+    call_service("notify", "hass", target=channel_ids, message=message, title=title, **kwargs)
     
 def join_ring_device(target):
     call_service("joaoapps_join", "{}_ring".format(target))
