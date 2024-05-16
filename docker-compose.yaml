@@ -26,7 +26,7 @@ services:
 
   homeassistant:
     container_name: home-assistant
-    image: ghcr.io/home-assistant/home-assistant:2024.5.1
+    image: ghcr.io/home-assistant/home-assistant:2024.5.3
     restart: unless-stopped
     privileged: true
     volumes:
@@ -74,7 +74,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.37.0
+    image: koenkk/zigbee2mqtt:1.37.1
     volumes:
       - $HOME/hass/zig2mqtt:/app/data
     restart: unless-stopped
