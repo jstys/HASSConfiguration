@@ -5,7 +5,7 @@ from util import logger
 from util import hassutil
 from events.power_sensor_off_event import PowerSensorOffEvent
 from events.power_sensor_on_event import PowerSensorOnEvent
-from actions.push_notify_action import PushNotifyAction
+from actions.discord_notify_action import DiscordNotifyAction
 from actions.tts_action import TTSAction
 
 WASHER_IDLE_MINUTES = 2
@@ -34,7 +34,7 @@ def on_washer_off_event(event):
     timer_manager.start_timer("laundry_washer_timer", on_washer_finished, minutes=WASHER_IDLE_MINUTES)
 
 def on_washer_finished():
-    PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Washing Machine has finished").notify()
+    DiscordNotifyAction().set_message("Washing Machine has finished").add_channel("general").notify()
 
     if not state_machine.is_enabled("Sleep Mode"):
         TTSAction().add_assistants(["Living Room MPD", "Master Bedroom MPD"]).say("Washer has finished")
@@ -65,5 +65,5 @@ def _notify_dryer_finish():
     if not state_machine.is_enabled("Sleep Mode"):
         TTSAction().add_assistants(["Living Room MPD", "Master Bedroom MPD"]).say("Dryer has finished")
         
-    PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Dryer has finished").notify()
+    DiscordNotifyAction().set_message("Dryer has finished").add_channel("general").notify()
     dryer_start = None

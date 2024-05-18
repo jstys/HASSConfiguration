@@ -93,12 +93,6 @@ strategy:
         name: Backyard
         icon: mdi:pool
         order: 9
-        extra_cards:
-          - type: custom:mushroom-chips-card
-            chips:
-              - type: entity
-                entity: sensor.backyard_temperature
-                icon: mdi:thermometer
       frontyard:
         name: Frontyard
         icon: mdi:tree

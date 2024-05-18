@@ -2,6 +2,7 @@ import event_dispatcher
 from util import logger
 from events.mqtt_event import MQTTEvent
 from actions.push_notify_action import PushNotifyAction
+from actions.discord_notify_action import DiscordNotifyAction
 
 def event_filter(event: MQTTEvent):
     return event.topic.startswith("amcrest2mqtt/")
@@ -30,4 +31,4 @@ def on_doorbell_motion(payload):
 def on_doorbell_pushed(payload):
     if payload == 'on':
         logger.info("Doorbell push detected")
-        PushNotifyAction().add_targets("jim_cell", "erica_cell").set_message("Doorbell is ringing", notification_id="hass-doorbell-push", tts=True).notify()
+        DiscordNotifyAction().set_message("Doorbell is ringing").add_channel("general").notify()

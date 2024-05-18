@@ -2,9 +2,7 @@ import json
 
 import event_dispatcher
 from util import hassutil
-from util import logger
 from events.mqtt_event import MQTTEvent
-from actions.push_notify_action import PushNotifyAction
 
 status_map = {}
 
