@@ -3,7 +3,6 @@ from util import logger
 from util import hassutil
 from util.entity_map import name_map
 from events.mqtt_event import MQTTEvent
-from events.button_click_event import ButtonClickEvent
 from actions.media_player_action import MediaPlayerAction
 from actions.light_action import LightAction
 import state_machine
@@ -12,7 +11,7 @@ def event_filter(event: MQTTEvent):
     return event.topic.startswith("zigbee2mqtt") and event.topic.endswith("action")
 
 def register_callbacks():
-    event_dispatcher.register_callback(on_button_clicked, ButtonClickEvent.__name__, event_filter=event_filter)
+    event_dispatcher.register_callback(on_button_clicked, MQTTEvent.__name__, event_filter=event_filter)
     
 def on_button_clicked(event: MQTTEvent):
     device = event.topic.split("/")[1]
