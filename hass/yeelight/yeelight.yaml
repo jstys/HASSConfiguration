@@ -1,8 +1,4 @@
 devices:
-  10.0.0.12:
-    name: Living Room Lamp 1
-  10.0.0.13:
-    name: Living Room Lamp 2
   10.0.0.23:
     name: Jim Night Lamp
   10.0.0.24:

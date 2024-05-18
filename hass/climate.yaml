@@ -14,7 +14,7 @@
 - platform: generic_thermostat
   name: Dining Room AC
   heater: switch.dining_room_ac
-  target_sensor: sensor.downstairs_weather_temperature
+  target_sensor: sensor.kitchen_weather_temperature
   ac_mode: true
   min_temp: 65
   max_temp: 80

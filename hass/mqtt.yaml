@@ -1,0 +1,38 @@
+sensor:
+  - name: "Backyard Temperature"
+    unique_id: backyard_temperature
+    state_topic: "rtl_433/+/devices/Acurite-Tower/A/3658/temperature_C"
+    unit_of_measurement: "°F"
+    device_class: temperature
+    value_template: "{{(float(value_json) * 9/5)+32}}"
+  - name: "Pool Temperature"
+    unique_id: pool_temperature
+    state_topic: "rtl_433/+/devices/Inkbird-ITH20R/14856/temperature_C"
+    unit_of_measurement: "°F"
+    device_class: temperature
+    value_template: "{{(float(value_json) * 9/5)+32}}"
+  - name: "iGrill Probe 1"
+    unique_id: igrill_probe1
+    state_topic: "temperature/grill/grill/probe1"
+    unit_of_measurement: "°F"
+    device_class: temperature
+  - name: "iGrill Probe 2"
+    unique_id: igrill_probe2
+    state_topic: "temperature/grill/grill/probe2"
+    unit_of_measurement: "°F"
+    device_class: temperature
+  - name: "iGrill Probe 3"
+    unique_id: igrill_probe3
+    state_topic: "temperature/grill/grill/probe3"
+    unit_of_measurement: "°F"
+    device_class: temperature
+  - name: "iGrill Probe 4"
+    unique_id: igrill_probe4
+    state_topic: "temperature/grill/grill/probe4"
+    unit_of_measurement: "°F"
+    device_class: temperature
+  - name: "iGrill Battery"
+    unique_id: igrill_battery
+    state_topic: "temperature/grill/grill/battery"
+    unit_of_measurement: "%"
+    device_class: battery
