@@ -12,6 +12,7 @@ WASHER_IDLE_MINUTES = 2
 DRYER_MIN_RUNTIME_MINUTES = 5
 
 dryer_start = None
+washer_start = None
 
 def washer_filter(event):
     return event.name == "Washer Running Sensor"
@@ -26,18 +27,27 @@ def register_callbacks():
     event_dispatcher.register_callback(on_dryer_off_event, PowerSensorOffEvent.__name__, event_filter=dryer_filter)
     
 def on_washer_on_event(event):
+    global washer_start
+
     logger.info("Washer turned on")
     timer_manager.cancel_timer("laundry_washer_timer")
 
+    washer_start = hassutil.get_current_datetime()
+
 def on_washer_off_event(event):
     logger.info("Washer turned off")
-    timer_manager.start_timer("laundry_washer_timer", on_washer_finished, minutes=WASHER_IDLE_MINUTES)
+    
+    if washer_start is not None:
+        timer_manager.start_timer("laundry_washer_timer", on_washer_finished, minutes=WASHER_IDLE_MINUTES)
 
 def on_washer_finished():
+    global washer_start
     DiscordNotifyAction().set_message("Washing Machine has finished").add_channel("general").notify()
 
     if not state_machine.is_enabled("Sleep Mode"):
         TTSAction().add_assistants(["Living Room MPD", "Master Bedroom MPD"]).say("Washer has finished")
+
+    washer_start = None
 
 def on_dryer_on_event(event):
     global dryer_start
@@ -47,10 +57,9 @@ def on_dryer_on_event(event):
 
 def on_dryer_off_event(event):
     logger.info("Dryer turned off")
-    curtime = hassutil.get_current_datetime()
-    if dryer_start is None:
-        _notify_dryer_finish()
-    else:
+
+    if dryer_start is not None:
+        curtime = hassutil.get_current_datetime()
         runtime = curtime - dryer_start
         runtime_minutes = int(runtime.total_seconds() / 60)
         if runtime_minutes > DRYER_MIN_RUNTIME_MINUTES:
