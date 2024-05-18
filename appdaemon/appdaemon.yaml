@@ -24,3 +24,4 @@ appdaemon:
         - 'amcrest2mqtt/+/doorbell'
         - 'amcrest2mqtt/+/motion'
         - 'owntracks/owntracks/+'
+        - 'zigbee2mqtt/+/action'

@@ -2,8 +2,6 @@ automation_hub:
   module: automation_hub
   class: AutomationHub
   event_list:
-    - zha_event
-    - xiaomi_aqara.click
     - zwave_js_event
     - zwave_js_value_notification
     - zwave_js_notification
