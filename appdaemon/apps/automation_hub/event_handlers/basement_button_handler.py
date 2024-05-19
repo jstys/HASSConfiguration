@@ -5,8 +5,9 @@ from util.entity_map import name_map
 from events.mqtt_event import MQTTEvent
 from actions.switch_action import SwitchAction
 
-def event_filter(event):
-    return event.topic.startswith("zigbee2mqtt") and event.topic.endswith("action")
+def event_filter(event: MQTTEvent):
+    parts = event.topic.split("/")
+    return len(parts) == 3 and parts[0] == "zigbee2mqtt" and parts[1] == "basement_button" and parts[2] == "action"
 
 
 def register_callbacks():

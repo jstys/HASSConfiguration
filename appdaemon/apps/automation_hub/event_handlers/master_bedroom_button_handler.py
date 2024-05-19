@@ -8,7 +8,8 @@ from actions.light_action import LightAction
 import state_machine
 
 def event_filter(event: MQTTEvent):
-    return event.topic.startswith("zigbee2mqtt") and event.topic.endswith("action")
+    parts = event.topic.split("/")
+    return len(parts) == 3 and parts[0] == "zigbee2mqtt" and (parts[1] == "master_bedroom_button" or parts[1] == "master_bedroom_closet_button") and parts[2] == "action"
 
 def register_callbacks():
     event_dispatcher.register_callback(on_button_clicked, MQTTEvent.__name__, event_filter=event_filter)
