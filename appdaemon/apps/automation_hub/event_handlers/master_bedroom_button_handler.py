@@ -21,7 +21,7 @@ def on_button_clicked(event: MQTTEvent):
             on_single_click(event)
         elif event.payload == "double":
             on_double_click(event)
-        elif event.payload == "long":
+        elif event.payload == "hold":
             on_long_press(event)
     elif device == "master_bedroom_closet_button":
         if event.payload == "single":

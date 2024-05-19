@@ -16,7 +16,7 @@ def register_callbacks():
 def on_button_clicked(event: MQTTEvent):
     if event.payload == "single":
         on_single_click(event)
-    elif event.payload == "long":
+    elif event.payload == "hold":
         on_long_press(event)
 
 def on_long_press(event):
