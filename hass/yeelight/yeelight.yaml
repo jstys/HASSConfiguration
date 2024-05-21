@@ -5,5 +5,3 @@ devices:
     name: Erica Night Lamp
   10.0.0.25:
     name: Piano LED
-  10.0.0.34:
-    name: Dining Room Light
