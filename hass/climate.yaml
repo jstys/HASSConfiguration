@@ -1,5 +1,6 @@
 - platform: generic_thermostat
   name: Fourth Bedroom AC
+  unique_id: fourth_bedroom_ac
   heater: switch.fourth_bedroom_ac
   target_sensor: sensor.fourth_bedroom_weather_temperature
   ac_mode: true
@@ -13,6 +14,7 @@
 
 - platform: generic_thermostat
   name: Dining Room AC
+  unique_id: dining_room_ac
   heater: switch.dining_room_ac
   target_sensor: sensor.kitchen_weather_temperature
   ac_mode: true
