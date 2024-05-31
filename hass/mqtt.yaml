@@ -7,10 +7,14 @@ sensor:
     value_template: "{{(float(value_json) * 9/5)+32}}"
   - name: "Pool Temperature"
     unique_id: pool_temperature
-    state_topic: "rtl_433/+/devices/Inkbird-ITH20R/14856/temperature_C"
+    state_topic: "rtl_433/+/devices/Inkbird-ITH20R/47736/temperature_C"
     unit_of_measurement: "°F"
     device_class: temperature
     value_template: "{{(float(value_json) * 9/5)+32}}"
+  - name: "Pool Thermometer Battery"
+    unique_id: pool_thermo_battery
+    state_topic: "rtl_433/+/devices/Inkbird-ITH20R/47736/battery"
+    device_class: battery
   - name: "iGrill Probe 1"
     unique_id: igrill_probe1
     state_topic: "temperature/grill/grill/probe1"
