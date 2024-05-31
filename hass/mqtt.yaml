@@ -14,6 +14,7 @@ sensor:
   - name: "Pool Thermometer Battery"
     unique_id: pool_thermo_battery
     state_topic: "rtl_433/+/devices/Inkbird-ITH20R/47736/battery"
+    unit_of_measurement: "%"
     device_class: battery
   - name: "iGrill Probe 1"
     unique_id: igrill_probe1
