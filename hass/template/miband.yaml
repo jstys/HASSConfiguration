@@ -1,0 +1,10 @@
+- sensor:
+  - name: jim_miband_battery
+    unique_id: jim_miband_battery
+    state: ''
+  - name: jim_miband_heartrate
+    unique_id: jim_miband_heartrate
+    state: ''
+  - name: jim_miband_steps
+    unique_id: jim_miband_steps
+    state: ''
