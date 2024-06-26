@@ -159,10 +159,10 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
     elif entity_type == "tv" or entity_type == "speaker":
         state_change_event = create_media_player_event(friendly_name, entity, attributes, old, new, kwargs)
     else:
-        logger.warning("Unhandled entity type: %s", entity_type)
+        logger.warning(f"Unhandled entity type: {entity_type}")
 
     if state_change_event:
-        logger.debug("New state change event: %s", state_change_event)
+        logger.debug(f"New state change event: {state_change_event}")
         adevents.append(state_change_event)
     else:
         logger.debug(f"Received invalid state change entity - type: {entity_type} entity: {friendly_name}")
