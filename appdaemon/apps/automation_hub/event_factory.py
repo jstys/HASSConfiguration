@@ -160,6 +160,7 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         state_change_event = create_media_player_event(friendly_name, entity, attributes, old, new, kwargs)
 
     if state_change_event:
+        logger.debug("New state change event: %s", state_change_event)
         adevents.append(state_change_event)
     else:
         logger.debug(f"Received invalid state change entity - type: {entity_type} entity: {friendly_name}")
