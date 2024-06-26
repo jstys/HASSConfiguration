@@ -262,7 +262,7 @@ def create_light_change_event(friendly_name, entity, attributes, old, new, kwarg
 def create_media_player_event(friendly_name, entity, attributes, old, new, kwargs):
     logger.debug("Creating MediaPlayerEvent")
     if new != old:
-        return MediaPlayerEvent(friendly_name, new, attributes.get("app_name"))
+        return MediaPlayerEvent(friendly_name, old, new, attributes.get("app_name"))
     else:
         logger.warning("Received invalid tv state transition")
         return None
