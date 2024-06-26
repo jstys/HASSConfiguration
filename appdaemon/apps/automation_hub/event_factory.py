@@ -136,28 +136,30 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
     state_change_event = None
     if entity_type == "water_sensor":
         state_change_event = create_water_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type == "motion_sensor":
+    elif entity_type == "motion_sensor":
         state_change_event = create_motion_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type == "door_sensor":
+    elif entity_type == "door_sensor":
         state_change_event = create_door_sensor_state_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type == "presence":
+    elif entity_type == "presence":
         state_change_event = create_presence_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type == "lock":
+    elif entity_type == "lock":
         state_change_event = create_lock_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type in ["input_boolean", "input_select"]:
+    elif entity_type in ["input_boolean", "input_select"]:
         state_change_event = create_input_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type == "switch":
+    elif entity_type == "switch":
         state_change_event = create_switch_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if friendly_name == "Sun":
+    elif friendly_name == "Sun":
         state_change_event = create_sun_event(old, new)
-    if entity_type == "binary_power_sensor":
+    elif entity_type == "binary_power_sensor":
         state_change_event = create_power_sensor_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if friendly_name == "Front Door Lock Alarmtype":
+    elif friendly_name == "Front Door Lock Alarmtype":
         state_change_event = create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type == "light":
+    elif entity_type == "light":
         state_change_event = create_light_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    if entity_type == "tv":
+    elif entity_type == "tv" or entity_type == "speaker":
         state_change_event = create_media_player_event(friendly_name, entity, attributes, old, new, kwargs)
+    else:
+        logger.warning("Unhandled entity type: %s", entity_type)
 
     if state_change_event:
         logger.debug("New state change event: %s", state_change_event)
