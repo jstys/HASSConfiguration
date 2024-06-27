@@ -4,7 +4,7 @@ from events.media_player_event import MediaPlayerEvent
 from actions.switch_action import SwitchAction
 
 def on_filter(event: MediaPlayerEvent):
-    return event.prev_state == "off" and event.media_player_name == "Backyard Speaker"
+    return event.prev_state == "off" and event.state != "unavailable" and event.media_player_name == "Backyard Speaker"
 
 def off_filter(event: MediaPlayerEvent):
     return event.state == "off" and event.media_player_name == "Backyard Speaker"
