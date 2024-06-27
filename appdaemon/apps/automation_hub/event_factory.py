@@ -156,7 +156,7 @@ def create_from_state_change(friendly_name, entity_type, entity, attributes, old
         state_change_event = create_door_lock_notification_event(friendly_name, entity, attributes, old, new, kwargs)
     elif entity_type == "light":
         state_change_event = create_light_change_event(friendly_name, entity, attributes, old, new, kwargs)
-    elif entity_type == "tv" or entity_type == "speaker":
+    elif entity_type in ["tv", "speaker", "chromecast"]:
         state_change_event = create_media_player_event(friendly_name, entity, attributes, old, new, kwargs)
     else:
         logger.warning(f"Unhandled entity type: {entity_type}")
