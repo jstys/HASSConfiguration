@@ -262,12 +262,6 @@ entities:
             name: Office Minisplit
         climate.master_bedroom_minisplit:
             name: Master Bedroom Minisplit
-
-    power_monitor:
-        sensor.dryer_outlet_power:
-            name: Dryer Power Monitor
-        sensor.laundry_outlet_power:
-            name: Washer Power Monitor
             
     binary_power_sensor:
         binary_sensor.dryer_running:
