@@ -17,3 +17,6 @@ def on_sunrise(event):
 def on_sunset(event):
     if state_machine.is_enabled("Christmas Lights Mode"):
         SwitchAction().add_switches(["Frontyard Outlet", "Backyard Outlet", "Porch Outlet"]).turn_on()
+
+    if state_machine.is_cooling_enabled():
+        LightAction().add_lights(["Backyard Fence Lights", "Backyard Bar Lights"]).turn_on()
