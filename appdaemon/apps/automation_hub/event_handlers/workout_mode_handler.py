@@ -30,7 +30,7 @@ def on_enabled(event):
         ThermostatAction().add_thermostat("Oil Thermostat").turn_off()
 
 def on_disabled(event):
-    MediaPlayerAction().add_media_player("Basement TV").turn_off()
+    MediaPlayerAction().add_media_players(["Basement TV", "Basement GTV"]).turn_off()
     SwitchAction().add_switches(["Basement Fan Switch", "Basement Treadmill Fan"]).turn_off()
 
     light_action = LightAction().add_light("Basement Lights").turn_off

@@ -104,6 +104,8 @@ entities:
             name: Living Room Sheild
         media_player.master_bedroom_gtv:
             name: Master Bedroom GTV
+        media_player.basement_gtv:
+            name: Basement GTV
             
     vizio:
         media_player.living_room_vizio_tv:
