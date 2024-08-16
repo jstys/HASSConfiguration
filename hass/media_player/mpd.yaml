@@ -1,6 +1,0 @@
-- platform: mpd
-  host: 10.0.0.22
-  name: Master Bedroom MPD
-- platform: mpd
-  host: 10.0.0.20
-  name: Living Room MPD
