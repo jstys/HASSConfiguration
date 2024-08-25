@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FIRMWARE_FILE="CC1352P2_CC2652P_launchpad_coordinator_20240710.hex"
+FIRMWARE_FILE="$(pwd)/CC1352P2_CC2652P_launchpad_coordinator_20240710.hex"
 SERIAL_DEV="/dev/ttyUSB0"
 
 docker run --rm \
