@@ -6,5 +6,5 @@ SERIAL_DEV="/dev/ttyUSB0"
 docker run --rm \
     --device $SERIAL_DEV:$SERIAL_DEV \
     -e FIRMWARE_FILE=/firmware.hex \
-    -v $FIRMWARE_FILE:/firmware.hex
+    -v $FIRMWARE_FILE:/firmware.hex \
     ckware/ti-cc-tool -ewv -p $SERIAL_DEV --bootloader-sonoff-usb
