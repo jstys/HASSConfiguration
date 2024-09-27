@@ -22,6 +22,5 @@ def on_owntracks_event(event: MQTTEvent):
             hassutil.set_state(hassutil.Entity(f"binary_sensor.{owntracks_user}_owntracks_connected"), "off")
             status_map[owntracks_user] = False
         elif payload_type == "encrypted":
-            if owntracks_user in status_map and not status_map[owntracks_user]:
-                hassutil.set_state(hassutil.Entity(f"binary_sensor.{owntracks_user}_owntracks_connected"), "on")
-                status_map[owntracks_user] = True
+            hassutil.set_state(hassutil.Entity(f"binary_sensor.{owntracks_user}_owntracks_connected"), "on")
+            status_map[owntracks_user] = True
