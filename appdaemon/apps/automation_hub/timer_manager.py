@@ -9,17 +9,40 @@ timer_map = {}
 map_lock = threading.RLock()
 
 def schedule_oneoff_task(name, callback, start):
-    logger.info(f"Scheduling oneoff callback: {name}")
-    api_handle.instance.run_once(api_handle.instance.scheduler_callback, start, partial=callback, title=name)
+    with map_lock:
+        if name not in timer_map:
+            logger.info(f"Scheduling oneoff callback: {name}")
+            task = api_handle.instance.run_once(api_handle.instance.scheduler_callback, start, partial=callback, title=name)
+            timer_map[name] = task
+            return True
+        else:
+            logger.warning("One-off task {} is already in map, not starting".format(name))
+    return False
 
 def schedule_polling_task(name, callback, interval):
-    logger.info(f"Scheduling polling callback: {name}")
-    api_handle.instance.run_every(api_handle.instance.scheduler_callback, "now", interval, partial=callback, title=name)
+    with map_lock:
+        if name not in timer_map:
+            logger.info(f"Scheduling polling callback: {name}")
+            task = api_handle.instance.run_every(api_handle.instance.scheduler_callback, "now", interval, partial=callback, title=name)
+            timer_map[name] = task
+            return True
+        else:
+            logger.warning("Polling task {} is already in map, not starting".format(name))
+
+    return False
 
 def schedule_daily_task(name, callback, start):
-    logger.info(f"Scheduling daily callback: {name}")
-    api_handle.instance.run_daily(api_handle.instance.scheduler_callback, start, partial=callback, title=name)
-    
+    with map_lock:
+        if name not in timer_map:
+            logger.info(f"Scheduling daily callback: {name}")
+            task = api_handle.instance.run_daily(api_handle.instance.scheduler_callback, start, partial=callback, title=name)
+            timer_map[name] = task
+            return True
+        else:
+            logger.warning("Daily task {} is already in map, not starting".format(name))
+
+    return False
+
 def start_repeat_timer(name, callback, repeat_seconds, start=datetime.datetime.now(), num_repeats=INFINITE_REPEATS):
     with map_lock:
         if name not in timer_map:
