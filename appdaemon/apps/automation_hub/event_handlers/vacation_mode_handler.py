@@ -1,6 +1,8 @@
 import event_dispatcher
 import state_machine
+import timer_manager
 from util import logger
+from scheduled_tasks.daily import vacation_day_heat, vacation_night_heat
 from events.input_event import InputEvent
 from actions.light_action import LightAction
 from actions.thermostat_action import ThermostatAction
@@ -23,6 +25,8 @@ def on_state_changed(event):
 def on_enabled(event):
     if state_machine.is_heating_enabled():
         ThermostatAction().add_thermostat("Oil Thermostat").set_temperature(state_machine.get_number("Vacation Heat"), "heat")
+        timer_manager.schedule_daily_task("vacation_day_heat", vacation_day_heat.callback, vacation_day_heat.START_TIME)
+        timer_manager.schedule_daily_task("vacation_night_heat", vacation_night_heat.callback, vacation_night_heat.START_TIME)
 
     if state_machine.is_enabled("Christmas Lights Mode"):
         LightAction().add_light("Christmas Tree Lights").turn_off()
@@ -34,5 +38,8 @@ def on_enabled(event):
         ]).turn_off()
 
 def on_disabled(event):
+    timer_manager.cancel_timer("vacation_day_heat")
+    timer_manager.cancel_timer("vacation_night_heat")
+
     if state_machine.is_heating_enabled():
         ThermostatAction().add_thermostat("Oil Thermostat").set_temperature(state_machine.get_number("Normal Heat"), "heat")
