@@ -12,7 +12,7 @@ def schedule_oneoff_task(name, callback, start):
     with map_lock:
         if name not in timer_map:
             logger.info(f"Scheduling oneoff callback: {name}")
-            task = api_handle.instance.run_once(api_handle.instance.scheduler_callback, start, partial=callback, title=name)
+            task = api_handle.instance.run_once(api_handle.instance.scheduler_callback, start, partial=callback, title=name, repeating=False)
             timer_map[name] = task
             return True
         else:
@@ -23,7 +23,7 @@ def schedule_polling_task(name, callback, interval):
     with map_lock:
         if name not in timer_map:
             logger.info(f"Scheduling polling callback: {name}")
-            task = api_handle.instance.run_every(api_handle.instance.scheduler_callback, "now", interval, partial=callback, title=name)
+            task = api_handle.instance.run_every(api_handle.instance.scheduler_callback, "now", interval, partial=callback, title=name, repeating=True)
             timer_map[name] = task
             return True
         else:
@@ -35,7 +35,7 @@ def schedule_daily_task(name, callback, start):
     with map_lock:
         if name not in timer_map:
             logger.info(f"Scheduling daily callback: {name}")
-            task = api_handle.instance.run_daily(api_handle.instance.scheduler_callback, start, partial=callback, title=name)
+            task = api_handle.instance.run_daily(api_handle.instance.scheduler_callback, start, partial=callback, title=name, repeating=True)
             timer_map[name] = task
             return True
         else:

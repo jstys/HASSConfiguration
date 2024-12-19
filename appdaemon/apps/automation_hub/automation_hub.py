@@ -96,5 +96,8 @@ class AutomationHub(hass.Hass):
     def scheduler_callback(self, kwargs):
         title = kwargs.get("title")
         partial = kwargs.get("partial")
+        repeating = kwargs.get("repeating")
+        if not repeating:
+            timer_manager.remove_timer(name)
         if partial:
             partial()
