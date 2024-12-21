@@ -267,7 +267,7 @@ def create_media_player_event(friendly_name, entity, attributes, old, new, kwarg
     if new != old:
         return MediaPlayerEvent(friendly_name, old, new, attributes.get("app_name"))
     else:
-        logger.warning("Received invalid tv state transition")
+        logger.debug("Received invalid tv state transition")
         return None
 
 def create_sun_event(old, new):
