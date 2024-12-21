@@ -94,7 +94,7 @@ class AutomationHub(hass.Hass):
             partial()
 
     def scheduler_callback(self, kwargs):
-        title = kwargs.get("title")
+        name = kwargs.get("title")
         partial = kwargs.get("partial")
         repeating = kwargs.get("repeating")
         if not repeating:
